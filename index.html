@@ -17,7 +17,8 @@
         <h1>Simon's LLM Ranking</h1>
         <p class="sub">Multi-Dimension Weighted Evaluation · May 2026</p>
         <div class="tags">
-            <span class="tag t-arena">Arena 40%</span>
+            <span class="tag t-arena">Arena 20%</span>
+            <span class="tag t-ai">AI Index 20%</span>
             <span class="tag t-eco">Ecosystem 15%</span>
             <span class="tag t-price">Price 15%</span>
             <span class="tag t-multi">Multimodal 15%</span>
@@ -40,7 +41,8 @@
                     <th class="th-rank">#</th>
                     <th class="th-model">Model</th>
                     <th class="th-vendor">Vendor</th>
-                    <th>Arena<br><small>40%</small></th>
+                    <th>Arena<br><small>20%</small></th>
+                    <th>AI Index<br><small>20%</small></th>
                     <th>Eco<br><small>15%</small></th>
                     <th>Price<br><small>15%</small></th>
                     <th>Multi<br><small>15%</small></th>
@@ -64,6 +66,7 @@
                         <span class="vendor" :style="{background:vc[m.vendor]}">{{ m.vendor }}</span>
                     </td>
                     <td :class="sc(m.sArena)">{{ m.sArena }}</td>
+                    <td :class="sc(m.sAI)">{{ m.sAI }}</td>
                     <td :class="sc(m.sEco)">{{ m.sEco }}</td>
                     <td :class="sc(m.sPrice)">{{ m.sPrice }}</td>
                     <td :class="sc(m.sMulti)">{{ m.sMulti }}</td>
@@ -109,38 +112,38 @@
 const { createApp, computed } = Vue
 
 const models = [
-    { name:"Gemini 3 Flash", vendor:"Google", r:"US", arena:1473.6, eco:95, po:0.40, multi:100, ctx:1048576 },
-    { name:"Gemini 3.1 Pro", vendor:"Google", r:"US", arena:1493.2, eco:95, po:12.0, multi:100, ctx:1048576 },
-    { name:"GPT-5.4 High", vendor:"OpenAI", r:"US", arena:1477.8, eco:90, po:15.0, multi:100, ctx:1050000 },
-    { name:"GPT-5.5 High", vendor:"OpenAI", r:"US", arena:1488.6, eco:90, po:30.0, multi:100, ctx:1050000 },
-    { name:"Gemini 2.5 Pro", vendor:"Google", r:"US", arena:1447.7, eco:95, po:5.0, multi:100, ctx:1048576 },
-    { name:"Claude Opus 4.6", vendor:"Anthropic", r:"US", arena:1496.6, eco:65, po:15.0, multi:75, ctx:1000000 },
-    { name:"Claude Opus 4.7", vendor:"Anthropic", r:"US", arena:1503.1, eco:65, po:25.0, multi:75, ctx:1000000 },
-    { name:"GPT-5.1 High", vendor:"OpenAI", r:"US", arena:1454.5, eco:90, po:10.0, multi:100, ctx:128000 },
-    { name:"Claude Sonnet 4.6", vendor:"Anthropic", r:"US", arena:1465.0, eco:65, po:3.0, multi:75, ctx:200000 },
-    { name:"Claude Haiku 4", vendor:"Anthropic", r:"US", arena:1430.0, eco:65, po:0.80, multi:75, ctx:200000 },
-    { name:"gpt-oss-120b", vendor:"OpenAI", r:"US", arena:1400.0, eco:90, po:0.50, multi:50, ctx:128000 },
-    { name:"GPT-4o", vendor:"OpenAI", r:"US", arena:1345.3, eco:90, po:5.0, multi:75, ctx:128000 },
-    { name:"DeepSeek V4 Pro", vendor:"DeepSeek", r:"CN", arena:1463.5, eco:45, po:0.87, multi:50, ctx:1048576 },
-    { name:"DeepSeek V4 Flash", vendor:"DeepSeek", r:"CN", arena:1440.0, eco:45, po:0.27, multi:50, ctx:1048576 },
-    { name:"Qwen3.5 Max", vendor:"Alibaba", r:"CN", arena:1463.0, eco:80, po:3.9, multi:50, ctx:262144 },
-    { name:"Kimi K2.6", vendor:"Moonshot", r:"CN", arena:1460.9, eco:70, po:3.49, multi:75, ctx:262142 },
-    { name:"GLM-5.1", vendor:"Zhipu AI", r:"CN", arena:1470.0, eco:55, po:3.5, multi:50, ctx:202752 },
-    { name:"GLM-5", vendor:"Zhipu AI", r:"CN", arena:1457.1, eco:55, po:2.80, multi:50, ctx:202752 },
-    { name:"MiMo V2.5 Pro", vendor:"Xiaomi", r:"CN", arena:1464.6, eco:30, po:3.0, multi:50, ctx:1048576 },
-    { name:"Kimi K2.5 Flash", vendor:"Moonshot", r:"CN", arena:1420.0, eco:70, po:0.14, multi:75, ctx:131072 },
-    { name:"Kimi K2.5", vendor:"Moonshot", r:"CN", arena:1449.4, eco:70, po:2.5, multi:75, ctx:262142 },
-    { name:"Qwen3.6 Max", vendor:"Alibaba", r:"CN", arena:1456.8, eco:80, po:7.5, multi:50, ctx:262144 },
-    { name:"GLM-4.7", vendor:"Zhipu AI", r:"CN", arena:1442.5, eco:55, po:1.5, multi:50, ctx:128000 },
-    { name:"Qwen3.6 Plus", vendor:"Alibaba", r:"CN", arena:1446.1, eco:80, po:1.7, multi:50, ctx:262144 },
-    { name:"MiMo V2.5", vendor:"Xiaomi", r:"CN", arena:1424.3, eco:30, po:2.0, multi:75, ctx:1048576 },
-    { name:"DeepSeek V3.2", vendor:"DeepSeek", r:"CN", arena:1424.2, eco:45, po:0.378, multi:50, ctx:131072 },
-    { name:"DeepSeek R1", vendor:"DeepSeek", r:"CN", arena:1397.7, eco:45, po:2.19, multi:50, ctx:131072 },
-    { name:"Qwen3.5-397B", vendor:"Alibaba", r:"CN", arena:1447.0, eco:80, po:3.9, multi:50, ctx:262144 },
-    { name:"Qwen3.6-35B-A3B", vendor:"Alibaba", r:"CN", arena:1430.0, eco:80, po:1.8, multi:75, ctx:262144 },
-    { name:"Qwen3.6-27B", vendor:"Alibaba", r:"CN", arena:1420.0, eco:80, po:3.0, multi:75, ctx:262144 },
-    { name:"Qwen3-235B", vendor:"Alibaba", r:"CN", arena:1435.0, eco:80, po:3.0, multi:50, ctx:131072 },
-    { name:"Kimi-VL-A3B", vendor:"Moonshot", r:"CN", arena:1400.0, eco:70, po:1.0, multi:75, ctx:128000 },
+    { name:"Gemini 3 Flash", vendor:"Google", r:"US", arena:1473.6, eco:95, po:0.40, multi:100, ctx:1048576, ai_index:0 },
+    { name:"Gemini 3.1 Pro", vendor:"Google", r:"US", arena:1493.2, eco:95, po:12.0, multi:100, ctx:1048576, ai_index:57.18 },
+    { name:"GPT-5.4 High", vendor:"OpenAI", r:"US", arena:1477.8, eco:90, po:15.0, multi:100, ctx:1050000, ai_index:56.8 },
+    { name:"GPT-5.5 High", vendor:"OpenAI", r:"US", arena:1488.6, eco:90, po:30.0, multi:100, ctx:1050000, ai_index:60.24 },
+    { name:"Gemini 2.5 Pro", vendor:"Google", r:"US", arena:1447.7, eco:95, po:5.0, multi:100, ctx:1048576, ai_index:0 },
+    { name:"Claude Opus 4.6", vendor:"Anthropic", r:"US", arena:1496.6, eco:65, po:15.0, multi:75, ctx:1000000, ai_index:0 },
+    { name:"Claude Opus 4.7", vendor:"Anthropic", r:"US", arena:1503.1, eco:65, po:25.0, multi:75, ctx:1000000, ai_index:57.28 },
+    { name:"GPT-5.1 High", vendor:"OpenAI", r:"US", arena:1454.5, eco:90, po:10.0, multi:100, ctx:128000, ai_index:0 },
+    { name:"Claude Sonnet 4.6", vendor:"Anthropic", r:"US", arena:1465.0, eco:65, po:3.0, multi:75, ctx:200000, ai_index:51.72 },
+    { name:"Claude Haiku 4", vendor:"Anthropic", r:"US", arena:1430.0, eco:65, po:0.80, multi:75, ctx:200000, ai_index:0 },
+    { name:"gpt-oss-120b", vendor:"OpenAI", r:"US", arena:1400.0, eco:90, po:0.50, multi:50, ctx:128000, ai_index:0 },
+    { name:"GPT-4o", vendor:"OpenAI", r:"US", arena:1345.3, eco:90, po:5.0, multi:75, ctx:128000, ai_index:0 },
+    { name:"DeepSeek V4 Pro", vendor:"DeepSeek", r:"CN", arena:1463.5, eco:45, po:0.87, multi:50, ctx:1048576, ai_index:51.51 },
+    { name:"DeepSeek V4 Flash", vendor:"DeepSeek", r:"CN", arena:1440.0, eco:45, po:0.27, multi:50, ctx:1048576, ai_index:0 },
+    { name:"Qwen3.5 Max", vendor:"Alibaba", r:"CN", arena:1463.0, eco:80, po:3.9, multi:50, ctx:262144, ai_index:48 },
+    { name:"Kimi K2.6", vendor:"Moonshot", r:"CN", arena:1460.9, eco:70, po:3.49, multi:75, ctx:262142, ai_index:53.9 },
+    { name:"GLM-5.1", vendor:"Zhipu AI", r:"CN", arena:1470.0, eco:55, po:3.5, multi:50, ctx:202752, ai_index:51.41 },
+    { name:"GLM-5", vendor:"Zhipu AI", r:"CN", arena:1457.1, eco:55, po:2.80, multi:50, ctx:202752, ai_index:47 },
+    { name:"MiMo V2.5 Pro", vendor:"Xiaomi", r:"CN", arena:1464.6, eco:30, po:3.0, multi:50, ctx:1048576, ai_index:53.83 },
+    { name:"Kimi K2.5 Flash", vendor:"Moonshot", r:"CN", arena:1420.0, eco:70, po:0.14, multi:75, ctx:131072, ai_index:0 },
+    { name:"Kimi K2.5", vendor:"Moonshot", r:"CN", arena:1449.4, eco:70, po:2.5, multi:75, ctx:262142, ai_index:0 },
+    { name:"Qwen3.6 Max", vendor:"Alibaba", r:"CN", arena:1456.8, eco:80, po:7.5, multi:50, ctx:262144, ai_index:51.81 },
+    { name:"GLM-4.7", vendor:"Zhipu AI", r:"CN", arena:1442.5, eco:55, po:1.5, multi:50, ctx:128000, ai_index:0 },
+    { name:"Qwen3.6 Plus", vendor:"Alibaba", r:"CN", arena:1446.1, eco:80, po:1.7, multi:50, ctx:262144, ai_index:0 },
+    { name:"MiMo V2.5", vendor:"Xiaomi", r:"CN", arena:1424.3, eco:30, po:2.0, multi:75, ctx:1048576, ai_index:0 },
+    { name:"DeepSeek V3.2", vendor:"DeepSeek", r:"CN", arena:1424.2, eco:45, po:0.378, multi:50, ctx:131072, ai_index:0 },
+    { name:"DeepSeek R1", vendor:"DeepSeek", r:"CN", arena:1397.7, eco:45, po:2.19, multi:50, ctx:131072, ai_index:0 },
+    { name:"Qwen3.5-397B", vendor:"Alibaba", r:"CN", arena:1447.0, eco:80, po:3.9, multi:50, ctx:262144, ai_index:0 },
+    { name:"Qwen3.6-35B-A3B", vendor:"Alibaba", r:"CN", arena:1430.0, eco:80, po:1.8, multi:75, ctx:262144, ai_index:0 },
+    { name:"Qwen3.6-27B", vendor:"Alibaba", r:"CN", arena:1420.0, eco:80, po:3.0, multi:75, ctx:262144, ai_index:0 },
+    { name:"Qwen3-235B", vendor:"Alibaba", r:"CN", arena:1435.0, eco:80, po:3.0, multi:50, ctx:131072, ai_index:0 },
+    { name:"Kimi-VL-A3B", vendor:"Moonshot", r:"CN", arena:1400.0, eco:70, po:1.0, multi:75, ctx:128000, ai_index:0 },
 ]
 
 const vc = {Anthropic:'#C4956A',Google:'#3B78E7',OpenAI:'#0FA97E','Zhipu AI':'#E85D5D',Xiaomi:'#E67E00',DeepSeek:'#8E44AD',Alibaba:'#E63900',Moonshot:'#1A8FE3'}
@@ -152,11 +155,12 @@ createApp({
         const ranked = computed(() => {
             return models.map(m=>{
                 const sA = Math.max(0,Math.min(100,(m.arena-1300)/250*100))
+                const sAI = Math.max(0,Math.min(100,(m.ai_index-40)/25*100))
                 const multiple = Math.max(m.po / pMin, 1)
                 const sP = Math.round(100 / (1 + Math.log10(multiple)))
                 const sC = Math.min(100,m.ctx/1e6*100)
-                const total = sA*0.4+m.eco*0.15+sP*0.15+m.multi*0.15+sC*0.1
-                return { ...m, sArena:Math.round(sA), sEco:m.eco, sPrice:Math.round(sP), sMulti:m.multi, sCtx:Math.round(sC), total:+total.toFixed(1), region:m.r }
+                const total = sA*0.2+sAI*0.2+m.eco*0.15+sP*0.15+m.multi*0.15+sC*0.1
+                return { ...m, sArena:Math.round(sA), sAI:Math.round(sAI), sEco:m.eco, sPrice:Math.round(sP), sMulti:m.multi, sCtx:Math.round(sC), total:+total.toFixed(1), region:m.r }
             }).sort((a,b)=>b.total-a.total)
         })
 
@@ -166,7 +170,8 @@ createApp({
         return { ranked, vc, sc, tier,
             tiers:[{l:'S+ (75+)',c:'#FFD700'},{l:'S (68+)',c:'#FFA000'},{l:'A+ (60+)',c:'#FF5252'},{l:'A (52+)',c:'#FF6D00'},{l:'A- (44+)',c:'#D32F2F'},{l:'B+ (36+)',c:'#1976D2'},{l:'B (<36)',c:'#00897B'}],
             rules:[
-                {t:'Arena',w:'40%',d:'LMSYS Chatbot Arena ELO, normalized 0-100. Human blind tests, most objective.'},
+                {t:'Arena',w:'20%',d:'LMSYS Chatbot Arena ELO, normalized 0-100. Human blind tests, most objective.'},
+                {t:'AI Index',w:'20%',d:'Artificial Analysis Intelligence Index, normalized 0-100 (raw 40-65 scale). Automated benchmark composite.'},
                 {t:'Ecosystem',w:'15%',d:'Official AI software: CLI, web, desktop, mobile, API, dev tools, creative tools.'},
                 {t:'Price',w:'15%',d:'线性基数+log压缩倍数 ($/1M tokens). 最便宜=100, 按倍数用log10压缩.'},
                 {t:'Multimodal',w:'15%',d:'Model-native only: Text=25, Thinking=25, Vision=25, Generation(separate)=25.'},
@@ -174,6 +179,7 @@ createApp({
             ],
             sources:[
                 {n:'LMSYS Arena',u:'https://lmarena.ai/leaderboard',d:'Crowd-sourced ELO from human blind tests.'},
+                {n:'Artificial Analysis',u:'https://artificialanalysis.ai/',d:'AI Intelligence Index - automated benchmark composite scoring.'},
                 {n:'LiveBench',u:'https://livebench.ai/',d:'Dynamic benchmark, monthly updated.'},
                 {n:'OpenRouter',u:'https://openrouter.ai/',d:'API pricing data, May 2026.'},
                 {n:'HuggingFace',u:'https://huggingface.co/',d:'Model cards and verification.'},
@@ -188,7 +194,7 @@ createApp({
 .sub{color:#888;margin-bottom:16px}
 .tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .tag{padding:4px 14px;border-radius:20px;font-size:.85em;font-weight:700}
-.t-arena{background:rgba(0,180,216,.15);color:#00b4d8}.t-eco{background:rgba(0,230,118,.15);color:#00E676}
+.t-arena{background:rgba(0,180,216,.15);color:#00b4d8}.t-ai{background:rgba(0,200,255,.15);color:#00C8FF}.t-eco{background:rgba(0,230,118,.15);color:#00E676}
 .t-price{background:rgba(255,214,0,.15);color:#FFD600}.t-multi{background:rgba(255,82,82,.15);color:#FF5252}
 .t-ctx{background:rgba(25,118,210,.15);color:#1976D2}
 .legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:20px;margin-bottom:10px}
