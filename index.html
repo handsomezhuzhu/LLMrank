@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon's LLM Ranking</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #06061a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #0a0a2e 0%, #1a0a3e 50%, #0a1a2e 100%);
+            border-bottom: 2px solid #00b4d8;
+        }
+        .header h1 {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00b4d8, #90e0ef, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        .header .formula {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.1);
+            border: 1px solid #00b4d8;
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #00b4d8;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: #0a0a22;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav a {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .nav a:hover { background: rgba(0, 180, 216, 0.15); }
+
+        /* Image Section */
+        .image-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .image-section img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(0, 180, 216, 0.2);
+        }
+
+        /* Rules Section */
+        .rules {
+            padding: 40px 20px;
+        }
+        .rules h2 {
+            font-size: 2em;
+            color: #00b4d8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 20px;
+        }
+        .rule-card {
+            background: #0e0e2a;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        .rule-card:hover {
+            border-color: #00b4d8;
+            transform: translateY(-2px);
+        }
+        .rule-card .weight {
+            display: inline-block;
+            background: #00b4d8;
+            color: #06061a;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .rule-card h3 { color: #fff; margin-bottom: 8px; font-size: 1.2em; }
+        .rule-card p { color: #999; font-size: 0.95em; }
+
+        /* Tier Legend */
+        .tier-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 30px 20px;
+        }
+        .tier-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+        .tier-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #222;
+            color: #555;
+        }
+        .footer a { color: #00b4d8; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .header .formula { font-size: 0.8em; padding: 10px 15px; }
+            .rules-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Simon's LLM Ranking</h1>
+    <p class="subtitle">Multi-Dimension Weighted Evaluation  |  May 2026</p>
+    <div class="formula">
+        Total = Arena(40%) + Ecosystem(15%) + Price(15%) + Multimodal(15%) + Context(10%)
+    </div>
+</div>
+
+<nav class="nav">
+    <a href="#ranking">Ranking</a>
+    <a href="#rules">Rules</a>
+    <a href="#data">Data Sources</a>
+</nav>
+
+<section id="ranking" class="image-section">
+    <img src="ranking.png" alt="Simon's LLM Ranking Chart" loading="lazy">
+</section>
+
+<section id="rules" class="rules">
+    <h2>Ranking Rules</h2>
+    <div class="rules-grid">
+        <div class="rule-card">
+            <span class="weight">40%</span>
+            <h3>Arena</h3>
+            <p>LMSYS Chatbot Arena ELO score, normalized to 0-100. Real human blind tests where users compare two anonymous models. The most objective third-party ranking available.</p>
+        </div>
+        <div class="rule-card">
+            <span class="weight">15%</span>
+            <h3>Ecosystem</h3>
+            <p>Official AI software products: CLI tools, web platforms, desktop/mobile apps, API platforms, developer tools, creative tools, productivity integrations.</p>
+        </div>
+        <div class="rule-card">
+            <span class="weight">15%</span>
+            <h3>Price</h3>
+            <p>Log-compressed output price ($/1M tokens). Cheapest model = 100 points. Log scale compresses differences at the high end — $0.38 vs $2 gets a bigger gap than $12 vs $25.</p>
+        </div>
+        <div class="rule-card">
+            <span class="weight">15%</span>
+            <h3>Multimodal</h3>
+            <p>Model-native capabilities only (not company's separate products): Text understanding=25, Thinking/Reasoning=25, Vision/Audio/Video understanding=25, Image generation via separate models=25.</p>
+        </div>
+        <div class="rule-card">
+            <span class="weight">10%</span>
+            <h3>Context Window</h3>
+            <p>Maximum context window size, normalized to 1M tokens = 100 points. Larger context enables processing longer documents, codebases, and conversations.</p>
+        </div>
+    </div>
+</section>
+
+<section id="data" class="rules">
+    <h2>Data Sources</h2>
+    <div class="rules-grid">
+        <div class="rule-card">
+            <h3>LMSYS Arena</h3>
+            <p><a href="https://lmarena.ai/leaderboard" target="_blank">lmarena.ai/leaderboard</a> — Crowd-sourced ELO rankings from human blind tests. The gold standard for LLM evaluation.</p>
+        </div>
+        <div class="rule-card">
+            <h3>LiveBench</h3>
+            <p><a href="https://livebench.ai/" target="_blank">livebench.ai</a> — Dynamic benchmark with monthly-updated questions to prevent data contamination.</p>
+        </div>
+        <div class="rule-card">
+            <h3>OpenRouter</h3>
+            <p><a href="https://openrouter.ai/" target="_blank">openrouter.ai</a> — API pricing data for all major models, collected May 2026.</p>
+        </div>
+        <div class="rule-card">
+            <h3>HuggingFace</h3>
+            <p><a href="https://huggingface.co/" target="_blank">huggingface.co</a> — Model cards, open source licenses, and capability verification.</p>
+        </div>
+    </div>
+
+    <div class="tier-legend" style="margin-top: 30px;">
+        <div class="tier-item"><div class="tier-dot" style="background:#FFD700"></div> S+ (75+)</div>
+        <div class="tier-item"><div class="tier-dot" style="background:#FFA000"></div> S (68+)</div>
+        <div class="tier-item"><div class="tier-dot" style="background:#FF5252"></div> A+ (60+)</div>
+        <div class="tier-item"><div class="tier-dot" style="background:#FF6D00"></div> A (52+)</div>
+        <div class="tier-item"><div class="tier-dot" style="background:#D32F2F"></div> A- (44+)</div>
+        <div class="tier-item"><div class="tier-dot" style="background:#1976D2"></div> B+ (36+)</div>
+        <div class="tier-item"><div class="tier-dot" style="background:#00897B"></div> B (&lt;36)</div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>
+        <a href="https://github.com/handsomezhuzhu/LLMrank" target="_blank">GitHub: handsomezhuzhu/LLMrank</a>
+        &nbsp;|&nbsp;
+        <a href="https://zhuzihan.com" target="_blank">Homepage: zhuzihan.com</a>
+    </p>
+    <p style="margin-top: 10px; font-size: 0.85em;">Data verified from lmarena.ai and HuggingFace  |  May 2026</p>
+</footer>
+
+</body>
+</html>
