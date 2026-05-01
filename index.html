@@ -1,14 +1,224 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>llmrank-vue</title>
-    <script type="module" crossorigin src="/assets/index-D4kmrLG6.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-6Iw_zqGX.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon's LLM Ranking</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #06061a; color: #e0e0e0; }
+        [v-cloak] { display: none; }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <!-- Header -->
+    <header class="hdr">
+        <h1>Simon's LLM Ranking</h1>
+        <p class="sub">Multi-Dimension Weighted Evaluation · May 2026</p>
+        <div class="tags">
+            <span class="tag t-arena">Arena 40%</span>
+            <span class="tag t-eco">Ecosystem 15%</span>
+            <span class="tag t-price">Price 15%</span>
+            <span class="tag t-multi">Multimodal 15%</span>
+            <span class="tag t-ctx">Context 10%</span>
+        </div>
+    </header>
+
+    <!-- Tier Legend -->
+    <div class="legend">
+        <span v-for="t in tiers" :key="t.l" class="leg-item">
+            <span class="dot" :style="{background:t.c}"></span>{{ t.l }}
+        </span>
+    </div>
+
+    <!-- Table -->
+    <div class="tbl-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th class="th-rank">#</th>
+                    <th class="th-model">Model</th>
+                    <th class="th-vendor">Vendor</th>
+                    <th>Arena<br><small>40%</small></th>
+                    <th>Eco<br><small>15%</small></th>
+                    <th>Price<br><small>15%</small></th>
+                    <th>Multi<br><small>15%</small></th>
+                    <th>Ctx<br><small>10%</small></th>
+                    <th class="th-total">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(m,i) in ranked" :key="m.name" :class="{'top3': i<3}">
+                    <td class="td-rank">
+                        <span v-if="i===0" class="rank gold">1st</span>
+                        <span v-else-if="i===1" class="rank silver">2nd</span>
+                        <span v-else-if="i===2" class="rank bronze">3rd</span>
+                        <span v-else class="rank">{{ i+1 }}</span>
+                    </td>
+                    <td class="td-model">
+                        <span class="flag" :class="m.region==='CN'?'flag-cn':'flag-us'">{{ m.region }}</span>
+                        {{ m.name }}
+                    </td>
+                    <td class="td-vendor">
+                        <span class="vendor" :style="{background:vc[m.vendor]}">{{ m.vendor }}</span>
+                    </td>
+                    <td :class="sc(m.sArena)">{{ m.sArena }}</td>
+                    <td :class="sc(m.sEco)">{{ m.sEco }}</td>
+                    <td :class="sc(m.sPrice)">{{ m.sPrice }}</td>
+                    <td :class="sc(m.sMulti)">{{ m.sMulti }}</td>
+                    <td :class="sc(m.sCtx)">{{ m.sCtx }}</td>
+                    <td class="td-total">
+                        <span class="total-badge" :style="{background:tier(m.total).c+'22', color:tier(m.total).c}">
+                            {{ m.total }} <small>{{ tier(m.total).l }}</small>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Rules -->
+    <h2 class="sec">Ranking Rules</h2>
+    <div class="cards">
+        <div class="card" v-for="r in rules" :key="r.t">
+            <span class="weight">{{ r.w }}</span>
+            <h3>{{ r.t }}</h3>
+            <p>{{ r.d }}</p>
+        </div>
+    </div>
+
+    <!-- Sources -->
+    <h2 class="sec">Data Sources</h2>
+    <div class="cards">
+        <div class="card" v-for="s in sources" :key="s.n">
+            <h3><a :href="s.u" target="_blank">{{ s.n }}</a></h3>
+            <p>{{ s.d }}</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="ftr">
+        <a href="https://github.com/handsomezhuzhu/LLMrank" target="_blank">GitHub</a> ·
+        <a href="https://zhuzihan.com" target="_blank">zhuzihan.com</a>
+    </footer>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+const { createApp, computed } = Vue
+
+const models = [
+    { name:"Gemini 3 Flash", vendor:"Google", r:"US", arena:1473.6, eco:95, po:0.40, multi:100, ctx:1048576 },
+    { name:"Gemini 3.1 Pro", vendor:"Google", r:"US", arena:1493.2, eco:95, po:12.0, multi:100, ctx:1048576 },
+    { name:"GPT-5.4 High", vendor:"OpenAI", r:"US", arena:1477.8, eco:90, po:15.0, multi:100, ctx:1050000 },
+    { name:"GPT-5.5 High", vendor:"OpenAI", r:"US", arena:1488.6, eco:90, po:30.0, multi:100, ctx:1050000 },
+    { name:"Gemini 2.5 Pro", vendor:"Google", r:"US", arena:1447.7, eco:95, po:5.0, multi:100, ctx:1048576 },
+    { name:"Claude Opus 4.6", vendor:"Anthropic", r:"US", arena:1496.6, eco:65, po:15.0, multi:75, ctx:1000000 },
+    { name:"Claude Opus 4.7", vendor:"Anthropic", r:"US", arena:1503.1, eco:65, po:25.0, multi:75, ctx:1000000 },
+    { name:"GPT-5.1 High", vendor:"OpenAI", r:"US", arena:1454.5, eco:90, po:10.0, multi:100, ctx:128000 },
+    { name:"Claude Sonnet 4.6", vendor:"Anthropic", r:"US", arena:1465.0, eco:65, po:3.0, multi:75, ctx:200000 },
+    { name:"Claude Haiku 4", vendor:"Anthropic", r:"US", arena:1430.0, eco:65, po:0.80, multi:75, ctx:200000 },
+    { name:"gpt-oss-120b", vendor:"OpenAI", r:"US", arena:1400.0, eco:90, po:0.50, multi:50, ctx:128000 },
+    { name:"GPT-4o", vendor:"OpenAI", r:"US", arena:1345.3, eco:90, po:5.0, multi:75, ctx:128000 },
+    { name:"DeepSeek V4 Pro", vendor:"DeepSeek", r:"CN", arena:1463.5, eco:45, po:0.87, multi:50, ctx:1048576 },
+    { name:"DeepSeek V4 Flash", vendor:"DeepSeek", r:"CN", arena:1440.0, eco:45, po:0.27, multi:50, ctx:1048576 },
+    { name:"Qwen3.5 Max", vendor:"Alibaba", r:"CN", arena:1463.0, eco:80, po:3.9, multi:50, ctx:262144 },
+    { name:"Kimi K2.6", vendor:"Moonshot", r:"CN", arena:1460.9, eco:70, po:3.49, multi:75, ctx:262142 },
+    { name:"GLM-5.1", vendor:"Zhipu AI", r:"CN", arena:1470.0, eco:55, po:3.5, multi:50, ctx:202752 },
+    { name:"GLM-5", vendor:"Zhipu AI", r:"CN", arena:1457.1, eco:55, po:2.80, multi:50, ctx:202752 },
+    { name:"MiMo V2.5 Pro", vendor:"Xiaomi", r:"CN", arena:1464.6, eco:30, po:3.0, multi:50, ctx:1048576 },
+    { name:"Kimi K2.5", vendor:"Moonshot", r:"CN", arena:1449.4, eco:70, po:2.5, multi:75, ctx:262142 },
+    { name:"Qwen3.6 Max", vendor:"Alibaba", r:"CN", arena:1456.8, eco:80, po:7.5, multi:50, ctx:262144 },
+    { name:"GLM-4.7", vendor:"Zhipu AI", r:"CN", arena:1442.5, eco:55, po:1.5, multi:50, ctx:128000 },
+    { name:"Qwen3.6 Plus", vendor:"Alibaba", r:"CN", arena:1446.1, eco:80, po:1.7, multi:50, ctx:262144 },
+    { name:"MiMo V2.5", vendor:"Xiaomi", r:"CN", arena:1424.3, eco:30, po:2.0, multi:75, ctx:1048576 },
+    { name:"DeepSeek V3.2", vendor:"DeepSeek", r:"CN", arena:1424.2, eco:45, po:0.378, multi:50, ctx:131072 },
+    { name:"DeepSeek R1", vendor:"DeepSeek", r:"CN", arena:1397.7, eco:45, po:2.19, multi:50, ctx:131072 },
+    { name:"Qwen3.5-397B", vendor:"Alibaba", r:"CN", arena:1447.0, eco:80, po:3.9, multi:50, ctx:262144 },
+    { name:"Qwen3.6-35B-A3B", vendor:"Alibaba", r:"CN", arena:1430.0, eco:80, po:1.8, multi:75, ctx:262144 },
+    { name:"Qwen3.6-27B", vendor:"Alibaba", r:"CN", arena:1420.0, eco:80, po:3.0, multi:75, ctx:262144 },
+    { name:"Qwen3-235B", vendor:"Alibaba", r:"CN", arena:1435.0, eco:80, po:3.0, multi:50, ctx:131072 },
+    { name:"Kimi-VL-A3B", vendor:"Moonshot", r:"CN", arena:1400.0, eco:70, po:1.0, multi:75, ctx:128000 },
+]
+
+const vc = {Anthropic:'#C4956A',Google:'#3B78E7',OpenAI:'#0FA97E','Zhipu AI':'#E85D5D',Xiaomi:'#E67E00',DeepSeek:'#8E44AD',Alibaba:'#E63900',Moonshot:'#1A8FE3'}
+
+createApp({
+    setup() {
+        const prices = models.map(m=>m.po)
+        const pMin = Math.min(...prices)
+        const logR = Math.log(Math.max(...prices)/pMin)
+
+        const ranked = computed(() => {
+            return models.map(m=>{
+                const sA = Math.max(0,Math.min(100,(m.arena-1300)/250*100))
+                const sP = Math.max(0,Math.min(100,(1-Math.log(m.po/pMin)/logR)*100))
+                const sC = Math.min(100,m.ctx/1e6*100)
+                const total = sA*0.4+m.eco*0.15+sP*0.15+m.multi*0.15+sC*0.1
+                return { ...m, sArena:Math.round(sA), sEco:m.eco, sPrice:Math.round(sP), sMulti:m.multi, sCtx:Math.round(sC), total:+total.toFixed(1), region:m.r }
+            }).sort((a,b)=>b.total-a.total)
+        })
+
+        const sc = (v) => v>=70?'sh':v>=50?'sm':v>=30?'sl':'sv'
+        const tier = (s) => s>=75?{l:'S+',c:'#FFD700'}:s>=68?{l:'S',c:'#FFA000'}:s>=60?{l:'A+',c:'#FF5252'}:s>=52?{l:'A',c:'#FF6D00'}:s>=44?{l:'A-',c:'#D32F2F'}:s>=36?{l:'B+',c:'#1976D2'}:{l:'B',c:'#00897B'}
+
+        return { ranked, vc, sc, tier,
+            tiers:[{l:'S+ (75+)',c:'#FFD700'},{l:'S (68+)',c:'#FFA000'},{l:'A+ (60+)',c:'#FF5252'},{l:'A (52+)',c:'#FF6D00'},{l:'A- (44+)',c:'#D32F2F'},{l:'B+ (36+)',c:'#1976D2'},{l:'B (<36)',c:'#00897B'}],
+            rules:[
+                {t:'Arena',w:'40%',d:'LMSYS Chatbot Arena ELO, normalized 0-100. Human blind tests, most objective.'},
+                {t:'Ecosystem',w:'15%',d:'Official AI software: CLI, web, desktop, mobile, API, dev tools, creative tools.'},
+                {t:'Price',w:'15%',d:'Log-compressed output price ($/1M tokens). Cheapest=100. Compresses high-end gaps.'},
+                {t:'Multimodal',w:'15%',d:'Model-native only: Text=25, Thinking=25, Vision=25, Generation(separate)=25.'},
+                {t:'Context',w:'10%',d:'Max context window, normalized to 1M=100. Larger context is better.'},
+            ],
+            sources:[
+                {n:'LMSYS Arena',u:'https://lmarena.ai/leaderboard',d:'Crowd-sourced ELO from human blind tests.'},
+                {n:'LiveBench',u:'https://livebench.ai/',d:'Dynamic benchmark, monthly updated.'},
+                {n:'OpenRouter',u:'https://openrouter.ai/',d:'API pricing data, May 2026.'},
+                {n:'HuggingFace',u:'https://huggingface.co/',d:'Model cards and verification.'},
+            ]
+        }
+    }
+}).mount('#app')
+</script>
+<style>
+.hdr{text-align:center;padding:50px 20px 30px;background:linear-gradient(135deg,#0a0a2e,#1a0a3e,#0a1a2e);border-bottom:2px solid #00b4d8}
+.hdr h1{font-size:2.5em;font-weight:800;background:linear-gradient(90deg,#00b4d8,#90e0ef,#00b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:0 0 8px}
+.sub{color:#888;margin-bottom:16px}
+.tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.tag{padding:4px 14px;border-radius:20px;font-size:.85em;font-weight:700}
+.t-arena{background:rgba(0,180,216,.15);color:#00b4d8}.t-eco{background:rgba(0,230,118,.15);color:#00E676}
+.t-price{background:rgba(255,214,0,.15);color:#FFD600}.t-multi{background:rgba(255,82,82,.15);color:#FF5252}
+.t-ctx{background:rgba(25,118,210,.15);color:#1976D2}
+.legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:20px;margin-bottom:10px}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:.9em}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.tbl-wrap{overflow-x:auto;margin:0 16px 30px;border-radius:12px;border:1px solid #1a1a30}
+table{width:100%;border-collapse:collapse;min-width:850px}
+thead th{background:#14143a;color:#00b4d8;padding:12px 10px;font-size:.8em;font-weight:700;text-align:center;border-bottom:2px solid #00b4d8;position:sticky;top:0;z-index:2}
+.th-rank{width:45px}.th-model{text-align:left!important;min-width:160px}.th-vendor{width:90px}.th-total{width:95px}
+tbody tr{border-bottom:1px solid #1a1a30;transition:background .2s}
+tbody tr:hover{background:rgba(0,180,216,.04)}
+.top3 td{background:rgba(255,215,0,.03)!important}
+td{padding:12px 10px;text-align:center;font-size:.92em}
+.td-model{text-align:left;font-weight:700;color:#fff;white-space:nowrap}
+.flag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.72em;font-weight:700;margin-right:6px}
+.flag-cn{background:rgba(255,87,34,.2);color:#FF5722}.flag-us{background:rgba(33,150,243,.2);color:#2196F3}
+.vendor{display:inline-block;padding:3px 10px;border-radius:16px;font-size:.78em;font-weight:700;color:#fff}
+.td-rank .rank{font-weight:800;font-size:1em}.gold{color:#FFD700}.silver{color:#C0C0C0}.bronze{color:#CD7F32}
+.sh{color:#00E676;font-weight:700}.sm{color:#FFD600;font-weight:700}.sl{color:#FF9100;font-weight:700}.sv{color:#FF1744;font-weight:700}
+.td-total .total-badge{display:inline-block;padding:4px 12px;border-radius:8px;font-weight:800;font-size:1.05em}
+.sec{font-size:1.6em;color:#00b4d8;margin:40px 0 20px;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-bottom:40px;padding:0 16px}
+.card{background:#0e0e2a;border:1px solid #222;border-radius:12px;padding:22px;transition:all .3s}
+.card:hover{border-color:#00b4d8;transform:translateY(-2px)}
+.card .weight{display:inline-block;background:#00b4d8;color:#06061a;font-weight:800;padding:3px 10px;border-radius:16px;font-size:.85em;margin-bottom:8px}
+.card h3{color:#fff;margin-bottom:6px;font-size:1.1em}.card p{color:#999;font-size:.9em;line-height:1.5}
+.card a{color:#00b4d8;text-decoration:none}.card a:hover{text-decoration:underline}
+.ftr{text-align:center;padding:30px;border-top:1px solid #1a1a30;color:#555}
+.ftr a{color:#00b4d8;text-decoration:none}.ftr a:hover{text-decoration:underline}
+@media(max-width:768px){.hdr h1{font-size:1.7em}.hdr{padding:30px 15px 20px}.cards{grid-template-columns:1fr;padding:0 12px}.legend{gap:8px}.leg-item{font-size:.8em}}
+</style>
+</body>
 </html>
