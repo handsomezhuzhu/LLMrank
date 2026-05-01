@@ -128,6 +128,7 @@ const models = [
     { name:"GLM-5.1", vendor:"Zhipu AI", r:"CN", arena:1470.0, eco:55, po:3.5, multi:50, ctx:202752 },
     { name:"GLM-5", vendor:"Zhipu AI", r:"CN", arena:1457.1, eco:55, po:2.80, multi:50, ctx:202752 },
     { name:"MiMo V2.5 Pro", vendor:"Xiaomi", r:"CN", arena:1464.6, eco:30, po:3.0, multi:50, ctx:1048576 },
+    { name:"Kimi K2.5 Flash", vendor:"Moonshot", r:"CN", arena:1420.0, eco:70, po:0.14, multi:75, ctx:131072 },
     { name:"Kimi K2.5", vendor:"Moonshot", r:"CN", arena:1449.4, eco:70, po:2.5, multi:75, ctx:262142 },
     { name:"Qwen3.6 Max", vendor:"Alibaba", r:"CN", arena:1456.8, eco:80, po:7.5, multi:50, ctx:262144 },
     { name:"GLM-4.7", vendor:"Zhipu AI", r:"CN", arena:1442.5, eco:55, po:1.5, multi:50, ctx:128000 },
@@ -148,12 +149,11 @@ createApp({
     setup() {
         const prices = models.map(m=>m.po)
         const pMin = Math.min(...prices)
-        const logR = Math.log(Math.max(...prices)/pMin)
-
         const ranked = computed(() => {
             return models.map(m=>{
                 const sA = Math.max(0,Math.min(100,(m.arena-1300)/250*100))
-                const sP = Math.max(0,Math.min(100,(1-Math.log(m.po/pMin)/logR)*100))
+                const multiple = Math.max(m.po / pMin, 1)
+                const sP = Math.round(100 / (1 + Math.log10(multiple)))
                 const sC = Math.min(100,m.ctx/1e6*100)
                 const total = sA*0.4+m.eco*0.15+sP*0.15+m.multi*0.15+sC*0.1
                 return { ...m, sArena:Math.round(sA), sEco:m.eco, sPrice:Math.round(sP), sMulti:m.multi, sCtx:Math.round(sC), total:+total.toFixed(1), region:m.r }
@@ -168,7 +168,7 @@ createApp({
             rules:[
                 {t:'Arena',w:'40%',d:'LMSYS Chatbot Arena ELO, normalized 0-100. Human blind tests, most objective.'},
                 {t:'Ecosystem',w:'15%',d:'Official AI software: CLI, web, desktop, mobile, API, dev tools, creative tools.'},
-                {t:'Price',w:'15%',d:'Log-compressed output price ($/1M tokens). Cheapest=100. Compresses high-end gaps.'},
+                {t:'Price',w:'15%',d:'线性基数+log压缩倍数 ($/1M tokens). 最便宜=100, 按倍数用log10压缩.'},
                 {t:'Multimodal',w:'15%',d:'Model-native only: Text=25, Thinking=25, Vision=25, Generation(separate)=25.'},
                 {t:'Context',w:'10%',d:'Max context window, normalized to 1M=100. Larger context is better.'},
             ],
