@@ -315,25 +315,6 @@
     "url": "https://api-docs.deepseek.com/"
   },
   {
-    "name": "Muse Spark",
-    "vendor": "Meta",
-    "r": "US",
-    "arena": 1491.2,
-    "ai_index": 52.1,
-    "eco": 80,
-    "po": 0,
-    "multi": 75,
-    "ctx": 1048576,
-    "sArena": 88,
-    "sAI": 94.3,
-    "sEco": 80,
-    "sPrice": 0,
-    "sMulti": 75,
-    "sCtx": 62,
-    "total": 65.9,
-    "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
-  },
-  {
     "name": "Grok 4.1",
     "vendor": "xAI",
     "r": "US",
@@ -881,25 +862,6 @@
     "sCtx": 44,
     "total": 56.0,
     "url": "https://qwenlm.github.io/blog/qwen3/"
-  },
-  {
-    "name": "Gemma 4 31B",
-    "vendor": "Google",
-    "r": "US",
-    "arena": 1451.0,
-    "ai_index": 35.7,
-    "eco": 94,
-    "po": 0,
-    "multi": 50,
-    "ctx": 131072,
-    "sArena": 70,
-    "sAI": 79.1,
-    "sEco": 94,
-    "sPrice": 0,
-    "sMulti": 50,
-    "sCtx": 44,
-    "total": 55.8,
-    "url": "https://huggingface.co/google/gemma-4-31b"
   },
   {
     "name": "MiMo V2 Pro",
