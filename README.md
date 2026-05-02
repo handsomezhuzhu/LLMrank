@@ -44,7 +44,7 @@ When a model has multiple variants (e.g., "Claude Opus 4.7 Reasoning" and "Claud
 | Google | 94 | Gemini 3.1 Pro, Gemini 3 Flash, Gemini 3 Pro, Gemini 2.5 Pro, Gemini 2.5 Flash, Gemma 4 31B |
 | Anthropic | 88 | Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Haiku 4.5 |
 | Meta | 80 | Muse Spark |
-| Alibaba | 72 | Qwen3.6 Max/Plus, Qwen3.5 Max, Qwen3.5-397B/122B/27B/35B, Qwen3 Max, Qwen3-235B |
+| Alibaba | 72 | Qwen3.6 Max/Plus, Qwen3.5-397B/122B/27B/35B, Qwen3 Max, Qwen3-235B |
 | Mistral | 60 | Mistral Large 3 |
 | Zhipu AI | 65 | GLM-5.1, GLM-5, GLM-4.7, GLM-4.6, GLM-4.5 |
 | xAI | 58 | Grok 4.20, Grok 4.3, Grok 4.1, Grok 4 Fast, Grok 3 |

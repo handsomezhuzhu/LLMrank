@@ -1129,25 +1129,5 @@
     "sCtx": 44,
     "total": 50.9,
     "url": "https://bigmodel.cn/dev/howuse/glm-4"
-  },
-  {
-    "name": "Qwen3.5 Max",
-    "vendor": "Alibaba",
-    "r": "CN",
-    "arena": 1462.96,
-    "ai_index": 0,
-    "eco": 72,
-    "po": 6.4,
-    "multi": 50,
-    "ctx": 262144,
-    "note": "text+think, no AA score yet",
-    "sArena": 76,
-    "sAI": 0,
-    "sEco": 72,
-    "sPrice": 42,
-    "sMulti": 50,
-    "sCtx": 50,
-    "total": 44.8,
-    "url": "https://help.aliyun.com/zh/model-studio/getting-started/models"
   }
 ]
