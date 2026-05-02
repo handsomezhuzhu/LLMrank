@@ -152,8 +152,8 @@ createApp({
         const pMin = Math.min(...prices)
         const ranked = computed(() => {
             return models.map(m=>{
-                const sA = Math.max(0,Math.min(100,(m.arena-1300)/250*100))
-                const sAI = Math.max(0,Math.min(100,(m.ai_index-40)/25*100))
+                const sA = Math.max(0,Math.min(100,(m.arena-1350)/200*100))
+                const sAI = m.ai_index > 0 ? m.ai_index : 0
                 const multiple = Math.max(m.po / pMin, 1)
                 const sP = Math.round(100 / (1 + Math.log10(multiple)))
                 const sC = Math.min(100,m.ctx/1e6*100)
@@ -169,7 +169,7 @@ createApp({
             tiers:[{l:'S+ (75+)',c:'#FFD700'},{l:'S (68+)',c:'#FFA000'},{l:'A+ (60+)',c:'#FF5252'},{l:'A (52+)',c:'#FF6D00'},{l:'A- (44+)',c:'#D32F2F'},{l:'B+ (36+)',c:'#1976D2'},{l:'B (<36)',c:'#00897B'}],
             rules:[
                 {t:'Arena',w:'20%',d:'LMSYS Chatbot Arena ELO, normalized 0-100. Human blind tests, most objective.'},
-                {t:'AI Index',w:'20%',d:'Artificial Analysis Intelligence Index, normalized 0-100 (raw 40-65 scale). Automated benchmark composite.'},
+                {t:'AI Index',w:'20%',d:'Artificial Analysis Intelligence Index, 直接使用原始分 (5-60分范围). 自动化基准测试综合评分.'},
                 {t:'Ecosystem',w:'15%',d:'Official AI software: CLI, web, desktop, mobile, API, dev tools, creative tools.'},
                 {t:'Price',w:'15%',d:'线性基数+log压缩倍数 ($/1M tokens). 最便宜=100, 按倍数用log10压缩.'},
                 {t:'Multimodal',w:'15%',d:'Model-native only: Text=25, Thinking=25, Vision=25, Generation(separate)=25.'},
