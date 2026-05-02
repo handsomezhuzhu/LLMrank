@@ -31,7 +31,7 @@ When a model has multiple variants (e.g., "Claude Opus 4.7 Reasoning" and "Claud
 - **Arena (25%)**: Bradley-Terry ratings from human blind tests, log-normalized to 0-100
 - **AI Index (25%)**: Intelligence Index from 60 diverse prompts, log-normalized to 0-100
 - **Price (15%)**: Output token cost, cheapest=100, diminishing returns via log10. Free/open-source models scored as 0.
-- **Multimodal (15%)**: Model-native capabilities only (not company products): Text=25, Thinking=25, Vision=25, Generation=25
+- **Multimodal (15%)**: Model-native capabilities only (not company products): Text=25, Thinking=25, Vision=25, Gen/Voice=25 (图像生成或语音输入)
 - **Context (15%)**: Sigmoid normalization centered at 256K, diminishing returns above 256K
 
 ## Tech Stack
