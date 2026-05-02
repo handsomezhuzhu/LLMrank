@@ -25,12 +25,11 @@
         <h1>Simon's LLM Ranking</h1>
         <p class="sub">Multi-Dimension Weighted Evaluation · May 2026 · 56 Models</p>
         <div class="tags">
-            <span class="tag t-arena">Arena 20%</span>
-            <span class="tag t-ai">AI Index 20%</span>
-            <span class="tag t-eco">Ecosystem 15%</span>
+            <span class="tag t-arena">Arena 25%</span>
+            <span class="tag t-ai">AI Index 25%</span>
             <span class="tag t-price">Price 15%</span>
             <span class="tag t-multi">Multimodal 15%</span>
-            <span class="tag t-ctx">Context 10%</span>
+            <span class="tag t-ctx">Context 15%</span>
         </div>
     </header>
 
@@ -47,12 +46,11 @@
                     <th class="th-rank">#</th>
                     <th class="th-model">Model</th>
                     <th class="th-vendor">Vendor</th>
-                    <th><a class="th-link" href="https://arena.ai/leaderboard" target="_blank">Arena<br><small>20%</small></a></th>
-                    <th><a class="th-link" href="https://artificialanalysis.ai/leaderboards/models" target="_blank">AI Index<br><small>20%</small></a></th>
-                    <th>Eco<br><small>15%</small></th>
+                    <th><a class="th-link" href="https://arena.ai/leaderboard" target="_blank">Arena<br><small>25%</small></a></th>
+                    <th><a class="th-link" href="https://artificialanalysis.ai/leaderboards/models" target="_blank">AI Index<br><small>25%</small></a></th>
                     <th>Price<br><small>15%</small></th>
                     <th>Multi<br><small>15%</small></th>
-                    <th>Ctx<br><small>10%</small></th>
+                    <th>Ctx<br><small>15%</small></th>
                     <th class="th-total">Total</th>
                 </tr>
             </thead>
@@ -73,7 +71,6 @@
                     </td>
                     <td :class="sc(m.sArena)">{{ m.sArena }}</td>
                     <td :class="sc(m.sAI)">{{ m.sAI }}</td>
-                    <td :class="sc(m.sEco)">{{ m.sEco }}</td>
                     <td :class="sc(m.sPrice)">{{ m.sPrice }}</td>
                     <td :class="sc(m.sMulti)">{{ m.sMulti }}</td>
                     <td :class="sc(m.sCtx)">{{ m.sCtx }}</td>
@@ -189,7 +186,7 @@ createApp({
                 const multiple = m.po>0 ? Math.max(m.po / pMin, 1) : 1
                 const sP = m.po>0 ? Math.round(100 / (1 + Math.log10(multiple))) : 0
                 const sC = Math.round(100/(1+Math.exp(-0.8*(Math.log10(m.ctx)-Math.log10(256000)))))
-                const total = sA*0.2+sAI*0.2+m.eco*0.15+sP*0.15+m.multi*0.15+sC*0.1
+                const total = sA*0.25+sAI*0.25+sP*0.15+m.multi*0.15+sC*0.15
                 return { ...m, sArena:sA, sAI:Math.round(sAI), sEco:m.eco, sPrice:sP, sMulti:m.multi, sCtx:sC, total:+total.toFixed(1), region:m.r }
             }).sort((a,b)=>b.total-a.total)
         })
@@ -200,12 +197,11 @@ createApp({
         return { ranked, vc, vendorUrls, sc, tier,
             tiers:[{l:'S+ (75+)',c:'#FFD700'},{l:'S (68+)',c:'#FFA000'},{l:'A+ (60+)',c:'#FF5252'},{l:'A (52+)',c:'#FF6D00'},{l:'A- (44+)',c:'#D32F2F'},{l:'B+ (36+)',c:'#1976D2'},{l:'B (<36)',c:'#00897B'}],
             rules:[
-                {t:'Arena',w:'20%',d:'Arena AI Bradley-Terry评分, 对数归一化 (1300-1520). 人类盲测投票, 最客观的模型偏好排名.'},
-                {t:'AI Index',w:'20%',d:'Artificial Analysis Intelligence Index, 对数归一化 (5-60). 60个多样化提示的自动化基准测试综合评分.'},
-                {t:'Ecosystem',w:'15%',d:'官方AI软件产品: CLI工具、Web应用、桌面应用、移动应用、API平台、开发者工具、创作工具. 仅计算官方产品.'},
+                {t:'Arena',w:'25%',d:'Arena AI Bradley-Terry评分, 对数归一化 (1300-1520). 人类盲测投票, 最客观的模型偏好排名.'},
+                {t:'AI Index',w:'25%',d:'Artificial Analysis Intelligence Index, 对数归一化 (5-60). 60个多样化提示的自动化基准测试综合评分.'},
                 {t:'Price',w:'15%',d:'线性基数+log压缩倍数 ($/1M output tokens). 最便宜=100, 按倍数用log10压缩. 仅API定价, 免费开源模型=0分.'},
                 {t:'Multimodal',w:'15%',d:'仅模型原生能力: Text=25, Thinking=25, Vision=25, Generation=25. 不计入公司其他产品.'},
-                {t:'Context',w:'10%',d:'Sigmoid归一化, 中心256K. 更大上下文=更好, 但边际递减. 128K→44, 256K→50, 1M→62, 2M→67.'},
+                {t:'Context',w:'15%',d:'Sigmoid归一化, 中心256K. 更大上下文=更好, 但边际递减. 128K→44, 256K→50, 1M→62, 2M→67.'},
             ],
             sources:[
                 {n:'Arena AI',u:'https://arena.ai/leaderboard',d:'Crowd-sourced Bradley-Terry ratings from human blind tests. 200+ models, continuously updated.'},
