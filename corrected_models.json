@@ -1091,5 +1091,31 @@
     "sCtx": 44,
     "total": 50.9,
     "url": "https://bigmodel.cn/dev/howuse/glm-4"
+  },
+  {
+    "name": "Claude Opus 4.8",
+    "vendor": "Anthropic",
+    "r": "US",
+    "arena": 1510,
+    "ai_index": 61.0,
+    "eco": 88,
+    "po": 25.0,
+    "multi": 75,
+    "ctx": 1000000,
+    "url": "https://docs.anthropic.com/en/docs/about-claude/models",
+    "notes": "Arena score estimated (not yet on leaderboard)"
+  },
+  {
+    "name": "Qwen3.7 Max",
+    "vendor": "Alibaba",
+    "r": "CN",
+    "arena": 1475,
+    "ai_index": 57.0,
+    "eco": 72,
+    "po": 3.75,
+    "multi": 50,
+    "ctx": 1000000,
+    "url": "https://help.aliyun.com/zh/model-studio/models",
+    "notes": ""
   }
 ]
