@@ -1,51 +1,43 @@
 [
   {
-    "name": "GPT-5.5",
-    "ai_index": 60.2375549867282
-  },
-  {
-    "name": "GPT-5.5 High",
-    "ai_index": 58.8680908633507
-  },
-  {
-    "name": "Claude Opus 4.7",
-    "ai_index": 57.277499136068
+    "name": "Gemini 3 Flash",
+    "ai_index": 54.783342301797
   },
   {
     "name": "Gemini 3.1 Pro",
     "ai_index": 57.1754980007686
   },
   {
-    "name": "GPT-5.4",
-    "ai_index": 56.7997233488278
+    "name": "Gemini 3 Pro",
+    "ai_index": 48.3935232384404
   },
   {
-    "name": "Qwen3.7 Max",
-    "ai_index": 56.5844517545098
-  },
-  {
-    "name": "Gemini 3 Flash",
-    "ai_index": 54.783342301797
-  },
-  {
-    "name": "Kimi K2.6",
-    "ai_index": 53.904517585423
-  },
-  {
-    "name": "MiMo V2.5 Pro",
-    "ai_index": 53.828651261937
-  },
-  {
-    "name": "Grok 4.3",
-    "ai_index": 53.1964261580552
+    "name": "Claude Opus 4.7",
+    "ai_index": 57.277499136068
   },
   {
     "name": "Claude Opus 4.6",
     "ai_index": 52.9491806522587
   },
   {
-    "name": "Qwen3.6 Max",
-    "ai_index": 51.8140335251184
+    "name": "GPT-5.5 High",
+    "ai_index": 58.8680908633507
+  },
+  {
+    "name": "GPT-5.5",
+    "ai_index": 60.2375549867282
+  },
+  {
+    "name": "DeepSeek V4 Flash",
+    "ai_index": 46.5166221321441
+  },
+  {
+    "name": "GPT-5.4",
+    "ai_index": 56.7997233488278
+  },
+  {
+    "name": "Grok 4.20",
+    "ai_index": 49.3319719150515
   },
   {
     "name": "Claude Sonnet 4.6",
@@ -56,168 +48,180 @@
     "ai_index": 51.5094430539975
   },
   {
-    "name": "GLM-5.1",
-    "ai_index": 51.4080747547317
+    "name": "GPT-5.4 High",
+    "ai_index": 44.6255814373628
   },
   {
     "name": "GPT-5.2",
     "ai_index": 51.2765852164605
   },
   {
-    "name": "Qwen3.6 Plus",
-    "ai_index": 49.9848567365613
-  },
-  {
-    "name": "GLM-5",
-    "ai_index": 49.769583495738
-  },
-  {
-    "name": "MiniMax M2.7",
-    "ai_index": 49.6153164886184
-  },
-  {
-    "name": "Grok 4.20",
-    "ai_index": 49.3319719150515
-  },
-  {
-    "name": "MiMo V2 Pro",
-    "ai_index": 49.2015261023006
-  },
-  {
-    "name": "MiMo V2.5",
-    "ai_index": 49.0344393285729
-  },
-  {
-    "name": "Gemini 3 Pro",
-    "ai_index": 48.3935232384404
-  },
-  {
-    "name": "GPT-5.1 High",
-    "ai_index": 47.6963633708892
-  },
-  {
-    "name": "Kimi K2.5",
-    "ai_index": 46.8125298030348
-  },
-  {
-    "name": "DeepSeek V4 Flash",
-    "ai_index": 46.5166221321441
-  },
-  {
-    "name": "Qwen3.5-397B",
-    "ai_index": 45.0466381495413
-  },
-  {
-    "name": "GPT-5",
-    "ai_index": 44.6255814373628
-  },
-  {
-    "name": "Qwen3.5-27B",
-    "ai_index": 42.0689623865147
-  },
-  {
-    "name": "MiniMax M2.5",
-    "ai_index": 41.9330092208782
-  },
-  {
-    "name": "Qwen3.5-122B",
-    "ai_index": 41.6024020788982
-  },
-  {
-    "name": "GPT-5 mini",
-    "ai_index": 41.1707793926904
-  },
-  {
-    "name": "Kimi K2 Thinking",
-    "ai_index": 40.89315933127
-  },
-  {
-    "name": "o3",
-    "ai_index": 40.6899019734784
-  },
-  {
-    "name": "Grok 4.1",
-    "ai_index": 38.6138254039866
-  },
-  {
-    "name": "Step 3.5 Flash",
-    "ai_index": 37.7974590379104
-  },
-  {
-    "name": "Qwen3.5-35B",
-    "ai_index": 37.122186748647
-  },
-  {
-    "name": "Claude Haiku 4.5",
-    "ai_index": 37.0917897756598
+    "name": "Qwen3.7 Max",
+    "ai_index": 56.5844517545098
   },
   {
     "name": "Gemini 2.5 Pro",
     "ai_index": 34.6276323579138
   },
   {
-    "name": "GLM-4.7",
-    "ai_index": 34.1630205437708
+    "name": "MiMo V2.5",
+    "ai_index": 49.0344393285729
+  },
+  {
+    "name": "MiMo V2.5 Pro",
+    "ai_index": 53.828651261937
+  },
+  {
+    "name": "Grok 4.1",
+    "ai_index": 38.6138254039866
+  },
+  {
+    "name": "Grok 4.3",
+    "ai_index": 53.1964261580552
+  },
+  {
+    "name": "GLM-5.1",
+    "ai_index": 51.4080747547317
+  },
+  {
+    "name": "MiMo V2 Pro",
+    "ai_index": 49.2015261023006
+  },
+  {
+    "name": "Kimi K2.6",
+    "ai_index": 53.904517585423
+  },
+  {
+    "name": "GPT-5.1 High",
+    "ai_index": 47.6963633708892
+  },
+  {
+    "name": "GLM-5",
+    "ai_index": 49.769583495738
+  },
+  {
+    "name": "Qwen3.6 Max",
+    "ai_index": 51.8140335251184
   },
   {
     "name": "DeepSeek V3.2",
-    "ai_index": 32.085077469663
+    "ai_index": 41.7077627498336
   },
   {
-    "name": "Qwen3 Max",
-    "ai_index": 31.3769969869801
+    "name": "Qwen3.6 Plus",
+    "ai_index": 49.9848567365613
   },
   {
-    "name": "GLM-4.6",
-    "ai_index": 30.2421925478269
+    "name": "MiniMax M2.7",
+    "ai_index": 49.6153164886184
+  },
+  {
+    "name": "Kimi K2.5",
+    "ai_index": 46.8125298030348
+  },
+  {
+    "name": "GPT-5",
+    "ai_index": 44.6255814373628
+  },
+  {
+    "name": "Gemini 2.5 Flash",
+    "ai_index": 27.0413538933857
+  },
+  {
+    "name": "Grok 4 Fast",
+    "ai_index": 35.0573458628874
+  },
+  {
+    "name": "Qwen3.5-397B",
+    "ai_index": 45.0466381495413
+  },
+  {
+    "name": "GLM-4.7",
+    "ai_index": 42.1079898832385
+  },
+  {
+    "name": "o3",
+    "ai_index": 38.3739563747863
+  },
+  {
+    "name": "GPT-5 mini",
+    "ai_index": 41.1707793926904
+  },
+  {
+    "name": "Claude Haiku 4.5",
+    "ai_index": 37.0917897756598
+  },
+  {
+    "name": "Qwen3.5-122B",
+    "ai_index": 41.6024020788982
+  },
+  {
+    "name": "MiniMax M2.5",
+    "ai_index": 41.9330092208782
   },
   {
     "name": "DeepSeek V3.1",
-    "ai_index": 28.1258221410866
+    "ai_index": 27.7111573516081
   },
   {
-    "name": "DeepSeek R1",
-    "ai_index": 27.0705964861753
+    "name": "Step 3.5 Flash",
+    "ai_index": 37.7974590379104
   },
   {
-    "name": "GLM-4.5",
-    "ai_index": 26.4189565824233
+    "name": "Kimi K2 Thinking",
+    "ai_index": 40.89315933127
   },
   {
-    "name": "Kimi K2",
-    "ai_index": 26.3213081211457
+    "name": "Qwen3.5-27B",
+    "ai_index": 42.0689623865147
   },
   {
     "name": "GPT-4.1",
     "ai_index": 26.2763251375318
   },
   {
-    "name": "o1",
-    "ai_index": 25.7608256642146
+    "name": "GLM-4.6",
+    "ai_index": 32.5135733266302
   },
   {
-    "name": "Grok 3",
-    "ai_index": 25.1732030273458
-  },
-  {
-    "name": "Qwen3-235B",
-    "ai_index": 24.9606335620811
-  },
-  {
-    "name": "Grok 4 Fast",
-    "ai_index": 23.11598414503
+    "name": "Qwen3.5-35B",
+    "ai_index": 37.122186748647
   },
   {
     "name": "Mistral Large 3",
     "ai_index": 22.8047503002138
   },
   {
-    "name": "Gemini 2.5 Flash",
-    "ai_index": 20.5636858644241
+    "name": "Qwen3 Max",
+    "ai_index": 31.3769969869801
+  },
+  {
+    "name": "o1",
+    "ai_index": 30.7488622040807
   },
   {
     "name": "GPT-4o",
     "ai_index": 17.3233195008758
+  },
+  {
+    "name": "Grok 3",
+    "ai_index": 25.1732030273458
+  },
+  {
+    "name": "Kimi K2",
+    "ai_index": 26.3213081211457
+  },
+  {
+    "name": "Qwen3-235B",
+    "ai_index": 24.9606335620811
+  },
+  {
+    "name": "GLM-4.5",
+    "ai_index": 26.4189565824233
+  },
+  {
+    "name": "DeepSeek R1",
+    "ai_index": 27.0705964861753
   },
   {
     "name": "DeepSeek V3",
