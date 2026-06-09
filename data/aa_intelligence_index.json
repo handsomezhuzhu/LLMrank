@@ -1,7 +1,7 @@
 [
   {
     "name": "Gemini 3 Flash",
-    "ai_index": 54.783342301797
+    "ai_index": 55.328982440618
   },
   {
     "name": "Gemini 3.1 Pro",
@@ -104,10 +104,6 @@
     "ai_index": 51.8140335251184
   },
   {
-    "name": "DeepSeek V3.2",
-    "ai_index": 41.7077627498336
-  },
-  {
     "name": "Qwen3.6 Plus",
     "ai_index": 49.9848567365613
   },
@@ -124,14 +120,6 @@
     "ai_index": 44.6255814373628
   },
   {
-    "name": "Gemini 2.5 Flash",
-    "ai_index": 27.0413538933857
-  },
-  {
-    "name": "Grok 4 Fast",
-    "ai_index": 35.0573458628874
-  },
-  {
     "name": "Qwen3.5-397B",
     "ai_index": 45.0466381495413
   },
@@ -140,32 +128,36 @@
     "ai_index": 42.1079898832385
   },
   {
+    "name": "DeepSeek V3.2",
+    "ai_index": 32.085077469663
+  },
+  {
     "name": "o3",
     "ai_index": 38.3739563747863
+  },
+  {
+    "name": "Gemini 2.5 Flash",
+    "ai_index": 20.5636858644241
   },
   {
     "name": "GPT-5 mini",
     "ai_index": 41.1707793926904
   },
   {
-    "name": "Claude Haiku 4.5",
-    "ai_index": 37.0917897756598
-  },
-  {
-    "name": "Qwen3.5-122B",
-    "ai_index": 41.6024020788982
+    "name": "DeepSeek V3.1",
+    "ai_index": 28.1258221410866
   },
   {
     "name": "MiniMax M2.5",
     "ai_index": 41.9330092208782
   },
   {
-    "name": "DeepSeek V3.1",
-    "ai_index": 27.7111573516081
+    "name": "Step 3.5 Flash",
+    "ai_index": 38.4676923468985
   },
   {
-    "name": "Step 3.5 Flash",
-    "ai_index": 37.7974590379104
+    "name": "Grok 4 Fast",
+    "ai_index": 23.11598414503
   },
   {
     "name": "Kimi K2 Thinking",
@@ -180,8 +172,16 @@
     "ai_index": 26.2763251375318
   },
   {
+    "name": "Qwen3.5-122B",
+    "ai_index": 35.8706905425622
+  },
+  {
+    "name": "Claude Haiku 4.5",
+    "ai_index": 31.0484063122655
+  },
+  {
     "name": "GLM-4.6",
-    "ai_index": 32.5135733266302
+    "ai_index": 30.2421925478269
   },
   {
     "name": "Qwen3.5-35B",
@@ -198,6 +198,10 @@
   {
     "name": "o1",
     "ai_index": 30.7488622040807
+  },
+  {
+    "name": "DeepSeek R1",
+    "ai_index": 27.0705964861753
   },
   {
     "name": "GPT-4o",
@@ -218,10 +222,6 @@
   {
     "name": "GLM-4.5",
     "ai_index": 26.4189565824233
-  },
-  {
-    "name": "DeepSeek R1",
-    "ai_index": 27.0705964861753
   },
   {
     "name": "DeepSeek V3",
