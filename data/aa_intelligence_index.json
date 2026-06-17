@@ -1,850 +1,2010 @@
 [
   {
-    "model": "Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback)",
-    "intelligence_index": 64.883928141436
-  },
-  {
-    "model": "Claude Opus 4.8 (Adaptive Reasoning, Max Effort)",
-    "intelligence_index": 61.4409265512178
-  },
-  {
-    "model": "GPT-5.5 (xhigh)",
-    "intelligence_index": 60.2375549867282
-  },
-  {
-    "model": "GPT-5.5 (high)",
-    "intelligence_index": 58.8680908633507
-  },
-  {
-    "model": "Claude Opus 4.7 (Adaptive Reasoning, Max Effort)",
-    "intelligence_index": 57.277499136068
-  },
-  {
-    "model": "Gemini 3.1 Pro Preview",
-    "intelligence_index": 57.1754980007686
-  },
-  {
-    "model": "GPT-5.5 (medium)",
-    "intelligence_index": 56.7109756642988
-  },
-  {
-    "model": "Qwen3.7 Max",
-    "intelligence_index": 56.5844517545098
+    "model": "next-size-adjust",
+    "intelligence_index": 6.99849110680714
   },
   {
     "model": "Gemini 3.5 Flash (high)",
-    "intelligence_index": 55.328982440618
-  },
-  {
-    "model": "Gemini 3.5 Flash (medium)",
-    "intelligence_index": 54.783342301797
-  },
-  {
-    "model": "MiniMax-M3",
-    "intelligence_index": 54.6747796156564
-  },
-  {
-    "model": "Kimi K2.6",
-    "intelligence_index": 53.904517585423
+    "intelligence_index": 50.2034858842254
   },
   {
     "model": "MiMo-V2.5-Pro",
-    "intelligence_index": 53.828651261937
-  },
-  {
-    "model": "GPT-5.3 Codex (xhigh)",
-    "intelligence_index": 53.5605490018319
-  },
-  {
-    "model": "Qwen3.7 Plus",
-    "intelligence_index": 53.2528102257147
-  },
-  {
-    "model": "Grok 4.3 (high)",
-    "intelligence_index": 53.1964261580552
-  },
-  {
-    "model": "Muse Spark",
-    "intelligence_index": 52.153729414616
-  },
-  {
-    "model": "Claude Opus 4.7 (Non-reasoning, High Effort)",
-    "intelligence_index": 51.8213546973954
-  },
-  {
-    "model": "Claude Sonnet 4.6 (Adaptive Reasoning, Max Effort)",
-    "intelligence_index": 51.7186805816809
-  },
-  {
-    "model": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-    "intelligence_index": 51.5094430539975
-  },
-  {
-    "model": "GLM-5.1 (Reasoning)",
-    "intelligence_index": 51.4080747547317
-  },
-  {
-    "model": "GPT-5.5 (low)",
-    "intelligence_index": 50.7794110370147
-  },
-  {
-    "model": "Qwen3.6 Plus",
-    "intelligence_index": 49.9848567365613
-  },
-  {
-    "model": "DeepSeek V4 Pro (Reasoning, High Effort)",
-    "intelligence_index": 49.7898588400639
-  },
-  {
-    "model": "MiniMax-M2.7",
-    "intelligence_index": 49.6153164886184
-  },
-  {
-    "model": "MiMo-V2.5",
-    "intelligence_index": 49.0344393285729
-  },
-  {
-    "model": "GPT-5.4 mini (xhigh)",
-    "intelligence_index": 48.9036610318343
-  },
-  {
-    "model": "Grok 4.3 (medium)",
-    "intelligence_index": 48.803176722377
-  },
-  {
-    "model": "Nemotron 3 Ultra 550B A55B (Reasoning)",
-    "intelligence_index": 47.6726286724904
-  },
-  {
-    "model": "GLM-5-Turbo",
-    "intelligence_index": 46.7579895566062
-  },
-  {
-    "model": "DeepSeek V4 Flash (Reasoning, Max Effort)",
-    "intelligence_index": 46.5166221321441
-  },
-  {
-    "model": "DeepSeek V4 Flash (Reasoning, High Effort)",
-    "intelligence_index": 45.9980578168596
-  },
-  {
-    "model": "Qwen3.6 27B (Reasoning)",
-    "intelligence_index": 45.8228437394046
-  },
-  {
-    "model": "Qwen3.5 397B A17B (Reasoning)",
-    "intelligence_index": 45.0466381495413
-  },
-  {
-    "model": "MiMo-V2-Omni-0327",
-    "intelligence_index": 44.9320138501088
-  },
-  {
-    "model": "Claude Sonnet 4.6 (Non-reasoning, High Effort)",
-    "intelligence_index": 44.3844694825582
-  },
-  {
-    "model": "GPT-5.4 nano (xhigh)",
-    "intelligence_index": 43.9769365878793
-  },
-  {
-    "model": "Grok 4.3 (low)",
-    "intelligence_index": 43.8861116968046
-  },
-  {
-    "model": "GLM-5.1 (Non-reasoning)",
-    "intelligence_index": 43.816058893332
-  },
-  {
-    "model": "Qwen3.6 35B A3B (Reasoning)",
-    "intelligence_index": 43.4942180907145
-  },
-  {
-    "model": "MiMo-V2-Omni",
-    "intelligence_index": 43.399511505697
-  },
-  {
-    "model": "Gemini 3.5 Flash (minimal)",
-    "intelligence_index": 43.3108201272661
-  },
-  {
-    "model": "Kimi K2.6 (Non-reasoning)",
-    "intelligence_index": 42.9485425096527
-  },
-  {
-    "model": "GLM 5V Turbo (Reasoning)",
-    "intelligence_index": 42.8535869336354
-  },
-  {
-    "model": "Claude Sonnet 4.6 (Non-reasoning, Low Effort)",
-    "intelligence_index": 42.6010568374292
-  },
-  {
-    "model": "Step 3.7 Flash",
-    "intelligence_index": 42.591171477111
-  },
-  {
-    "model": "Hy3-preview (Reasoning)",
-    "intelligence_index": 41.852792771908
-  },
-  {
-    "model": "GPT-5.5 Instant (May 2026)",
-    "intelligence_index": 41.7865688348987
-  },
-  {
-    "model": "Qwen3.5 122B A10B (Reasoning)",
-    "intelligence_index": 41.6024020788982
-  },
-  {
-    "model": "MiMo-V2-Flash (Feb 2026)",
-    "intelligence_index": 41.4588364033058
-  },
-  {
-    "model": "GPT-5.5 (Non-reasoning)",
-    "intelligence_index": 40.9366719580987
-  },
-  {
-    "model": "Qwen3.5 397B A17B (Non-reasoning)",
-    "intelligence_index": 40.0985133878291
-  },
-  {
-    "model": "DeepSeek V4 Pro (Non-reasoning)",
-    "intelligence_index": 39.265417606658
-  },
-  {
-    "model": "Mistral Medium 3.5",
-    "intelligence_index": 39.2258230149669
-  },
-  {
-    "model": "Gemma 4 31B (Reasoning)",
-    "intelligence_index": 39.1830083809416
-  },
-  {
-    "model": "Qwen3.5 Omni Plus",
-    "intelligence_index": 38.6333183791893
-  },
-  {
-    "model": "Step 3.5 Flash 2603",
-    "intelligence_index": 38.4676923468985
-  },
-  {
-    "model": "Ring-2.6-1T",
-    "intelligence_index": 38.4564474323578
-  },
-  {
-    "model": "o3",
-    "intelligence_index": 38.3739563747863
-  },
-  {
-    "model": "GPT-5.4 nano (medium)",
-    "intelligence_index": 38.1081376572266
-  },
-  {
-    "model": "GPT-5.4 mini (medium)",
-    "intelligence_index": 37.7279484883146
-  },
-  {
-    "model": "Command A+",
-    "intelligence_index": 37.1568805789755
-  },
-  {
-    "model": "Qwen3.6 27B (Non-reasoning)",
-    "intelligence_index": 37.144359124914
-  },
-  {
-    "model": "Claude 4.5 Haiku (Reasoning)",
-    "intelligence_index": 37.0917897756598
-  },
-  {
-    "model": "DeepSeek V4 Flash (Non-reasoning)",
-    "intelligence_index": 36.4592046047035
+    "intelligence_index": 42.2394366693508
   },
   {
     "model": "JT-35B-Flash",
-    "intelligence_index": 36.1421972176011
-  },
-  {
-    "model": "NVIDIA Nemotron 3 Super 120B A12B (Reasoning)",
-    "intelligence_index": 35.9698120752192
-  },
-  {
-    "model": "Qwen3.5 122B A10B (Non-reasoning)",
-    "intelligence_index": 35.8706905425622
-  },
-  {
-    "model": "Nova 2.0 Pro Preview (medium)",
-    "intelligence_index": 35.7110926854113
-  },
-  {
-    "model": "MiMo-V2.5-Pro (Non-reasoning)",
-    "intelligence_index": 35.5859453173189
-  },
-  {
-    "model": "Gemini 2.5 Pro",
-    "intelligence_index": 34.6276323579138
-  },
-  {
-    "model": "Nova 2.0 Lite (high)",
-    "intelligence_index": 34.5431736874287
-  },
-  {
-    "model": "Hy3-preview (Non-reasoning)",
-    "intelligence_index": 33.6648235608186
-  },
-  {
-    "model": "Ling-2.6-1T",
-    "intelligence_index": 33.6085463122221
-  },
-  {
-    "model": "Doubao Seed Code",
-    "intelligence_index": 33.5247373290518
-  },
-  {
-    "model": "Gemini 3.1 Flash-Lite",
-    "intelligence_index": 33.5180974406105
-  },
-  {
-    "model": "gpt-oss-120b (high)",
-    "intelligence_index": 33.2656574231208
+    "intelligence_index": 28.3649541880086
   },
   {
     "model": "Mercury 2",
-    "intelligence_index": 32.8235225382182
+    "intelligence_index": 25.3349311948891
   },
   {
-    "model": "Qwen3.5 9B (Reasoning)",
-    "intelligence_index": 32.4263290943185
-  },
-  {
-    "model": "Gemma 4 31B (Non-reasoning)",
-    "intelligence_index": 32.2911491094659
-  },
-  {
-    "model": "K-EXAONE (Reasoning)",
-    "intelligence_index": 32.1234616849251
-  },
-  {
-    "model": "Nova 2.0 Pro Preview (low)",
-    "intelligence_index": 31.9033256634772
-  },
-  {
-    "model": "Trinity Large Thinking",
-    "intelligence_index": 31.8708686236368
-  },
-  {
-    "model": "Qwen3.6 35B A3B (Non-reasoning)",
-    "intelligence_index": 31.5270826855439
-  },
-  {
-    "model": "Gemma 4 26B A4B (Reasoning)",
-    "intelligence_index": 31.2149630375269
-  },
-  {
-    "model": "Claude 4.5 Haiku (Non-reasoning)",
-    "intelligence_index": 31.0484063122655
-  },
-  {
-    "model": "Grok 4.3 (Non-reasoning)",
-    "intelligence_index": 31.0183645925218
-  },
-  {
-    "model": "Qwen3.5 35B A3B (Non-reasoning)",
-    "intelligence_index": 30.6852731445446
-  },
-  {
-    "model": "MiMo-V2-Flash (Non-reasoning)",
-    "intelligence_index": 30.348054276108
-  },
-  {
-    "model": "EXAONE 4.5 33B",
-    "intelligence_index": 30.2255494961422
-  },
-  {
-    "model": "Nova 2.0 Lite (medium)",
-    "intelligence_index": 29.7271206661831
-  },
-  {
-    "model": "HyperNova 60B 2605",
-    "intelligence_index": 29.3228518518521
-  },
-  {
-    "model": "Gemma 4 12B (Reasoning)",
-    "intelligence_index": 29.1741703774482
-  },
-  {
-    "model": "ERNIE 5.0 Thinking Preview",
-    "intelligence_index": 29.0875129443478
-  },
-  {
-    "model": "Nemotron Cascade 2 30B A3B",
-    "intelligence_index": 28.3521136844847
-  },
-  {
-    "model": "Qwen3 Coder Next",
-    "intelligence_index": 28.2770731350061
+    "model": "Qwen3.5 Omni Plus",
+    "intelligence_index": 30.6394026132042
   },
   {
     "model": "Nova 2.0 Omni (medium)",
-    "intelligence_index": 28.0166371186757
+    "intelligence_index": 20.9461390553675
   },
   {
-    "model": "Mistral Small 4 (Reasoning)",
-    "intelligence_index": 27.8034579474559
+    "model": "GPT-5.2 Codex (xhigh)",
+    "intelligence_index": 40.1359763952423
   },
   {
-    "model": "North Mini Code",
-    "intelligence_index": 27.5986302809444
-  },
-  {
-    "model": "Qwen3.5 9B (Non-reasoning)",
-    "intelligence_index": 27.3324781193
-  },
-  {
-    "model": "Magistral Medium 1.2",
-    "intelligence_index": 27.1041157085706
-  },
-  {
-    "model": "Gemma 4 26B A4B (Non-reasoning)",
-    "intelligence_index": 27.085780982138
-  },
-  {
-    "model": "Qwen3.5 4B (Reasoning)",
-    "intelligence_index": 27.0756344661029
-  },
-  {
-    "model": "Qwen3 Next 80B A3B (Reasoning)",
-    "intelligence_index": 26.7232325891867
-  },
-  {
-    "model": "Ling 2.6 Flash",
-    "intelligence_index": 26.1637332012776
-  },
-  {
-    "model": "Solar Pro 3",
-    "intelligence_index": 25.8730218869362
-  },
-  {
-    "model": "Qwen3.5 Omni Flash",
-    "intelligence_index": 25.869341375641
-  },
-  {
-    "model": "JT-MINI",
-    "intelligence_index": 25.3724081698662
-  },
-  {
-    "model": "Nova 2.0 Lite (low)",
-    "intelligence_index": 24.5866422187509
-  },
-  {
-    "model": "gpt-oss-20B (high)",
-    "intelligence_index": 24.4695665241005
-  },
-  {
-    "model": "gpt-oss-120b (low)",
-    "intelligence_index": 24.4666342114922
-  },
-  {
-    "model": "GPT-5.4 nano (Non-Reasoning)",
-    "intelligence_index": 24.3621414800889
-  },
-  {
-    "model": "NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)",
-    "intelligence_index": 24.2724562978745
-  },
-  {
-    "model": "LongCat Flash Lite",
-    "intelligence_index": 23.9317240544364
-  },
-  {
-    "model": "K-EXAONE (Non-reasoning)",
-    "intelligence_index": 23.4059446460053
-  },
-  {
-    "model": "GPT-5.4 mini (Non-Reasoning)",
-    "intelligence_index": 23.2789847340485
-  },
-  {
-    "model": "Nova 2.0 Omni (low)",
-    "intelligence_index": 23.2170223497574
-  },
-  {
-    "model": "Nova 2.0 Pro Preview (Non-reasoning)",
-    "intelligence_index": 23.0613132824715
-  },
-  {
-    "model": "Mi:dm K 2.5 Pro",
-    "intelligence_index": 23.0590376768586
-  },
-  {
-    "model": "Mistral Large 3",
-    "intelligence_index": 22.8047503002138
-  },
-  {
-    "model": "Qwen3.5 4B (Non-reasoning)",
-    "intelligence_index": 22.601272279593
-  },
-  {
-    "model": "INTELLECT-3",
-    "intelligence_index": 22.1742075221897
-  },
-  {
-    "model": "Devstral 2",
-    "intelligence_index": 22.0417848839275
-  },
-  {
-    "model": "Solar Open 100B (Reasoning)",
-    "intelligence_index": 21.6668500408244
-  },
-  {
-    "model": "Nemotron 3 Nano Omni 30B A3B Reasoning",
-    "intelligence_index": 21.4253975063461
-  },
-  {
-    "model": "gpt-oss-20B (low)",
-    "intelligence_index": 20.7851703835381
-  },
-  {
-    "model": "Qwen3 Next 80B A3B Instruct",
-    "intelligence_index": 20.10602449913
+    "model": "Qwen3.5 122B A10B (Non-reasoning)",
+    "intelligence_index": 28.1170626205512
   },
   {
     "model": "Gemma 4 12B (Non-reasoning)",
-    "intelligence_index": 19.516731147391
+    "intelligence_index": 13.1855379056532
   },
   {
-    "model": "Devstral Small 2",
-    "intelligence_index": 19.4672086781124
+    "model": "Gemini 3.5 Flash (minimal)",
+    "intelligence_index": 34.9100646142368
   },
   {
-    "model": "Motif-2-12.7B-Reasoning",
-    "intelligence_index": 19.0793840397834
+    "model": "Claude 3.5 Haiku",
+    "intelligence_index": 12.4075531975375
   },
   {
-    "model": "Nova Premier",
-    "intelligence_index": 19.0143050314986
+    "model": "GPT-3.5 Turbo",
+    "intelligence_index": 3.57410531330546
   },
   {
-    "model": "Gemma 4 E4B (Reasoning)",
-    "intelligence_index": 18.7616346685225
+    "model": "Gemini 2.0 Flash Thinking Experimental (Jan '25)",
+    "intelligence_index": 13.2641465816814
   },
   {
-    "model": "Llama Nemotron Super 49B v1.5 (Reasoning)",
-    "intelligence_index": 18.6805965648521
+    "model": "Qwen2.5 Coder Instruct 32B",
+    "intelligence_index": 7.11287981828272
   },
   {
-    "model": "Mistral Small 4 (Non-reasoning)",
-    "intelligence_index": 18.624288025469
-  },
-  {
-    "model": "Llama 4 Maverick",
-    "intelligence_index": 18.3649684398768
-  },
-  {
-    "model": "MiniCPM5-1B (Reasoning)",
-    "intelligence_index": 18.1717427559984
-  },
-  {
-    "model": "Magistral Small 1.2",
-    "intelligence_index": 18.1585424881406
-  },
-  {
-    "model": "Sarvam 105B (high)",
-    "intelligence_index": 18.1573812383891
-  },
-  {
-    "model": "Nova 2.0 Lite (Non-reasoning)",
-    "intelligence_index": 18.0299399733869
-  },
-  {
-    "model": "MiniCPM5-1B (Non-reasoning)",
-    "intelligence_index": 17.9306284807146
-  },
-  {
-    "model": "Llama 3.1 Instruct 405B",
-    "intelligence_index": 17.3769963635327
-  },
-  {
-    "model": "EXAONE 4.0 32B (Reasoning)",
-    "intelligence_index": 16.6781521791341
-  },
-  {
-    "model": "Nova 2.0 Omni (Non-reasoning)",
-    "intelligence_index": 16.6099463267111
-  },
-  {
-    "model": "Qwen3.5 2B (Reasoning)",
-    "intelligence_index": 16.2909591038807
-  },
-  {
-    "model": "Nanbeige4.1-3B",
-    "intelligence_index": 16.0831920148714
-  },
-  {
-    "model": "Ministral 3 14B",
-    "intelligence_index": 15.9834293033019
-  },
-  {
-    "model": "Falcon-H1R-7B",
-    "intelligence_index": 15.796063669047
-  },
-  {
-    "model": "Qwen3 Omni 30B A3B (Reasoning)",
-    "intelligence_index": 15.6244916812393
-  },
-  {
-    "model": "Step3 VL 10B",
-    "intelligence_index": 15.4519243558048
-  },
-  {
-    "model": "Gemma 4 E2B (Reasoning)",
-    "intelligence_index": 15.2137475529391
-  },
-  {
-    "model": "Llama 3.1 Nemotron Ultra 253B v1 (Reasoning)",
-    "intelligence_index": 15.0179756541389
-  },
-  {
-    "model": "ERNIE 4.5 300B A47B",
-    "intelligence_index": 14.9574995596271
-  },
-  {
-    "model": "Solar Pro 2 (Reasoning)",
-    "intelligence_index": 14.9238311763838
-  },
-  {
-    "model": "NVIDIA Nemotron Nano 12B v2 VL (Reasoning)",
-    "intelligence_index": 14.8875884725847
-  },
-  {
-    "model": "Ministral 3 8B",
-    "intelligence_index": 14.8410398540448
-  },
-  {
-    "model": "Gemma 4 E4B (Non-reasoning)",
-    "intelligence_index": 14.833895416486
-  },
-  {
-    "model": "NVIDIA Nemotron Nano 9B V2 (Reasoning)",
-    "intelligence_index": 14.7575166389121
-  },
-  {
-    "model": "Granite 4.1 30B",
-    "intelligence_index": 14.6921077892293
-  },
-  {
-    "model": "NVIDIA Nemotron 3 Nano 4B",
-    "intelligence_index": 14.6800416903686
-  },
-  {
-    "model": "Qwen3.5 2B (Non-reasoning)",
-    "intelligence_index": 14.6715037725364
-  },
-  {
-    "model": "Llama Nemotron Super 49B v1.5 (Non-reasoning)",
-    "intelligence_index": 14.5859417758506
-  },
-  {
-    "model": "Llama 3.3 Instruct 70B",
-    "intelligence_index": 14.4886189960183
-  },
-  {
-    "model": "Kimi Linear 48B A3B Instruct",
-    "intelligence_index": 14.4145765196747
-  },
-  {
-    "model": "LFM2.5-8B-A1B",
-    "intelligence_index": 14.1880854550113
-  },
-  {
-    "model": "Ring-flash-2.0",
-    "intelligence_index": 14.016730964297
-  },
-  {
-    "model": "Solar Pro 2 (Non-reasoning)",
-    "intelligence_index": 13.5904035013971
-  },
-  {
-    "model": "Llama 4 Scout",
-    "intelligence_index": 13.5176217254018
-  },
-  {
-    "model": "Command A",
-    "intelligence_index": 13.4788553928352
-  },
-  {
-    "model": "Llama 3.1 Nemotron Instruct 70B",
-    "intelligence_index": 13.4387982408806
-  },
-  {
-    "model": "NVIDIA Nemotron 3 Nano 30B A3B (Non-reasoning)",
-    "intelligence_index": 13.169797270894
-  },
-  {
-    "model": "NVIDIA Nemotron Nano 9B V2 (Non-reasoning)",
-    "intelligence_index": 13.1592941956254
-  },
-  {
-    "model": "MiniCPM-V 4.6 1.3B",
-    "intelligence_index": 12.6549599971973
-  },
-  {
-    "model": "Granite 4.1 8B",
-    "intelligence_index": 12.3806003642436
-  },
-  {
-    "model": "Sarvam 30B (high)",
-    "intelligence_index": 12.344586804632
-  },
-  {
-    "model": "Gemma 4 E2B (Non-reasoning)",
-    "intelligence_index": 12.0979737204883
-  },
-  {
-    "model": "R1 1776",
-    "intelligence_index": 11.9893310810912
-  },
-  {
-    "model": "Llama 3.2 Instruct 90B (Vision)",
-    "intelligence_index": 11.901298963079
-  },
-  {
-    "model": "EXAONE 4.0 32B (Non-reasoning)",
-    "intelligence_index": 11.6551252927132
-  },
-  {
-    "model": "Ministral 3 3B",
-    "intelligence_index": 11.2393656538486
-  },
-  {
-    "model": "Jamba 1.7 Large",
-    "intelligence_index": 10.8782892545569
-  },
-  {
-    "model": "Granite 4.0 H Small",
-    "intelligence_index": 10.8109230305016
-  },
-  {
-    "model": "Qwen3 Omni 30B A3B Instruct",
-    "intelligence_index": 10.6764891911006
-  },
-  {
-    "model": "Qwen3.5 0.8B (Reasoning)",
-    "intelligence_index": 10.519869674333
-  },
-  {
-    "model": "LFM2 24B A2B",
-    "intelligence_index": 10.4928483099187
-  },
-  {
-    "model": "Phi-4",
-    "intelligence_index": 10.4141524759837
-  },
-  {
-    "model": "Nova Micro",
-    "intelligence_index": 10.2682692357222
-  },
-  {
-    "model": "NVIDIA Nemotron Nano 12B v2 VL (Non-reasoning)",
-    "intelligence_index": 10.08936819422
-  },
-  {
-    "model": "Phi-4 Multimodal Instruct",
-    "intelligence_index": 10.0404371457362
-  },
-  {
-    "model": "Qwen3.5 0.8B (Non-reasoning)",
-    "intelligence_index": 9.91442929619058
-  },
-  {
-    "model": "Jamba Reasoning 3B",
-    "intelligence_index": 9.59651371313982
-  },
-  {
-    "model": "Reka Flash 3",
-    "intelligence_index": 9.52342611242975
-  },
-  {
-    "model": "Ling-mini-2.0",
-    "intelligence_index": 9.18507641893592
-  },
-  {
-    "model": "Llama 3.2 Instruct 11B (Vision)",
-    "intelligence_index": 8.72680980929183
-  },
-  {
-    "model": "Granite 4.1 3B",
-    "intelligence_index": 8.54474573329346
-  },
-  {
-    "model": "Phi-4 Mini Instruct",
-    "intelligence_index": 8.38999850631525
-  },
-  {
-    "model": "Exaone 4.0 1.2B (Reasoning)",
-    "intelligence_index": 8.25562025842343
-  },
-  {
-    "model": "Exaone 4.0 1.2B (Non-reasoning)",
-    "intelligence_index": 8.10858333678778
-  },
-  {
-    "model": "LFM2.5-1.2B-Thinking",
-    "intelligence_index": 8.08222243374262
-  },
-  {
-    "model": "Jamba 1.7 Mini",
-    "intelligence_index": 8.06741382212314
-  },
-  {
-    "model": "LFM2 2.6B",
-    "intelligence_index": 8.04283611816311
-  },
-  {
-    "model": "LFM2.5-1.2B-Instruct",
-    "intelligence_index": 8.03865157075057
-  },
-  {
-    "model": "Granite 4.0 H 1B",
-    "intelligence_index": 7.98584913700468
+    "model": "Sonar Reasoning",
+    "intelligence_index": 11.6890655547366
   },
   {
     "model": "Gemma 3 270M",
-    "intelligence_index": 7.71011782049148
+    "intelligence_index": 2.40584019270077
   },
   {
-    "model": "Apertus 70B Instruct",
-    "intelligence_index": 7.70140363401777
+    "model": "Grok 4.20 0309 (Reasoning)",
+    "intelligence_index": 36.5
+  },
+  {
+    "model": "GPT-5.1 Codex (high)",
+    "intelligence_index": 34.7308370993956
+  },
+  {
+    "model": "Mistral Medium 3.1",
+    "intelligence_index": 14.7724846493267
+  },
+  {
+    "model": "GPT-5 nano (minimal)",
+    "intelligence_index": 8.00248506285296
+  },
+  {
+    "model": "Gemini 2.5 Pro Preview (May' 25)",
+    "intelligence_index": 22.343925873097
+  },
+  {
+    "model": "o3-mini (high)",
+    "intelligence_index": 18.3840404850845
+  },
+  {
+    "model": "o1-preview",
+    "intelligence_index": 17.0441143202493
+  },
+  {
+    "model": "DeepSeek V3.2 Exp (Non-reasoning)",
+    "intelligence_index": 21.3296698546181
+  },
+  {
+    "model": "Qwen3 Coder 480B A35B Instruct",
+    "intelligence_index": 17.9828421643159
+  },
+  {
+    "model": "Qwen3.5 2B (Non-reasoning)",
+    "intelligence_index": 8.76173871740873
+  },
+  {
+    "model": "Devstral 2",
+    "intelligence_index": 15.4909675182933
+  },
+  {
+    "model": "Claude 3.5 Sonnet (Oct '24)",
+    "intelligence_index": 9.90794204305903
+  },
+  {
+    "model": "DeepSeek V3.1 Terminus (Reasoning)",
+    "intelligence_index": 26.3450789018431
+  },
+  {
+    "model": "Qwen3 Omni 30B A3B Instruct",
+    "intelligence_index": 5.11420251423705
+  },
+  {
+    "model": "Nova 2.0 Pro Preview (medium)",
+    "intelligence_index": 21.7654780663193
+  },
+  {
+    "model": "Kimi K2.6",
+    "intelligence_index": 42.8413910763059
+  },
+  {
+    "model": "DeepSeek R1 (Jan '25)",
+    "intelligence_index": 12.5661334264646
+  },
+  {
+    "model": "DeepSeek R1 Distill Llama 8B",
+    "intelligence_index": 6.4141606831749
+  },
+  {
+    "model": "Qwen3 0.6B (Non-reasoning)",
+    "intelligence_index": 1.0
+  },
+  {
+    "model": "Qwen3.5 397B A17B (Reasoning)",
+    "intelligence_index": 33.6817059499116
+  },
+  {
+    "model": "LFM2 1.2B",
+    "intelligence_index": 1.14955749711073
+  },
+  {
+    "model": "Kimi K2.6 (Non-reasoning)",
+    "intelligence_index": 34.5792971792481
+  },
+  {
+    "model": "Magistral Small 1",
+    "intelligence_index": 10.6974514827872
+  },
+  {
+    "model": "LFM 40B",
+    "intelligence_index": 3.36510471609154
+  },
+  {
+    "model": "MiniMax-M2.5",
+    "intelligence_index": 33.6520929448647
+  },
+  {
+    "model": "Mistral Small 4 (Non-reasoning)",
+    "intelligence_index": 12.3707177015898
+  },
+  {
+    "model": "Claude 3.7 Sonnet (Reasoning)",
+    "intelligence_index": 27.0565712328265
+  },
+  {
+    "model": "MiMo-V2-Flash (Feb 2026)",
+    "intelligence_index": 33.2191627306191
+  },
+  {
+    "model": "GLM-5-Turbo",
+    "intelligence_index": 38.0574061409517
+  },
+  {
+    "model": "Ling-1T",
+    "intelligence_index": 12.7539983059008
+  },
+  {
+    "model": "gpt-oss-20B (low)",
+    "intelligence_index": 14.3436508339187
+  },
+  {
+    "model": "Qwen3.5 27B (Reasoning)",
+    "intelligence_index": 33.7762211760604
+  },
+  {
+    "model": "o3",
+    "intelligence_index": 30.4025993972201
+  },
+  {
+    "model": "Gemini 1.5 Pro (May '24)",
+    "intelligence_index": 6.31861935881004
+  },
+  {
+    "model": "Qwen3 4B (Reasoning)",
+    "intelligence_index": 8.35012726236618
+  },
+  {
+    "model": "DeepSeek V3.1 (Reasoning)",
+    "intelligence_index": 20.6672293074799
+  },
+  {
+    "model": "Llama 3.3 Nemotron Super 49B v1 (Reasoning)",
+    "intelligence_index": 12.2497049216913
+  },
+  {
+    "model": "Step 3.5 Flash 2603",
+    "intelligence_index": 26.0
+  },
+  {
+    "model": "Mistral Large 2 (Jul '24)",
+    "intelligence_index": 7.26582399428052
+  },
+  {
+    "model": "DBRX Instruct",
+    "intelligence_index": 2.95893602589449
+  },
+  {
+    "model": "GLM-4.5 (Reasoning)",
+    "intelligence_index": 19.4874215767973
+  },
+  {
+    "model": "Qwen2.5 Instruct 32B",
+    "intelligence_index": 7.45157282652354
+  },
+  {
+    "model": "Gemini 2.5 Flash-Lite (Non-reasoning)",
+    "intelligence_index": 6.9246711423375
+  },
+  {
+    "model": "North Mini Code",
+    "intelligence_index": 20.5644896163684
+  },
+  {
+    "model": "Sonar Reasoning Pro",
+    "intelligence_index": 17.8459582140677
+  },
+  {
+    "model": "GPT-5.5 (xhigh)",
+    "intelligence_index": 54.8375984166433
+  },
+  {
+    "model": "Mistral Medium",
+    "intelligence_index": 3.59357089560503
+  },
+  {
+    "model": "Nova 2.0 Omni (Non-reasoning)",
+    "intelligence_index": 10.5315794151064
   },
   {
     "model": "Granite 4.0 Micro",
-    "intelligence_index": 7.67253267241308
+    "intelligence_index": 2.37152412563194
   },
   {
-    "model": "Granite 4.0 1B",
-    "intelligence_index": 7.33880218876276
+    "model": "Claude 3 Haiku",
+    "intelligence_index": 3.85756658138451
   },
   {
-    "model": "LFM2 8B A1B",
-    "intelligence_index": 7.02681291862676
+    "model": "Qwen3.5 9B (Non-reasoning)",
+    "intelligence_index": 20.3214868374395
+  },
+  {
+    "model": "Mistral 7B Instruct",
+    "intelligence_index": 2.13537554388303
+  },
+  {
+    "model": "Gemini 2.5 Flash (Reasoning)",
+    "intelligence_index": 20.0556840144468
+  },
+  {
+    "model": "Gemma 3 4B Instruct",
+    "intelligence_index": 1.1203216280049
+  },
+  {
+    "model": "Qwen3.5 122B A10B (Reasoning)",
+    "intelligence_index": 32.2791462784081
+  },
+  {
+    "model": "MiMo-V2.5",
+    "intelligence_index": 40.1358548646523
+  },
+  {
+    "model": "Grok 4.1 Fast (Reasoning)",
+    "intelligence_index": 30.6216050979987
+  },
+  {
+    "model": "NVIDIA Nemotron 3 Nano 30B A3B (Non-reasoning)",
+    "intelligence_index": 7.39064764386618
+  },
+  {
+    "model": "Grok 3",
+    "intelligence_index": 18.3500211744333
+  },
+  {
+    "model": "GLM 5V Turbo (Reasoning)",
+    "intelligence_index": 34.4926006493217
+  },
+  {
+    "model": "Mistral Small 3.1",
+    "intelligence_index": 8.58887133495749
+  },
+  {
+    "model": "Claude Opus 4.5 (Reasoning)",
+    "intelligence_index": 40.7682906593085
+  },
+  {
+    "model": "Qwen3 Next 80B A3B Instruct",
+    "intelligence_index": 13.7235757002447
+  },
+  {
+    "model": "Llama Nemotron Super 49B v1.5 (Non-reasoning)",
+    "intelligence_index": 8.68361873207067
+  },
+  {
+    "model": "Gemini 2.5 Pro",
+    "intelligence_index": 26.9821231506872
+  },
+  {
+    "model": "MiniMax-M2.1",
+    "intelligence_index": 31.3574194809546
+  },
+  {
+    "model": "MiniMax-M3",
+    "intelligence_index": 44.4372686326056
+  },
+  {
+    "model": "Grok 2 (Dec '24)",
+    "intelligence_index": 8.04457344948274
+  },
+  {
+    "model": "MiMo-V2-Omni-0327",
+    "intelligence_index": 36.390250149454
+  },
+  {
+    "model": "GPT-5 mini (high)",
+    "intelligence_index": 32.956160342673
+  },
+  {
+    "model": "Qwen3 4B 2507 (Reasoning)",
+    "intelligence_index": 11.9613767210176
+  },
+  {
+    "model": "Gemini 1.5 Pro (Sep '24)",
+    "intelligence_index": 9.96930868060073
+  },
+  {
+    "model": "Gemini 1.0 Ultra",
+    "intelligence_index": 4.63049417449861
+  },
+  {
+    "model": "Qwen3 1.7B (Non-reasoning)",
+    "intelligence_index": 1.53388195372068
+  },
+  {
+    "model": "Gemma 3 27B Instruct",
+    "intelligence_index": 4.78392548568811
+  },
+  {
+    "model": "GLM-4.7-Flash (Reasoning)",
+    "intelligence_index": 22.889582024901
+  },
+  {
+    "model": "Phi-4 Multimodal Instruct",
+    "intelligence_index": 4.53347300367438
+  },
+  {
+    "model": "Granite 3.3 8B (Non-reasoning)",
+    "intelligence_index": 1.75490516541906
+  },
+  {
+    "model": "DeepSeek-V2-Chat",
+    "intelligence_index": 3.6369931857039
+  },
+  {
+    "model": "Qwen3.5 9B (Reasoning)",
+    "intelligence_index": 24.9722848423529
+  },
+  {
+    "model": "o3-mini",
+    "intelligence_index": 18.9800474781747
+  },
+  {
+    "model": "Grok 4 Fast (Non-reasoning)",
+    "intelligence_index": 16.4717350760636
+  },
+  {
+    "model": "Claude Sonnet 4.6 (Non-reasoning, High Effort)",
+    "intelligence_index": 35.8903300959043
+  },
+  {
+    "model": "Ling-2.6-1T",
+    "intelligence_index": 26.0516751710776
+  },
+  {
+    "model": "Gemma 3 12B Instruct",
+    "intelligence_index": 3.38815135498797
+  },
+  {
+    "model": "NVIDIA Nemotron Nano 9B V2 (Non-reasoning)",
+    "intelligence_index": 7.38105810507829
+  },
+  {
+    "model": "Command A+",
+    "intelligence_index": 29.2913824199774
+  },
+  {
+    "model": "EXAONE 4.0 32B (Non-reasoning)",
+    "intelligence_index": 6.00771880500359
+  },
+  {
+    "model": "Claude Opus 4.7 (Non-reasoning, High Effort)",
+    "intelligence_index": 42.6803699085253
+  },
+  {
+    "model": "GLM-4.5V (Reasoning)",
+    "intelligence_index": 9.1467288377122
+  },
+  {
+    "model": "Qwen3.5 4B (Non-reasoning)",
+    "intelligence_index": 16.0017918192586
+  },
+  {
+    "model": "Qwen3.5 397B A17B (Non-reasoning)",
+    "intelligence_index": 31.9771578903825
+  },
+  {
+    "model": "Qwen3 235B A22B 2507 Instruct",
+    "intelligence_index": 18.1559405761184
+  },
+  {
+    "model": "HyperNova 60B 2605",
+    "intelligence_index": 22.1387418434817
+  },
+  {
+    "model": "Sonar Pro",
+    "intelligence_index": 9.26797564980239
+  },
+  {
+    "model": "Nova Micro",
+    "intelligence_index": 4.74148871413755
+  },
+  {
+    "model": "Sarvam M (Reasoning)",
+    "intelligence_index": 3.02865938484657
+  },
+  {
+    "model": "Qwen2.5 Turbo",
+    "intelligence_index": 6.29845947933321
+  },
+  {
+    "model": "EXAONE 4.5 33B (Non-reasoning)",
+    "intelligence_index": 3.61959683592337
+  },
+  {
+    "model": "INTELLECT-3",
+    "intelligence_index": 15.6118723003247
+  },
+  {
+    "model": "gpt-oss-20B (high)",
+    "intelligence_index": 14.8851031229075
+  },
+  {
+    "model": "MiniMax M1 40k",
+    "intelligence_index": 14.4084774293438
+  },
+  {
+    "model": "GPT-5.4 mini (medium)",
+    "intelligence_index": 29.812779984698
+  },
+  {
+    "model": "Qwen3.6 27B (Non-reasoning)",
+    "intelligence_index": 29.2799500569472
+  },
+  {
+    "model": "GPT-4.1",
+    "intelligence_index": 19.3571959297196
+  },
+  {
+    "model": "Command A",
+    "intelligence_index": 7.67282450847718
   },
   {
     "model": "LFM2.5-VL-1.6B",
-    "intelligence_index": 6.17947826148936
+    "intelligence_index": 1.00833260126154
+  },
+  {
+    "model": "Qwen3 VL 8B Instruct",
+    "intelligence_index": 8.42385413137124
+  },
+  {
+    "model": "JT-MINI",
+    "intelligence_index": 18.5318998520676
+  },
+  {
+    "model": "Ling-mini-2.0",
+    "intelligence_index": 3.75250984216971
+  },
+  {
+    "model": "Gemini 2.0 Flash-Lite (Preview)",
+    "intelligence_index": 8.59336086960599
+  },
+  {
+    "model": "Qwen3 30B A3B (Reasoning)",
+    "intelligence_index": 9.31370877037778
+  },
+  {
+    "model": "Mixtral 8x7B Instruct",
+    "intelligence_index": 2.42508466019835
+  },
+  {
+    "model": "Mistral Small 4 (Reasoning)",
+    "intelligence_index": 20.7515017821021
+  },
+  {
+    "model": "Qwen3.5 0.8B (Non-reasoning)",
+    "intelligence_index": 4.41842506486652
+  },
+  {
+    "model": "GLM-5 (Reasoning)",
+    "intelligence_index": 39.5
+  },
+  {
+    "model": "Claude Opus 4.5 (Non-reasoning)",
+    "intelligence_index": 34.7090500288773
+  },
+  {
+    "model": "Qwen Chat 72B",
+    "intelligence_index": 3.42214953734631
+  },
+  {
+    "model": "Gemini 1.5 Flash (Sep '24)",
+    "intelligence_index": 7.95811004911469
+  },
+  {
+    "model": "GLM-4.6V (Non-reasoning)",
+    "intelligence_index": 10.9794158342048
+  },
+  {
+    "model": "Solar Pro 2 (Preview) (Non-reasoning)",
+    "intelligence_index": 9.96930868060073
+  },
+  {
+    "model": "MiniCPM-V 4.6 1.3B",
+    "intelligence_index": 6.92058988656107
+  },
+  {
+    "model": "GPT-4o mini Realtime (Dec '24)",
+    "intelligence_index": 10.8557141127146
+  },
+  {
+    "model": "Claude Opus 4.6 (Non-reasoning, High Effort)",
+    "intelligence_index": 37.7863097917153
+  },
+  {
+    "model": "Mistral Small 3.2",
+    "intelligence_index": 9.12256273449119
+  },
+  {
+    "model": "DeepSeek V3 (Dec '24)",
+    "intelligence_index": 10.3943107867161
+  },
+  {
+    "model": "Kimi K2",
+    "intelligence_index": 19.3982663833847
+  },
+  {
+    "model": "DeepSeek R1 Distill Qwen 1.5B",
+    "intelligence_index": 3.652305556462
+  },
+  {
+    "model": "EXAONE 4.0 32B (Reasoning)",
+    "intelligence_index": 10.5938528588974
+  },
+  {
+    "model": "Solar Pro 2 (Non-reasoning)",
+    "intelligence_index": 7.77467038565258
+  },
+  {
+    "model": "Qwen3 14B (Reasoning)",
+    "intelligence_index": 10.1460007221028
+  },
+  {
+    "model": "Sarvam 105B (high)",
+    "intelligence_index": 11.9444215330365
+  },
+  {
+    "model": "Llama 3.1 Instruct 405B",
+    "intelligence_index": 8.5
+  },
+  {
+    "model": "Llama 3.1 Instruct 70B",
+    "intelligence_index": 6.75477564932489
+  },
+  {
+    "model": "Qwen3.5 35B A3B (Reasoning)",
+    "intelligence_index": 29.2597061896232
+  },
+  {
+    "model": "MiMo-V2.5-Pro (Non-reasoning)",
+    "intelligence_index": 27.8570839655091
+  },
+  {
+    "model": "Ring-flash-2.0",
+    "intelligence_index": 8.16391673848438
+  },
+  {
+    "model": "LFM2.5-1.2B-Instruct",
+    "intelligence_index": 2.70579873442983
+  },
+  {
+    "model": "GPT-5 (high)",
+    "intelligence_index": 36.1104706151039
+  },
+  {
+    "model": "Mistral Large 3",
+    "intelligence_index": 16.1875717286018
+  },
+  {
+    "model": "GPT-5.4 (Non-reasoning)",
+    "intelligence_index": 27.678044522237
+  },
+  {
+    "model": "GPT-5.2 (xhigh)",
+    "intelligence_index": 42.1829833875032
+  },
+  {
+    "model": "Apertus 70B Instruct",
+    "intelligence_index": 2.39788394873817
+  },
+  {
+    "model": "Grok 4.1 Fast (Non-reasoning)",
+    "intelligence_index": 16.8780148207221
+  },
+  {
+    "model": "DeepSeek R1 Distill Llama 70B",
+    "intelligence_index": 9.92919589163661
+  },
+  {
+    "model": "Qwen3 0.6B (Reasoning)",
+    "intelligence_index": 1.27626272437658
+  },
+  {
+    "model": "MiniMax-M2.7",
+    "intelligence_index": 38.1344947250387
+  },
+  {
+    "model": "Grok-1",
+    "intelligence_index": 6.03973277802473
+  },
+  {
+    "model": "Doubao Seed Code",
+    "intelligence_index": 25.9751557256455
+  },
+  {
+    "model": "GPT-5.1 (high)",
+    "intelligence_index": 38.914162077616
+  },
+  {
+    "model": "Gemini 3.5 Flash (medium)",
+    "intelligence_index": 45.3847297550713
+  },
+  {
+    "model": "Claude 4 Opus (Non-reasoning)",
+    "intelligence_index": 25.496059
+  },
+  {
+    "model": "EXAONE 4.5 33B",
+    "intelligence_index": 22.9629246520667
+  },
+  {
+    "model": "Qwen3.5 27B (Non-reasoning)",
+    "intelligence_index": 29.3113482123438
+  },
+  {
+    "model": "Mistral Large 2 (Nov '24)",
+    "intelligence_index": 9.14546960703761
+  },
+  {
+    "model": "PALM-2",
+    "intelligence_index": 3.21288679694567
+  },
+  {
+    "model": "Qwen3 VL 30B A3B Instruct",
+    "intelligence_index": 10.017485295516
+  },
+  {
+    "model": "Grok 4.20 0309 (Non-reasoning)",
+    "intelligence_index": 22.4771279475951
+  },
+  {
+    "model": "DeepSeek V3.2 Speciale",
+    "intelligence_index": 22.2410838975301
+  },
+  {
+    "model": "Gemma 4 E4B (Non-reasoning)",
+    "intelligence_index": 8.91000586095088
+  },
+  {
+    "model": "GPT-5.4 (low)",
+    "intelligence_index": 39.1372303481376
+  },
+  {
+    "model": "Claude Opus 4.6 (Adaptive Reasoning, Max Effort)",
+    "intelligence_index": 43.7100998174865
+  },
+  {
+    "model": "Jamba 1.5 Mini",
+    "intelligence_index": 2.69582163473985
+  },
+  {
+    "model": "Nova Pro",
+    "intelligence_index": 7.67314009071779
   },
   {
     "model": "Granite 4.0 350M",
-    "intelligence_index": 6.102281235671
+    "intelligence_index": 1.0
   },
   {
-    "model": "Apertus 8B Instruct",
-    "intelligence_index": 5.87741435090939
+    "model": "Gemini 2.5 Flash Preview (Non-reasoning)",
+    "intelligence_index": 11.6590195068186
   },
   {
-    "model": "Granite 4.0 H 350M",
-    "intelligence_index": 5.44341889518141
+    "model": "Grok 4 Fast (Reasoning)",
+    "intelligence_index": 27.3744610344252
+  },
+  {
+    "model": "GPT-4o (March 2025, chatgpt-4o-latest)",
+    "intelligence_index": 12.3106594769983
+  },
+  {
+    "model": "Qwen3 1.7B (Reasoning)",
+    "intelligence_index": 2.63183438497504
+  },
+  {
+    "model": "Gemini 3.1 Flash-Lite",
+    "intelligence_index": 25.038457882447
+  },
+  {
+    "model": "Kimi Linear 48B A3B Instruct",
+    "intelligence_index": 8.52715848314644
+  },
+  {
+    "model": "Llama 2 Chat 70B",
+    "intelligence_index": 3.00905999147689
+  },
+  {
+    "model": "Solar Open 100B (Reasoning)",
+    "intelligence_index": 15.1486437579736
+  },
+  {
+    "model": "GPT-5.3 Codex (xhigh)",
+    "intelligence_index": 44.2682925707506
+  },
+  {
+    "model": "Mistral Medium 3",
+    "intelligence_index": 12.4923610479984
+  },
+  {
+    "model": "LFM2.5-1.2B-Thinking",
+    "intelligence_index": 2.74557989090055
+  },
+  {
+    "model": "GLM-5.1 (Reasoning)",
+    "intelligence_index": 40.1570857627689
+  },
+  {
+    "model": "o1",
+    "intelligence_index": 23.4407206672942
+  },
+  {
+    "model": "Qwen3 Max (Preview)",
+    "intelligence_index": 19.1816920580557
+  },
+  {
+    "model": "Nemotron 3 Ultra 550B A55B (Reasoning)",
+    "intelligence_index": 37.7619546243905
+  },
+  {
+    "model": "GPT-5.4 Pro (xhigh)",
+    "intelligence_index": 6.91727928564757
+  },
+  {
+    "model": "Seed-OSS-36B-Instruct",
+    "intelligence_index": 18.3353754400112
+  },
+  {
+    "model": "GPT-4.5 (Preview)",
+    "intelligence_index": 13.5873568325584
+  },
+  {
+    "model": "GPT-5 Codex (high)",
+    "intelligence_index": 36.1157096572088
+  },
+  {
+    "model": "GLM-4.5-Air",
+    "intelligence_index": 16.5175026250852
+  },
+  {
+    "model": "Qwen3.5 2B (Reasoning)",
+    "intelligence_index": 10.2403370629434
+  },
+  {
+    "model": "MiMo-V2-Pro",
+    "intelligence_index": 40.2884087649747
+  },
+  {
+    "model": "DeepSeek V4 Pro (Reasoning, High Effort)",
+    "intelligence_index": 40.8255694978728
+  },
+  {
+    "model": "Granite 4.0 H Small",
+    "intelligence_index": 5.23694356715463
+  },
+  {
+    "model": "Qwen3 30B A3B 2507 (Reasoning)",
+    "intelligence_index": 15.8299949165061
+  },
+  {
+    "model": "Mistral Large (Feb '24)",
+    "intelligence_index": 4.41362399098214
+  },
+  {
+    "model": "Grok 4.3 (medium)",
+    "intelligence_index": 36.0
+  },
+  {
+    "model": "GPT-5 (medium)",
+    "intelligence_index": 33.7400252878076
+  },
+  {
+    "model": "Grok 4",
+    "intelligence_index": 33.2753594371181
+  },
+  {
+    "model": "Sonar",
+    "intelligence_index": 9.51157309485935
+  },
+  {
+    "model": "Llama 3.2 Instruct 11B (Vision)",
+    "intelligence_index": 3.33410234569925
+  },
+  {
+    "model": "DeepSeek R1 0528 Qwen3 8B",
+    "intelligence_index": 10.3678998244844
+  },
+  {
+    "model": "Qwen3.6 Max Preview",
+    "intelligence_index": 40.0
+  },
+  {
+    "model": "LongCat Flash Lite",
+    "intelligence_index": 17.2165235596296
+  },
+  {
+    "model": "Nova 2.0 Lite (high)",
+    "intelligence_index": 20.5
+  },
+  {
+    "model": "Gemini 2.5 Pro Preview (Mar' 25)",
+    "intelligence_index": 23.0269762979447
+  },
+  {
+    "model": "NVIDIA Nemotron 3 Super 120B A12B (Reasoning)",
+    "intelligence_index": 25.4059430700317
+  },
+  {
+    "model": "Grok 4.20 0309 v2 (Non-reasoning)",
+    "intelligence_index": 21.8378728305411
+  },
+  {
+    "model": "Qwen3.5 4B (Reasoning)",
+    "intelligence_index": 20.0869829315102
+  },
+  {
+    "model": "Magistral Medium 1",
+    "intelligence_index": 12.505790908584
+  },
+  {
+    "model": "Kimi K2 0905",
+    "intelligence_index": 23.5369879030907
+  },
+  {
+    "model": "Motif-2-12.7B-Reasoning",
+    "intelligence_index": 12.7862303747711
+  },
+  {
+    "model": "Qwen3.6 35B A3B (Non-reasoning)",
+    "intelligence_index": 24.1512530877207
+  },
+  {
+    "model": "Ministral 3 3B",
+    "intelligence_index": 5.62812110800816
+  },
+  {
+    "model": "LFM2 8B A1B",
+    "intelligence_index": 1.78196778459044
+  },
+  {
+    "model": "Gemini 2.5 Flash Preview (Reasoning)",
+    "intelligence_index": 17.546226423443
+  },
+  {
+    "model": "Qwen3.7 Max",
+    "intelligence_index": 45.9937184770221
+  },
+  {
+    "model": "GLM-4.6 (Reasoning)",
+    "intelligence_index": 25.0519407458266
+  },
+  {
+    "model": "GPT-4",
+    "intelligence_index": 7.01129598914302
+  },
+  {
+    "model": "Gemini 2.5 Flash (Non-reasoning)",
+    "intelligence_index": 14.1414305953082
+  },
+  {
+    "model": "Llama 2 Chat 13B",
+    "intelligence_index": 2.99700014346618
+  },
+  {
+    "model": "GPT-5.5 (medium)",
+    "intelligence_index": 47.1447014229694
+  },
+  {
+    "model": "Step 3.7 Flash",
+    "intelligence_index": 29.7283976225226
+  },
+  {
+    "model": "DeepSeek V3.2 (Non-reasoning)",
+    "intelligence_index": 24.6607146015067
+  },
+  {
+    "model": "Qwen3 VL 32B Instruct",
+    "intelligence_index": 11.0616934986541
+  },
+  {
+    "model": "GPT-5.2 (Non-reasoning)",
+    "intelligence_index": 26.0169781422358
+  },
+  {
+    "model": "Gemma 4 26B A4B (Reasoning)",
+    "intelligence_index": 25.6946061195095
+  },
+  {
+    "model": "DeepSeek V4 Pro (Non-reasoning)",
+    "intelligence_index": 31.2165231140661
+  },
+  {
+    "model": "NVIDIA Nemotron Nano 12B v2 VL (Reasoning)",
+    "intelligence_index": 8.95902880241623
+  },
+  {
+    "model": "GPT-5.5 (Non-reasoning)",
+    "intelligence_index": 32.7424151045272
+  },
+  {
+    "model": "Qwen3.5 Omni Flash",
+    "intelligence_index": 18.9856108014705
+  },
+  {
+    "model": "GLM-4.7 (Reasoning)",
+    "intelligence_index": 33.8118541391742
+  },
+  {
+    "model": "Nova 2.0 Lite (low)",
+    "intelligence_index": 17.8144782518484
+  },
+  {
+    "model": "Magistral Small 1.2",
+    "intelligence_index": 11.9454817796071
+  },
+  {
+    "model": "Gemma 4 26B A4B (Non-reasoning)",
+    "intelligence_index": 20.0962469238736
+  },
+  {
+    "model": "Ministral 3 14B",
+    "intelligence_index": 9.95955558935931
+  },
+  {
+    "model": "K-EXAONE (Reasoning)",
+    "intelligence_index": 24.6957602344937
+  },
+  {
+    "model": "Llama 3.2 Instruct 3B",
+    "intelligence_index": 4.22463438628032
+  },
+  {
+    "model": "Gemini 2.5 Flash-Lite Preview (Sep '25) (Non-reasoning)",
+    "intelligence_index": 13.0966144890843
+  },
+  {
+    "model": "GPT-4.1 nano",
+    "intelligence_index": 7.27331078617213
+  },
+  {
+    "model": "Llama 3.1 Nemotron Instruct 70B",
+    "intelligence_index": 7.63625144748529
+  },
+  {
+    "model": "Llama 3.1 Instruct 8B",
+    "intelligence_index": 6.10201439912549
+  },
+  {
+    "model": "LFM2 2.6B",
+    "intelligence_index": 2.70961931827752
+  },
+  {
+    "model": "Gemma 4 E2B (Non-reasoning)",
+    "intelligence_index": 6.41204916222767
+  },
+  {
+    "model": "DeepSeek V3 0324",
+    "intelligence_index": 15.707696555426
+  },
+  {
+    "model": "Command-R+ (Apr '24)",
+    "intelligence_index": 2.9889708187848
+  },
+  {
+    "model": "Sarvam 30B (high)",
+    "intelligence_index": 6.63721233353872
+  },
+  {
+    "model": "Qwen2 Instruct 72B",
+    "intelligence_index": 6.0144799801892
+  },
+  {
+    "model": "GPT-4 Turbo",
+    "intelligence_index": 7.88870488749411
+  },
+  {
+    "model": "Nova 2.0 Lite (Non-reasoning)",
+    "intelligence_index": 11.8280648543817
+  },
+  {
+    "model": "NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)",
+    "intelligence_index": 17.527619593998
+  },
+  {
+    "model": "DeepSeek LLM 67B Chat (V1)",
+    "intelligence_index": 3.00905999147689
+  },
+  {
+    "model": "MiniCPM5-1B (Reasoning)",
+    "intelligence_index": 11.9575339145672
+  },
+  {
+    "model": "Claude 3 Opus",
+    "intelligence_index": 11.800729
+  },
+  {
+    "model": "Gemini 3 Flash Preview (Non-reasoning)",
+    "intelligence_index": 27.3658027669851
+  },
+  {
+    "model": "Jamba 1.7 Large",
+    "intelligence_index": 5.29845041177405
+  },
+  {
+    "model": "Mistral Saba",
+    "intelligence_index": 6.44036179546527
+  },
+  {
+    "model": "Qwen3 Max",
+    "intelligence_index": 24.0142215430465
+  },
+  {
+    "model": "Gemini 2.0 Flash-Lite (Feb '25)",
+    "intelligence_index": 8.78976010353059
+  },
+  {
+    "model": "Mistral Small (Sep '24)",
+    "intelligence_index": 4.65980043543703
+  },
+  {
+    "model": "Gemini 3 Flash Preview (Reasoning)",
+    "intelligence_index": 37.7570171800261
+  },
+  {
+    "model": "Nanbeige4.1-3B",
+    "intelligence_index": 10.0506411398019
+  },
+  {
+    "model": "Qwen3 30B A3B 2507 Instruct",
+    "intelligence_index": 9.06268625325331
+  },
+  {
+    "model": "GPT-5 (low)",
+    "intelligence_index": 31.1542596441354
+  },
+  {
+    "model": "Qwen3 Max Thinking",
+    "intelligence_index": 31.7491243522325
+  },
+  {
+    "model": "Llama 3.2 Instruct 1B",
+    "intelligence_index": 1.09750673547767
   },
   {
     "model": "Tiny Aya Global",
-    "intelligence_index": 4.73559902138154
+    "intelligence_index": 1.0
+  },
+  {
+    "model": "GLM-4.7 (Non-reasoning)",
+    "intelligence_index": 26.5579223429147
+  },
+  {
+    "model": "Exaone 4.0 1.2B (Non-reasoning)",
+    "intelligence_index": 2.76964797532065
+  },
+  {
+    "model": "Llama 3 Instruct 8B",
+    "intelligence_index": 1.19321939649615
+  },
+  {
+    "model": "MiMo-V2-Flash (Non-reasoning)",
+    "intelligence_index": 23.0747742112807
+  },
+  {
+    "model": "Granite 4.1 8B",
+    "intelligence_index": 6.67009350576242
+  },
+  {
+    "model": "Claude Instant",
+    "intelligence_index": 2.13537554388303
+  },
+  {
+    "model": "Gemini 2.5 Flash-Lite Preview (Sep '25) (Reasoning)",
+    "intelligence_index": 15.1291602561725
+  },
+  {
+    "model": "o4-mini (high)",
+    "intelligence_index": 25.5523611087528
+  },
+  {
+    "model": "GPT-5.2 (medium)",
+    "intelligence_index": 37.9509635524485
+  },
+  {
+    "model": "Magistral Medium 1.2",
+    "intelligence_index": 20.1129869324705
+  },
+  {
+    "model": "Qwen3.6 35B A3B (Reasoning)",
+    "intelligence_index": 33.0
+  },
+  {
+    "model": "Gemini 2.5 Flash Preview (Sep '25) (Non-reasoning)",
+    "intelligence_index": 18.8276622044101
+  },
+  {
+    "model": "QwQ 32B-Preview",
+    "intelligence_index": 9.22049115673137
+  },
+  {
+    "model": "Ling-flash-2.0",
+    "intelligence_index": 9.74106703126045
+  },
+  {
+    "model": "GPT-5.4 nano (medium)",
+    "intelligence_index": 30.1599010600763
+  },
+  {
+    "model": "Apertus 8B Instruct",
+    "intelligence_index": 1.0
+  },
+  {
+    "model": "DeepSeek V4 Flash (Reasoning, High Effort)",
+    "intelligence_index": 37.3635717440648
+  },
+  {
+    "model": "DeepSeek-V2.5",
+    "intelligence_index": 6.61959234366321
+  },
+  {
+    "model": "Claude 4 Opus (Reasoning)",
+    "intelligence_index": 30.974191
+  },
+  {
+    "model": "GPT-3.5 Turbo (0613)",
+    "intelligence_index": 9.58221301406084
+  },
+  {
+    "model": "Qwen3.6 27B (Reasoning)",
+    "intelligence_index": 37.0516798775037
+  },
+  {
+    "model": "Nemotron 3 Nano Omni 30B A3B Reasoning",
+    "intelligence_index": 14.9281922820391
+  },
+  {
+    "model": "Hy3-preview (Reasoning)",
+    "intelligence_index": 33.578853562193
+  },
+  {
+    "model": "Kimi K2.7 Code",
+    "intelligence_index": 41.9493685067994
+  },
+  {
+    "model": "Gemini 1.0 Pro",
+    "intelligence_index": 3.1286684415226
+  },
+  {
+    "model": "Solar Pro 2 (Preview) (Reasoning)",
+    "intelligence_index": 12.5396395365018
+  },
+  {
+    "model": "GPT-5 nano (medium)",
+    "intelligence_index": 18.9963505092483
+  },
+  {
+    "model": "DeepSeek-Coder-V2",
+    "intelligence_index": 5.05187301719698
+  },
+  {
+    "model": "Grok 4.3 (Non-reasoning)",
+    "intelligence_index": 24.7517904486036
+  },
+  {
+    "model": "Claude 4.5 Sonnet (Reasoning)",
+    "intelligence_index": 34.6525451486472
+  },
+  {
+    "model": "Claude 4.5 Sonnet (Non-reasoning)",
+    "intelligence_index": 29.2784648035482
+  },
+  {
+    "model": "Granite 4.1 3B",
+    "intelligence_index": 3.16787383890306
+  },
+  {
+    "model": "Ling 2.6 Flash",
+    "intelligence_index": 19.2543970148969
+  },
+  {
+    "model": "Llama 4 Maverick",
+    "intelligence_index": 14.2657978659374
+  },
+  {
+    "model": "Jamba 1.6 Large",
+    "intelligence_index": 5.00355856093405
+  },
+  {
+    "model": "GLM-5.1 (Non-reasoning)",
+    "intelligence_index": 35.3713587229078
+  },
+  {
+    "model": "Gemini 1.5 Flash-8B",
+    "intelligence_index": 5.52979942545566
+  },
+  {
+    "model": "GLM-4.6 (Non-reasoning)",
+    "intelligence_index": 22.978120124402
+  },
+  {
+    "model": "Grok 4.3 (high)",
+    "intelligence_index": 37.5766393431307
+  },
+  {
+    "model": "MiMo-V2-Omni",
+    "intelligence_index": 34.9910417939545
+  },
+  {
+    "model": "Ministral 3 8B",
+    "intelligence_index": 8.91652888961969
+  },
+  {
+    "model": "Llama 3.3 Instruct 70B",
+    "intelligence_index": 8.59476089298262
+  },
+  {
+    "model": "Nemotron Cascade 2 30B A3B",
+    "intelligence_index": 21.2524365404356
+  },
+  {
+    "model": "R1 1776",
+    "intelligence_index": 6.31285604232007
+  },
+  {
+    "model": "Claude Opus 4.8 (Adaptive Reasoning, Max Effort)",
+    "intelligence_index": 55.6920406995495
+  },
+  {
+    "model": "MiniMax M1 80k",
+    "intelligence_index": 17.6740343374815
+  },
+  {
+    "model": "Llama 3.2 Instruct 90B (Vision)",
+    "intelligence_index": 6.23248078186836
+  },
+  {
+    "model": "K-EXAONE (Non-reasoning)",
+    "intelligence_index": 16.736475392585
+  },
+  {
+    "model": "Qwen3 8B (Reasoning)",
+    "intelligence_index": 7.39595307449996
+  },
+  {
+    "model": "Claude 2.1",
+    "intelligence_index": 3.87994490524569
+  },
+  {
+    "model": "Devstral Small (Jul '25)",
+    "intelligence_index": 9.25715034718351
+  },
+  {
+    "model": "NVIDIA Nemotron 3 Nano 4B",
+    "intelligence_index": 8.76953402422372
+  },
+  {
+    "model": "GPT-4.1 mini",
+    "intelligence_index": 16.2735556664948
+  },
+  {
+    "model": "Phi-4 Mini Instruct",
+    "intelligence_index": 3.02658621623296
+  },
+  {
+    "model": "Grok Beta",
+    "intelligence_index": 7.4929944329692
+  },
+  {
+    "model": "Grok Code Fast 1",
+    "intelligence_index": 21.6106682185429
+  },
+  {
+    "model": "Nova 2.0 Pro Preview (Non-reasoning)",
+    "intelligence_index": 16.4218193757887
+  },
+  {
+    "model": "Ring-1T",
+    "intelligence_index": 16.1614798571483
+  },
+  {
+    "model": "Granite 4.0 1B",
+    "intelligence_index": 2.06682085198855
+  },
+  {
+    "model": "Gemini 3 Deep Think",
+    "intelligence_index": 21.9238722434743
+  },
+  {
+    "model": "Kimi K2.5 (Reasoning)",
+    "intelligence_index": 38.1072025858264
+  },
+  {
+    "model": "Claude 4.5 Haiku (Reasoning)",
+    "intelligence_index": 29.5762345971708
+  },
+  {
+    "model": "Granite 4.0 H 350M",
+    "intelligence_index": 1.0
+  },
+  {
+    "model": "Qwen3.5 0.8B (Reasoning)",
+    "intelligence_index": 4.97120544979886
+  },
+  {
+    "model": "Claude 4 Sonnet (Reasoning)",
+    "intelligence_index": 30.6673600595344
+  },
+  {
+    "model": "Gemma 3n E4B Instruct",
+    "intelligence_index": 1.19081093557055
+  },
+  {
+    "model": "Qwen3 VL 235B A22B (Reasoning)",
+    "intelligence_index": 20.6044533859359
+  },
+  {
+    "model": "DeepSeek R1 0528 (May '25)",
+    "intelligence_index": 20.0823831450007
+  },
+  {
+    "model": "Qwen3.7 Plus",
+    "intelligence_index": 38.9772279786141
+  },
+  {
+    "model": "GPT-5.4 (xhigh)",
+    "intelligence_index": 51.4012420630147
+  },
+  {
+    "model": "Gemma 3n E2B Instruct",
+    "intelligence_index": 1.0
+  },
+  {
+    "model": "Reka Flash (Sep '24)",
+    "intelligence_index": 6.292706859146
+  },
+  {
+    "model": "Llama 3 Instruct 70B",
+    "intelligence_index": 3.47296203096118
+  },
+  {
+    "model": "NVIDIA Nemotron Nano 12B v2 VL (Non-reasoning)",
+    "intelligence_index": 4.57814812742313
+  },
+  {
+    "model": "Devstral Medium",
+    "intelligence_index": 12.4040033271171
+  },
+  {
+    "model": "Command-R (Mar '24)",
+    "intelligence_index": 2.13537554388303
+  },
+  {
+    "model": "Gemini 1.5 Flash (May '24)",
+    "intelligence_index": 4.91770184010792
+  },
+  {
+    "model": "Claude 3.5 Sonnet (June '24)",
+    "intelligence_index": 8.30413660042445
+  },
+  {
+    "model": "Step3 VL 10B",
+    "intelligence_index": 9.47427987918561
+  },
+  {
+    "model": "DeepSeek V4 Flash (Non-reasoning)",
+    "intelligence_index": 28.6543889065956
+  },
+  {
+    "model": "Llama 4 Scout",
+    "intelligence_index": 10.0416226283387
+  },
+  {
+    "model": "GPT-5.4 mini (Non-Reasoning)",
+    "intelligence_index": 16.6205581998504
+  },
+  {
+    "model": "ERNIE 4.5 300B A47B",
+    "intelligence_index": 9.02285916292985
+  },
+  {
+    "model": "DeepSeek V3.2 Exp (Reasoning)",
+    "intelligence_index": 25.4456286220356
+  },
+  {
+    "model": "Qwen3 32B (Reasoning)",
+    "intelligence_index": 10.4554919832467
+  },
+  {
+    "model": "Qwen3 4B 2507 Instruct",
+    "intelligence_index": 7.12343132089494
+  },
+  {
+    "model": "Gemma 4 E2B (Reasoning)",
+    "intelligence_index": 9.25681921827956
+  },
+  {
+    "model": "GPT-5.5 (high)",
+    "intelligence_index": 53.1275095349873
+  },
+  {
+    "model": "Llama 3.1 Nemotron Nano 4B v1.1 (Reasoning)",
+    "intelligence_index": 8.54464480335446
+  },
+  {
+    "model": "DeepSeek R1 Distill Qwen 14B",
+    "intelligence_index": 9.83271953213741
+  },
+  {
+    "model": "Qwen3 8B (Non-reasoning)",
+    "intelligence_index": 5.07413466387747
+  },
+  {
+    "model": "Claude 3 Sonnet",
+    "intelligence_index": 4.74333889494668
+  },
+  {
+    "model": "Gemini 3 Pro Preview (low)",
+    "intelligence_index": 33.0711086127063
+  },
+  {
+    "model": "Nova 2.0 Omni (low)",
+    "intelligence_index": 16.5639851798202
+  },
+  {
+    "model": "Arctic Instruct",
+    "intelligence_index": 3.42214953734631
+  },
+  {
+    "model": "GPT-4o (ChatGPT)",
+    "intelligence_index": 8.24637773155304
+  },
+  {
+    "model": "Jamba 1.5 Large",
+    "intelligence_index": 5.13122240746243
+  },
+  {
+    "model": "Jamba 1.7 Mini",
+    "intelligence_index": 2.73205930270251
+  },
+  {
+    "model": "Qwen2.5 Instruct 72B",
+    "intelligence_index": 9.5709158806552
+  },
+  {
+    "model": "o1-mini",
+    "intelligence_index": 13.9799849858492
+  },
+  {
+    "model": "Hy3-preview (Non-reasoning)",
+    "intelligence_index": 26.1030575371457
+  },
+  {
+    "model": "GPT-4o mini",
+    "intelligence_index": 6.91362949738962
+  },
+  {
+    "model": "Trinity Large Thinking",
+    "intelligence_index": 24.4651372124901
+  },
+  {
+    "model": "Solar Pro 3",
+    "intelligence_index": 14.135866278812
+  },
+  {
+    "model": "Qwen3 Omni 30B A3B (Reasoning)",
+    "intelligence_index": 9.63183764378847
+  },
+  {
+    "model": "Qwen2.5 Max",
+    "intelligence_index": 10.2330192822588
+  },
+  {
+    "model": "Kimi K2.5 (Non-reasoning)",
+    "intelligence_index": 29.3987116992674
+  },
+  {
+    "model": "GPT-5.4 mini (xhigh)",
+    "intelligence_index": 39.9783061419024
+  },
+  {
+    "model": "Gemini 3.1 Pro Preview",
+    "intelligence_index": 46.4594206066426
+  },
+  {
+    "model": "Qwen3 235B A22B (Reasoning)",
+    "intelligence_index": 13.4314470294423
+  },
+  {
+    "model": "GPT-5 mini (minimal)",
+    "intelligence_index": 14.2507348892571
+  },
+  {
+    "model": "DeepSeek-V2.5 (Dec '24)",
+    "intelligence_index": 6.78969059811992
+  },
+  {
+    "model": "Gemini 2.0 Flash (Feb '25)",
+    "intelligence_index": 12.2673744270709
+  },
+  {
+    "model": "Gemma 3n E4B Instruct Preview (May '25)",
+    "intelligence_index": 4.5503780804653
+  },
+  {
+    "model": "Kimi K2 Thinking",
+    "intelligence_index": 32.7026871189548
+  },
+  {
+    "model": "MiMo-V2-Flash (Reasoning)",
+    "intelligence_index": 31.1952079218533
+  },
+  {
+    "model": "DeepSeek V4 Pro (Reasoning, Max Effort)",
+    "intelligence_index": 44.2735554261611
+  },
+  {
+    "model": "Qwen3 32B (Non-reasoning)",
+    "intelligence_index": 8.63463063811974
+  },
+  {
+    "model": "GPT-4o (Nov '24)",
+    "intelligence_index": 11.1829048173286
+  },
+  {
+    "model": "GPT-5.4 nano (Non-Reasoning)",
+    "intelligence_index": 17.6095041384337
+  },
+  {
+    "model": "Claude 4.5 Haiku (Non-reasoning)",
+    "intelligence_index": 23.7142110280373
+  },
+  {
+    "model": "GPT-5 mini (medium)",
+    "intelligence_index": 30.9159748459548
+  },
+  {
+    "model": "GPT-5 (minimal)",
+    "intelligence_index": 17.1753621775298
+  },
+  {
+    "model": "Qwen Chat 14B",
+    "intelligence_index": 2.13537554388303
+  },
+  {
+    "model": "Llama 3.3 Nemotron Super 49B v1 (Non-reasoning)",
+    "intelligence_index": 8.4651698621046
+  },
+  {
+    "model": "Gemini 2.0 Pro Experimental (Feb '25)",
+    "intelligence_index": 11.8487982865515
+  },
+  {
+    "model": "Grok 4.20 0309 v2 (Reasoning)",
+    "intelligence_index": 37.0
+  },
+  {
+    "model": "DeepSeek Coder V2 Lite Instruct",
+    "intelligence_index": 3.1082648272369
+  },
+  {
+    "model": "Gemini 2.5 Flash Preview (Sep '25) (Reasoning)",
+    "intelligence_index": 23.7992715888472
+  },
+  {
+    "model": "Falcon-H1R-7B",
+    "intelligence_index": 9.78848664324063
+  },
+  {
+    "model": "GPT-5.5 (low)",
+    "intelligence_index": 41.7290524238372
+  },
+  {
+    "model": "Step 3.5 Flash",
+    "intelligence_index": 25.5
+  },
+  {
+    "model": "GLM-4.7-Flash (Non-reasoning)",
+    "intelligence_index": 15.5158094427037
+  },
+  {
+    "model": "Qwen3 Next 80B A3B (Reasoning)",
+    "intelligence_index": 19.7652322650444
+  },
+  {
+    "model": "gpt-oss-120b (low)",
+    "intelligence_index": 17.704908301045
+  },
+  {
+    "model": "o3-pro",
+    "intelligence_index": 32.5171086796292
+  },
+  {
+    "model": "Mixtral 8x22B Instruct",
+    "intelligence_index": 4.35428835034605
+  },
+  {
+    "model": "Qwen3 Max Thinking (Preview)",
+    "intelligence_index": 25.0250074036077
+  },
+  {
+    "model": "Devstral Small (May '25)",
+    "intelligence_index": 11.8246453987468
+  },
+  {
+    "model": "Claude 4.1 Opus (Reasoning)",
+    "intelligence_index": 33.713257
+  },
+  {
+    "model": "Gemma 4 31B (Reasoning)",
+    "intelligence_index": 29.3542081371995
+  },
+  {
+    "model": "Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback)",
+    "intelligence_index": 59.8606463217303
+  },
+  {
+    "model": "Qwen3 VL 30B A3B (Reasoning)",
+    "intelligence_index": 13.3359417846299
+  },
+  {
+    "model": "Devstral Small 2",
+    "intelligence_index": 13.1403228017075
+  },
+  {
+    "model": "QwQ 32B",
+    "intelligence_index": 13.3749767616412
+  },
+  {
+    "model": "Llama 3.1 Nemotron Ultra 253B v1 (Reasoning)",
+    "intelligence_index": 9.07807516769321
+  },
+  {
+    "model": "Claude 4 Sonnet (Non-reasoning)",
+    "intelligence_index": 25.493475986183
+  },
+  {
+    "model": "Gemma 4 31B (Non-reasoning)",
+    "intelligence_index": 24.8488625422228
+  },
+  {
+    "model": "GPT-5.1 (Non-reasoning)",
+    "intelligence_index": 20.4004331227052
+  },
+  {
+    "model": "Gemini 3 Pro Preview (high)",
+    "intelligence_index": 39.5506843742073
+  },
+  {
+    "model": "Gemma 3 1B Instruct",
+    "intelligence_index": 1.0
+  },
+  {
+    "model": "Qwen1.5 Chat 110B",
+    "intelligence_index": 4.08402253320811
+  },
+  {
+    "model": "GLM-4.6V (Reasoning)",
+    "intelligence_index": 16.7520987906239
+  },
+  {
+    "model": "MiniCPM5-1B (Non-reasoning)",
+    "intelligence_index": 11.737391276719
+  },
+  {
+    "model": "Qwen3 VL 32B (Reasoning)",
+    "intelligence_index": 17.9317412937176
+  },
+  {
+    "model": "Granite 4.1 30B",
+    "intelligence_index": 8.85991944342523
+  },
+  {
+    "model": "GPT-5.4 nano (xhigh)",
+    "intelligence_index": 38.2417263132715
+  },
+  {
+    "model": "Qwen3 VL 235B A22B Instruct",
+    "intelligence_index": 14.3119980357684
+  },
+  {
+    "model": "DeepSeek V3.2 (Reasoning)",
+    "intelligence_index": 33.4464379613786
+  },
+  {
+    "model": "Exaone 4.0 1.2B (Reasoning)",
+    "intelligence_index": 2.90389591958628
+  },
+  {
+    "model": "Gemma 4 E4B (Reasoning)",
+    "intelligence_index": 12.4961182083238
+  },
+  {
+    "model": "DeepSeek V4 Flash (Reasoning, Max Effort)",
+    "intelligence_index": 40.2825017625236
+  },
+  {
+    "model": "Claude 3.7 Sonnet (Non-reasoning)",
+    "intelligence_index": 23.5011034853609
+  },
+  {
+    "model": "Solar Mini",
+    "intelligence_index": 6.23248047639115
+  },
+  {
+    "model": "Qwen3 Coder 30B A3B Instruct",
+    "intelligence_index": 13.6060200979137
+  },
+  {
+    "model": "Granite 4.0 H 1B",
+    "intelligence_index": 2.65758895076629
+  },
+  {
+    "model": "Reka Flash 3",
+    "intelligence_index": 4.06143055602284
+  },
+  {
+    "model": "Mistral Medium 3.5",
+    "intelligence_index": 29.947307563003
+  },
+  {
+    "model": "Claude 2.0",
+    "intelligence_index": 3.6369931857039
+  },
+  {
+    "model": "Pixtral Large",
+    "intelligence_index": 8.14881208325536
+  },
+  {
+    "model": "Qwen3 VL 8B (Reasoning)",
+    "intelligence_index": 10.5801122882981
+  },
+  {
+    "model": "Phi-3 Mini Instruct 3.8B",
+    "intelligence_index": 4.58854249696996
+  },
+  {
+    "model": "Mi:dm K 2.5 Pro",
+    "intelligence_index": 16.4197416978008
+  },
+  {
+    "model": "Claude Sonnet 4.6 (Adaptive Reasoning, Max Effort)",
+    "intelligence_index": 47.2100024360452
+  },
+  {
+    "model": "DeepSeek R1 Distill Qwen 32B",
+    "intelligence_index": 11.039920724083
+  },
+  {
+    "model": "DeepSeek V3.1 Terminus (Non-reasoning)",
+    "intelligence_index": 21.405783902167
+  },
+  {
+    "model": "Gemini 2.0 Flash Thinking Experimental (Dec '24)",
+    "intelligence_index": 6.62551774386931
+  },
+  {
+    "model": "Mi:dm K 2.5 Pro Preview",
+    "intelligence_index": 19.8653613752311
+  },
+  {
+    "model": "Llama Nemotron Super 49B v1.5 (Reasoning)",
+    "intelligence_index": 12.4221286368344
+  },
+  {
+    "model": "LFM2.5-8B-A1B",
+    "intelligence_index": 8.32036715830533
+  },
+  {
+    "model": "GPT-4o Realtime (Dec '24)",
+    "intelligence_index": 33.5183896507769
+  },
+  {
+    "model": "Qwen2.5 Coder Instruct 7B ",
+    "intelligence_index": 4.48054507534195
+  },
+  {
+    "model": "Qwen3 4B (Non-reasoning)",
+    "intelligence_index": 6.7716649631882
+  },
+  {
+    "model": "Nova Premier",
+    "intelligence_index": 12.7268118084689
+  },
+  {
+    "model": "Mistral Small 3",
+    "intelligence_index": 6.93169892735495
+  },
+  {
+    "model": "o1-pro",
+    "intelligence_index": 18.8865335695925
+  },
+  {
+    "model": "Jamba 1.6 Mini",
+    "intelligence_index": 2.55255646375268
+  },
+  {
+    "model": "GPT-4o (May '24)",
+    "intelligence_index": 8.60380898342246
+  },
+  {
+    "model": "Claude Opus 4.7 (Adaptive Reasoning, Max Effort)",
+    "intelligence_index": 53.5296569524586
+  },
+  {
+    "model": "GPT-5 (ChatGPT)",
+    "intelligence_index": 15.3017849271764
+  },
+  {
+    "model": "Ring-2.6-1T",
+    "intelligence_index": 30.5727263188268
+  },
+  {
+    "model": "Solar Pro 2 (Reasoning)",
+    "intelligence_index": 8.99211918832429
+  },
+  {
+    "model": "Muse Spark",
+    "intelligence_index": 43.0555563074727
+  },
+  {
+    "model": "Grok 3 Reasoning Beta",
+    "intelligence_index": 15.1311757773638
+  },
+  {
+    "model": "OpenChat 3.5 (1210)",
+    "intelligence_index": 2.96293390865543
+  },
+  {
+    "model": "Qwen3 14B (Non-reasoning)",
+    "intelligence_index": 7.0150697862136
+  },
+  {
+    "model": "Phi-4",
+    "intelligence_index": 4.87468332192759
+  },
+  {
+    "model": "Qwen3.5 35B A3B (Non-reasoning)",
+    "intelligence_index": 23.3826624569784
+  },
+  {
+    "model": "gpt-oss-120b (high)",
+    "intelligence_index": 23.8309678073278
+  },
+  {
+    "model": "GLM-5 (Non-reasoning)",
+    "intelligence_index": 32.4087764811754
+  },
+  {
+    "model": "NVIDIA Nemotron Nano 9B V2 (Reasoning)",
+    "intelligence_index": 8.8402703566928
+  },
+  {
+    "model": "Claude Sonnet 4.6 (Non-reasoning, Low Effort)",
+    "intelligence_index": 34.2620351158233
+  },
+  {
+    "model": "Claude 4.1 Opus (Non-reasoning)",
+    "intelligence_index": 28.235125
+  },
+  {
+    "model": "Qwen3 30B A3B (Non-reasoning)",
+    "intelligence_index": 6.80377018347357
+  },
+  {
+    "model": "Qwen3.6 Plus",
+    "intelligence_index": 39.5608411628461
+  },
+  {
+    "model": "Nova 2.0 Pro Preview (low)",
+    "intelligence_index": 19.5
+  },
+  {
+    "model": "Gemini 2.5 Flash-Lite (Reasoning)",
+    "intelligence_index": 11.4121014311073
+  },
+  {
+    "model": "Qwen3 VL 4B Instruct",
+    "intelligence_index": 4.08931533044794
+  },
+  {
+    "model": "Qwen3 235B A22B 2507 (Reasoning)",
+    "intelligence_index": 22.3410202244783
+  },
+  {
+    "model": "MiniMax-M2",
+    "intelligence_index": 28.3148278049522
+  },
+  {
+    "model": "Jamba Reasoning 3B",
+    "intelligence_index": 4.12816114339835
+  },
+  {
+    "model": "Qwen3 VL 4B (Reasoning)",
+    "intelligence_index": 7.90202507801192
+  },
+  {
+    "model": "DeepSeek V3.1 (Non-reasoning)",
+    "intelligence_index": 21.0458273828992
+  },
+  {
+    "model": "LFM2 24B A2B",
+    "intelligence_index": 4.94653434961859
+  },
+  {
+    "model": "Nova 2.0 Lite (medium)",
+    "intelligence_index": 19.0
+  },
+  {
+    "model": "Qwen3 Coder Next",
+    "intelligence_index": 21.1839228678695
+  },
+  {
+    "model": "GPT-5.1 Codex mini (high)",
+    "intelligence_index": 30.6319379988525
+  },
+  {
+    "model": "Gemini 2.0 Flash (experimental)",
+    "intelligence_index": 10.6818184396542
+  },
+  {
+    "model": "Llama 65B",
+    "intelligence_index": 2.13537554388303
+  },
+  {
+    "model": "Grok 4.3 (low)",
+    "intelligence_index": 35.4353184736399
+  },
+  {
+    "model": "Gemma 4 12B (Reasoning)",
+    "intelligence_index": 22.0029923863585
+  },
+  {
+    "model": "Grok 3 mini Reasoning (high)",
+    "intelligence_index": 22.5
+  },
+  {
+    "model": "Llama 2 Chat 7B",
+    "intelligence_index": 4.25781914388795
   }
 ]
