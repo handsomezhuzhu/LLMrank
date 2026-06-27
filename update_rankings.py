@@ -347,6 +347,9 @@ def main():
     print(f"  Updated {INDEX_HTML}")
 
     # Step 6: Git push
+    # Always update timestamp so there is something to commit
+    with open(os.path.join(REPO, "last_check.txt"), "w") as f:
+        f.write(datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ\n"))
     print("\n6. Git push...")
     pushed = git_commit_push(f"update: daily ranking refresh {today}")
     if pushed:
