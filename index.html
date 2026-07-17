@@ -344,17 +344,6 @@
             letter-spacing: -0.01em;
         }
         .model-name:hover { color: var(--accent-hover); text-decoration: none; }
-        .model-note {
-            display: block;
-            font-size: 11px;
-            color: var(--text-faint);
-            font-weight: 400;
-            margin-top: 1px;
-            max-width: 220px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
 
         .vendor-pill {
             display: inline-flex;
@@ -852,7 +841,6 @@
                                         <span class="region" :class="m.region === 'CN' ? 'cn' : 'us'">{{ m.region }}</span>
                                         <div>
                                             <a class="model-name" :href="m.url" target="_blank" rel="noopener">{{ m.name }}</a>
-                                            <span class="model-note" v-if="m.note" :title="m.note">{{ m.note }}</span>
                                         </div>
                                     </div>
                                 </td>

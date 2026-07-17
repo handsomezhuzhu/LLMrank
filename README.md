@@ -26,6 +26,8 @@ Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (
 | `price.cache_write` | $/¥ per **1M cache-write** tokens |
 | `openrouter_id` | Optional OpenRouter model id for price refresh |
 | `price_source` | `openrouter` \| `manual` |
+| `auto_price` | `false` freezes price (manual/official/deprecated); auto OpenRouter refresh skips these |
+| `note` | Unused (kept empty for a clean UI) |
 
 **Missing price components use `-1`** (not null). They are ignored when blending the effective price.
 
@@ -58,10 +60,10 @@ CNY amounts convert with `CNY_PER_USD = 7.2` before scoring.
 python3 update_rankings.py
 ```
 
-1. Best-effort Arena / AA scrape (Playwright; often blocked)
-2. Refresh price/ctx from OpenRouter for rows with `openrouter_id`
-3. Recalculate scores from `data/models.json`
-4. Export legacy `corrected_models.json`, touch `last_check.txt`, commit/push
+1. **Arena**: Hugging Face `lmarena-ai/leaderboard-dataset` (text / overall). On failure or incomplete payload → **skip Arena field writes** (no partial overwrite).
+2. **AI Index**: trusted remote only. Current default skips writes when no remote refresh is available (local cache is not force-applied).
+3. **OpenRouter prices/ctx**: only models with `auto_price=true` and a live `openrouter_id`. Manual / deprecated / missing-id rows are frozen.
+4. Recalculate scores from `data/models.json`, export legacy `corrected_models.json`, touch `last_check.txt`, commit/push when there are real diffs.
 
 ## Local preview
 

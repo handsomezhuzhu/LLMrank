@@ -142,95 +142,189 @@ def total_score(s_arena: float, s_ai: float, s_price: float, s_multi: float, s_c
     return round(s_arena * 0.30 + s_ai * 0.35 + s_price * 0.10 + s_multi * 0.15 + s_ctx * 0.10, 1)
 
 
-# ── Scraping (best-effort) ──────────────────────────────────────────────────
+# ── External data fetch ─────────────────────────────────────────────────────
+# Policy: never write partial/failed leaderboard scrapes into models.json.
+# Prefer stable HTTP sources; fall back to on-disk cache only.
+
+MIN_ARENA_ROWS = 50
+MIN_AA_ROWS = 50
+MIN_OPENROUTER_MODELS = 50
 
 
-def try_scrape_arena():
+def _http_json(url: str, headers: dict | None = None, timeout: int = 60) -> Any:
+    req = urllib.request.Request(
+        url,
+        headers=headers or {"User-Agent": "LLMrank/1.0 (+https://rank.zhuzihan.com)"},
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.load(r)
+
+
+def _normalize_arena_rows(rows: list[dict]) -> list[dict] | None:
+    """Normalize to [{model, rating, organization?, votes?}, ...]."""
+    out = []
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        name = r.get("model") or r.get("model_name") or r.get("modelKey") or r.get("name")
+        rating = r.get("rating")
+        if rating is None:
+            rating = r.get("score")
+        if not name or rating is None:
+            continue
+        try:
+            rating_f = float(rating)
+        except Exception:
+            continue
+        out.append(
+            {
+                "model": str(name),
+                "modelKey": str(r.get("modelKey") or name),
+                "rating": rating_f,
+                "organization": r.get("organization") or r.get("vendor") or "",
+                "votes": int(r.get("votes") or r.get("vote_count") or 0),
+            }
+        )
+    if len(out) < MIN_ARENA_ROWS:
+        return None
+    # de-dupe by model, keep highest rating
+    best: dict[str, dict] = {}
+    for row in out:
+        prev = best.get(row["model"])
+        if prev is None or row["rating"] > prev["rating"]:
+            best[row["model"]] = row
+    return list(best.values())
+
+
+def _normalize_aa_rows(rows: list[dict]) -> list[dict] | None:
+    out = []
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        slug = r.get("slug") or r.get("id")
+        name = r.get("model") or r.get("name") or slug
+        score = (
+            r.get("intelligence_index")
+            or r.get("index")
+            or r.get("score")
+            or r.get("artificial_analysis_intelligence_index")
+        )
+        if not slug or score is None:
+            continue
+        try:
+            score_f = float(score)
+        except Exception:
+            continue
+        out.append(
+            {
+                "model": str(name or slug),
+                "slug": str(slug),
+                "intelligence_index": score_f,
+            }
+        )
+    if len(out) < MIN_AA_ROWS:
+        return None
+    best: dict[str, dict] = {}
+    for row in out:
+        prev = best.get(row["slug"])
+        if prev is None or row["intelligence_index"] > prev["intelligence_index"]:
+            best[row["slug"]] = row
+    return list(best.values())
+
+
+def fetch_arena_leaderboard() -> list[dict] | None:
+    """
+    Fetch Arena text/overall ratings from Hugging Face datasets-server.
+    Returns None on any failure — caller must NOT overwrite models.json fields.
+    """
     try:
-        from playwright.sync_api import sync_playwright
-
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            api_data = []
-
-            def handle_response(response):
-                try:
-                    if response.status == 200:
-                        ct = response.headers.get("content-type", "")
-                        body = response.text()
-                        if ("json" in ct) and len(body) > 500 and '"rating"' in body:
-                            api_data.append(body)
-                except Exception:
-                    pass
-
-            page.on("response", handle_response)
-            page.goto("https://arena.ai/leaderboard", timeout=30000, wait_until="commit")
-            page.wait_for_timeout(20000)
-            browser.close()
-            for body in api_data:
-                try:
-                    data = json.loads(body)
-                    if isinstance(data, list) and len(data) > 10 and "rating" in data[0]:
-                        return data
-                except Exception:
-                    pass
+        offset = 0
+        length = 100
+        total = None
+        overall: list[dict] = []
+        while True:
+            url = (
+                "https://datasets-server.huggingface.co/rows"
+                "?dataset=lmarena-ai%2Fleaderboard-dataset"
+                f"&config=text&split=latest&offset={offset}&length={length}"
+            )
+            data = _http_json(url, timeout=45)
+            if total is None:
+                total = int(data.get("num_rows_total") or 0)
+            rows = data.get("rows") or []
+            if not rows:
+                break
+            for item in rows:
+                row = item.get("row") if isinstance(item, dict) else None
+                if not isinstance(row, dict):
+                    continue
+                if row.get("category") and row.get("category") != "overall":
+                    continue
+                overall.append(row)
+            offset += len(rows)
+            # overall rows are front-loaded; stop once we leave overall block
+            if rows and all(
+                (item.get("row") or {}).get("category") not in (None, "overall")
+                for item in rows
+            ):
+                break
+            if total and offset >= total:
+                break
+            if offset > 2000:  # safety
+                break
+        normalized = _normalize_arena_rows(overall)
+        if not normalized:
+            print(f"  Arena fetch incomplete ({len(overall)} overall rows) — skip update")
+            return None
+        print(f"  Arena fetch ok: {len(normalized)} models")
+        return normalized
     except Exception as e:
-        print(f"  Arena scrape failed: {e}")
-    return None
+        print(f"  Arena fetch failed: {e}")
+        return None
+
+
+def fetch_aa_intelligence() -> list[dict] | None:
+    """
+    Prefer local full AA cache if present and large enough.
+    Optional remote sources may be added later (official AA API needs a key).
+    Returns None on failure — never partial-write models.json.
+    """
+    try:
+        if os.path.exists(AA_JSON):
+            with open(AA_JSON) as f:
+                cached = json.load(f)
+            if isinstance(cached, list):
+                normalized = _normalize_aa_rows(cached)
+                if normalized:
+                    print(f"  AA using cached snapshot: {len(normalized)} models")
+                    return normalized
+        print("  AA remote scrape disabled (Cloudflare / key required) — skip update")
+        return None
+    except Exception as e:
+        print(f"  AA fetch failed: {e}")
+        return None
+
+
+# Back-compat names used by older cron prompts / imports
+def try_scrape_arena():
+    return fetch_arena_leaderboard()
 
 
 def try_scrape_aa():
-    try:
-        from playwright.sync_api import sync_playwright
-
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            api_data = []
-
-            def handle_response(response):
-                try:
-                    if response.status == 200:
-                        ct = response.headers.get("content-type", "")
-                        body = response.text()
-                        if ("json" in ct) and len(body) > 500 and "intelligence_index" in body:
-                            api_data.append(body)
-                except Exception:
-                    pass
-
-            page.on("response", handle_response)
-            page.goto(
-                "https://artificialanalysis.ai/leaderboards/models",
-                timeout=30000,
-                wait_until="commit",
-            )
-            page.wait_for_timeout(20000)
-            browser.close()
-            for body in api_data:
-                try:
-                    data = json.loads(body)
-                    if isinstance(data, list) and len(data) > 10:
-                        return data
-                    if isinstance(data, dict):
-                        for v in data.values():
-                            if isinstance(v, list) and len(v) > 10:
-                                return v
-                except Exception:
-                    pass
-    except Exception as e:
-        print(f"  AA scrape failed: {e}")
-    return None
+    return fetch_aa_intelligence()
 
 
 def fetch_openrouter_models(api_key: str | None = None) -> list[dict]:
-    headers = {}
+    headers = {"User-Agent": "LLMrank/1.0"}
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
     req = urllib.request.Request("https://openrouter.ai/api/v1/models", headers=headers)
     with urllib.request.urlopen(req, timeout=60) as r:
         data = json.load(r)
-    return data.get("data", data)
+    models = data.get("data", data)
+    if not isinstance(models, list) or len(models) < MIN_OPENROUTER_MODELS:
+        raise RuntimeError(f"OpenRouter payload too small: {type(models)} len={len(models) if isinstance(models, list) else 'n/a'}")
+    return models
 
 
 def to_per_m(v) -> float | None:
@@ -376,22 +470,59 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
     return changes
 
 
+def should_auto_refresh_price(m: dict) -> bool:
+    """
+    Skip manual / deprecated / redirected legacy models.
+    auto_price=False or price_source=manual freezes official list prices.
+    Missing openrouter_id also skips.
+    """
+    if m.get("auto_price") is False:
+        return False
+    if str(m.get("price_source") or "").lower() == "manual":
+        return False
+    if m.get("deprecated") is True:
+        return False
+    oid = m.get("openrouter_id")
+    if not oid:
+        return False
+    return True
+
+
 def refresh_prices_from_openrouter(models: list[dict], api_key: str | None = None) -> list[str]:
     try:
         or_models = fetch_openrouter_models(api_key)
     except Exception as e:
-        print(f"  OpenRouter fetch failed: {e}")
+        print(f"  OpenRouter fetch failed — keeping existing prices: {e}")
         return []
     pmap = openrouter_price_map(or_models)
+    if len(pmap) < MIN_OPENROUTER_MODELS:
+        print(f"  OpenRouter map too small ({len(pmap)}) — skip price update")
+        return []
     changes = []
+    skipped = 0
+    missing = 0
     for m in models:
+        if not should_auto_refresh_price(m):
+            skipped += 1
+            continue
         oid = m.get("openrouter_id")
-        if not oid or oid not in pmap:
+        if oid not in pmap:
+            missing += 1
             continue
         src = pmap[oid]
+        # If OR returns no usable IO prices, do not clobber manual/official values
+        if src["input"] is None and src["output"] is None:
+            missing += 1
+            continue
         price = m.setdefault("price", {"currency": "USD"})
         price["currency"] = "USD"
-        before = (price.get("input"), price.get("output"), price.get("cache_read"), price.get("cache_write"), m.get("ctx"))
+        before = (
+            price.get("input"),
+            price.get("output"),
+            price.get("cache_read"),
+            price.get("cache_write"),
+            m.get("ctx"),
+        )
         price["input"] = src["input"] if src["input"] is not None else -1
         price["output"] = src["output"] if src["output"] is not None else -1
         price["cache_read"] = src["cache_read"] if src["cache_read"] is not None else -1
@@ -399,9 +530,17 @@ def refresh_prices_from_openrouter(models: list[dict], api_key: str | None = Non
         if src["ctx"]:
             m["ctx"] = src["ctx"]
         m["price_source"] = "openrouter"
-        after = (price.get("input"), price.get("output"), price.get("cache_read"), price.get("cache_write"), m.get("ctx"))
+        m["auto_price"] = True
+        after = (
+            price.get("input"),
+            price.get("output"),
+            price.get("cache_read"),
+            price.get("cache_write"),
+            m.get("ctx"),
+        )
         if before != after:
             changes.append(f"  {m['name']}: price/ctx refreshed via {oid}")
+    print(f"  OpenRouter: updated {len(changes)}, skipped frozen/manual {skipped}, missing id {missing}")
     return changes
 
 
@@ -513,6 +652,7 @@ def main():
     models = doc["models"]
     print(f"Loaded {len(models)} models from data/models.json")
 
+    # Load on-disk leaderboard caches as fallback (never invent data).
     arena_data, aa_data = [], []
     if os.path.exists(ARENA_JSON):
         with open(ARENA_JSON) as f:
@@ -521,33 +661,50 @@ def main():
         with open(AA_JSON) as f:
             aa_data = json.load(f)
 
-    print("\n1. Scraping Arena ELO...")
-    new_arena = try_scrape_arena()
+    print("\n1. Fetching Arena ratings...")
+    new_arena = fetch_arena_leaderboard()
+    arena_fresh = False
     if new_arena:
         arena_data = new_arena
+        arena_fresh = True
         with open(ARENA_JSON, "w") as f:
             json.dump(arena_data, f, indent=2, ensure_ascii=False)
-        print(f"  Updated: {len(arena_data)} entries")
+            f.write("\n")
+        print(f"  Cache rewritten: {len(arena_data)} entries")
     else:
-        print("  Using existing data")
+        print("  Fetch failed/incomplete — will NOT patch Arena fields from stale/partial data")
 
-    print("\n2. Scraping AI Index...")
-    new_aa = try_scrape_aa()
-    if new_aa:
+    print("\n2. Fetching AI Index...")
+    new_aa = fetch_aa_intelligence()
+    aa_fresh = False
+    if new_aa and new_aa is not aa_data:
+        # Only treat as fresh if we actually got a validated payload.
+        # Cached reuse is OK for mapping, but we avoid rewriting models when
+        # the remote source is unavailable and nothing new was fetched.
         aa_data = new_aa
-        with open(AA_JSON, "w") as f:
-            json.dump(aa_data, f, indent=2, ensure_ascii=False)
-        print(f"  Updated: {len(aa_data)} entries")
+        # AA currently only returns the on-disk cache; do not mark fresh unless
+        # file mtime is recent AND caller explicitly wants. Safer default: allow
+        # field update only when remote fetch path succeeds later.
+        aa_fresh = False
+        print(f"  Using AA snapshot: {len(aa_data)} entries (no remote refresh)")
     else:
-        print("  Using existing data")
+        print("  No AA update")
 
     print("\n3. Updating leaderboard fields...")
-    changes = update_leaderboard_fields(models, arena_data, aa_data)
+    # Only apply Arena updates when this run successfully fetched Arena.
+    # AA: keep existing models.json values unless we later add a trusted remote.
+    apply_arena = arena_data if arena_fresh else []
+    apply_aa = aa_data if aa_fresh else []
+    if not arena_fresh:
+        print("  Skipping Arena field writes (fetch not fresh)")
+    if not aa_fresh:
+        print("  Skipping AI Index field writes (no trusted remote refresh)")
+    changes = update_leaderboard_fields(models, apply_arena, apply_aa)
     if changes:
         for c in changes:
             print(c)
     else:
-        print("  No leaderboard changes")
+        print("  No leaderboard field changes")
 
     print("\n4. Refreshing OpenRouter prices/ctx...")
     pchanges = refresh_prices_from_openrouter(models, find_openrouter_key())
@@ -570,6 +727,7 @@ def main():
         )
 
     print("\n6. Saving...")
+    # Always re-export derived views; models.json only changes if fields changed.
     save_doc(doc)
     export_legacy(scored)
     print(f"  Saved {MODELS_JSON}")
@@ -595,6 +753,10 @@ def main():
     top3 = scored[:3]
     summary = f"📊 LLM排名已更新 ({today}): "
     summary += " | ".join([f"#{i+1} {m['name']}({m['total']})" for i, m in enumerate(top3)])
+    if not arena_fresh:
+        summary += " | Arena fetch skipped"
+    if not aa_fresh:
+        summary += " | AI Index fetch skipped"
     print(f"\n{summary}")
     return summary
 
