@@ -21,30 +21,54 @@ INDEX_HTML = os.path.join(REPO, 'index.html')
 ARENA_JSON = os.path.join(REPO, 'data', 'arena_leaderboard_full.json')
 AA_JSON = os.path.join(REPO, 'data', 'aa_intelligence_index.json')
 
-# ── Scoring formulas (matching index.html exactly) ──
+# ── Scoring formulas v4 (matching index.html exactly) ──
+# Weights: Arena 30% + AI Index 35% + Price 10% + Multimodal 15% + Context 10% = 100%
+# Capability-first: dampen cheap-model free wins and pure multimodal tag dominance.
 
-def log_norm(v, lo, hi):
-    if v <= 0:
-        return 0
-    return max(0, min(100, (math.log10(v) - math.log10(lo)) / (math.log10(hi) - math.log10(lo)) * 100))
+def lin_norm(v, lo, hi):
+    if hi == lo:
+        return 0.0
+    return max(0.0, min(100.0, (v - lo) / (hi - lo) * 100.0))
 
-def score_arena(arena_rating):
-    return round(log_norm(arena_rating, 1300, 1520))
+def percentile_scores(vals):
+    n = len(vals)
+    order = sorted(range(n), key=lambda i: vals[i])
+    ranks = [0.0] * n
+    i = 0
+    while i < n:
+        j = i
+        while j + 1 < n and vals[order[j + 1]] == vals[order[i]]:
+            j += 1
+        avg = (i + j) / 2.0
+        for k in range(i, j + 1):
+            ranks[order[k]] = avg
+        i = j + 1
+    if n == 1:
+        return [50.0]
+    return [r / (n - 1) * 100.0 for r in ranks]
 
-def score_ai(ai_index):
-    return round(log_norm(ai_index, 5, 60), 1)
+def hybrid(abs_score, perc_score, w_abs=0.65):
+    return abs_score * w_abs + perc_score * (1.0 - w_abs)
 
-def score_price(po, p_min):
-    if po <= 0:
-        return 0
-    multiple = max(po / p_min, 1)
-    return round(100 / (1 + math.log10(multiple)))
+def score_price(po, p_ref=1.0):
+    """Relative to $1/M output. Missing/free -> low neutral (20), not free 100."""
+    if po is None or po <= 0:
+        return 20
+    multiple = max(po / p_ref, 0.05)
+    return int(round(max(5, min(100, 100 / (1 + math.log10(multiple * 4))))))
 
 def score_ctx(ctx):
-    return round(100 / (1 + math.exp(-0.8 * (math.log10(ctx) - math.log10(256000)))))
+    """Sigmoid centered ~400K. 128K~35, 256K~44, 1M~73, 2M~84."""
+    if not ctx or ctx <= 0:
+        return 0
+    return int(round(100 / (1 + math.exp(-1.1 * (math.log10(ctx) - math.log10(400000))))))
 
-def total_score(s_arena, s_ai, s_price, multi, s_ctx):
-    return round(s_arena * 0.25 + s_ai * 0.25 + s_price * 0.15 + multi * 0.15 + s_ctx * 0.15, 1)
+def score_multi(multi):
+    """Compress raw multi 50/75/100 -> 70/85/100."""
+    return int(round(40 + (multi or 0) * 0.6))
+
+def total_score(s_arena, s_ai, s_price, s_multi, s_ctx):
+    return round(s_arena * 0.30 + s_ai * 0.35 + s_price * 0.10 + s_multi * 0.15 + s_ctx * 0.10, 1)
 
 
 # ── Data scraping (best-effort, sites use Cloudflare) ──
@@ -215,15 +239,22 @@ def update_models_from_source(models, arena_data, aa_data):
 
 
 def recalculate_scores(models):
-    """Recalculate all scores for the models list."""
-    prices = [m['po'] for m in models if m.get('po', 0) > 0]
-    p_min = min(prices) if prices else 1
-    for m in models:
-        m['sArena'] = score_arena(m.get('arena', 0))
-        m['sAI'] = score_ai(m.get('ai_index', 0))
-        m['sPrice'] = score_price(m.get('po', 0), p_min)
-        m['sMulti'] = m.get('multi', 0)
-        m['sCtx'] = score_ctx(m.get('ctx', 0))
+    """Recalculate all scores for the models list (Formula v4)."""
+    arenas = [m.get('arena', 0) for m in models]
+    ais = [m.get('ai_index', 0) for m in models]
+    pA = percentile_scores(arenas)
+    pI = percentile_scores(ais)
+    for i, m in enumerate(models):
+        sA = round(hybrid(lin_norm(m.get('arena', 0), 1380, 1520), pA[i], 0.65))
+        sAI = round(hybrid(lin_norm(m.get('ai_index', 0), 15, 60), pI[i], 0.65), 1)
+        sP = score_price(m.get('po', 0))
+        sM = score_multi(m.get('multi', 50))
+        sC = score_ctx(m.get('ctx', 0))
+        m['sArena'] = int(sA)
+        m['sAI'] = sAI
+        m['sPrice'] = int(sP)
+        m['sMulti'] = int(sM)
+        m['sCtx'] = int(sC)
         m['sEco'] = m.get('eco', 0)
         m['total'] = total_score(m['sArena'], m['sAI'], m['sPrice'], m['sMulti'], m['sCtx'])
 
