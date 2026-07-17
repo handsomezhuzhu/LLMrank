@@ -23,7 +23,7 @@
 <div id="app" v-cloak>
     <header class="hdr">
         <h1>Simon's LLM Ranking</h1>
-        <p class="sub">Multi-Dimension Weighted Evaluation · Formula v4 · July 2026 · 62 Models</p>
+        <p class="sub">Multi-Dimension Weighted Evaluation · July 2026 · 65 Models</p>
         <div class="tags">
             <span class="tag t-arena">Arena 30%</span>
             <span class="tag t-ai">AI Index 35%</span>
@@ -112,6 +112,9 @@
 const { createApp, computed } = Vue
 
 const models = [
+    {name:"Claude Fable 5",vendor:"Anthropic",r:"US",arena:1507.0,eco:88,po:50.0,multi:75,ctx:1000000,ai_index:59.86,note:"text+think+vision, Mythos-class",url:"https://www.anthropic.com/news/claude-fable-5-mythos-5"},
+    {name:"GPT-5.6 Sol High",vendor:"OpenAI",r:"US",arena:1486.0,eco:96,po:30.0,multi:75,ctx:1100000,ai_index:59.0,note:"text+think+vision, flagship Sol xhigh/max",url:"https://openai.com/index/gpt-5-6/"},
+    {name:"Kimi K3",vendor:"Moonshot",r:"CN",arena:1486.0,eco:45,po:15.0,multi:75,ctx:1000000,ai_index:57.1,note:"text+think+vision, 2.8T open-weight multimodal",url:"https://platform.kimi.ai/docs/guide/kimi-k3-quickstart"},
     {name:"Claude Opus 4.7",vendor:"Anthropic",r:"US",arena:1493.14,eco:88,po:25.0,multi:75,ctx:1000000,ai_index:53.5296569524586,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
     {name:"GPT-5.5 High",vendor:"OpenAI",r:"US",arena:1481.22,eco:96,po:30.0,multi:75,ctx:1050000,ai_index:54.8375984166433,note:"text+think+vision",url:"https://platform.openai.com/docs/models"},
     {name:"Claude Opus 4.8",vendor:"Anthropic",r:"US",arena:1477.85,eco:88,po:25.0,multi:75,ctx:1000000,ai_index:55.692,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
@@ -137,8 +140,8 @@ const models = [
     {name:"DeepSeek V4 Flash",vendor:"DeepSeek",r:"CN",arena:1433.85,eco:45,po:0.28,multi:50,ctx:1048576,ai_index:40.2825017625236,note:"text+think only",url:"https://api-docs.deepseek.com/"},
     {name:"MiMo V2 Pro",vendor:"Xiaomi",r:"CN",arena:1448.38,eco:12,po:2.0,multi:50,ctx:1048576,ai_index:40.2884087649747,url:"https://huggingface.co/XiaomiMiMo"},
     {name:"Qwen3.6 Max",vendor:"Alibaba",r:"CN",arena:1460.72,eco:72,po:6.4,multi:50,ctx:262144,ai_index:40.0,note:"text+think only",url:"https://help.aliyun.com/zh/model-studio/getting-started/models"},
-    {name:"GLM-5",vendor:"Zhipu AI",r:"CN",arena:1457.26,eco:65,po:3.2,multi:50,ctx:202752,ai_index:39.5,note:"text+think only",url:"https://bigmodel.cn/dev/howuse/glm-5"},
     {name:"MiMo V2.5",vendor:"Xiaomi",r:"CN",arena:1433.01,eco:12,po:2.0,multi:75,ctx:1048576,ai_index:40.1358548646523,note:"text+think+vision (base=multimodal)",url:"https://huggingface.co/XiaomiMiMo"},
+    {name:"GLM-5",vendor:"Zhipu AI",r:"CN",arena:1457.26,eco:65,po:3.2,multi:50,ctx:202752,ai_index:39.5,note:"text+think only",url:"https://bigmodel.cn/dev/howuse/glm-5"},
     {name:"GPT-5.1 High",vendor:"OpenAI",r:"US",arena:1454.65,eco:96,po:10.0,multi:75,ctx:128000,ai_index:38.914162077616,note:"text+think+vision",url:"https://platform.openai.com/docs/models"},
     {name:"Qwen3.6 Plus",vendor:"Alibaba",r:"CN",arena:1444.21,eco:72,po:2.4,multi:50,ctx:262144,ai_index:39.5608411628461,note:"text+think only",url:"https://help.aliyun.com/zh/model-studio/getting-started/models"},
     {name:"Grok 4.3",vendor:"xAI",r:"US",arena:1444.02,eco:58,po:25.0,multi:75,ctx:1048576,ai_index:37.5766393431307,note:"text+think+vision, newest",url:"https://docs.x.ai/docs/models"},

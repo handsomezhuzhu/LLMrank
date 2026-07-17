@@ -1,10 +1,10 @@
 [
   {
     "model": "claude-fable-5",
-    "modelKey": "claude-fable-5-text",
-    "rating": 1507.59,
+    "modelKey": "claude-fable-5",
+    "rating": 1507.0,
     "organization": "Anthropic",
-    "votes": 4297
+    "votes": 8819
   },
   {
     "model": "claude-opus-4-6-thinking",
@@ -1398,5 +1398,26 @@
     "rating": 1328.32,
     "organization": "01 AI",
     "votes": 27332
+  },
+  {
+    "model": "kimi-k3",
+    "modelKey": "kimi-k3",
+    "rating": 1486.0,
+    "organization": "Moonshot",
+    "votes": 3024
+  },
+  {
+    "model": "gpt-5.6-sol-xhigh",
+    "modelKey": "gpt-5.6-sol-xhigh",
+    "rating": 1486.0,
+    "organization": "OpenAI",
+    "votes": 4095
+  },
+  {
+    "model": "muse-spark-1.1",
+    "modelKey": "muse-spark-1.1",
+    "rating": 1493.0,
+    "organization": "Meta",
+    "votes": 5729
   }
 ]

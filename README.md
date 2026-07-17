@@ -1,6 +1,6 @@
 # Simon's LLM Ranking
 
-Multi-dimensional weighted evaluation of **62 large language models** from major vendors.
+Multi-dimensional weighted evaluation of **65 large language models** from major vendors.
 
 🔗 **Live Site**: [rank.zhuzihan.com](https://rank.zhuzihan.com) · [GitHub Pages](https://handsomezhuzhu.github.io/LLMrank/)
 
