@@ -413,8 +413,10 @@ def recalculate_scores(models: list[dict]) -> list[dict]:
     pI = percentile_scores(ais)
     scored = []
     for i, m in enumerate(models):
-        sA = round(hybrid(lin_norm(arenas[i], 1380, 1520), pA[i], 0.65))
-        sAI = round(hybrid(lin_norm(ais[i], 15, 60), pI[i], 0.65), 1)
+        # Floor lowered so trailing models keep double-digit axis scores
+        # (old 1380/15 floors zeroed DeepSeek V3-class entries).
+        sA = round(hybrid(lin_norm(arenas[i], 1300, 1520), pA[i], 0.65))
+        sAI = round(hybrid(lin_norm(ais[i], 0, 60), pI[i], 0.65), 1)
         eff = effective_price_usd(m.get("price"))
         sP = score_price_from_effective(eff)
         sM = score_multi(m.get("multi", 50))

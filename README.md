@@ -37,8 +37,8 @@ Capability-first. Weights sum to **100%**.
 
 | Dimension | Weight | Method |
 |-----------|--------|--------|
-| **Arena** | 30% | Hybrid: linear abs (1380–1520) 65% + in-list percentile 35% |
-| **AI Index** | 35% | Hybrid: linear abs (15–60) 65% + percentile 35% |
+| **Arena** | 30% | Hybrid: linear abs (1300–1520) 65% + in-list percentile 35% |
+| **AI Index** | 35% | Hybrid: linear abs (0–60) 65% + percentile 35% |
 | **Price** | 10% | Effective $/1M from 4-part price → log vs $1/M ref; missing/free = 20 |
 | **Multimodal** | 15% | Raw multi compressed: 50/75/100 → 70/85/100 |
 | **Context** | 10% | Sigmoid centered ~400K |

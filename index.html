@@ -1117,8 +1117,9 @@ createApp({
             const scoreMulti = (multi) => Math.round(40 + multi * 0.6)
 
             return models.map((m, idx) => {
-                const sA = Math.round(hybrid(linNorm(m.arena, 1380, 1520), pA[idx], 0.65))
-                const sAI = +hybrid(linNorm(m.ai_index, 15, 60), pI[idx], 0.65).toFixed(1)
+                // Floor lowered so trailing models keep double-digit axis scores
+                const sA = Math.round(hybrid(linNorm(m.arena, 1300, 1520), pA[idx], 0.65))
+                const sAI = +hybrid(linNorm(m.ai_index, 0, 60), pI[idx], 0.65).toFixed(1)
                 const sP = scorePrice(m.price)
                 const sM = scoreMulti(m.multi)
                 const sC = scoreCtx(m.ctx)
@@ -1202,12 +1203,12 @@ createApp({
                 {
                     t: 'Arena',
                     w: '30%',
-                    d: 'Hybrid of absolute linear normalization (1380–1520) at 65% and in-list percentile at 35%. Captures human blind-test preference.'
+                    d: 'Hybrid of absolute linear normalization (1300–1520) at 65% and in-list percentile at 35%. Captures human blind-test preference; floor lowered so older models keep double-digit scores.'
                 },
                 {
                     t: 'AI Index',
                     w: '35%',
-                    d: 'Hybrid of absolute linear (15–60) at 65% and percentile at 35%. Artificial Analysis composite — highest weight to counter pure popularity bias.'
+                    d: 'Hybrid of absolute linear (0–60) at 65% and percentile at 35%. Artificial Analysis composite — highest weight to counter pure popularity bias.'
                 },
                 {
                     t: 'Price',

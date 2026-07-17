@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-17T07:11:45Z",
+  "updated_at": "2026-07-17T09:08:30Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1325,28 +1325,6 @@
       "openrouter_id": "mistralai/mistral-large-2512",
       "url": "https://mistral.ai/products/la-plateforme/",
       "note": ""
-    },
-    {
-      "id": "grok-3",
-      "name": "Grok 3",
-      "vendor": "xAI",
-      "region": "US",
-      "arena": 1411.6,
-      "ai_index": 18.3500211744333,
-      "multi": 75,
-      "eco": 58,
-      "ctx": 131072,
-      "price": {
-        "currency": "USD",
-        "input": -1,
-        "output": 15.0,
-        "cache_read": -1,
-        "cache_write": -1
-      },
-      "price_source": "manual",
-      "openrouter_id": null,
-      "url": "https://docs.x.ai/docs/models",
-      "note": "OpenRouter 无 grok-3 路由，价格沿用人工维护"
     },
     {
       "id": "claude-haiku-4-5",
