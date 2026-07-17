@@ -200,6 +200,26 @@
     "url": "https://docs.anthropic.com/en/docs/about-claude/models"
   },
   {
+    "name": "GLM-5.2",
+    "vendor": "Zhipu AI",
+    "r": "CN",
+    "arena": 1470.99,
+    "ai_index": 51.0858,
+    "eco": 65,
+    "po": 3.2,
+    "multi": 50,
+    "ctx": 1000000,
+    "note": "text+think only, 1M ctx",
+    "url": "https://bigmodel.cn/dev/howuse/glm-5",
+    "sArena": 66,
+    "sAI": 83.3,
+    "sEco": 65,
+    "sPrice": 47,
+    "sMulti": 70,
+    "sCtx": 61,
+    "total": 70.3
+  },
+  {
     "name": "GPT-5.5",
     "vendor": "OpenAI",
     "r": "US",
@@ -276,26 +296,6 @@
     "sCtx": 61,
     "total": 68.5,
     "url": "https://deepmind.google/technologies/gemini/pro/"
-  },
-  {
-    "name": "GLM-5.2",
-    "vendor": "Zhipu AI",
-    "r": "CN",
-    "arena": 1470.99,
-    "ai_index": 51.0858,
-    "eco": 65,
-    "po": 3.2,
-    "multi": 50,
-    "ctx": 202752,
-    "note": "text+think only",
-    "url": "https://bigmodel.cn/dev/howuse/glm-5",
-    "sArena": 66,
-    "sAI": 83.3,
-    "sEco": 65,
-    "sPrice": 47,
-    "sMulti": 70,
-    "sCtx": 42,
-    "total": 68.4
   },
   {
     "name": "Qwen3.7 Max",
