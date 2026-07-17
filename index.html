@@ -23,7 +23,7 @@
 <div id="app" v-cloak>
     <header class="hdr">
         <h1>Simon's LLM Ranking</h1>
-        <p class="sub">Multi-Dimension Weighted Evaluation · July 2026 · 65 Models</p>
+        <p class="sub">Multi-Dimension Weighted Evaluation · July 2026 · data/models.json</p>
         <div class="tags">
             <span class="tag t-arena">Arena 30%</span>
             <span class="tag t-ai">AI Index 35%</span>
@@ -39,6 +39,8 @@
         </span>
     </div>
 
+    <p v-if="err" style="text-align:center;color:#FF5252;padding:12px">Failed to load data/models.json: {{ err }}</p>
+    <p v-else-if="!ready" style="text-align:center;color:#888;padding:12px">Loading models…</p>
     <div class="tbl-wrap">
         <table>
             <thead>
@@ -109,85 +111,76 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.min.js"></script>
 <script>
-const { createApp, computed } = Vue
+const { createApp, computed, ref, onMounted } = Vue
 
-const models = [
-    {name:"Claude Fable 5",vendor:"Anthropic",r:"US",arena:1507.0,eco:88,po:50.0,multi:75,ctx:1000000,ai_index:59.86,note:"text+think+vision, Mythos-class",url:"https://www.anthropic.com/news/claude-fable-5-mythos-5"},
-    {name:"GPT-5.6 Sol High",vendor:"OpenAI",r:"US",arena:1486.0,eco:96,po:30.0,multi:75,ctx:1100000,ai_index:59.0,note:"text+think+vision, flagship Sol xhigh/max",url:"https://openai.com/index/gpt-5-6/"},
-    {name:"Kimi K3",vendor:"Moonshot",r:"CN",arena:1486.0,eco:45,po:15.0,multi:75,ctx:1000000,ai_index:57.1,note:"text+think+vision, 2.8T open-weight multimodal",url:"https://platform.kimi.ai/docs/guide/kimi-k3-quickstart"},
-    {name:"Claude Opus 4.7",vendor:"Anthropic",r:"US",arena:1493.14,eco:88,po:25.0,multi:75,ctx:1000000,ai_index:53.5296569524586,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
-    {name:"GPT-5.5 High",vendor:"OpenAI",r:"US",arena:1481.22,eco:96,po:30.0,multi:75,ctx:1050000,ai_index:54.8375984166433,note:"text+think+vision",url:"https://platform.openai.com/docs/models"},
-    {name:"Claude Opus 4.8",vendor:"Anthropic",r:"US",arena:1477.85,eco:88,po:25.0,multi:75,ctx:1000000,ai_index:55.692,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
-    {name:"Gemini 3.5 Flash",vendor:"Google",r:"US",arena:1476.25,eco:94,po:2.5,multi:100,ctx:1048576,ai_index:50.2035,note:"text+think+vision",url:"https://deepmind.google/technologies/gemini/flash/"},
-    {name:"Gemini 3.1 Pro",vendor:"Google",r:"US",arena:1486.42,eco:94,po:12.0,multi:100,ctx:1048576,ai_index:46.4594206066426,note:"text+think+vision",url:"https://deepmind.google/technologies/gemini/pro/"},
-    {name:"GPT-5.4 High",vendor:"OpenAI",r:"US",arena:1478.02,eco:96,po:15.0,multi:75,ctx:1050000,ai_index:51.4012420630147,note:"text+think+vision",url:"https://platform.openai.com/docs/models"},
-    {name:"Claude Opus 4.6",vendor:"Anthropic",r:"US",arena:1498.76,eco:88,po:25.0,multi:75,ctx:1000000,ai_index:43.7100998174865,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
-    {name:"GLM-5.2",vendor:"Zhipu AI",r:"CN",arena:1470.99,eco:65,po:3.2,multi:50,ctx:1000000,ai_index:51.0858,note:"text+think only, 1M ctx",url:"https://bigmodel.cn/dev/howuse/glm-5"},
-    {name:"GPT-5.5",vendor:"OpenAI",r:"US",arena:1474.85,eco:96,po:30.0,multi:75,ctx:1050000,ai_index:47.1447014229694,url:"https://platform.openai.com/docs/models"},
-    {name:"Claude Sonnet 4.6",vendor:"Anthropic",r:"US",arena:1471.74,eco:88,po:15.0,multi:75,ctx:1000000,ai_index:47.2100024360452,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
-    {name:"GPT-5.5 Instant",vendor:"OpenAI",r:"US",arena:1472.68,eco:96,po:15.0,multi:75,ctx:1050000,ai_index:47.1447,note:"text+vision",url:"https://platform.openai.com/docs/models"},
-    {name:"Gemini 3 Pro",vendor:"Google",r:"US",arena:1485.74,eco:94,po:12.0,multi:100,ctx:1048576,ai_index:39.5506843742073,url:"https://deepmind.google/technologies/gemini/pro/"},
-    {name:"Qwen3.7 Max",vendor:"Alibaba",r:"CN",arena:1474.65,eco:72,po:3.75,multi:50,ctx:1000000,ai_index:45.9937184770221,url:"https://help.aliyun.com/zh/model-studio/models"},
-    {name:"Gemini 3 Flash",vendor:"Google",r:"US",arena:1473.23,eco:94,po:0.4,multi:100,ctx:1048576,ai_index:37.7570171800261,note:"text+think+vision",url:"https://deepmind.google/technologies/gemini/flash/"},
-    {name:"GPT-5.2",vendor:"OpenAI",r:"US",arena:1475.36,eco:96,po:10.0,multi:75,ctx:262144,ai_index:42.1829833875032,url:"https://platform.openai.com/docs/models"},
-    {name:"Muse Spark",vendor:"Meta",r:"US",arena:1486.95,eco:85,po:0,multi:50,ctx:131072,ai_index:43.0556,note:"text+think+vision",url:"https://ai.meta.com"},
-    {name:"MiMo V2.5 Pro",vendor:"Xiaomi",r:"CN",arena:1466.18,eco:12,po:3.0,multi:50,ctx:1048576,ai_index:42.2394366693508,note:"text+think only (Pro=text-only)",url:"https://huggingface.co/XiaomiMiMo"},
-    {name:"GLM-5.1",vendor:"Zhipu AI",r:"CN",arena:1475.26,eco:65,po:3.2,multi:50,ctx:202752,ai_index:40.1570857627689,note:"text+think only",url:"https://bigmodel.cn/dev/howuse/glm-5"},
-    {name:"DeepSeek V4 Pro",vendor:"DeepSeek",r:"CN",arena:1455.93,eco:45,po:0.87,multi:50,ctx:1048576,ai_index:40.8255694978728,note:"text+think only, no vision",url:"https://api-docs.deepseek.com/"},
-    {name:"GPT-5.4",vendor:"OpenAI",r:"US",arena:1467.72,eco:96,po:15.0,multi:75,ctx:1050000,ai_index:39.1372303481376,url:"https://platform.openai.com/docs/models"},
-    {name:"Grok 4.20",vendor:"xAI",r:"US",arena:1474.41,eco:58,po:25.0,multi:75,ctx:2000000,ai_index:37.0,note:"text+think+vision, 2M ctx",url:"https://docs.x.ai/docs/models"},
-    {name:"Kimi K2.6",vendor:"Moonshot",r:"CN",arena:1460.23,eco:38,po:4.0,multi:50,ctx:262142,ai_index:42.8413910763059,note:"text+think only",url:"https://platform.moonshot.cn/docs/intro"},
-    {name:"DeepSeek V4 Flash",vendor:"DeepSeek",r:"CN",arena:1433.85,eco:45,po:0.28,multi:50,ctx:1048576,ai_index:40.2825017625236,note:"text+think only",url:"https://api-docs.deepseek.com/"},
-    {name:"MiMo V2 Pro",vendor:"Xiaomi",r:"CN",arena:1448.38,eco:12,po:2.0,multi:50,ctx:1048576,ai_index:40.2884087649747,url:"https://huggingface.co/XiaomiMiMo"},
-    {name:"Qwen3.6 Max",vendor:"Alibaba",r:"CN",arena:1460.72,eco:72,po:6.4,multi:50,ctx:262144,ai_index:40.0,note:"text+think only",url:"https://help.aliyun.com/zh/model-studio/getting-started/models"},
-    {name:"MiMo V2.5",vendor:"Xiaomi",r:"CN",arena:1433.01,eco:12,po:2.0,multi:75,ctx:1048576,ai_index:40.1358548646523,note:"text+think+vision (base=multimodal)",url:"https://huggingface.co/XiaomiMiMo"},
-    {name:"GLM-5",vendor:"Zhipu AI",r:"CN",arena:1457.26,eco:65,po:3.2,multi:50,ctx:202752,ai_index:39.5,note:"text+think only",url:"https://bigmodel.cn/dev/howuse/glm-5"},
-    {name:"GPT-5.1 High",vendor:"OpenAI",r:"US",arena:1454.65,eco:96,po:10.0,multi:75,ctx:128000,ai_index:38.914162077616,note:"text+think+vision",url:"https://platform.openai.com/docs/models"},
-    {name:"Qwen3.6 Plus",vendor:"Alibaba",r:"CN",arena:1444.21,eco:72,po:2.4,multi:50,ctx:262144,ai_index:39.5608411628461,note:"text+think only",url:"https://help.aliyun.com/zh/model-studio/getting-started/models"},
-    {name:"Grok 4.3",vendor:"xAI",r:"US",arena:1444.02,eco:58,po:25.0,multi:75,ctx:1048576,ai_index:37.5766393431307,note:"text+think+vision, newest",url:"https://docs.x.ai/docs/models"},
-    {name:"Grok 4.1",vendor:"xAI",r:"US",arena:1459.55,eco:58,po:5.0,multi:75,ctx:2000000,ai_index:30.6216050979987,note:"text+think+vision, 2M ctx",url:"https://docs.x.ai/docs/models"},
-    {name:"Kimi K2.5",vendor:"Moonshot",r:"CN",arena:1449.69,eco:38,po:3.0,multi:50,ctx:262142,ai_index:38.1072025858264,note:"text+think only",url:"https://platform.moonshot.cn/docs/intro"},
-    {name:"Gemini 2.5 Pro",vendor:"Google",r:"US",arena:1445.71,eco:94,po:5.0,multi:100,ctx:1048576,ai_index:26.9821231506872,note:"text+think+vision",url:"https://deepmind.google/technologies/gemini/pro/"},
-    {name:"GPT-5",vendor:"OpenAI",r:"US",arena:1433.57,eco:96,po:10.0,multi:75,ctx:262144,ai_index:36.1104706151039,url:"https://platform.openai.com/docs/models"},
-    {name:"MiniMax M2.7",vendor:"MiniMax",r:"CN",arena:1416.61,eco:55,po:1.2,multi:50,ctx:1048576,ai_index:38.1344947250387,url:"https://www.minimaxi.com/"},
-    {name:"GLM-4.7",vendor:"Zhipu AI",r:"CN",arena:1442.58,eco:65,po:2.2,multi:50,ctx:202752,ai_index:33.8118541391742,note:"text+think only",url:"https://bigmodel.cn/dev/howuse/glm-4"},
-    {name:"Qwen3.5-397B",vendor:"Alibaba",r:"CN",arena:1443.72,eco:72,po:3.6,multi:50,ctx:262144,ai_index:33.6817059499116,note:"open source, text+think",url:"https://qwenlm.github.io/blog/qwen3.5/"},
-    {name:"o3",vendor:"OpenAI",r:"US",arena:1431.01,eco:96,po:10.0,multi:75,ctx:200000,ai_index:30.4025993972201,url:"https://platform.openai.com/docs/models"},
-    {name:"Kimi K2 Thinking",vendor:"Moonshot",r:"CN",arena:1430.02,eco:38,po:8.0,multi:50,ctx:262142,ai_index:32.7026871189548,url:"https://platform.moonshot.cn/docs/intro"},
-    {name:"Grok 4 Fast",vendor:"xAI",r:"US",arena:1420.91,eco:58,po:5.0,multi:75,ctx:2000000,ai_index:27.3744610344252,url:"https://docs.x.ai/docs/models"},
-    {name:"Qwen3.5-122B",vendor:"Alibaba",r:"CN",arena:1417.16,eco:72,po:2.0,multi:50,ctx:262144,ai_index:32.2791462784081,url:"https://qwenlm.github.io/blog/qwen3.5/"},
-    {name:"Qwen3.5-27B",vendor:"Alibaba",r:"CN",arena:1408.81,eco:72,po:2.4,multi:50,ctx:262144,ai_index:33.7762211760604,url:"https://qwenlm.github.io/blog/qwen3.5/"},
-    {name:"DeepSeek V3.2",vendor:"DeepSeek",r:"CN",arena:1424.97,eco:45,po:0.4,multi:50,ctx:131072,ai_index:24.6607146015067,note:"text+think only",url:"https://api-docs.deepseek.com/"},
-    {name:"MiniMax M2.5",vendor:"MiniMax",r:"CN",arena:1390.61,eco:55,po:1.2,multi:50,ctx:1048576,ai_index:33.6520929448647,url:"https://www.minimaxi.com/"},
-    {name:"GPT-5 mini",vendor:"OpenAI",r:"US",arena:1390.04,eco:96,po:2.0,multi:75,ctx:262144,ai_index:32.956160342673,url:"https://platform.openai.com/docs/models"},
-    {name:"Qwen3 Max",vendor:"Alibaba",r:"CN",arena:1434.83,eco:72,po:6.4,multi:50,ctx:131072,ai_index:24.0142215430465,url:"https://help.aliyun.com/zh/model-studio/getting-started/models"},
-    {name:"GLM-4.6",vendor:"Zhipu AI",r:"CN",arena:1425.34,eco:65,po:2.2,multi:50,ctx:202752,ai_index:22.978120124402,url:"https://bigmodel.cn/dev/howuse/glm-4"},
-    {name:"DeepSeek V3.1",vendor:"DeepSeek",r:"CN",arena:1417.39,eco:45,po:0.4,multi:50,ctx:131072,ai_index:21.0458273828992,url:"https://api-docs.deepseek.com/"},
-    {name:"Qwen3.5-35B",vendor:"Alibaba",r:"CN",arena:1395.77,eco:72,po:2.0,multi:50,ctx:262144,ai_index:29.2597061896232,url:"https://qwenlm.github.io/blog/qwen3.5/"},
-    {name:"GLM-4.5",vendor:"Zhipu AI",r:"CN",arena:1410.94,eco:65,po:2.2,multi:50,ctx:128000,ai_index:26.4189565824233,url:"https://bigmodel.cn/dev/howuse/glm-4"},
-    {name:"GPT-4o",vendor:"OpenAI",r:"US",arena:1443.22,eco:96,po:10.0,multi:75,ctx:128000,ai_index:11.1829048173286,note:"text+vision+generation(no think)",url:"https://platform.openai.com/docs/models#gpt-4o"},
-    {name:"GPT-4.1",vendor:"OpenAI",r:"US",arena:1413.64,eco:96,po:8.0,multi:75,ctx:1050000,ai_index:19.3571959297196,url:"https://platform.openai.com/docs/models"},
-    {name:"Step 3.5 Flash",vendor:"StepFun",r:"CN",arena:1395.17,eco:40,po:0.5,multi:50,ctx:131072,ai_index:26.0,url:"https://platform.stepfun.com/"},
-    {name:"Gemini 2.5 Flash",vendor:"Google",r:"US",arena:1410.38,eco:94,po:2.5,multi:100,ctx:1048576,ai_index:14.1414305953082,url:"https://deepmind.google/technologies/gemini/flash/"},
-    {name:"o1",vendor:"OpenAI",r:"US",arena:1401.98,eco:96,po:15.0,multi:75,ctx:200000,ai_index:23.4407206672942,url:"https://platform.openai.com/docs/models"},
-    {name:"Kimi K2",vendor:"Moonshot",r:"CN",arena:1417.45,eco:38,po:2.5,multi:50,ctx:131072,ai_index:19.3982663833847,url:"https://platform.moonshot.cn/docs/intro"},
-    {name:"Mistral Large 3",vendor:"Mistral",r:"EU",arena:1415.74,eco:60,po:2.0,multi:75,ctx:128000,ai_index:16.1875717286018,url:"https://mistral.ai/products/la-plateforme/"},
-    {name:"Grok 3",vendor:"xAI",r:"US",arena:1411.6,eco:58,po:15.0,multi:75,ctx:131072,ai_index:18.3500211744333,url:"https://docs.x.ai/docs/models"},
-    {name:"Claude Haiku 4.5",vendor:"Anthropic",r:"US",arena:1411.07,eco:88,po:5.0,multi:75,ctx:200000,ai_index:12.4075531975375,note:"text+think+vision",url:"https://docs.anthropic.com/en/docs/about-claude/models"},
-    {name:"DeepSeek R1",vendor:"DeepSeek",r:"CN",arena:1398.08,eco:45,po:2.19,multi:50,ctx:131072,ai_index:20.0823831450007,note:"text+reasoning only",url:"https://api-docs.deepseek.com/"},
-    {name:"DeepSeek V3",vendor:"DeepSeek",r:"CN",arena:1358.49,eco:45,po:0.4,multi:50,ctx:131072,ai_index:10.3943107867161,url:"https://api-docs.deepseek.com/"},
-    {name:"Qwen3-235B",vendor:"Alibaba",r:"CN",arena:1374.82,eco:72,po:3.0,multi:50,ctx:131072,ai_index:18.1559405761184,note:"open source, text+think",url:"https://qwenlm.github.io/blog/qwen3/"}
-]
+let models = []
+let loadError = null
+
+const CNY_PER_USD = 7.2
+
+function toUsd(amount, currency) {
+    const c = (currency || 'USD').toUpperCase()
+    if (c === 'USD' || c === 'US$') return amount
+    if (c === 'CNY' || c === 'RMB' || c === '¥' || c === '元') return amount / CNY_PER_USD
+    return amount
+}
+
+function priceComponent(price, key) {
+    if (!price) return null
+    const raw = price[key]
+    if (raw === undefined || raw === null || raw < 0) return null
+    return toUsd(Number(raw), price.currency || 'USD')
+}
+
+// Blend: input 25% + output 55% + cache_read 10% + cache_write 10%
+// Missing components redistributed; sentinel -1 = missing
+function effectivePriceUsd(price) {
+    const weights = {input: 0.25, output: 0.55, cache_read: 0.10, cache_write: 0.10}
+    const parts = {}
+    for (const k of Object.keys(weights)) {
+        const v = priceComponent(price, k)
+        if (v !== null) parts[k] = v
+    }
+    const keys = Object.keys(parts)
+    if (!keys.length) return null
+    const wsum = keys.reduce((s,k)=>s+weights[k], 0)
+    return keys.reduce((s,k)=>s + parts[k]*(weights[k]/wsum), 0)
+}
+
 const vc = {Anthropic:'#C4956A',Google:'#3B78E7',OpenAI:'#0FA97E','Zhipu AI':'#E85D5D',Xiaomi:'#E67E00',DeepSeek:'#8E44AD',Alibaba:'#E63900',Moonshot:'#1A8FE3',xAI:'#1DA1F2',Meta:'#0668E1',MiniMax:'#FF6B35',Mistral:'#FF7000',StepFun:'#7C3AED'}
 
 const vendorUrls = {OpenAI:'https://openai.com',Anthropic:'https://anthropic.com',Google:'https://deepmind.google',xAI:'https://x.ai',DeepSeek:'https://deepseek.com',Alibaba:'https://qwen.ai','Zhipu AI':'https://zhipuai.cn',Moonshot:'https://moonshot.cn',Xiaomi:'https://huggingface.co/XiaomiMiMo',Meta:'https://ai.meta.com',MiniMax:'https://www.minimaxi.com',Mistral:'https://mistral.ai',StepFun:'https://www.stepfun.com'}
 
 createApp({
     setup() {
+        const { ref, computed, onMounted } = Vue
+        const modelsRef = ref([])
+        const err = ref(null)
+        const ready = ref(false)
+
+        onMounted(async () => {
+            try {
+                const res = await fetch('data/models.json?t=' + Date.now())
+                if (!res.ok) throw new Error('HTTP ' + res.status)
+                const doc = await res.json()
+                modelsRef.value = (doc.models || []).map(m => ({
+                    ...m,
+                    r: m.region || m.r || 'US',
+                    po: (m.price && m.price.output != null) ? m.price.output : -1,
+                }))
+                ready.value = true
+            } catch (e) {
+                err.value = String(e)
+                console.error('Failed to load data/models.json', e)
+            }
+        })
+
         // Formula v4: capability-first, weights sum to 100%
         // Arena 30% + AI Index 35% + Price 10% + Multimodal 15% + Context 10%
         const ranked = computed(() => {
+            const models = modelsRef.value
             const n = models.length
+            if (!n) return []
             const arenas = models.map(m => m.arena)
             const ais = models.map(m => m.ai_index)
             const percentile = (vals) => {
@@ -208,9 +201,10 @@ createApp({
             const pI = percentile(ais)
             const linNorm = (v,lo,hi) => hi===lo ? 0 : Math.max(0, Math.min(100, (v-lo)/(hi-lo)*100))
             const hybrid = (abs, perc, w=0.65) => abs*w + perc*(1-w)
-            const scorePrice = (po) => {
-                if (!po || po <= 0) return 20  // missing/free: low neutral, not free 100
-                const multiple = Math.max(po / 1.0, 0.05)
+            const scorePrice = (price) => {
+                const eff = effectivePriceUsd(price)
+                if (eff === null || eff <= 0) return 20  // missing/free: low neutral, not free 100
+                const multiple = Math.max(eff / 1.0, 0.05)
                 return Math.round(Math.max(5, Math.min(100, 100 / (1 + Math.log10(multiple * 4)))))
             }
             const scoreCtx = (ctx) => {
@@ -223,7 +217,7 @@ createApp({
             return models.map((m, idx) => {
                 const sA = Math.round(hybrid(linNorm(m.arena, 1380, 1520), pA[idx], 0.65))
                 const sAI = +hybrid(linNorm(m.ai_index, 15, 60), pI[idx], 0.65).toFixed(1)
-                const sP = scorePrice(m.po)
+                const sP = scorePrice(m.price)
                 const sM = scoreMulti(m.multi)
                 const sC = scoreCtx(m.ctx)
                 const total = sA*0.30 + sAI*0.35 + sP*0.10 + sM*0.15 + sC*0.10
@@ -234,20 +228,20 @@ createApp({
         const sc = (v) => v>=70?'sh':v>=50?'sm':v>=30?'sl':'sv'
         const tier = (s) => s>=75?{l:'S+',c:'#FFD700'}:s>=68?{l:'S',c:'#FFA000'}:s>=60?{l:'A+',c:'#FF5252'}:s>=52?{l:'A',c:'#FF6D00'}:s>=44?{l:'A-',c:'#D32F2F'}:s>=36?{l:'B+',c:'#1976D2'}:{l:'B',c:'#00897B'}
 
-        return { ranked, vc, vendorUrls, sc, tier,
+        return { ranked, vc, vendorUrls, sc, tier, err, ready,
             tiers:[{l:'S+ (75+)',c:'#FFD700'},{l:'S (68+)',c:'#FFA000'},{l:'A+ (60+)',c:'#FF5252'},{l:'A (52+)',c:'#FF6D00'},{l:'A- (44+)',c:'#D32F2F'},{l:'B+ (36+)',c:'#1976D2'},{l:'B (<36)',c:'#00897B'}],
             rules:[
                 {t:'Arena',w:'30%',d:'Formula v4: 绝对线性归一化(1380-1520) 65% + 榜内百分位 35% 混合. 人类盲测偏好, 能力主轴之一.'},
                 {t:'AI Index',w:'35%',d:'Formula v4: 绝对线性(15-60) 65% + 百分位 35%. Artificial Analysis 综合基准, 权重最高, 纠偏纯人气榜.'},
-                {t:'Price',w:'10%',d:'相对 $1/M output 参考价的 log 压缩. 削弱「最便宜=满分」. 0.28≈78, 1≈60, 15≈30, 30≈25; 缺价/免费=20 中性低分.'},
+                {t:'Price',w:'10%',d:'从 data/models.json 的 input/output/cache_read/cache_write 加权有效价（25/55/10/10，缺项重分配；无缓存=-1）→ 相对 $1/M log 压缩。缺价/免费=20 中性低分。支持 USD 或 CNY。'},
                 {t:'Multimodal',w:'15%',d:'原生能力压缩映射: raw Multi 50/75/100 → 得分 70/85/100, 避免纯多模态标签碾压. Text/Think/Vision/Gen 仍为来源.'},
                 {t:'Context',w:'10%',d:'Sigmoid 中心约 400K. 128K→~35, 256K→~44, 1M→~73, 2M→~84. 降权, 避免 1M 上下文虚高.'},
             ],
             sources:[
+                {n:'data/models.json',u:'https://github.com/handsomezhuzhu/LLMrank/blob/main/data/models.json',d:'Canonical source: Arena + AI Index + ctx + multi + 四项价格 (input/output/cache_r/w). 计分只读此文件。'},
                 {n:'Arena AI',u:'https://arena.ai/leaderboard',d:'Crowd-sourced Bradley-Terry ratings from human blind tests. 200+ models, continuously updated.'},
                 {n:'Artificial Analysis',u:'https://artificialanalysis.ai/leaderboards/models',d:'AI Intelligence Index — automated benchmark composite scoring across 60 prompts. 500+ models.'},
-                {n:'LiteLLM Database',u:'https://github.com/BerriAI/litellm',d:'Community-maintained model pricing and context window data.'},
-                {n:'HuggingFace',u:'https://huggingface.co/',d:'Model cards, licenses, and open-source verification.'},
+                {n:'OpenRouter Models API',u:'https://openrouter.ai/docs',d:'Primary price/context audit source (USD per token → per 1M). Cache missing = -1.'},
             ]
         }
     }
