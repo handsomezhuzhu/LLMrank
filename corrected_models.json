@@ -188,10 +188,10 @@
     "arena": 1470.99,
     "ai_index": 51.0858,
     "eco": 65,
-    "po": 1.32,
-    "price_input": 0.42,
-    "price_output": 1.32,
-    "price_cache_read": 0.078,
+    "po": 0.8932,
+    "price_input": 0.2842,
+    "price_output": 0.8932,
+    "price_cache_read": 0.05278,
     "price_cache_write": -1,
     "price_currency": "USD",
     "multi": 50,
@@ -201,11 +201,11 @@
     "openrouter_id": "z-ai/glm-5.2",
     "sArena": 80,
     "sAI": 86.5,
-    "sPrice": 64,
+    "sPrice": 71,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 65,
-    "total": 77.3
+    "total": 78.0
   },
   {
     "name": "GPT-5.4 High",
