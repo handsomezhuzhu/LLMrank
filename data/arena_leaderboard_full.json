@@ -56,18 +56,18 @@
     "votes": 55992
   },
   {
-    "model": "gemini-3.5-flash-high",
-    "modelKey": "gemini-3.5-flash-high",
-    "rating": 1480.480296511278,
-    "organization": "google",
-    "votes": 10006
-  },
-  {
     "model": "gemini-3-pro",
     "modelKey": "gemini-3-pro",
     "rating": 1479.5739439890067,
     "organization": "google",
     "votes": 41241
+  },
+  {
+    "model": "gemini-3.5-flash-high",
+    "modelKey": "gemini-3.5-flash-high",
+    "rating": 1479.2562601397963,
+    "organization": "google",
+    "votes": 10472
   },
   {
     "model": "gemini-3.1-pro-preview",
@@ -110,13 +110,6 @@
     "rating": 1473.0893420370112,
     "organization": "meta",
     "votes": 13486
-  },
-  {
-    "model": "kimi-k3-max",
-    "modelKey": "kimi-k3-max",
-    "rating": 1472.9595730288056,
-    "organization": "moonshot",
-    "votes": 3556
   },
   {
     "model": "qwen3.5-max-preview",
