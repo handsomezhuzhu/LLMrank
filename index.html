@@ -10,29 +10,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #08090a;
-            --bg-elevated: #0f1011;
-            --surface: #141516;
-            --surface-hover: #191a1b;
-            --border: rgba(255, 255, 255, 0.06);
-            --border-strong: rgba(255, 255, 255, 0.10);
-            --text: #f7f8f8;
-            --text-secondary: #d0d6e0;
-            --text-muted: #8a8f98;
-            --text-faint: #62666d;
-            --accent: #7170ff;
-            --accent-soft: rgba(113, 112, 255, 0.12);
-            --accent-hover: #828fff;
-            --success: #10b981;
-            --warn: #eab308;
-            --danger: #f43f5e;
-            --radius: 8px;
-            --radius-lg: 12px;
-            --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            --max: 1120px;
-        }
+/* === Theme system === */
+:root {
+    --bg: #08090a;
+    --bg-elevated: #0f1011;
+    --surface: #141516;
+    --surface-hover: #191a1b;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-strong: rgba(255, 255, 255, 0.10);
+    --text: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-muted: #8a8f98;
+    --text-faint: #62666d;
+    --accent: #7170ff;
+    --accent-soft: rgba(113, 112, 255, 0.12);
+    --accent-hover: #828fff;
+    --success: #10b981;
+    --warn: #eab308;
+    --danger: #f43f5e;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --max: 1120px;
+}
+
+[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-elevated: #fafafa;
+    --surface: #f3f4f6;
+    --surface-hover: #eceef0;
+    --border: rgba(0, 0, 0, 0.06);
+    --border-strong: rgba(0, 0, 0, 0.10);
+    --text: #0f0f10;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-faint: #9ca3af;
+    --accent: #5b5af0;
+    --accent-soft: rgba(91, 90, 240, 0.10);
+    --accent-hover: #4544d6;
+    --success: #059669;
+    --warn: #ca8a04;
+    --danger: #e11d48;
+}
+
+/* Preserve hard-coded medal/table header colours across themes */
+[data-theme="light"] thead th { background: #e8e8e9; }
+[data-theme="light"] .score.hi { color: #047857; }
+[data-theme="light"] .score.mid { color: #b45309; }
+[data-theme="light"] .score.lo { color: #c2410c; }
+[data-theme="light"] .score.vlo { color: #be123c; }
+[data-theme="light"] .region.cn { color: #c2410c; border-color: rgba(194, 65, 12, 0.25); background: rgba(194, 65, 12, 0.08); }
+[data-theme="light"] .region.us { color: #2563eb; border-color: rgba(37, 99, 235, 0.25); background: rgba(37, 99, 235, 0.08); }
+[data-theme="light"] .td-rank .medal,
+[data-theme="light"] .m-rank .medal { border-color: var(--border-strong); color: var(--text-secondary); background: var(--bg-elevated); }
+[data-theme="light"] .td-rank .medal.m1,
+[data-theme="light"] .m-rank .medal.m1 { color: #b4881a; border-color: rgba(180, 136, 26, 0.30); background: rgba(180, 136, 26, 0.10); }
+[data-theme="light"] .td-rank .medal.m2,
+[data-theme="light"] .m-rank .medal.m2 { color: #4b5563; border-color: rgba(75, 85, 99, 0.30); background: rgba(75, 85, 99, 0.10); }
+[data-theme="light"] .td-rank .medal.m3,
+[data-theme="light"] .m-rank .medal.m3 { color: #92400e; border-color: rgba(146, 64, 14, 0.30); background: rgba(146, 64, 14, 0.10); }
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
@@ -60,7 +98,7 @@
             top: 0;
             z-index: 20;
             backdrop-filter: blur(12px);
-            background: rgba(8, 9, 10, 0.82);
+            background: color-mix(in srgb, var(--bg) 82%, transparent);
             border-bottom: 1px solid var(--border);
         }
         .topbar-inner {
@@ -93,6 +131,25 @@
         }
         .top-links a { color: var(--text-muted); }
         .top-links a:hover { color: var(--text); }
+
+        /* Theme toggle */
+        .theme-toggle {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            transition: color .15s, background .15s;
+        }
+        .theme-toggle:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+        [data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.06); }
 
         /* Hero */
         .hero {
@@ -755,6 +812,14 @@
             .brand { font-size: 12.5px; }
         }
     </style>
+    <script>
+    (function(){
+        var s=null;
+        try{s=localStorage.getItem('llmrank-theme');}catch(_){}
+        var t=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+        document.documentElement.setAttribute('data-theme',t);
+    })();
+    </script>
 </head>
 <body>
 <div id="app" v-cloak>
@@ -765,6 +830,10 @@
                 <a href="#methodology">Methodology</a>
                 <a href="#sources">Sources</a>
                 <a href="https://github.com/handsomezhuzhu/LLMrank" target="_blank" rel="noopener">GitHub</a>
+            <button class="theme-toggle" type="button" @click="toggleTheme" :title="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+                <svg v-if="theme === 'dark'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+                <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
             </div>
         </div>
     </div>
@@ -1042,6 +1111,17 @@ createApp({
         const updatedAt = ref('')
         const q = ref('')
         const region = ref('all')
+        const theme = ref((document.documentElement.getAttribute('data-theme') === 'light') ? 'light' : 'dark')
+        const toggleTheme = () => {
+            theme.value = theme.value === 'dark' ? 'light' : 'dark'
+            document.documentElement.setAttribute('data-theme', theme.value)
+            try { localStorage.setItem('llmrank-theme', theme.value) } catch (_) {}
+        }
+        // Sync theme ref with the already-applied data-theme (set by head script)
+        onMounted(() => {
+            const applied = document.documentElement.getAttribute('data-theme')
+            if (applied === 'light' || applied === 'dark') theme.value = applied
+        })
 
         onMounted(async () => {
             try {
@@ -1177,7 +1257,7 @@ createApp({
 
         return {
             ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice, fmtCtx,
-            err, ready, updatedAt, q, region,
+            err, ready, updatedAt, q, region, theme, toggleTheme,
             tiers: [
                 { l: 'S+ · 75+', c: '#f5d76e' },
                 { l: 'S · 68+', c: '#e0b85a' },
