@@ -12,7 +12,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1493.2971849859214,
-      "ai_index": 59.86,
+      "ai_index": 62.0727,
       "multi": 75,
       "eco": 88,
       "ctx": 1000000,
@@ -27,7 +27,8 @@
       "openrouter_id": "anthropic/claude-fable-5",
       "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "claude-fable-5"
     },
     {
       "id": "gpt-5-6-sol-high",
@@ -35,7 +36,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1486.0,
-      "ai_index": 59.0,
+      "ai_index": 57.3317,
       "multi": 75,
       "eco": 96,
       "ctx": 1050000,
@@ -50,7 +51,8 @@
       "openrouter_id": "openai/gpt-5.6-sol",
       "url": "https://openai.com/index/gpt-5-6/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-6-sol-high"
     },
     {
       "id": "kimi-k3",
@@ -58,7 +60,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1481.975933045756,
-      "ai_index": 57.1,
+      "ai_index": 59.6995,
       "multi": 75,
       "eco": 45,
       "ctx": 1048576,
@@ -73,7 +75,8 @@
       "openrouter_id": "moonshotai/kimi-k3",
       "url": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "kimi-k3"
     },
     {
       "id": "claude-opus-4-7",
@@ -81,7 +84,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1493.14,
-      "ai_index": 53.5296569524586,
+      "ai_index": 54.9641,
       "multi": 75,
       "eco": 88,
       "ctx": 1000000,
@@ -96,7 +99,8 @@
       "openrouter_id": "anthropic/claude-opus-4.7",
       "url": "https://docs.anthropic.com/en/docs/about-claude/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "claude-opus-4-7"
     },
     {
       "id": "gpt-5-5-high",
@@ -104,7 +108,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1470.5965184944032,
-      "ai_index": 54.8375984166433,
+      "ai_index": 54.6668,
       "multi": 75,
       "eco": 96,
       "ctx": 1050000,
@@ -119,7 +123,8 @@
       "openrouter_id": "openai/gpt-5.5",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-5-high"
     },
     {
       "id": "claude-opus-4-8",
@@ -127,7 +132,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1452.4952513765174,
-      "ai_index": 55.692,
+      "ai_index": 57.3304,
       "multi": 75,
       "eco": 88,
       "ctx": 1000000,
@@ -142,7 +147,8 @@
       "openrouter_id": "anthropic/claude-opus-4.8",
       "url": "https://docs.anthropic.com/en/docs/about-claude/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "claude-opus-4-8"
     },
     {
       "id": "gemini-3-5-flash",
@@ -150,7 +156,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1476.25,
-      "ai_index": 50.2035,
+      "ai_index": 51.9636,
       "multi": 100,
       "eco": 94,
       "ctx": 1048576,
@@ -165,7 +171,8 @@
       "openrouter_id": "google/gemini-3.5-flash",
       "url": "https://deepmind.google/technologies/gemini/flash/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gemini-3-5-flash"
     },
     {
       "id": "gemini-3-1-pro",
@@ -173,7 +180,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1486.42,
-      "ai_index": 46.4594206066426,
+      "ai_index": 47.7383,
       "multi": 100,
       "eco": 94,
       "ctx": 1048576,
@@ -188,7 +195,8 @@
       "openrouter_id": "google/gemini-3.1-pro-preview",
       "url": "https://deepmind.google/technologies/gemini/pro/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gemini-3-1-pro-preview"
     },
     {
       "id": "gpt-5-4-high",
@@ -196,7 +204,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1469.5434115163148,
-      "ai_index": 51.4012420630147,
+      "ai_index": 53.1231,
       "multi": 75,
       "eco": 96,
       "ctx": 1050000,
@@ -211,7 +219,8 @@
       "openrouter_id": "openai/gpt-5.4",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-4"
     },
     {
       "id": "claude-opus-4-6",
@@ -219,7 +228,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1497.0888355674535,
-      "ai_index": 43.7100998174865,
+      "ai_index": 44.9314,
       "multi": 75,
       "eco": 88,
       "ctx": 1000000,
@@ -234,7 +243,8 @@
       "openrouter_id": "anthropic/claude-opus-4.6",
       "url": "https://docs.anthropic.com/en/docs/about-claude/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "claude-opus-4-6-adaptive"
     },
     {
       "id": "glm-5-2",
@@ -242,7 +252,7 @@
       "vendor": "Zhipu AI",
       "region": "CN",
       "arena": 1470.99,
-      "ai_index": 51.0858,
+      "ai_index": 52.641,
       "multi": 50,
       "eco": 65,
       "ctx": 1048576,
@@ -257,7 +267,8 @@
       "openrouter_id": "z-ai/glm-5.2",
       "url": "https://bigmodel.cn/dev/howuse/glm-5",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "glm-5-2"
     },
     {
       "id": "gpt-5-5",
@@ -265,7 +276,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1466.0507343913407,
-      "ai_index": 47.1447014229694,
+      "ai_index": 56.3067,
       "multi": 75,
       "eco": 96,
       "ctx": 1050000,
@@ -280,7 +291,8 @@
       "openrouter_id": "openai/gpt-5.5",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-5"
     },
     {
       "id": "claude-sonnet-4-6",
@@ -288,7 +300,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1457.569457695245,
-      "ai_index": 47.2100024360452,
+      "ai_index": 48.3663,
       "multi": 75,
       "eco": 88,
       "ctx": 1000000,
@@ -303,7 +315,8 @@
       "openrouter_id": "anthropic/claude-sonnet-4.6",
       "url": "https://docs.anthropic.com/en/docs/about-claude/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "claude-sonnet-4-6-adaptive"
     },
     {
       "id": "gpt-5-5-instant",
@@ -311,7 +324,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1419.5567912773615,
-      "ai_index": 47.1447,
+      "ai_index": 34.3351,
       "multi": 75,
       "eco": 96,
       "ctx": 1050000,
@@ -326,7 +339,8 @@
       "openrouter_id": "openai/gpt-5.5",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-5-instant-05-26"
     },
     {
       "id": "gemini-3-pro",
@@ -334,7 +348,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1479.2802642643098,
-      "ai_index": 39.5506843742073,
+      "ai_index": 40.6068,
       "multi": 100,
       "eco": 94,
       "ctx": 1048576,
@@ -349,7 +363,8 @@
       "openrouter_id": "google/gemini-3.1-pro-preview",
       "url": "https://deepmind.google/technologies/gemini/pro/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gemini-3-pro"
     },
     {
       "id": "qwen3-7-max",
@@ -357,7 +372,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1474.65,
-      "ai_index": 45.9937184770221,
+      "ai_index": 46.7122,
       "multi": 50,
       "eco": 72,
       "ctx": 1000000,
@@ -372,7 +387,8 @@
       "openrouter_id": "qwen/qwen3.7-max",
       "url": "https://help.aliyun.com/zh/model-studio/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-7-max"
     },
     {
       "id": "gemini-3-flash",
@@ -380,7 +396,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1465.968990226237,
-      "ai_index": 37.7570171800261,
+      "ai_index": 27.9382,
       "multi": 100,
       "eco": 94,
       "ctx": 1048576,
@@ -395,7 +411,8 @@
       "openrouter_id": "google/gemini-3-flash-preview",
       "url": "https://deepmind.google/technologies/gemini/flash/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gemini-3-flash"
     },
     {
       "id": "gpt-5-2",
@@ -403,7 +420,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1412.0587341257005,
-      "ai_index": 42.1829833875032,
+      "ai_index": 43.3436,
       "multi": 75,
       "eco": 96,
       "ctx": 400000,
@@ -418,7 +435,8 @@
       "openrouter_id": "openai/gpt-5.2",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-2"
     },
     {
       "id": "muse-spark",
@@ -426,7 +444,7 @@
       "vendor": "Meta",
       "region": "US",
       "arena": 1473.1212873477298,
-      "ai_index": 43.0556,
+      "ai_index": 44.2509,
       "multi": 50,
       "eco": 85,
       "ctx": 1048576,
@@ -441,7 +459,8 @@
       "openrouter_id": "meta/muse-spark-1.1",
       "url": "https://ai.meta.com",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "muse-spark"
     },
     {
       "id": "mimo-v2-5-pro",
@@ -449,7 +468,7 @@
       "vendor": "Xiaomi",
       "region": "CN",
       "arena": 1465.0570757061878,
-      "ai_index": 42.2394366693508,
+      "ai_index": 42.8797,
       "multi": 50,
       "eco": 12,
       "ctx": 1050000,
@@ -464,7 +483,8 @@
       "openrouter_id": "xiaomi/mimo-v2.5-pro",
       "url": "https://huggingface.co/XiaomiMiMo",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "mimo-v2-5-pro"
     },
     {
       "id": "glm-5-1",
@@ -472,7 +492,7 @@
       "vendor": "Zhipu AI",
       "region": "CN",
       "arena": 1463.1253534791658,
-      "ai_index": 40.1570857627689,
+      "ai_index": 40.9675,
       "multi": 50,
       "eco": 65,
       "ctx": 204800,
@@ -487,7 +507,8 @@
       "openrouter_id": "z-ai/glm-5.1",
       "url": "https://bigmodel.cn/dev/howuse/glm-5",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "glm-5-1"
     },
     {
       "id": "deepseek-v4-pro",
@@ -495,7 +516,7 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1451.1932624814526,
-      "ai_index": 40.8255694978728,
+      "ai_index": 53.1977,
       "multi": 50,
       "eco": 45,
       "ctx": 1048576,
@@ -510,7 +531,8 @@
       "openrouter_id": "deepseek/deepseek-v4-pro-0813",
       "url": "https://api-docs.deepseek.com/",
       "note": "2026-08-13 新版",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "deepseek-v4-pro"
     },
     {
       "id": "gpt-5-4",
@@ -518,7 +540,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1452.2089114433757,
-      "ai_index": 39.1372303481376,
+      "ai_index": 53.1231,
       "multi": 75,
       "eco": 96,
       "ctx": 1050000,
@@ -533,7 +555,8 @@
       "openrouter_id": "openai/gpt-5.4",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-4"
     },
     {
       "id": "grok-4-20",
@@ -541,7 +564,7 @@
       "vendor": "xAI",
       "region": "US",
       "arena": 1474.41,
-      "ai_index": 37.0,
+      "ai_index": 37.9549,
       "multi": 75,
       "eco": 58,
       "ctx": 2000000,
@@ -556,7 +579,8 @@
       "openrouter_id": "x-ai/grok-4.20",
       "url": "https://docs.x.ai/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "grok-4-20"
     },
     {
       "id": "kimi-k2-6",
@@ -564,7 +588,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1454.931123269097,
-      "ai_index": 42.8413910763059,
+      "ai_index": 45.1382,
       "multi": 50,
       "eco": 38,
       "ctx": 262144,
@@ -579,7 +603,8 @@
       "openrouter_id": "moonshotai/kimi-k2.6",
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "kimi-k2-6"
     },
     {
       "id": "deepseek-v4-flash",
@@ -587,7 +612,7 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1431.4791809522499,
-      "ai_index": 40.2825017625236,
+      "ai_index": 51.7666,
       "multi": 50,
       "eco": 45,
       "ctx": 1048576,
@@ -602,7 +627,8 @@
       "openrouter_id": "deepseek/deepseek-v4-flash-0731",
       "url": "https://api-docs.deepseek.com/",
       "note": "2026-07-31 新版",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "deepseek-v4-flash"
     },
     {
       "id": "mimo-v2-pro",
@@ -610,7 +636,7 @@
       "vendor": "Xiaomi",
       "region": "CN",
       "arena": 1436.3321392883156,
-      "ai_index": 40.2884087649747,
+      "ai_index": 41.3739,
       "multi": 50,
       "eco": 12,
       "ctx": 1048576,
@@ -625,7 +651,8 @@
       "openrouter_id": null,
       "url": "https://huggingface.co/XiaomiMiMo",
       "note": "",
-      "auto_price": false
+      "auto_price": false,
+      "slug": "mimo-v2-pro"
     },
     {
       "id": "qwen3-6-max",
@@ -633,7 +660,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1460.72,
-      "ai_index": 40.0,
+      "ai_index": 41.074,
       "multi": 50,
       "eco": 72,
       "ctx": 262144,
@@ -648,7 +675,8 @@
       "openrouter_id": "qwen/qwen3-max",
       "url": "https://help.aliyun.com/zh/model-studio/getting-started/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-6-max"
     },
     {
       "id": "mimo-v2-5",
@@ -656,7 +684,7 @@
       "vendor": "Xiaomi",
       "region": "CN",
       "arena": 1427.5910693568344,
-      "ai_index": 40.1358548646523,
+      "ai_index": 38.0434,
       "multi": 75,
       "eco": 12,
       "ctx": 1050000,
@@ -671,7 +699,8 @@
       "openrouter_id": "xiaomi/mimo-v2.5",
       "url": "https://huggingface.co/XiaomiMiMo",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "mimo-v2-5-0424"
     },
     {
       "id": "glm-5",
@@ -679,7 +708,7 @@
       "vendor": "Zhipu AI",
       "region": "CN",
       "arena": 1445.2878035436886,
-      "ai_index": 39.5,
+      "ai_index": 40.5541,
       "multi": 50,
       "eco": 65,
       "ctx": 204800,
@@ -694,7 +723,8 @@
       "openrouter_id": "z-ai/glm-5",
       "url": "https://bigmodel.cn/dev/howuse/glm-5",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "glm-5"
     },
     {
       "id": "gpt-5-1-high",
@@ -702,7 +732,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1441.431591376314,
-      "ai_index": 38.914162077616,
+      "ai_index": 37.4661,
       "multi": 75,
       "eco": 96,
       "ctx": 400000,
@@ -717,7 +747,8 @@
       "openrouter_id": "openai/gpt-5.1",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-1"
     },
     {
       "id": "qwen3-6-plus",
@@ -725,7 +756,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1436.7899443194856,
-      "ai_index": 39.5608411628461,
+      "ai_index": 40.4881,
       "multi": 50,
       "eco": 72,
       "ctx": 1000000,
@@ -740,7 +771,8 @@
       "openrouter_id": "qwen/qwen3.6-plus",
       "url": "https://help.aliyun.com/zh/model-studio/getting-started/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-6-plus"
     },
     {
       "id": "grok-4-3",
@@ -748,7 +780,7 @@
       "vendor": "xAI",
       "region": "US",
       "arena": 1397.5081644128284,
-      "ai_index": 37.5766393431307,
+      "ai_index": 37.9469,
       "multi": 75,
       "eco": 58,
       "ctx": 1000000,
@@ -763,7 +795,8 @@
       "openrouter_id": "x-ai/grok-4.3",
       "url": "https://docs.x.ai/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "grok-4-3"
     },
     {
       "id": "grok-4-1",
@@ -771,7 +804,7 @@
       "vendor": "xAI",
       "region": "US",
       "arena": 1436.345721971413,
-      "ai_index": 30.6216050979987,
+      "ai_index": 34.0824,
       "multi": 75,
       "eco": 58,
       "ctx": 2000000,
@@ -786,7 +819,8 @@
       "openrouter_id": null,
       "url": "https://docs.x.ai/docs/models",
       "note": "",
-      "auto_price": false
+      "auto_price": false,
+      "slug": "grok-4"
     },
     {
       "id": "kimi-k2-5",
@@ -794,7 +828,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1449.69,
-      "ai_index": 38.1072025858264,
+      "ai_index": 36.0227,
       "multi": 50,
       "eco": 38,
       "ctx": 262144,
@@ -809,7 +843,8 @@
       "openrouter_id": "moonshotai/kimi-k2.5",
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "kimi-k2-5"
     },
     {
       "id": "gemini-2-5-pro",
@@ -817,7 +852,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1457.3408396992763,
-      "ai_index": 26.9821231506872,
+      "ai_index": 25.911,
       "multi": 100,
       "eco": 94,
       "ctx": 1048576,
@@ -832,7 +867,8 @@
       "openrouter_id": "google/gemini-2.5-pro",
       "url": "https://deepmind.google/technologies/gemini/pro/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gemini-2-5-pro"
     },
     {
       "id": "gpt-5",
@@ -840,7 +876,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1433.57,
-      "ai_index": 36.1104706151039,
+      "ai_index": 35.3127,
       "multi": 75,
       "eco": 96,
       "ctx": 400000,
@@ -855,7 +891,8 @@
       "openrouter_id": "openai/gpt-5",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5"
     },
     {
       "id": "minimax-m2-7",
@@ -863,7 +900,7 @@
       "vendor": "MiniMax",
       "region": "CN",
       "arena": 1404.9963332877712,
-      "ai_index": 38.1344947250387,
+      "ai_index": 38.8714,
       "multi": 50,
       "eco": 55,
       "ctx": 204800,
@@ -878,7 +915,8 @@
       "openrouter_id": "minimax/minimax-m2.7",
       "url": "https://www.minimaxi.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "minimax-m2-7"
     },
     {
       "id": "glm-4-7",
@@ -886,7 +924,7 @@
       "vendor": "Zhipu AI",
       "region": "CN",
       "arena": 1435.2744862117377,
-      "ai_index": 33.8118541391742,
+      "ai_index": 34.4587,
       "multi": 50,
       "eco": 65,
       "ctx": 204800,
@@ -901,7 +939,8 @@
       "openrouter_id": "z-ai/glm-4.7",
       "url": "https://bigmodel.cn/dev/howuse/glm-4",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "glm-4-7"
     },
     {
       "id": "qwen3-5-397b",
@@ -909,7 +948,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1438.3094249342266,
-      "ai_index": 33.6817059499116,
+      "ai_index": 34.2621,
       "multi": 50,
       "eco": 72,
       "ctx": 262144,
@@ -924,7 +963,8 @@
       "openrouter_id": "qwen/qwen3.5-397b-a17b",
       "url": "https://qwenlm.github.io/blog/qwen3.5/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-5-397b-a17b"
     },
     {
       "id": "o3",
@@ -932,7 +972,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1431.01,
-      "ai_index": 30.4025993972201,
+      "ai_index": 31.0956,
       "multi": 75,
       "eco": 96,
       "ctx": 200000,
@@ -947,7 +987,8 @@
       "openrouter_id": "openai/o3",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "o3"
     },
     {
       "id": "kimi-k2-thinking",
@@ -955,7 +996,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1430.02,
-      "ai_index": 32.7026871189548,
+      "ai_index": 33.487,
       "multi": 50,
       "eco": 38,
       "ctx": 262144,
@@ -970,7 +1011,8 @@
       "openrouter_id": "moonshotai/kimi-k2-thinking",
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "kimi-k2-thinking"
     },
     {
       "id": "grok-4-fast",
@@ -978,7 +1020,7 @@
       "vendor": "xAI",
       "region": "US",
       "arena": 1420.91,
-      "ai_index": 27.3744610344252,
+      "ai_index": 16.6117,
       "multi": 75,
       "eco": 58,
       "ctx": 2000000,
@@ -993,7 +1035,8 @@
       "openrouter_id": null,
       "url": "https://docs.x.ai/docs/models",
       "note": "",
-      "auto_price": false
+      "auto_price": false,
+      "slug": "grok-4-fast"
     },
     {
       "id": "grok-3",
@@ -1001,7 +1044,7 @@
       "vendor": "xAI",
       "region": "US",
       "arena": 1425.1790243362461,
-      "ai_index": 18.3500211744333,
+      "ai_index": 18.5645,
       "multi": 75,
       "eco": 58,
       "ctx": 131072,
@@ -1016,7 +1059,8 @@
       "auto_price": false,
       "openrouter_id": null,
       "url": "https://docs.x.ai/docs/models",
-      "note": ""
+      "note": "",
+      "slug": "grok-3"
     },
     {
       "id": "qwen3-5-122b",
@@ -1024,7 +1068,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1417.16,
-      "ai_index": 32.2791462784081,
+      "ai_index": 32.8466,
       "multi": 50,
       "eco": 72,
       "ctx": 262144,
@@ -1039,7 +1083,8 @@
       "openrouter_id": "qwen/qwen3.5-122b-a10b",
       "url": "https://qwenlm.github.io/blog/qwen3.5/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-5-122b-a10b"
     },
     {
       "id": "qwen3-5-27b",
@@ -1047,7 +1092,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1407.9581185981003,
-      "ai_index": 33.7762211760604,
+      "ai_index": 34.6031,
       "multi": 50,
       "eco": 72,
       "ctx": 262144,
@@ -1062,7 +1107,8 @@
       "openrouter_id": "qwen/qwen3.5-27b",
       "url": "https://qwenlm.github.io/blog/qwen3.5/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-5-27b"
     },
     {
       "id": "deepseek-v3-2",
@@ -1070,7 +1116,7 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1424.5793943192625,
-      "ai_index": 24.6607146015067,
+      "ai_index": 32.7979,
       "multi": 50,
       "eco": 45,
       "ctx": 163840,
@@ -1085,7 +1131,8 @@
       "openrouter_id": "deepseek/deepseek-v3.2",
       "url": "https://api-docs.deepseek.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "deepseek-v3-2-reasoning"
     },
     {
       "id": "minimax-m2-5",
@@ -1093,7 +1140,7 @@
       "vendor": "MiniMax",
       "region": "CN",
       "arena": 1358.751858326127,
-      "ai_index": 33.6520929448647,
+      "ai_index": 34.4741,
       "multi": 50,
       "eco": 55,
       "ctx": 204800,
@@ -1108,7 +1155,8 @@
       "openrouter_id": "minimax/minimax-m2.5",
       "url": "https://www.minimaxi.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "minimax-m2-5"
     },
     {
       "id": "gpt-5-mini",
@@ -1116,7 +1164,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1390.04,
-      "ai_index": 32.956160342673,
+      "ai_index": 25.7971,
       "multi": 75,
       "eco": 96,
       "ctx": 400000,
@@ -1131,7 +1179,8 @@
       "openrouter_id": "openai/gpt-5-mini",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-5-mini"
     },
     {
       "id": "qwen3-max",
@@ -1139,7 +1188,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1434.83,
-      "ai_index": 24.0142215430465,
+      "ai_index": 24.4536,
       "multi": 50,
       "eco": 72,
       "ctx": 262144,
@@ -1154,7 +1203,8 @@
       "openrouter_id": "qwen/qwen3-max",
       "url": "https://help.aliyun.com/zh/model-studio/getting-started/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-max"
     },
     {
       "id": "glm-4-6",
@@ -1162,7 +1212,7 @@
       "vendor": "Zhipu AI",
       "region": "CN",
       "arena": 1439.6977722606186,
-      "ai_index": 22.978120124402,
+      "ai_index": 29.2968,
       "multi": 50,
       "eco": 65,
       "ctx": 204800,
@@ -1177,7 +1227,8 @@
       "openrouter_id": "z-ai/glm-4.6",
       "url": "https://bigmodel.cn/dev/howuse/glm-4",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "glm-4-6-reasoning"
     },
     {
       "id": "deepseek-v3-1",
@@ -1185,7 +1236,7 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1419.1362518877909,
-      "ai_index": 21.0458273828992,
+      "ai_index": 31.1294,
       "multi": 50,
       "eco": 45,
       "ctx": 163840,
@@ -1200,7 +1251,8 @@
       "openrouter_id": "deepseek/deepseek-v3.1-terminus",
       "url": "https://api-docs.deepseek.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "deepseek-v3-1-terminus-reasoning"
     },
     {
       "id": "qwen3-5-35b",
@@ -1208,7 +1260,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1395.77,
-      "ai_index": 29.2597061896232,
+      "ai_index": 29.9073,
       "multi": 50,
       "eco": 72,
       "ctx": 262144,
@@ -1223,7 +1275,8 @@
       "openrouter_id": "qwen/qwen3.5-35b-a3b",
       "url": "https://qwenlm.github.io/blog/qwen3.5/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-5-35b-a3b"
     },
     {
       "id": "glm-4-5",
@@ -1231,7 +1284,7 @@
       "vendor": "Zhipu AI",
       "region": "CN",
       "arena": 1429.4010487704966,
-      "ai_index": 26.4189565824233,
+      "ai_index": 19.7471,
       "multi": 50,
       "eco": 65,
       "ctx": 131072,
@@ -1246,7 +1299,8 @@
       "openrouter_id": "z-ai/glm-4.5",
       "url": "https://bigmodel.cn/dev/howuse/glm-4",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "glm-4.5"
     },
     {
       "id": "gpt-4o",
@@ -1254,7 +1308,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1428.6559417073631,
-      "ai_index": 11.1829048173286,
+      "ai_index": 11.1129,
       "multi": 75,
       "eco": 96,
       "ctx": 128000,
@@ -1269,7 +1323,8 @@
       "openrouter_id": "openai/gpt-4o",
       "url": "https://platform.openai.com/docs/models#gpt-4o",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-4o"
     },
     {
       "id": "gpt-4-1",
@@ -1277,7 +1332,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1413.64,
-      "ai_index": 19.3571959297196,
+      "ai_index": 19.6117,
       "multi": 75,
       "eco": 96,
       "ctx": 1047576,
@@ -1292,7 +1347,8 @@
       "openrouter_id": "openai/gpt-4.1",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gpt-4-1"
     },
     {
       "id": "step-3-5-flash",
@@ -1300,7 +1356,7 @@
       "vendor": "StepFun",
       "region": "CN",
       "arena": 1403.73911063008,
-      "ai_index": 26.0,
+      "ai_index": 26.5182,
       "multi": 50,
       "eco": 40,
       "ctx": 262144,
@@ -1315,7 +1371,8 @@
       "openrouter_id": "stepfun/step-3.5-flash",
       "url": "https://platform.stepfun.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "step-3-5-flash"
     },
     {
       "id": "gemini-2-5-flash",
@@ -1323,7 +1380,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1417.3745860027793,
-      "ai_index": 14.1414305953082,
+      "ai_index": 14.1888,
       "multi": 100,
       "eco": 94,
       "ctx": 1048576,
@@ -1338,7 +1395,8 @@
       "openrouter_id": "google/gemini-2.5-flash",
       "url": "https://deepmind.google/technologies/gemini/flash/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "gemini-2-5-flash"
     },
     {
       "id": "o1",
@@ -1346,7 +1404,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1365.9255405110227,
-      "ai_index": 23.4407206672942,
+      "ai_index": 23.8573,
       "multi": 75,
       "eco": 96,
       "ctx": 200000,
@@ -1361,7 +1419,8 @@
       "openrouter_id": "openai/o1",
       "url": "https://platform.openai.com/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "o1"
     },
     {
       "id": "kimi-k2",
@@ -1369,7 +1428,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1371.027257648588,
-      "ai_index": 19.3982663833847,
+      "ai_index": 19.6544,
       "multi": 50,
       "eco": 38,
       "ctx": 131072,
@@ -1384,7 +1443,8 @@
       "openrouter_id": "moonshotai/kimi-k2",
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "kimi-k2"
     },
     {
       "id": "mistral-large-3",
@@ -1392,7 +1452,7 @@
       "vendor": "Mistral",
       "region": "EU",
       "arena": 1428.9370786958982,
-      "ai_index": 16.1875717286018,
+      "ai_index": 15.9192,
       "multi": 75,
       "eco": 60,
       "ctx": 262144,
@@ -1407,7 +1467,8 @@
       "openrouter_id": "mistralai/mistral-large-2512",
       "url": "https://mistral.ai/products/la-plateforme/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "mistral-large-3"
     },
     {
       "id": "claude-haiku-4-5",
@@ -1415,7 +1476,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1394.2431789149605,
-      "ai_index": 12.4075531975375,
+      "ai_index": 24.1417,
       "multi": 75,
       "eco": 88,
       "ctx": 200000,
@@ -1430,7 +1491,8 @@
       "openrouter_id": "anthropic/claude-haiku-4.5",
       "url": "https://docs.anthropic.com/en/docs/about-claude/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "claude-4-5-haiku"
     },
     {
       "id": "deepseek-r1",
@@ -1438,7 +1500,7 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1372.7571426953332,
-      "ai_index": 20.0823831450007,
+      "ai_index": 20.3657,
       "multi": 50,
       "eco": 45,
       "ctx": 64000,
@@ -1453,7 +1515,8 @@
       "openrouter_id": "deepseek/deepseek-r1",
       "url": "https://api-docs.deepseek.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "deepseek-r1"
     },
     {
       "id": "deepseek-v3",
@@ -1461,7 +1524,7 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1332.6011984989668,
-      "ai_index": 10.3943107867161,
+      "ai_index": 14.217,
       "multi": 50,
       "eco": 45,
       "ctx": 163840,
@@ -1476,7 +1539,8 @@
       "openrouter_id": "deepseek/deepseek-chat",
       "url": "https://api-docs.deepseek.com/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "deepseek-v3"
     },
     {
       "id": "qwen3-235b",
@@ -1484,7 +1548,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1365.9321529890772,
-      "ai_index": 18.1559405761184,
+      "ai_index": 10.7727,
       "multi": 50,
       "eco": 72,
       "ctx": 131072,
@@ -1499,7 +1563,8 @@
       "openrouter_id": "qwen/qwen3-235b-a22b",
       "url": "https://qwenlm.github.io/blog/qwen3/",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "qwen3-235b-a22b-instruct"
     },
     {
       "id": "kimi-k2-7-code",
@@ -1507,7 +1572,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1454.931123269097,
-      "ai_index": 41.9493685067994,
+      "ai_index": 43.0245,
       "multi": 50,
       "eco": 38,
       "ctx": 262144,
@@ -1522,7 +1587,8 @@
       "openrouter_id": "moonshotai/kimi-k2.7-code",
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "Arena无独立评分(以K2.6为参考)",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "kimi-k2-7-code"
     },
     {
       "id": "grok-4-6",
@@ -1530,7 +1596,7 @@
       "vendor": "xAI",
       "region": "US",
       "arena": 1446.35180952003,
-      "ai_index": 37.0,
+      "ai_index": 60.923,
       "multi": 75,
       "eco": 58,
       "ctx": 500000,
@@ -1545,7 +1611,8 @@
       "openrouter_id": "x-ai/grok-4.6",
       "url": "https://docs.x.ai/docs/models",
       "note": "",
-      "auto_price": true
+      "auto_price": true,
+      "slug": "grok-4-6"
     }
   ]
 }
