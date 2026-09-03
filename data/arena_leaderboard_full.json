@@ -2,2765 +2,2786 @@
   {
     "model": "claude-opus-5-max",
     "modelKey": "claude-opus-5-max",
-    "rating": 1504.746936752586,
+    "rating": 1504.9649479357804,
     "organization": "anthropic",
-    "votes": 15398
+    "votes": 16839
   },
   {
     "model": "claude-opus-5-high",
     "modelKey": "claude-opus-5-high",
-    "rating": 1503.5693336919464,
+    "rating": 1503.5744678383226,
     "organization": "anthropic",
-    "votes": 31570
+    "votes": 34617
   },
   {
     "model": "claude-opus-4-6-high",
     "modelKey": "claude-opus-4-6-high",
-    "rating": 1503.166095346997,
+    "rating": 1503.0405251734678,
     "organization": "anthropic",
-    "votes": 72104
+    "votes": 72110
   },
   {
     "model": "claude-opus-4-6",
     "modelKey": "claude-opus-4-6",
-    "rating": 1497.4814526894334,
+    "rating": 1497.6983650098873,
     "organization": "anthropic",
-    "votes": 76079
+    "votes": 76032
   },
   {
     "model": "claude-fable-5",
     "modelKey": "claude-fable-5",
-    "rating": 1494.571730571793,
+    "rating": 1494.4040175365171,
     "organization": "anthropic",
-    "votes": 25824
+    "votes": 26977
   },
   {
     "model": "gemini-3.7-flash-high",
     "modelKey": "gemini-3.7-flash-high",
-    "rating": 1490.3965490672852,
+    "rating": 1491.0994794385629,
     "organization": "google",
-    "votes": 5720
+    "votes": 5685
   },
   {
     "model": "claude-opus-4-7-high",
     "modelKey": "claude-opus-4-7-high",
-    "rating": 1490.2911657692293,
+    "rating": 1490.1032439986589,
     "organization": "anthropic",
-    "votes": 60136
+    "votes": 60123
   },
   {
     "model": "muse-spark-1.2 (xHigh)",
     "modelKey": "muse-spark-1.2 (xHigh)",
-    "rating": 1488.1139786692765,
+    "rating": 1488.4701058817836,
     "organization": "meta",
-    "votes": 3247
+    "votes": 3244
   },
   {
     "model": "gemini-3.5-flash-high",
     "modelKey": "gemini-3.5-flash-high",
-    "rating": 1483.19395034207,
+    "rating": 1483.500300510681,
     "organization": "google",
-    "votes": 32174
+    "votes": 33874
   },
   {
     "model": "claude-opus-4-7",
     "modelKey": "claude-opus-4-7",
-    "rating": 1483.1734427600377,
+    "rating": 1483.2051417805956,
     "organization": "anthropic",
-    "votes": 61282
+    "votes": 61256
   },
   {
     "model": "gemini-3.1-pro-preview",
     "modelKey": "gemini-3.1-pro-preview",
-    "rating": 1480.0997289868042,
+    "rating": 1480.098964469939,
     "organization": "google",
-    "votes": 101163
+    "votes": 102763
   },
   {
     "model": "qwen3.8-max",
     "modelKey": "qwen3.8-max",
-    "rating": 1479.9206242676905,
+    "rating": 1479.5597710740863,
     "organization": "alibaba",
-    "votes": 11780
+    "votes": 13136
   },
   {
     "model": "gemini-3-pro",
     "modelKey": "gemini-3-pro",
-    "rating": 1479.5380252376085,
+    "rating": 1479.5083410421207,
     "organization": "google",
-    "votes": 40674
+    "votes": 40675
   },
   {
     "model": "muse-spark-1.1",
     "modelKey": "muse-spark-1.1",
-    "rating": 1478.0372782353365,
+    "rating": 1479.027440887121,
     "organization": "meta",
-    "votes": 22215
+    "votes": 23768
   },
   {
     "model": "gemini-3.6-flash-high",
     "modelKey": "gemini-3.6-flash-high",
-    "rating": 1476.5530142942216,
+    "rating": 1476.4237062831749,
     "organization": "google",
-    "votes": 20190
+    "votes": 22009
   },
   {
     "model": "kimi-k3-max",
     "modelKey": "kimi-k3-max",
-    "rating": 1476.060717551361,
+    "rating": 1476.3121084452441,
     "organization": "moonshot",
-    "votes": 16586
+    "votes": 17895
   },
   {
     "model": "gemini-3.5-flash-medium",
     "modelKey": "gemini-3.5-flash-medium",
-    "rating": 1474.7745542363534,
+    "rating": 1475.663074782226,
     "organization": "google",
-    "votes": 30593
+    "votes": 32274
   },
   {
     "model": "glm-5.3-max",
     "modelKey": "glm-5.3-max",
-    "rating": 1474.6651366326478,
+    "rating": 1474.491187162242,
     "organization": "zai",
-    "votes": 5820
+    "votes": 7401
   },
   {
     "model": "qwen3.7-max-preview",
     "modelKey": "qwen3.7-max-preview",
-    "rating": 1474.4397466159194,
+    "rating": 1474.3071966174248,
     "organization": "alibaba",
-    "votes": 3712
+    "votes": 3710
   },
   {
     "model": "muse-spark",
     "modelKey": "muse-spark",
-    "rating": 1473.6206501351937,
+    "rating": 1473.5664389281324,
     "organization": "meta",
-    "votes": 13574
+    "votes": 13571
   },
   {
     "model": "gpt-5.5-high",
     "modelKey": "gpt-5.5-high",
-    "rating": 1471.368839348674,
+    "rating": 1471.5556060425724,
     "organization": "openai",
-    "votes": 61604
+    "votes": 63265
   },
   {
     "model": "qwen3.5-max-preview",
     "modelKey": "qwen3.5-max-preview",
-    "rating": 1471.1090455722313,
+    "rating": 1471.1256003492003,
     "organization": "alibaba",
-    "votes": 21478
-  },
-  {
-    "model": "gpt-5.4-high",
-    "modelKey": "gpt-5.4-high",
-    "rating": 1469.7401181755145,
-    "organization": "openai",
-    "votes": 60614
-  },
-  {
-    "model": "ernie-5.1",
-    "modelKey": "ernie-5.1",
-    "rating": 1468.3940282011217,
-    "organization": "baidu",
-    "votes": 37102
-  },
-  {
-    "model": "glm-5.2-max",
-    "modelKey": "glm-5.2-max",
-    "rating": 1466.9484047089334,
-    "organization": "zai",
-    "votes": 32495
-  },
-  {
-    "model": "gemini-3-flash",
-    "modelKey": "gemini-3-flash",
-    "rating": 1466.7736745349782,
-    "organization": "google",
-    "votes": 30242
-  },
-  {
-    "model": "gpt-5.5",
-    "modelKey": "gpt-5.5",
-    "rating": 1466.2581498836505,
-    "organization": "openai",
-    "votes": 62975
+    "votes": 21487
   },
   {
     "model": "glm-5.3-flash",
     "modelKey": "glm-5.3-flash",
-    "rating": 1465.8110568853576,
+    "rating": 1470.909051464369,
     "organization": "zai",
-    "votes": 2424
+    "votes": 4399
+  },
+  {
+    "model": "gpt-5.4-high",
+    "modelKey": "gpt-5.4-high",
+    "rating": 1469.6744869447848,
+    "organization": "openai",
+    "votes": 60657
+  },
+  {
+    "model": "ernie-5.1",
+    "modelKey": "ernie-5.1",
+    "rating": 1468.1034325765913,
+    "organization": "baidu",
+    "votes": 37137
+  },
+  {
+    "model": "glm-5.2-max",
+    "modelKey": "glm-5.2-max",
+    "rating": 1466.8026416812277,
+    "organization": "zai",
+    "votes": 33758
+  },
+  {
+    "model": "gpt-5.5",
+    "modelKey": "gpt-5.5",
+    "rating": 1466.798445342241,
+    "organization": "openai",
+    "votes": 64686
+  },
+  {
+    "model": "gemini-3-flash",
+    "modelKey": "gemini-3-flash",
+    "rating": 1466.6819820237129,
+    "organization": "google",
+    "votes": 30248
   },
   {
     "model": "mimo-v2.5-pro",
     "modelKey": "mimo-v2.5-pro",
-    "rating": 1464.927831846819,
+    "rating": 1465.5693521373564,
     "organization": "xiaomi",
-    "votes": 56020
+    "votes": 57416
   },
   {
     "model": "glm-5.1",
     "modelKey": "glm-5.1",
-    "rating": 1463.0038416141895,
+    "rating": 1462.7251958796414,
     "organization": "zai",
-    "votes": 44023
+    "votes": 45403
   },
   {
     "model": "claude-opus-4-8-high",
     "modelKey": "claude-opus-4-8-high",
-    "rating": 1460.7729160244744,
+    "rating": 1461.1445820334052,
     "organization": "anthropic",
-    "votes": 46773
+    "votes": 48467
   },
   {
     "model": "claude-sonnet-4-6",
     "modelKey": "claude-sonnet-4-6",
-    "rating": 1457.8236328001294,
+    "rating": 1458.009958624651,
     "organization": "anthropic",
-    "votes": 66354
+    "votes": 66343
   },
   {
     "model": "gemini-2.5-pro",
     "modelKey": "gemini-2.5-pro",
-    "rating": 1457.750470132714,
+    "rating": 1457.8178226369246,
     "organization": "google",
-    "votes": 122589
+    "votes": 122575
   },
   {
     "model": "kimi-k2.6",
     "modelKey": "kimi-k2.6",
-    "rating": 1455.1166826705378,
+    "rating": 1455.0082512240992,
     "organization": "moonshot",
-    "votes": 37545
-  },
-  {
-    "model": "qwen3.7-plus",
-    "modelKey": "qwen3.7-plus",
-    "rating": 1454.7984499202275,
-    "organization": "alibaba",
-    "votes": 36304
+    "votes": 37573
   },
   {
     "model": "gpt-5.6-sol-xhigh",
     "modelKey": "gpt-5.6-sol-xhigh",
-    "rating": 1454.1182647452424,
+    "rating": 1454.6922075698958,
     "organization": "openai",
-    "votes": 21537
+    "votes": 23153
+  },
+  {
+    "model": "qwen3.7-plus",
+    "modelKey": "qwen3.7-plus",
+    "rating": 1453.7047452954225,
+    "organization": "alibaba",
+    "votes": 37854
   },
   {
     "model": "gpt-5.4",
     "modelKey": "gpt-5.4",
-    "rating": 1452.5754341365769,
+    "rating": 1452.5088173463419,
     "organization": "openai",
-    "votes": 63594
+    "votes": 63615
   },
   {
     "model": "claude-opus-4-8",
     "modelKey": "claude-opus-4-8",
-    "rating": 1451.9002486096026,
+    "rating": 1451.9766112901652,
     "organization": "anthropic",
-    "votes": 47459
+    "votes": 49123
   },
   {
     "model": "grok-4.5",
     "modelKey": "grok-4.5",
-    "rating": 1451.3559019918912,
+    "rating": 1451.8205579134906,
     "organization": "xai",
-    "votes": 24152
-  },
-  {
-    "model": "deepseek-v4-pro",
-    "modelKey": "deepseek-v4-pro",
-    "rating": 1451.0473462245209,
-    "organization": "deepseek",
-    "votes": 54214
+    "votes": 25873
   },
   {
     "model": "grok-4.20-beta-0309-reasoning",
     "modelKey": "grok-4.20-beta-0309-reasoning",
-    "rating": 1450.970180787096,
+    "rating": 1451.0048690568838,
     "organization": "xai",
-    "votes": 62244
+    "votes": 62269
+  },
+  {
+    "model": "deepseek-v4-pro",
+    "modelKey": "deepseek-v4-pro",
+    "rating": 1450.997465989673,
+    "organization": "deepseek",
+    "votes": 54243
   },
   {
     "model": "claude-opus-4-5-20251101",
     "modelKey": "claude-opus-4-5-20251101",
-    "rating": 1450.4531681666415,
+    "rating": 1450.3452411047606,
     "organization": "anthropic",
-    "votes": 70044
+    "votes": 70057
   },
   {
     "model": "grok-4.20-multi-agent-beta-0309",
     "modelKey": "grok-4.20-multi-agent-beta-0309",
-    "rating": 1450.231413917542,
+    "rating": 1450.223253289043,
     "organization": "xai",
     "votes": 60845
   },
   {
     "model": "dola-seed-2.0-pro",
     "modelKey": "dola-seed-2.0-pro",
-    "rating": 1447.9863459548046,
+    "rating": 1447.8661163251072,
     "organization": "bytedance",
-    "votes": 74258
+    "votes": 74291
   },
   {
     "model": "amazon-nova-experimental-chat-26-02-10",
     "modelKey": "amazon-nova-experimental-chat-26-02-10",
-    "rating": 1447.667566947873,
+    "rating": 1447.5714222606434,
     "organization": "amazon",
-    "votes": 3370
+    "votes": 3373
   },
   {
     "model": "claude-opus-4-5-20251101-high-32k",
     "modelKey": "claude-opus-4-5-20251101-high-32k",
-    "rating": 1447.1803741623664,
+    "rating": 1447.1925593294905,
     "organization": "anthropic",
-    "votes": 36267
+    "votes": 36271
   },
   {
     "model": "gpt-5.6-terra-xhigh",
     "modelKey": "gpt-5.6-terra-xhigh",
-    "rating": 1446.8631032394796,
+    "rating": 1446.7161783590386,
     "organization": "openai",
-    "votes": 22345
-  },
-  {
-    "model": "qwen3.6-max-preview",
-    "modelKey": "qwen3.6-max-preview",
-    "rating": 1446.4567992991479,
-    "organization": "alibaba",
-    "votes": 5198
+    "votes": 23942
   },
   {
     "model": "glm-5",
     "modelKey": "glm-5",
-    "rating": 1446.356933522295,
+    "rating": 1446.3535171858766,
     "organization": "zai",
-    "votes": 27649
+    "votes": 27643
+  },
+  {
+    "model": "qwen3.6-max-preview",
+    "modelKey": "qwen3.6-max-preview",
+    "rating": 1446.2439837061029,
+    "organization": "alibaba",
+    "votes": 5192
   },
   {
     "model": "kimi-k2.5-thinking",
     "modelKey": "kimi-k2.5-thinking",
-    "rating": 1445.6786068996623,
+    "rating": 1445.7537371981516,
     "organization": "moonshot",
-    "votes": 70610
+    "votes": 70620
   },
   {
     "model": "deepseek-v4-pro-high-preview",
     "modelKey": "deepseek-v4-pro-high-preview",
-    "rating": 1445.1736485290746,
+    "rating": 1445.0881207921198,
     "organization": "deepseek",
-    "votes": 51621
+    "votes": 51599
   },
   {
     "model": "nvidia-nemotron-3-ultra-550b-a55b-nvfp4",
     "modelKey": "nvidia-nemotron-3-ultra-550b-a55b-nvfp4",
-    "rating": 1445.1483588833685,
+    "rating": 1445.0129630757056,
     "organization": "nvidia",
-    "votes": 10688
+    "votes": 10704
   },
   {
     "model": "grok-4.20-beta1",
     "modelKey": "grok-4.20-beta1",
-    "rating": 1444.5487372930631,
+    "rating": 1444.494352315981,
     "organization": "xai",
-    "votes": 26645
+    "votes": 26629
   },
   {
     "model": "ernie-5.0-0110",
     "modelKey": "ernie-5.0-0110",
-    "rating": 1444.4142021426303,
+    "rating": 1444.2383740390296,
     "organization": "baidu",
-    "votes": 34899
+    "votes": 34883
   },
   {
     "model": "grok-4.6-high",
     "modelKey": "grok-4.6-high",
-    "rating": 1444.0350339927663,
+    "rating": 1443.7460252539495,
     "organization": "xai",
-    "votes": 3471
-  },
-  {
-    "model": "gemini-3-flash (thinking-minimal)",
-    "modelKey": "gemini-3-flash (thinking-minimal)",
-    "rating": 1442.4540542402806,
-    "organization": "google",
-    "votes": 85940
-  },
-  {
-    "model": "ernie-5.0-preview-1203",
-    "modelKey": "ernie-5.0-preview-1203",
-    "rating": 1442.4431706969353,
-    "organization": "baidu",
-    "votes": 9553
+    "votes": 3453
   },
   {
     "model": "claude-sonnet-5-high",
     "modelKey": "claude-sonnet-5-high",
-    "rating": 1442.3042195700386,
+    "rating": 1442.9474971723162,
     "organization": "anthropic",
-    "votes": 29477
+    "votes": 31096
+  },
+  {
+    "model": "ernie-5.0-preview-1203",
+    "modelKey": "ernie-5.0-preview-1203",
+    "rating": 1442.6849074588508,
+    "organization": "baidu",
+    "votes": 9555
+  },
+  {
+    "model": "gemini-3-flash (thinking-minimal)",
+    "modelKey": "gemini-3-flash (thinking-minimal)",
+    "rating": 1442.4318860615422,
+    "organization": "google",
+    "votes": 85926
   },
   {
     "model": "gpt-5.1-high",
     "modelKey": "gpt-5.1-high",
-    "rating": 1441.8943113596906,
+    "rating": 1441.8375120506357,
     "organization": "openai",
-    "votes": 40297
+    "votes": 40296
   },
   {
     "model": "gemma-4-31b",
     "modelKey": "gemma-4-31b",
-    "rating": 1441.7701918934197,
+    "rating": 1441.8160119408326,
     "organization": "google",
-    "votes": 5898
-  },
-  {
-    "model": "deepseek-v4-pro-high-20260813",
-    "modelKey": "deepseek-v4-pro-high-20260813",
-    "rating": 1441.4994142351811,
-    "organization": "deepseek",
-    "votes": 4205
-  },
-  {
-    "model": "hy3",
-    "modelKey": "hy3",
-    "rating": 1440.528450115665,
-    "organization": "tencent",
-    "votes": 6466
+    "votes": 5900
   },
   {
     "model": "glm-4.6",
     "modelKey": "glm-4.6",
-    "rating": 1440.4738491542064,
+    "rating": 1440.4505188054472,
     "organization": "zai",
-    "votes": 35066
+    "votes": 35061
+  },
+  {
+    "model": "deepseek-v4-pro-high-20260813",
+    "modelKey": "deepseek-v4-pro-high-20260813",
+    "rating": 1440.1526741997532,
+    "organization": "deepseek",
+    "votes": 5388
+  },
+  {
+    "model": "hy3",
+    "modelKey": "hy3",
+    "rating": 1439.9892319091173,
+    "organization": "tencent",
+    "votes": 6911
   },
   {
     "model": "qwen3-max-preview",
     "modelKey": "qwen3-max-preview",
-    "rating": 1439.0035891068846,
+    "rating": 1439.0692217629007,
     "organization": "alibaba",
-    "votes": 27180
+    "votes": 27182
   },
   {
     "model": "gpt-5.2-chat-latest-20260210",
     "modelKey": "gpt-5.2-chat-latest-20260210",
-    "rating": 1438.9905820659287,
+    "rating": 1438.9978850235448,
     "organization": "openai",
-    "votes": 34229
-  },
-  {
-    "model": "inkling",
-    "modelKey": "inkling",
-    "rating": 1438.547467364258,
-    "organization": "thinky",
-    "votes": 20434
+    "votes": 34218
   },
   {
     "model": "claude-sonnet-4-5-20250929",
     "modelKey": "claude-sonnet-4-5-20250929",
-    "rating": 1438.1809937013531,
+    "rating": 1438.2709251684519,
     "organization": "anthropic",
-    "votes": 79687
+    "votes": 79668
+  },
+  {
+    "model": "inkling",
+    "modelKey": "inkling",
+    "rating": 1438.2476108040387,
+    "organization": "thinky",
+    "votes": 21973
   },
   {
     "model": "qwen3.5-397b-a17b",
     "modelKey": "qwen3.5-397b-a17b",
-    "rating": 1438.0776730207244,
+    "rating": 1437.8411338947299,
     "organization": "alibaba",
-    "votes": 71882
-  },
-  {
-    "model": "glm-5v-turbo",
-    "modelKey": "glm-5v-turbo",
-    "rating": 1437.2236881840618,
-    "organization": "zai",
-    "votes": 9373
-  },
-  {
-    "model": "gemini-3.5-flash-lite",
-    "modelKey": "gemini-3.5-flash-lite",
-    "rating": 1437.1554121891465,
-    "organization": "google",
-    "votes": 20133
-  },
-  {
-    "model": "qwen3.6-plus",
-    "modelKey": "qwen3.6-plus",
-    "rating": 1437.1017661445435,
-    "organization": "alibaba",
-    "votes": 45356
-  },
-  {
-    "model": "grok-4.1-thinking",
-    "modelKey": "grok-4.1-thinking",
-    "rating": 1437.0330853255193,
-    "organization": "xai",
-    "votes": 64196
+    "votes": 73400
   },
   {
     "model": "qwen3.8-27b",
     "modelKey": "qwen3.8-27b",
-    "rating": 1436.9603617030184,
+    "rating": 1437.352948519007,
     "organization": "alibaba",
-    "votes": 5046
+    "votes": 6626
+  },
+  {
+    "model": "grok-4.1-thinking",
+    "modelKey": "grok-4.1-thinking",
+    "rating": 1437.1645848942344,
+    "organization": "xai",
+    "votes": 64192
+  },
+  {
+    "model": "qwen3.6-plus",
+    "modelKey": "qwen3.6-plus",
+    "rating": 1437.0958804215825,
+    "organization": "alibaba",
+    "votes": 45374
+  },
+  {
+    "model": "glm-5v-turbo",
+    "modelKey": "glm-5v-turbo",
+    "rating": 1436.8083784541418,
+    "organization": "zai",
+    "votes": 9369
   },
   {
     "model": "mimo-v2-pro",
     "modelKey": "mimo-v2-pro",
-    "rating": 1436.5310532082035,
+    "rating": 1436.4112208332408,
     "organization": "xiaomi",
-    "votes": 24399
+    "votes": 24388
+  },
+  {
+    "model": "gemini-3.5-flash-lite",
+    "modelKey": "gemini-3.5-flash-lite",
+    "rating": 1436.2470620291433,
+    "organization": "google",
+    "votes": 21843
   },
   {
     "model": "grok-4.1",
     "modelKey": "grok-4.1",
-    "rating": 1436.2457893942856,
+    "rating": 1436.2073246988157,
     "organization": "xai",
-    "votes": 66374
+    "votes": 66380
   },
   {
     "model": "glm-4.7",
     "modelKey": "glm-4.7",
-    "rating": 1435.8178094203543,
+    "rating": 1435.9100003943659,
     "organization": "zai",
-    "votes": 11887
-  },
-  {
-    "model": "gemma-4-26b-a4b",
-    "modelKey": "gemma-4-26b-a4b",
-    "rating": 1434.840951148589,
-    "organization": "google",
-    "votes": 5809
+    "votes": 11891
   },
   {
     "model": "minimax-m3",
     "modelKey": "minimax-m3",
-    "rating": 1434.2448977204283,
+    "rating": 1435.2040261210032,
     "organization": "minimax",
-    "votes": 42988
+    "votes": 44544
+  },
+  {
+    "model": "gemma-4-26b-a4b",
+    "modelKey": "gemma-4-26b-a4b",
+    "rating": 1434.861803572982,
+    "organization": "google",
+    "votes": 5814
   },
   {
     "model": "claude-sonnet-4-5-20250929-high-32k",
     "modelKey": "claude-sonnet-4-5-20250929-high-32k",
-    "rating": 1433.971614931621,
+    "rating": 1433.9454199569122,
     "organization": "anthropic",
-    "votes": 81027
+    "votes": 81031
   },
   {
     "model": "deepseek-v4-flash",
     "modelKey": "deepseek-v4-flash",
-    "rating": 1431.8622137903933,
+    "rating": 1431.9751428022123,
     "organization": "deepseek",
-    "votes": 48947
+    "votes": 48963
   },
   {
     "model": "ernie-5.0-preview-1022",
     "modelKey": "ernie-5.0-preview-1022",
-    "rating": 1430.2884009038214,
+    "rating": 1430.4089810628298,
     "organization": "baidu",
     "votes": 4662
   },
   {
-    "model": "glm-4.5",
-    "modelKey": "glm-4.5",
-    "rating": 1430.0764021999203,
-    "organization": "zai",
-    "votes": 23710
-  },
-  {
     "model": "gpt-5.6-luna-xhigh",
     "modelKey": "gpt-5.6-luna-xhigh",
-    "rating": 1429.2932085297928,
+    "rating": 1430.143213393234,
     "organization": "openai",
-    "votes": 22852
+    "votes": 24433
+  },
+  {
+    "model": "glm-4.5",
+    "modelKey": "glm-4.5",
+    "rating": 1429.9409597177855,
+    "organization": "zai",
+    "votes": 23706
   },
   {
     "model": "chatgpt-4o-latest-20250326",
     "modelKey": "chatgpt-4o-latest-20250326",
-    "rating": 1428.7049628179095,
+    "rating": 1428.742454787211,
     "organization": "openai",
-    "votes": 80687
+    "votes": 80693
   },
   {
     "model": "mistral-large-3",
     "modelKey": "mistral-large-3",
-    "rating": 1428.197824840213,
+    "rating": 1427.6213585203795,
     "organization": "mistral",
-    "votes": 63974
+    "votes": 65336
   },
   {
     "model": "mimo-v2.5",
     "modelKey": "mimo-v2.5",
-    "rating": 1427.6023214149855,
+    "rating": 1427.4961348310676,
     "organization": "xiaomi",
-    "votes": 44515
+    "votes": 44540
   },
   {
     "model": "deepseek-r1-0528",
     "modelKey": "deepseek-r1-0528",
-    "rating": 1427.4452108870062,
+    "rating": 1427.4508846032277,
     "organization": "deepseek",
-    "votes": 18090
+    "votes": 18087
   },
   {
     "model": "longcat-flash-chat-2602-exp",
     "modelKey": "longcat-flash-chat-2602-exp",
-    "rating": 1426.0260938451765,
+    "rating": 1426.0057674065556,
     "organization": "meituan",
-    "votes": 27990
+    "votes": 27991
   },
   {
     "model": "grok-3-preview-02-24",
     "modelKey": "grok-3-preview-02-24",
-    "rating": 1425.3934520812634,
+    "rating": 1425.3656552264106,
     "organization": "xai",
-    "votes": 32407
-  },
-  {
-    "model": "deepseek-v3.2",
-    "modelKey": "deepseek-v3.2",
-    "rating": 1424.8523706471763,
-    "organization": "deepseek",
-    "votes": 46493
+    "votes": 32409
   },
   {
     "model": "deepseek-v3.2-exp-thinking",
     "modelKey": "deepseek-v3.2-exp-thinking",
-    "rating": 1424.8497106085988,
+    "rating": 1424.8456559502633,
     "organization": "deepseek",
-    "votes": 8907
+    "votes": 8911
+  },
+  {
+    "model": "deepseek-v3.2",
+    "modelKey": "deepseek-v3.2",
+    "rating": 1424.8310372594215,
+    "organization": "deepseek",
+    "votes": 46487
   },
   {
     "model": "mistral-medium-2508",
     "modelKey": "mistral-medium-2508",
-    "rating": 1424.7874925917145,
+    "rating": 1424.7790057720695,
     "organization": "mistral",
-    "votes": 92758
+    "votes": 92735
   },
   {
     "model": "deepseek-v4-flash-high-preview",
     "modelKey": "deepseek-v4-flash-high-preview",
-    "rating": 1424.217798900023,
+    "rating": 1424.2080453363737,
     "organization": "deepseek",
-    "votes": 48660
+    "votes": 48705
   },
   {
     "model": "longcat-flash-chat",
     "modelKey": "longcat-flash-chat",
-    "rating": 1422.8614313791081,
+    "rating": 1422.9760402766178,
     "organization": "meituan",
-    "votes": 11166
-  },
-  {
-    "model": "mimo-v2-omni",
-    "modelKey": "mimo-v2-omni",
-    "rating": 1422.691928724099,
-    "organization": "xiaomi",
-    "votes": 19421
+    "votes": 11167
   },
   {
     "model": "deepseek-v3.2-exp",
     "modelKey": "deepseek-v3.2-exp",
-    "rating": 1422.5905583641013,
+    "rating": 1422.6122434267018,
     "organization": "deepseek",
-    "votes": 11761
+    "votes": 11758
   },
   {
     "model": "gpt-5.1",
     "modelKey": "gpt-5.1",
-    "rating": 1422.5380220602558,
+    "rating": 1422.4696731948306,
     "organization": "openai",
-    "votes": 43001
+    "votes": 43002
+  },
+  {
+    "model": "mimo-v2-omni",
+    "modelKey": "mimo-v2-omni",
+    "rating": 1422.4307526397502,
+    "organization": "xiaomi",
+    "votes": 19448
   },
   {
     "model": "mistral-medium-3.5",
     "modelKey": "mistral-medium-3.5",
-    "rating": 1421.262450082108,
+    "rating": 1421.1619262939985,
     "organization": "mistral",
-    "votes": 11006
+    "votes": 11017
   },
   {
     "model": "amazon-nova-experimental-chat-12-10",
     "modelKey": "amazon-nova-experimental-chat-12-10",
-    "rating": 1420.95009687515,
+    "rating": 1420.9530192158277,
     "organization": "amazon",
-    "votes": 3637
+    "votes": 3633
   },
   {
     "model": "qwen3-vl-235b-a22b-instruct",
     "modelKey": "qwen3-vl-235b-a22b-instruct",
-    "rating": 1420.4521263299214,
+    "rating": 1420.2283424082789,
     "organization": "alibaba",
-    "votes": 11225
+    "votes": 11228
   },
   {
     "model": "kimi-k2.5-instant",
     "modelKey": "kimi-k2.5-instant",
-    "rating": 1420.1771636248284,
+    "rating": 1420.1788978424547,
     "organization": "moonshot",
-    "votes": 7992
-  },
-  {
-    "model": "deepseek-v3.1-terminus-thinking",
-    "modelKey": "deepseek-v3.1-terminus-thinking",
-    "rating": 1419.8936629698524,
-    "organization": "deepseek",
-    "votes": 3367
+    "votes": 7996
   },
   {
     "model": "deepseek-v3.2-thinking",
     "modelKey": "deepseek-v3.2-thinking",
-    "rating": 1419.8576376620006,
+    "rating": 1419.9245668080807,
     "organization": "deepseek",
-    "votes": 40513
+    "votes": 40510
   },
   {
     "model": "qwen3-235b-a22b-instruct-2507",
     "modelKey": "qwen3-235b-a22b-instruct-2507",
-    "rating": 1419.7347218900125,
+    "rating": 1419.8211787958699,
     "organization": "alibaba",
-    "votes": 95676
+    "votes": 95685
   },
   {
-    "model": "deepseek-v3.1",
-    "modelKey": "deepseek-v3.1",
-    "rating": 1419.6007171891065,
+    "model": "deepseek-v3.1-terminus-thinking",
+    "modelKey": "deepseek-v3.1-terminus-thinking",
+    "rating": 1419.8084135828803,
     "organization": "deepseek",
-    "votes": 14600
+    "votes": 3371
   },
   {
     "model": "gpt-5.5-instant",
     "modelKey": "gpt-5.5-instant",
-    "rating": 1419.5818811275694,
+    "rating": 1419.7052930962127,
     "organization": "openai",
-    "votes": 25857
+    "votes": 25860
+  },
+  {
+    "model": "deepseek-v3.1",
+    "modelKey": "deepseek-v3.1",
+    "rating": 1419.6702833688973,
+    "organization": "deepseek",
+    "votes": 14601
   },
   {
     "model": "claude-opus-4-1-20250805-thinking-16k",
     "modelKey": "claude-opus-4-1-20250805-thinking-16k",
-    "rating": 1418.9973648807015,
+    "rating": 1419.0321690756,
     "organization": "anthropic",
-    "votes": 48803
+    "votes": 48799
   },
   {
     "model": "qwen3.5-122b-a10b",
     "modelKey": "qwen3.5-122b-a10b",
-    "rating": 1418.2920528159825,
+    "rating": 1418.1421728077485,
     "organization": "alibaba",
-    "votes": 28389
+    "votes": 28376
   },
   {
     "model": "claude-opus-4-1-20250805",
     "modelKey": "claude-opus-4-1-20250805",
-    "rating": 1418.022997422497,
+    "rating": 1418.0631259854022,
     "organization": "anthropic",
-    "votes": 75897
+    "votes": 75882
   },
   {
     "model": "qwen3-next-80b-a3b-instruct",
     "modelKey": "qwen3-next-80b-a3b-instruct",
-    "rating": 1417.3956682881935,
+    "rating": 1417.412403430416,
     "organization": "alibaba",
-    "votes": 22523
+    "votes": 22520
   },
   {
     "model": "gemini-2.5-flash",
     "modelKey": "gemini-2.5-flash",
-    "rating": 1417.2299597409535,
+    "rating": 1417.305015399534,
     "organization": "google",
-    "votes": 122761
+    "votes": 122770
   },
   {
     "model": "gpt-4.5-preview-2025-02-27",
     "modelKey": "gpt-4.5-preview-2025-02-27",
-    "rating": 1417.1888484265867,
+    "rating": 1417.1887934086853,
     "organization": "openai",
     "votes": 14547
   },
   {
+    "model": "deepseek-v3.1-terminus",
+    "modelKey": "deepseek-v3.1-terminus",
+    "rating": 1416.7119437837014,
+    "organization": "deepseek",
+    "votes": 3614
+  },
+  {
     "model": "gpt-5.2-high",
     "modelKey": "gpt-5.2-high",
-    "rating": 1416.6670448797206,
+    "rating": 1416.6665616706864,
     "organization": "openai",
-    "votes": 47570
+    "votes": 47566
   },
   {
     "model": "deepseek-v3.1-thinking",
     "modelKey": "deepseek-v3.1-thinking",
-    "rating": 1416.6128089499111,
+    "rating": 1416.604444203197,
     "organization": "deepseek",
     "votes": 11460
   },
   {
-    "model": "deepseek-v3.1-terminus",
-    "modelKey": "deepseek-v3.1-terminus",
-    "rating": 1416.6124079333738,
-    "organization": "deepseek",
-    "votes": 3612
-  },
-  {
     "model": "amazon-nova-experimental-chat-11-10",
     "modelKey": "amazon-nova-experimental-chat-11-10",
-    "rating": 1415.7095964737339,
+    "rating": 1415.801515810254,
     "organization": "amazon",
-    "votes": 25098
+    "votes": 25099
   },
   {
     "model": "gemini-3.1-flash-lite-preview",
     "modelKey": "gemini-3.1-flash-lite-preview",
-    "rating": 1415.2588097463295,
+    "rating": 1415.2736861928179,
     "organization": "google",
-    "votes": 60482
+    "votes": 60505
   },
   {
     "model": "qwen3-235b-a22b-thinking-2507",
     "modelKey": "qwen3-235b-a22b-thinking-2507",
-    "rating": 1414.9171900019244,
+    "rating": 1414.8733061436074,
     "organization": "alibaba",
-    "votes": 8795
+    "votes": 8796
   },
   {
     "model": "kimi-k2-thinking-turbo",
     "modelKey": "kimi-k2-thinking-turbo",
-    "rating": 1414.4587163171836,
+    "rating": 1414.4723046739841,
     "organization": "moonshot",
-    "votes": 61120
+    "votes": 61124
   },
   {
     "model": "Inkling Small",
     "modelKey": "Inkling Small",
-    "rating": 1413.8442073002095,
+    "rating": 1413.64936253231,
     "organization": "thinky",
-    "votes": 13438
+    "votes": 14940
   },
   {
     "model": "qwen3-max-2025-09-23",
     "modelKey": "qwen3-max-2025-09-23",
-    "rating": 1413.057879886738,
+    "rating": 1413.0223380287057,
     "organization": "alibaba",
-    "votes": 8944
+    "votes": 8939
   },
   {
     "model": "gpt-5.2",
     "modelKey": "gpt-5.2",
-    "rating": 1412.3620375080752,
+    "rating": 1412.4188233803184,
     "organization": "openai",
-    "votes": 79081
+    "votes": 79073
   },
   {
     "model": "gpt-5.4-mini-high",
     "modelKey": "gpt-5.4-mini-high",
-    "rating": 1412.2110395275697,
+    "rating": 1412.1046601954044,
     "organization": "openai",
     "votes": 59472
   },
   {
     "model": "grok-4-0709",
     "modelKey": "grok-4-0709",
-    "rating": 1411.3900377474256,
+    "rating": 1411.3508522538455,
     "organization": "xai",
-    "votes": 39297
+    "votes": 39285
   },
   {
     "model": "mimo-v2-flash (non-thinking)",
     "modelKey": "mimo-v2-flash (non-thinking)",
-    "rating": 1411.269753306779,
+    "rating": 1411.2233045448475,
     "organization": "xiaomi",
-    "votes": 46153
+    "votes": 46161
   },
   {
     "model": "o3-2025-04-16",
     "modelKey": "o3-2025-04-16",
-    "rating": 1409.8076429275197,
+    "rating": 1409.7993876360551,
     "organization": "openai",
-    "votes": 58575
+    "votes": 58561
   },
   {
     "model": "qwen3.5-27b",
     "modelKey": "qwen3.5-27b",
-    "rating": 1408.0694747435784,
+    "rating": 1407.9747585023692,
     "organization": "alibaba",
-    "votes": 27241
+    "votes": 27246
   },
   {
     "model": "grok-4-1-fast-reasoning",
     "modelKey": "grok-4-1-fast-reasoning",
-    "rating": 1407.9231242453325,
+    "rating": 1407.8494729881077,
     "organization": "xai",
-    "votes": 55434
+    "votes": 55403
   },
   {
     "model": "gemini-2.5-flash-preview-09-2025",
     "modelKey": "gemini-2.5-flash-preview-09-2025",
-    "rating": 1406.7841620714712,
+    "rating": 1406.8168899042462,
     "organization": "google",
-    "votes": 32360
+    "votes": 32350
   },
   {
     "model": "grok-4-fast-chat",
     "modelKey": "grok-4-fast-chat",
-    "rating": 1406.6216378931163,
+    "rating": 1406.7862636187028,
     "organization": "xai",
-    "votes": 6331
+    "votes": 6336
   },
   {
     "model": "hunyuan-vision-1.5-thinking",
     "modelKey": "hunyuan-vision-1.5-thinking",
-    "rating": 1406.618543285097,
+    "rating": 1406.4755834553075,
     "organization": "tencent",
     "votes": 2170
   },
   {
     "model": "gpt-5-high",
     "modelKey": "gpt-5-high",
-    "rating": 1406.0560901105835,
+    "rating": 1405.9577236591172,
     "organization": "openai",
-    "votes": 31423
-  },
-  {
-    "model": "minimax-m2.7",
-    "modelKey": "minimax-m2.7",
-    "rating": 1405.6411849511821,
-    "organization": "minimax",
-    "votes": 63907
+    "votes": 31418
   },
   {
     "model": "hunyuan-hy3-preview",
     "modelKey": "hunyuan-hy3-preview",
-    "rating": 1405.3561179458975,
+    "rating": 1405.4294225729273,
     "organization": "tencent",
-    "votes": 6611
+    "votes": 6613
+  },
+  {
+    "model": "minimax-m2.7",
+    "modelKey": "minimax-m2.7",
+    "rating": 1404.9036239313168,
+    "organization": "minimax",
+    "votes": 65411
   },
   {
     "model": "step-3.5-flash",
     "modelKey": "step-3.5-flash",
-    "rating": 1403.8738956712411,
+    "rating": 1403.7466262571465,
     "organization": "stepfun",
-    "votes": 57205
+    "votes": 57225
   },
   {
     "model": "gpt-5-chat",
     "modelKey": "gpt-5-chat",
-    "rating": 1403.6608915372776,
+    "rating": 1403.657416985227,
     "organization": "openai",
-    "votes": 30967
-  },
-  {
-    "model": "qwen3-vl-235b-a22b-thinking",
-    "modelKey": "qwen3-vl-235b-a22b-thinking",
-    "rating": 1400.5966346059683,
-    "organization": "alibaba",
-    "votes": 7786
+    "votes": 30964
   },
   {
     "model": "hunyuan-t1-20250711",
     "modelKey": "hunyuan-t1-20250711",
-    "rating": 1400.5434723612689,
+    "rating": 1400.5862882343604,
     "organization": "tencent",
-    "votes": 4576
+    "votes": 4575
+  },
+  {
+    "model": "qwen3-vl-235b-a22b-thinking",
+    "modelKey": "qwen3-vl-235b-a22b-thinking",
+    "rating": 1400.5554220842614,
+    "organization": "alibaba",
+    "votes": 7789
   },
   {
     "model": "grok-4-fast-reasoning",
     "modelKey": "grok-4-fast-reasoning",
-    "rating": 1398.8050978906963,
+    "rating": 1398.736443347399,
     "organization": "xai",
-    "votes": 17967
+    "votes": 17965
   },
   {
     "model": "amazon-nova-experimental-chat-26-01-10",
     "modelKey": "amazon-nova-experimental-chat-26-01-10",
-    "rating": 1398.1403401962295,
+    "rating": 1398.2161073789734,
     "organization": "amazon",
-    "votes": 3351
+    "votes": 3349
   },
   {
     "model": "grok-4.3",
     "modelKey": "grok-4.3",
-    "rating": 1397.9678415690787,
+    "rating": 1397.9742845953892,
     "organization": "xai",
-    "votes": 63272
+    "votes": 65024
   },
   {
     "model": "qwen3.5-flash",
     "modelKey": "qwen3.5-flash",
-    "rating": 1397.7969446625302,
+    "rating": 1397.7335050100696,
     "organization": "alibaba",
-    "votes": 58255
+    "votes": 58299
   },
   {
     "model": "qwen3.5-35b-a3b",
     "modelKey": "qwen3.5-35b-a3b",
-    "rating": 1395.7561858572542,
+    "rating": 1395.6028673810956,
     "organization": "alibaba",
-    "votes": 29059
+    "votes": 29067
   },
   {
     "model": "claude-haiku-4-5-20251001",
     "modelKey": "claude-haiku-4-5-20251001",
-    "rating": 1395.0905459489568,
+    "rating": 1395.246555227261,
     "organization": "anthropic",
-    "votes": 123321
+    "votes": 124979
   },
   {
     "model": "amazon-nova-experimental-chat-10-20",
     "modelKey": "amazon-nova-experimental-chat-10-20",
-    "rating": 1394.8451304638745,
+    "rating": 1394.7667967856082,
     "organization": "amazon",
     "votes": 11362
   },
   {
     "model": "mimo-v2-flash (thinking)",
     "modelKey": "mimo-v2-flash (thinking)",
-    "rating": 1394.4191021025329,
+    "rating": 1394.4502654516145,
     "organization": "xiaomi",
-    "votes": 10750
+    "votes": 10751
   },
   {
     "model": "qwen3-235b-a22b-no-thinking",
     "modelKey": "qwen3-235b-a22b-no-thinking",
-    "rating": 1393.5004605921747,
+    "rating": 1393.5520150796497,
     "organization": "alibaba",
-    "votes": 37375
-  },
-  {
-    "model": "minimax-m2.1-preview",
-    "modelKey": "minimax-m2.1-preview",
-    "rating": 1391.3016821164647,
-    "organization": "minimax",
-    "votes": 16631
+    "votes": 37377
   },
   {
     "model": "muse-glimmer",
     "modelKey": "muse-glimmer",
-    "rating": 1391.00654033954,
+    "rating": 1391.9061963376898,
     "organization": "meta",
-    "votes": 3716
+    "votes": 3696
+  },
+  {
+    "model": "minimax-m2.1-preview",
+    "modelKey": "minimax-m2.1-preview",
+    "rating": 1391.2642699827957,
+    "organization": "minimax",
+    "votes": 16638
   },
   {
     "model": "gpt-5.3-chat-latest",
     "modelKey": "gpt-5.3-chat-latest",
-    "rating": 1387.9393241296534,
+    "rating": 1387.9510278321422,
     "organization": "openai",
-    "votes": 32748
+    "votes": 32749
   },
   {
     "model": "glm-4.5-air",
     "modelKey": "glm-4.5-air",
-    "rating": 1383.5616688188215,
+    "rating": 1383.5679682367331,
     "organization": "zai",
     "votes": 30368
   },
   {
     "model": "qwen3-30b-a3b-instruct-2507",
     "modelKey": "qwen3-30b-a3b-instruct-2507",
-    "rating": 1383.523298262474,
+    "rating": 1383.5218147704204,
     "organization": "alibaba",
-    "votes": 23221
+    "votes": 23222
   },
   {
     "model": "gpt-4.1-2025-04-14",
     "modelKey": "gpt-4.1-2025-04-14",
-    "rating": 1382.7243809249453,
+    "rating": 1382.7120452189774,
     "organization": "openai",
-    "votes": 49920
+    "votes": 49913
   },
   {
     "model": "gemini-2.5-flash-lite-preview-09-2025-no-thinking",
     "modelKey": "gemini-2.5-flash-lite-preview-09-2025-no-thinking",
-    "rating": 1379.3988115359518,
+    "rating": 1379.464572572194,
     "organization": "google",
-    "votes": 46382
+    "votes": 46384
   },
   {
     "model": "kimi-k2-0905-preview",
     "modelKey": "kimi-k2-0905-preview",
-    "rating": 1379.368437918165,
+    "rating": 1379.328776364283,
     "organization": "moonshot",
-    "votes": 11561
+    "votes": 11564
   },
   {
     "model": "nvidia-nemotron-3-super-120b-a12b",
     "modelKey": "nvidia-nemotron-3-super-120b-a12b",
-    "rating": 1377.95857548386,
+    "rating": 1377.8580376502746,
     "organization": "nvidia",
-    "votes": 7460
-  },
-  {
-    "model": "claude-opus-4-20250514-thinking-16k",
-    "modelKey": "claude-opus-4-20250514-thinking-16k",
-    "rating": 1376.7711333770753,
-    "organization": "anthropic",
-    "votes": 35727
+    "votes": 7461
   },
   {
     "model": "solar-pro4",
     "modelKey": "solar-pro4",
-    "rating": 1376.7258072316522,
+    "rating": 1377.1702677148799,
     "organization": "upstage",
-    "votes": 2447
+    "votes": 2437
   },
   {
-    "model": "hunyuan-turbos-20250416",
-    "modelKey": "hunyuan-turbos-20250416",
-    "rating": 1376.3028874637857,
-    "organization": "tencent",
-    "votes": 10585
+    "model": "claude-opus-4-20250514-thinking-16k",
+    "modelKey": "claude-opus-4-20250514-thinking-16k",
+    "rating": 1376.7361750104244,
+    "organization": "anthropic",
+    "votes": 35725
   },
   {
     "model": "glm-4.6v",
     "modelKey": "glm-4.6v",
-    "rating": 1376.1445188334203,
+    "rating": 1376.4892263925617,
     "organization": "zai",
-    "votes": 2762
+    "votes": 2760
+  },
+  {
+    "model": "hunyuan-turbos-20250416",
+    "modelKey": "hunyuan-turbos-20250416",
+    "rating": 1376.368053489076,
+    "organization": "tencent",
+    "votes": 10583
   },
   {
     "model": "deepseek-v3-0324",
     "modelKey": "deepseek-v3-0324",
-    "rating": 1374.8465780210922,
+    "rating": 1374.9834365654453,
     "organization": "deepseek",
-    "votes": 44789
-  },
-  {
-    "model": "gpt-5.4-nano-high",
-    "modelKey": "gpt-5.4-nano-high",
-    "rating": 1372.8617255055751,
-    "organization": "openai",
-    "votes": 58539
+    "votes": 44786
   },
   {
     "model": "gpt-5-mini-high",
     "modelKey": "gpt-5-mini-high",
-    "rating": 1372.827113462037,
+    "rating": 1372.942722303711,
     "organization": "openai",
     "votes": 26551
   },
   {
+    "model": "gpt-5.4-nano-high",
+    "modelKey": "gpt-5.4-nano-high",
+    "rating": 1372.8663020195486,
+    "organization": "openai",
+    "votes": 58562
+  },
+  {
     "model": "deepseek-r1",
     "modelKey": "deepseek-r1",
-    "rating": 1372.492518960736,
+    "rating": 1372.4946783484324,
     "organization": "deepseek",
     "votes": 18524
   },
   {
     "model": "kimi-k2-0711-preview",
     "modelKey": "kimi-k2-0711-preview",
-    "rating": 1370.6965536717648,
+    "rating": 1370.7584321727495,
     "organization": "moonshot",
     "votes": 27023
   },
   {
     "model": "mistral-medium-2505",
     "modelKey": "mistral-medium-2505",
-    "rating": 1369.9226890378332,
+    "rating": 1369.8760543842618,
     "organization": "mistral",
     "votes": 32660
   },
   {
     "model": "grok-3-mini-high",
     "modelKey": "grok-3-mini-high",
-    "rating": 1369.2679801812037,
+    "rating": 1369.3202686011612,
     "organization": "xai",
-    "votes": 15532
+    "votes": 15535
   },
   {
     "model": "gemini-2.5-flash-lite-preview-06-17-thinking",
     "modelKey": "gemini-2.5-flash-lite-preview-06-17-thinking",
-    "rating": 1369.0353945489137,
+    "rating": 1369.0716099351314,
     "organization": "google",
     "votes": 32209
   },
   {
     "model": "qwen3-next-80b-a3b-thinking",
     "modelKey": "qwen3-next-80b-a3b-thinking",
-    "rating": 1367.862234678204,
+    "rating": 1367.7171673389212,
     "organization": "alibaba",
-    "votes": 13390
+    "votes": 13389
   },
   {
     "model": "qwen2.5-max",
     "modelKey": "qwen2.5-max",
-    "rating": 1366.454752827818,
+    "rating": 1366.4630906563134,
     "organization": "alibaba",
-    "votes": 32418
+    "votes": 32417
   },
   {
     "model": "qwen3-235b-a22b",
     "modelKey": "qwen3-235b-a22b",
-    "rating": 1366.082319362109,
+    "rating": 1366.1318455125947,
     "organization": "alibaba",
-    "votes": 25860
+    "votes": 25865
   },
   {
     "model": "gpt-oss-120b",
     "modelKey": "gpt-oss-120b",
-    "rating": 1365.9236162152652,
+    "rating": 1365.9149668740415,
     "organization": "openai",
-    "votes": 29938
+    "votes": 29935
   },
   {
     "model": "claude-opus-4-20250514",
     "modelKey": "claude-opus-4-20250514",
-    "rating": 1365.669069633288,
+    "rating": 1365.6626763386703,
     "organization": "anthropic",
-    "votes": 42840
+    "votes": 42841
   },
   {
     "model": "o1-2024-12-17",
     "modelKey": "o1-2024-12-17",
-    "rating": 1365.6297965127605,
+    "rating": 1365.6259605205687,
     "organization": "openai",
     "votes": 27807
   },
   {
     "model": "amazon-nova-experimental-chat-10-09",
     "modelKey": "amazon-nova-experimental-chat-10-09",
-    "rating": 1364.1765075422973,
+    "rating": 1364.0470284533708,
     "organization": "amazon",
-    "votes": 2775
+    "votes": 2776
   },
   {
     "model": "grok-3-mini-beta",
     "modelKey": "grok-3-mini-beta",
-    "rating": 1364.0066251128492,
+    "rating": 1364.0123551674033,
     "organization": "xai",
-    "votes": 20837
+    "votes": 20838
+  },
+  {
+    "model": "granite-4.2-30b",
+    "modelKey": "granite-4.2-30b",
+    "rating": 1362.5549595369964,
+    "organization": "ibm",
+    "votes": 3287
   },
   {
     "model": "nova-2-lite",
     "modelKey": "nova-2-lite",
-    "rating": 1362.5141401377196,
+    "rating": 1362.5227435574884,
     "organization": "amazon",
-    "votes": 12118
+    "votes": 12117
   },
   {
     "model": "ling-flash-2.0",
     "modelKey": "ling-flash-2.0",
-    "rating": 1361.5815932389446,
+    "rating": 1361.6293424127334,
     "organization": "ant-group",
-    "votes": 6851
+    "votes": 6852
   },
   {
     "model": "minimax-m2.5",
     "modelKey": "minimax-m2.5",
-    "rating": 1359.0897802838647,
+    "rating": 1359.156272282163,
     "organization": "minimax",
-    "votes": 40887
+    "votes": 40895
   },
   {
     "model": "mercury-2",
     "modelKey": "mercury-2",
-    "rating": 1357.6642167894952,
+    "rating": 1357.6314125048887,
     "organization": "inception-ai",
-    "votes": 3044
+    "votes": 3043
   },
   {
     "model": "gemma-3-27b-it",
     "modelKey": "gemma-3-27b-it",
-    "rating": 1357.4963146691061,
+    "rating": 1357.5441679829273,
     "organization": "google",
-    "votes": 46426
+    "votes": 46434
   },
   {
     "model": "qwen3-coder-480b-a35b-instruct",
     "modelKey": "qwen3-coder-480b-a35b-instruct",
-    "rating": 1356.2720685774739,
+    "rating": 1356.2764604241445,
     "organization": "alibaba",
-    "votes": 25091
+    "votes": 25081
   },
   {
     "model": "intellect-3",
     "modelKey": "intellect-3",
-    "rating": 1355.8992450553878,
+    "rating": 1356.0080541545087,
     "organization": "",
-    "votes": 5284
+    "votes": 5282
   },
   {
     "model": "gemini-2.0-flash-001",
     "modelKey": "gemini-2.0-flash-001",
-    "rating": 1353.932413788064,
+    "rating": 1353.8705777786877,
     "organization": "google",
-    "votes": 43342
+    "votes": 43346
   },
   {
     "model": "o4-mini-2025-04-16",
     "modelKey": "o4-mini-2025-04-16",
-    "rating": 1353.0958736192379,
+    "rating": 1353.0802144031968,
     "organization": "openai",
-    "votes": 44625
+    "votes": 44618
   },
   {
     "model": "o1-preview",
     "modelKey": "o1-preview",
-    "rating": 1352.5747649877615,
+    "rating": 1352.5642741862857,
     "organization": "openai",
     "votes": 31122
   },
   {
     "model": "glm-4.7-flash",
     "modelKey": "glm-4.7-flash",
-    "rating": 1352.2969091654343,
+    "rating": 1352.5202177545443,
     "organization": "zai",
     "votes": 11513
   },
   {
     "model": "step-3",
     "modelKey": "step-3",
-    "rating": 1350.5886864761949,
+    "rating": 1350.5728053565444,
     "organization": "stepfun",
-    "votes": 6276
+    "votes": 6280
   },
   {
     "model": "claude-sonnet-4-20250514-thinking-32k",
     "modelKey": "claude-sonnet-4-20250514-thinking-32k",
-    "rating": 1349.8710927670882,
+    "rating": 1349.987658404561,
     "organization": "anthropic",
-    "votes": 33944
+    "votes": 33955
   },
   {
     "model": "nvidia-nemotron-3-nano-30b-a3b-bf16",
     "modelKey": "nvidia-nemotron-3-nano-30b-a3b-bf16",
-    "rating": 1348.3253222970393,
+    "rating": 1348.4224246242784,
     "organization": "nvidia",
-    "votes": 15332
+    "votes": 15338
   },
   {
     "model": "minimax-m1",
     "modelKey": "minimax-m1",
-    "rating": 1342.3612348452598,
+    "rating": 1342.4988676452995,
     "organization": "minimax",
-    "votes": 34014
+    "votes": 34028
   },
   {
     "model": "trinity-large-thinking",
     "modelKey": "trinity-large-thinking",
-    "rating": 1342.043728126265,
+    "rating": 1342.0411619710803,
     "organization": "",
-    "votes": 29001
+    "votes": 28999
   },
   {
     "model": "minimax-m2",
     "modelKey": "minimax-m2",
-    "rating": 1341.7720318201348,
+    "rating": 1341.906928911431,
     "organization": "minimax",
-    "votes": 6750
+    "votes": 6748
   },
   {
     "model": "gpt-4.1-mini-2025-04-14",
     "modelKey": "gpt-4.1-mini-2025-04-14",
-    "rating": 1340.0438211935616,
+    "rating": 1340.0922429083103,
     "organization": "openai",
-    "votes": 38633
+    "votes": 38630
   },
   {
     "model": "qwen3-32b",
     "modelKey": "qwen3-32b",
-    "rating": 1339.9126300295234,
+    "rating": 1339.9346671895587,
     "organization": "alibaba",
     "votes": 3926
   },
   {
     "model": "claude-sonnet-4-20250514",
     "modelKey": "claude-sonnet-4-20250514",
-    "rating": 1339.066216753436,
+    "rating": 1339.0461350243427,
     "organization": "anthropic",
-    "votes": 38961
+    "votes": 38942
   },
   {
     "model": "trinity-large-preview",
     "modelKey": "trinity-large-preview",
-    "rating": 1338.555038068939,
+    "rating": 1338.6540286080171,
     "organization": "",
-    "votes": 29791
+    "votes": 29770
   },
   {
     "model": "mistral-small-2506",
     "modelKey": "mistral-small-2506",
-    "rating": 1338.4106961351201,
+    "rating": 1338.4474085837262,
     "organization": "mistral",
-    "votes": 17403
+    "votes": 17401
   },
   {
     "model": "nvidia-llama-3.3-nemotron-super-49b-v1.5",
     "modelKey": "nvidia-llama-3.3-nemotron-super-49b-v1.5",
-    "rating": 1337.946352299548,
+    "rating": 1337.894386759292,
     "organization": "nvidia",
-    "votes": 3315
+    "votes": 3316
   },
   {
     "model": "o3-mini-high",
     "modelKey": "o3-mini-high",
-    "rating": 1336.3967676547968,
+    "rating": 1336.396488896906,
     "organization": "openai",
     "votes": 18589
   },
   {
     "model": "step-1o-turbo-202506",
     "modelKey": "step-1o-turbo-202506",
-    "rating": 1335.7230963768138,
+    "rating": 1335.6810107429899,
     "organization": "stepfun",
-    "votes": 8860
+    "votes": 8856
   },
   {
     "model": "gemma-3-12b-it",
     "modelKey": "gemma-3-12b-it",
-    "rating": 1334.0451667117209,
+    "rating": 1334.0628456407476,
     "organization": "google",
     "votes": 3829
   },
   {
     "model": "glm-4.5v",
     "modelKey": "glm-4.5v",
-    "rating": 1332.6417068102357,
+    "rating": 1332.8796709771927,
     "organization": "zai",
-    "votes": 4819
-  },
-  {
-    "model": "ring-flash-2.0",
-    "modelKey": "ring-flash-2.0",
-    "rating": 1332.3321159743796,
-    "organization": "ant-group",
-    "votes": 6903
+    "votes": 4818
   },
   {
     "model": "deepseek-v3",
     "modelKey": "deepseek-v3",
-    "rating": 1332.291400705648,
+    "rating": 1332.2826683704698,
     "organization": "deepseek",
     "votes": 21770
   },
   {
+    "model": "ring-flash-2.0",
+    "modelKey": "ring-flash-2.0",
+    "rating": 1332.079196695294,
+    "organization": "ant-group",
+    "votes": 6904
+  },
+  {
+    "model": "nvidia-nemotron-3.5-lightning-30b-a3b-nvfp4",
+    "modelKey": "nvidia-nemotron-3.5-lightning-30b-a3b-nvfp4",
+    "rating": 1331.8384062672014,
+    "organization": "nvidia",
+    "votes": 4533
+  },
+  {
     "model": "command-a-03-2025",
     "modelKey": "command-a-03-2025",
-    "rating": 1330.7406538169034,
+    "rating": 1330.793178512562,
     "organization": "cohere",
-    "votes": 55439
+    "votes": 55434
   },
   {
     "model": "glm-4-plus-0111",
     "modelKey": "glm-4-plus-0111",
-    "rating": 1330.6194293696758,
+    "rating": 1330.6093565439692,
     "organization": "zai",
     "votes": 5760
   },
   {
     "model": "gemini-2.0-flash-lite-preview-02-05",
     "modelKey": "gemini-2.0-flash-lite-preview-02-05",
-    "rating": 1329.3830866401654,
+    "rating": 1329.3851608328523,
     "organization": "google",
     "votes": 24955
   },
   {
     "model": "qwq-32b",
     "modelKey": "qwq-32b",
-    "rating": 1328.9635459558326,
+    "rating": 1328.968230103978,
     "organization": "alibaba",
-    "votes": 25095
-  },
-  {
-    "model": "nvidia-nemotron-3.5-lightning-30b-a3b-nvfp4",
-    "modelKey": "nvidia-nemotron-3.5-lightning-30b-a3b-nvfp4",
-    "rating": 1328.394155746441,
-    "organization": "nvidia",
-    "votes": 3379
+    "votes": 25094
   },
   {
     "model": "qwen-plus-0125",
     "modelKey": "qwen-plus-0125",
-    "rating": 1326.1997891245883,
+    "rating": 1326.1896983751808,
     "organization": "alibaba",
     "votes": 5819
   },
   {
     "model": "step-2-16k-exp-202412",
     "modelKey": "step-2-16k-exp-202412",
-    "rating": 1320.6995726043158,
+    "rating": 1320.690344194675,
     "organization": "stepfun",
     "votes": 4833
   },
   {
     "model": "gpt-5-nano-high",
     "modelKey": "gpt-5-nano-high",
-    "rating": 1319.7199938517201,
+    "rating": 1319.8414125459171,
     "organization": "openai",
     "votes": 8128
   },
   {
     "model": "hunyuan-turbos-20250226",
     "modelKey": "hunyuan-turbos-20250226",
-    "rating": 1319.5317824749686,
+    "rating": 1319.5249326162912,
     "organization": "tencent",
     "votes": 2220
   },
   {
     "model": "llama-3.1-nemotron-ultra-253b-v1",
     "modelKey": "llama-3.1-nemotron-ultra-253b-v1",
-    "rating": 1319.3605110194374,
+    "rating": 1319.3773519534611,
     "organization": "nvidia",
     "votes": 2549
   },
   {
-    "model": "o3-mini",
-    "modelKey": "o3-mini",
-    "rating": 1318.9500915901467,
-    "organization": "openai",
-    "votes": 56658
-  },
-  {
     "model": "gemini-1.5-pro-002",
     "modelKey": "gemini-1.5-pro-002",
-    "rating": 1318.9325879703788,
+    "rating": 1318.922933758508,
     "organization": "google",
     "votes": 55606
   },
   {
+    "model": "o3-mini",
+    "modelKey": "o3-mini",
+    "rating": 1318.895928403967,
+    "organization": "openai",
+    "votes": 56653
+  },
+  {
+    "model": "granite-4.2-8b",
+    "modelKey": "granite-4.2-8b",
+    "rating": 1317.934992761498,
+    "organization": "ibm",
+    "votes": 3119
+  },
+  {
     "model": "o1-mini",
     "modelKey": "o1-mini",
-    "rating": 1316.8744636794945,
+    "rating": 1316.8640860408375,
     "organization": "openai",
     "votes": 51981
   },
   {
     "model": "qwen3-30b-a3b",
     "modelKey": "qwen3-30b-a3b",
-    "rating": 1316.8187070474037,
+    "rating": 1316.842149439498,
     "organization": "alibaba",
-    "votes": 26092
+    "votes": 26093
   },
   {
     "model": "claude-3-7-sonnet-20250219-thinking-32k",
     "modelKey": "claude-3-7-sonnet-20250219-thinking-32k",
-    "rating": 1314.3443489677115,
+    "rating": 1314.3624224630794,
     "organization": "anthropic",
-    "votes": 38086
+    "votes": 38088
   },
   {
     "model": "olmo-3.1-32b-instruct",
     "modelKey": "olmo-3.1-32b-instruct",
-    "rating": 1311.929870333494,
+    "rating": 1311.9027387014858,
     "organization": "allenai",
     "votes": 11463
   },
   {
     "model": "hunyuan-turbo-0110",
     "modelKey": "hunyuan-turbo-0110",
-    "rating": 1311.2232842704573,
+    "rating": 1311.216469591737,
     "organization": "tencent",
     "votes": 2290
   },
   {
     "model": "llama-3.3-nemotron-49b-super-v1",
     "modelKey": "llama-3.3-nemotron-49b-super-v1",
-    "rating": 1308.1768493675013,
+    "rating": 1308.1702416130966,
     "organization": "nvidia",
     "votes": 2218
   },
   {
     "model": "gemma-3n-e4b-it",
     "modelKey": "gemma-3n-e4b-it",
-    "rating": 1305.2237777670348,
+    "rating": 1305.2779667185819,
     "organization": "google",
-    "votes": 22090
+    "votes": 22084
   },
   {
     "model": "grok-2-2024-08-13",
     "modelKey": "grok-2-2024-08-13",
-    "rating": 1304.3777458603483,
+    "rating": 1304.3676799391142,
     "organization": "xai",
     "votes": 63498
   },
   {
     "model": "yi-lightning",
     "modelKey": "yi-lightning",
-    "rating": 1301.3390847309358,
+    "rating": 1301.3281745207535,
     "organization": "",
     "votes": 27332
   },
   {
     "model": "gpt-4o-2024-05-13",
     "modelKey": "gpt-4o-2024-05-13",
-    "rating": 1300.23957721566,
+    "rating": 1300.2291214928368,
     "organization": "openai",
     "votes": 112881
   },
   {
     "model": "olmo-3-32b-think",
     "modelKey": "olmo-3-32b-think",
-    "rating": 1299.5881474113332,
+    "rating": 1299.561704399136,
     "organization": "allenai",
     "votes": 5682
   },
   {
     "model": "claude-3-7-sonnet-20250219",
     "modelKey": "claude-3-7-sonnet-20250219",
-    "rating": 1299.1536957821622,
+    "rating": 1299.1684072042071,
     "organization": "anthropic",
-    "votes": 42448
+    "votes": 42452
   },
   {
     "model": "qwen2.5-plus-1127",
     "modelKey": "qwen2.5-plus-1127",
-    "rating": 1298.9457123296777,
+    "rating": 1298.936276420438,
     "organization": "alibaba",
     "votes": 10187
   },
   {
+    "model": "granite-4.2-3b",
+    "modelKey": "granite-4.2-3b",
+    "rating": 1298.834427142927,
+    "organization": "ibm",
+    "votes": 3097
+  },
+  {
     "model": "claude-3-5-sonnet-20241022",
     "modelKey": "claude-3-5-sonnet-20241022",
-    "rating": 1297.7115097680983,
+    "rating": 1297.672824399408,
     "organization": "anthropic",
     "votes": 87693
   },
   {
-    "model": "molmo-2-8b",
-    "modelKey": "molmo-2-8b",
-    "rating": 1294.115433687212,
-    "organization": "allenai",
-    "votes": 791
-  },
-  {
     "model": "deepseek-v2.5-1210",
     "modelKey": "deepseek-v2.5-1210",
-    "rating": 1293.7217027791264,
+    "rating": 1293.7118530530906,
     "organization": "deepseek",
     "votes": 6795
   },
   {
+    "model": "molmo-2-8b",
+    "modelKey": "molmo-2-8b",
+    "rating": 1293.6943847550529,
+    "organization": "allenai",
+    "votes": 792
+  },
+  {
     "model": "granite-4.1-8b",
     "modelKey": "granite-4.1-8b",
-    "rating": 1291.9230745535401,
+    "rating": 1292.0731172132016,
     "organization": "ibm",
-    "votes": 4032
+    "votes": 4027
   },
   {
     "model": "athene-v2-chat",
     "modelKey": "athene-v2-chat",
-    "rating": 1291.257084119113,
+    "rating": 1291.2468246085095,
     "organization": "",
     "votes": 24739
   },
   {
     "model": "gemma-3-4b-it",
     "modelKey": "gemma-3-4b-it",
-    "rating": 1290.6276488909602,
+    "rating": 1290.6449202710542,
     "organization": "google",
     "votes": 4171
   },
   {
     "model": "glm-4-plus",
     "modelKey": "glm-4-plus",
-    "rating": 1289.4605956881433,
+    "rating": 1289.4497379633221,
     "organization": "zai",
     "votes": 26126
   },
   {
     "model": "hunyuan-large-2025-02-10",
     "modelKey": "hunyuan-large-2025-02-10",
-    "rating": 1287.743878311007,
+    "rating": 1287.7340353517511,
     "organization": "tencent",
     "votes": 3738
   },
   {
     "model": "gpt-oss-20b",
     "modelKey": "gpt-oss-20b",
-    "rating": 1287.2353673945738,
+    "rating": 1287.2710457843696,
     "organization": "openai",
-    "votes": 10385
+    "votes": 10386
   },
   {
     "model": "llama-4-maverick-17b-128e-instruct",
     "modelKey": "llama-4-maverick-17b-128e-instruct",
-    "rating": 1287.0852467017337,
+    "rating": 1287.1343834552317,
     "organization": "meta",
-    "votes": 39347
+    "votes": 39349
   },
   {
     "model": "gemini-1.5-flash-002",
     "modelKey": "gemini-1.5-flash-002",
-    "rating": 1286.4533253020409,
+    "rating": 1286.442914374653,
     "organization": "google",
     "votes": 34902
   },
   {
     "model": "gpt-4o-mini-2024-07-18",
     "modelKey": "gpt-4o-mini-2024-07-18",
-    "rating": 1286.2285463767516,
+    "rating": 1286.2213466790165,
     "organization": "openai",
     "votes": 68698
   },
   {
     "model": "gpt-4.1-nano-2025-04-14",
     "modelKey": "gpt-4.1-nano-2025-04-14",
-    "rating": 1284.6194282991146,
+    "rating": 1284.635133360917,
     "organization": "openai",
     "votes": 6103
   },
   {
     "model": "mercury",
     "modelKey": "mercury",
-    "rating": 1284.5639351605732,
+    "rating": 1284.319921061363,
     "organization": "inception-ai",
-    "votes": 1928
+    "votes": 1929
   },
   {
     "model": "llama-3.1-405b-instruct-bf16",
     "modelKey": "llama-3.1-405b-instruct-bf16",
-    "rating": 1283.4950065807207,
+    "rating": 1283.4895040591578,
     "organization": "meta",
     "votes": 41375
   },
   {
     "model": "llama-3.1-nemotron-70b-instruct",
     "modelKey": "llama-3.1-nemotron-70b-instruct",
-    "rating": 1282.4613753308554,
+    "rating": 1282.4503303272872,
     "organization": "nvidia",
     "votes": 7140
   },
   {
     "model": "gpt-4o-2024-08-06",
     "modelKey": "gpt-4o-2024-08-06",
-    "rating": 1282.3449561951818,
+    "rating": 1282.334474018505,
     "organization": "openai",
     "votes": 45499
   },
   {
     "model": "qwen-max-0919",
     "modelKey": "qwen-max-0919",
-    "rating": 1281.68860984628,
+    "rating": 1281.677787817982,
     "organization": "alibaba",
     "votes": 16478
   },
   {
     "model": "llama-3.1-405b-instruct-fp8",
     "modelKey": "llama-3.1-405b-instruct-fp8",
-    "rating": 1281.6049479510393,
+    "rating": 1281.5945322483835,
     "organization": "meta",
     "votes": 59656
   },
   {
     "model": "claude-3-5-sonnet-20240620",
     "modelKey": "claude-3-5-sonnet-20240620",
-    "rating": 1280.726340475156,
+    "rating": 1280.7157743309485,
     "organization": "anthropic",
     "votes": 82419
   },
   {
     "model": "grok-2-mini-2024-08-13",
     "modelKey": "grok-2-mini-2024-08-13",
-    "rating": 1280.4951826067675,
+    "rating": 1280.4850850469365,
     "organization": "xai",
     "votes": 52567
   },
   {
     "model": "llama-4-scout-17b-16e-instruct",
     "modelKey": "llama-4-scout-17b-16e-instruct",
-    "rating": 1279.2024990583554,
+    "rating": 1279.2452846436663,
     "organization": "meta",
-    "votes": 29740
+    "votes": 29739
   },
   {
     "model": "gemini-advanced-0514",
     "modelKey": "gemini-advanced-0514",
-    "rating": 1278.3643555728108,
+    "rating": 1278.35419937168,
     "organization": "google",
     "votes": 50148
   },
   {
     "model": "mistral-small-3.1-24b-instruct-2503",
     "modelKey": "mistral-small-3.1-24b-instruct-2503",
-    "rating": 1277.3815814844595,
+    "rating": 1277.3778401152654,
     "organization": "mistral",
-    "votes": 32623
+    "votes": 32621
   },
   {
     "model": "llama-3.3-70b-instruct",
     "modelKey": "llama-3.3-70b-instruct",
-    "rating": 1273.9349308739042,
+    "rating": 1273.9077675143137,
     "organization": "meta",
-    "votes": 54416
+    "votes": 54411
   },
   {
     "model": "hunyuan-standard-2025-02-10",
     "modelKey": "hunyuan-standard-2025-02-10",
-    "rating": 1273.789079416377,
+    "rating": 1273.779305838401,
     "organization": "tencent",
     "votes": 3904
   },
   {
     "model": "gemini-1.5-pro-001",
     "modelKey": "gemini-1.5-pro-001",
-    "rating": 1273.2995271257519,
+    "rating": 1273.2894068230507,
     "organization": "google",
     "votes": 79138
   },
   {
     "model": "gpt-4-turbo-2024-04-09",
     "modelKey": "gpt-4-turbo-2024-04-09",
-    "rating": 1271.4979353315737,
+    "rating": 1271.4874208531332,
     "organization": "openai",
     "votes": 98114
   },
   {
     "model": "deepseek-v2.5",
     "modelKey": "deepseek-v2.5",
-    "rating": 1271.058280593219,
+    "rating": 1271.0475607773772,
     "organization": "deepseek",
     "votes": 24572
   },
   {
     "model": "olmo-3.1-32b-think",
     "modelKey": "olmo-3.1-32b-think",
-    "rating": 1270.3228934818005,
+    "rating": 1270.5277851576047,
     "organization": "allenai",
-    "votes": 8114
+    "votes": 8112
   },
   {
     "model": "qwen2.5-72b-instruct",
     "modelKey": "qwen2.5-72b-instruct",
-    "rating": 1268.8205800688743,
+    "rating": 1268.81045237331,
     "organization": "alibaba",
     "votes": 39406
   },
   {
     "model": "mistral-large-2407",
     "modelKey": "mistral-large-2407",
-    "rating": 1265.951719150156,
+    "rating": 1265.9410866942876,
     "organization": "mistral",
     "votes": 45459
   },
   {
     "model": "mistral-large-2411",
     "modelKey": "mistral-large-2411",
-    "rating": 1265.1223974888876,
+    "rating": 1265.1181240165322,
     "organization": "mistral",
     "votes": 28073
   },
   {
     "model": "athene-70b-0725",
     "modelKey": "athene-70b-0725",
-    "rating": 1264.946455339814,
+    "rating": 1264.9363696608584,
     "organization": "",
     "votes": 19621
   },
   {
     "model": "gpt-4-1106-preview",
     "modelKey": "gpt-4-1106-preview",
-    "rating": 1263.2442819229643,
+    "rating": 1263.2338502293978,
     "organization": "openai",
     "votes": 100105
   },
   {
     "model": "hunyuan-large-vision",
     "modelKey": "hunyuan-large-vision",
-    "rating": 1263.0097116729428,
+    "rating": 1263.082351568467,
     "organization": "tencent",
-    "votes": 5258
+    "votes": 5260
   },
   {
     "model": "gpt-4-0125-preview",
     "modelKey": "gpt-4-0125-preview",
-    "rating": 1262.0106067733427,
+    "rating": 1262.000188937888,
     "organization": "openai",
     "votes": 93439
   },
   {
     "model": "claude-3-opus-20240229",
     "modelKey": "claude-3-opus-20240229",
-    "rating": 1261.807928600805,
+    "rating": 1261.797676349368,
     "organization": "anthropic",
     "votes": 194909
   },
   {
     "model": "llama-3.1-70b-instruct",
     "modelKey": "llama-3.1-70b-instruct",
-    "rating": 1260.7106221426761,
+    "rating": 1260.7002061658063,
     "organization": "meta",
     "votes": 55240
   },
   {
     "model": "amazon-nova-pro-v1.0",
     "modelKey": "amazon-nova-pro-v1.0",
-    "rating": 1258.508474283864,
+    "rating": 1258.507653471881,
     "organization": "amazon",
     "votes": 24745
   },
   {
     "model": "llama-3.1-tulu-3-70b",
     "modelKey": "llama-3.1-tulu-3-70b",
-    "rating": 1255.5198874599193,
+    "rating": 1255.510354756617,
     "organization": "allenai",
     "votes": 2846
   },
   {
     "model": "claude-3-5-haiku-20241022",
     "modelKey": "claude-3-5-haiku-20241022",
-    "rating": 1255.0237455087424,
+    "rating": 1255.038652361031,
     "organization": "anthropic",
-    "votes": 68968
+    "votes": 68972
   },
   {
     "model": "magistral-medium-2506",
     "modelKey": "magistral-medium-2506",
-    "rating": 1254.6891557371473,
+    "rating": 1254.7381403562572,
     "organization": "mistral",
-    "votes": 11471
+    "votes": 11472
   },
   {
     "model": "reka-core-20240904",
     "modelKey": "reka-core-20240904",
-    "rating": 1248.186276177575,
+    "rating": 1248.1761640823713,
     "organization": "",
     "votes": 7312
   },
   {
     "model": "ibm-granite-h-small",
     "modelKey": "ibm-granite-h-small",
-    "rating": 1239.7543398671783,
+    "rating": 1239.8138193782597,
     "organization": "ibm",
-    "votes": 5537
+    "votes": 5534
   },
   {
     "model": "gemini-1.5-flash-001",
     "modelKey": "gemini-1.5-flash-001",
-    "rating": 1239.1068986135854,
+    "rating": 1239.0967826736214,
     "organization": "google",
     "votes": 62833
   },
   {
     "model": "jamba-1.5-large",
     "modelKey": "jamba-1.5-large",
-    "rating": 1236.8302682055803,
+    "rating": 1236.820229877955,
     "organization": "",
     "votes": 8662
   },
   {
     "model": "mistral-small-24b-instruct-2501",
     "modelKey": "mistral-small-24b-instruct-2501",
-    "rating": 1233.3738081650297,
+    "rating": 1233.372350827789,
     "organization": "mistral",
     "votes": 14681
   },
   {
     "model": "gemma-2-27b-it",
     "modelKey": "gemma-2-27b-it",
-    "rating": 1231.1802547408693,
+    "rating": 1231.1704838013288,
     "organization": "google",
     "votes": 75754
   },
   {
     "model": "qwen2.5-coder-32b-instruct",
     "modelKey": "qwen2.5-coder-32b-instruct",
-    "rating": 1229.8439428010086,
+    "rating": 1229.8330778128648,
     "organization": "alibaba",
     "votes": 5432
   },
   {
     "model": "command-r-plus-08-2024",
     "modelKey": "command-r-plus-08-2024",
-    "rating": 1228.7040687614722,
+    "rating": 1228.6939592258032,
     "organization": "cohere",
     "votes": 9866
   },
   {
     "model": "amazon-nova-lite-v1.0",
     "modelKey": "amazon-nova-lite-v1.0",
-    "rating": 1228.2916540938809,
+    "rating": 1228.2852571955182,
     "organization": "amazon",
     "votes": 19372
   },
   {
     "model": "llama-3.1-nemotron-51b-instruct",
     "modelKey": "llama-3.1-nemotron-51b-instruct",
-    "rating": 1227.7986356592537,
+    "rating": 1227.7874884455236,
     "organization": "nvidia",
     "votes": 3749
   },
   {
     "model": "gemma-2-9b-it-simpo",
     "modelKey": "gemma-2-9b-it-simpo",
-    "rating": 1226.870246945506,
+    "rating": 1226.8602056760678,
     "organization": "",
     "votes": 10072
   },
   {
     "model": "glm-4-0520",
     "modelKey": "glm-4-0520",
-    "rating": 1225.714518095609,
+    "rating": 1225.704323849639,
     "organization": "zai",
     "votes": 9788
   },
   {
     "model": "gemini-1.5-flash-8b-001",
     "modelKey": "gemini-1.5-flash-8b-001",
-    "rating": 1225.6583658219324,
+    "rating": 1225.648109775258,
     "organization": "google",
     "votes": 35558
   },
   {
     "model": "nemotron-4-340b-instruct",
     "modelKey": "nemotron-4-340b-instruct",
-    "rating": 1224.6197958107946,
+    "rating": 1224.6095673236077,
     "organization": "nvidia",
     "votes": 19659
   },
   {
     "model": "c4ai-aya-expanse-32b",
     "modelKey": "c4ai-aya-expanse-32b",
-    "rating": 1223.8087868477007,
+    "rating": 1223.798781766416,
     "organization": "cohere",
     "votes": 27124
   },
   {
     "model": "llama-3-70b-instruct",
     "modelKey": "llama-3-70b-instruct",
-    "rating": 1220.6026084351488,
+    "rating": 1220.5924349694217,
     "organization": "meta",
     "votes": 156876
   },
   {
     "model": "claude-3-sonnet-20240229",
     "modelKey": "claude-3-sonnet-20240229",
-    "rating": 1217.8445030073422,
+    "rating": 1217.8343070053252,
     "organization": "anthropic",
     "votes": 109284
   },
   {
     "model": "olmo-2-0325-32b-instruct",
     "modelKey": "olmo-2-0325-32b-instruct",
-    "rating": 1217.758990671652,
+    "rating": 1217.7666702927168,
     "organization": "allenai",
     "votes": 3334
   },
   {
     "model": "reka-flash-20240904",
     "modelKey": "reka-flash-20240904",
-    "rating": 1217.7254395189448,
+    "rating": 1217.7153300079199,
     "organization": "",
     "votes": 7536
   },
   {
     "model": "phi-4",
     "modelKey": "phi-4",
-    "rating": 1216.4967147912403,
+    "rating": 1216.4924586219854,
     "organization": "microsoft",
     "votes": 24126
   },
   {
     "model": "amazon-nova-micro-v1.0",
     "modelKey": "amazon-nova-micro-v1.0",
-    "rating": 1208.2272532280529,
+    "rating": 1208.220839162902,
     "organization": "amazon",
     "votes": 19364
   },
   {
     "model": "gemma-2-9b-it",
     "modelKey": "gemma-2-9b-it",
-    "rating": 1207.194886871257,
+    "rating": 1207.1851179197301,
     "organization": "google",
     "votes": 54611
   },
   {
     "model": "gpt-4-0314",
     "modelKey": "gpt-4-0314",
-    "rating": 1205.814158802442,
+    "rating": 1205.803902757184,
     "organization": "openai",
     "votes": 54173
   },
   {
     "model": "command-r-plus",
     "modelKey": "command-r-plus",
-    "rating": 1203.636729707684,
+    "rating": 1203.6265380614054,
     "organization": "cohere",
     "votes": 77554
   },
   {
     "model": "qwen2-72b-instruct",
     "modelKey": "qwen2-72b-instruct",
-    "rating": 1203.078180003029,
+    "rating": 1203.0680786864964,
     "organization": "alibaba",
     "votes": 37325
   },
   {
     "model": "hunyuan-standard-256k",
     "modelKey": "hunyuan-standard-256k",
-    "rating": 1201.7355525355933,
+    "rating": 1201.7242162331502,
     "organization": "tencent",
     "votes": 2728
   },
   {
     "model": "claude-3-haiku-20240307",
     "modelKey": "claude-3-haiku-20240307",
-    "rating": 1194.486742408821,
+    "rating": 1194.4763057750959,
     "organization": "anthropic",
     "votes": 117701
   },
   {
     "model": "llama-3.1-tulu-3-8b",
     "modelKey": "llama-3.1-tulu-3-8b",
-    "rating": 1193.102191718506,
+    "rating": 1193.0926947122075,
     "organization": "allenai",
     "votes": 2896
   },
   {
     "model": "deepseek-coder-v2",
     "modelKey": "deepseek-coder-v2",
-    "rating": 1190.9970540428785,
+    "rating": 1190.9869194250032,
     "organization": "deepseek",
     "votes": 15147
   },
   {
     "model": "ministral-8b-2410",
     "modelKey": "ministral-8b-2410",
-    "rating": 1190.7244370041221,
+    "rating": 1190.7133913732964,
     "organization": "mistral",
     "votes": 4781
   },
   {
     "model": "command-r-08-2024",
     "modelKey": "command-r-08-2024",
-    "rating": 1187.1644547894225,
+    "rating": 1187.154346476561,
     "organization": "cohere",
     "votes": 10140
   },
   {
     "model": "jamba-1.5-mini",
     "modelKey": "jamba-1.5-mini",
-    "rating": 1186.4818489529086,
+    "rating": 1186.4717688662427,
     "organization": "",
     "votes": 8858
   },
   {
     "model": "llama-3.1-8b-instruct",
     "modelKey": "llama-3.1-8b-instruct",
-    "rating": 1186.380877691851,
+    "rating": 1186.370444852891,
     "organization": "meta",
     "votes": 49605
   },
   {
     "model": "gpt-4-0613",
     "modelKey": "gpt-4-0613",
-    "rating": 1185.8118157667857,
+    "rating": 1185.8015965462087,
     "organization": "openai",
     "votes": 88723
   },
   {
     "model": "c4ai-aya-expanse-8b",
     "modelKey": "c4ai-aya-expanse-8b",
-    "rating": 1184.9092032221265,
+    "rating": 1184.8998073129183,
     "organization": "cohere",
     "votes": 9818
   },
   {
     "model": "mistral-large-2402",
     "modelKey": "mistral-large-2402",
-    "rating": 1176.282897616987,
+    "rating": 1176.2726952149633,
     "organization": "mistral",
     "votes": 62436
   },
   {
     "model": "qwen1.5-110b-chat",
     "modelKey": "qwen1.5-110b-chat",
-    "rating": 1174.3762545343718,
+    "rating": 1174.3660511115695,
     "organization": "alibaba",
     "votes": 26195
   },
   {
     "model": "yi-1.5-34b-chat",
     "modelKey": "yi-1.5-34b-chat",
-    "rating": 1172.7638067639796,
+    "rating": 1172.7536002706895,
     "organization": "",
     "votes": 24146
   },
   {
     "model": "reka-flash-21b-20240226-online",
     "modelKey": "reka-flash-21b-20240226-online",
-    "rating": 1170.2380135663886,
+    "rating": 1170.227772050034,
     "organization": "",
     "votes": 15450
   },
   {
     "model": "qwen1.5-72b-chat",
     "modelKey": "qwen1.5-72b-chat",
-    "rating": 1165.9576059797378,
+    "rating": 1165.9473423909267,
     "organization": "alibaba",
     "votes": 39302
   },
   {
     "model": "llama-3-8b-instruct",
     "modelKey": "llama-3-8b-instruct",
-    "rating": 1165.4089334561054,
+    "rating": 1165.398757574756,
     "organization": "meta",
     "votes": 104642
   },
   {
     "model": "mistral-medium",
     "modelKey": "mistral-medium",
-    "rating": 1164.9435552449931,
+    "rating": 1164.933280446848,
     "organization": "mistral",
     "votes": 34550
   },
   {
     "model": "reka-flash-21b-20240226",
     "modelKey": "reka-flash-21b-20240226",
-    "rating": 1164.7936209358568,
+    "rating": 1164.7833842386408,
     "organization": "",
     "votes": 24806
   },
   {
     "model": "command-r",
     "modelKey": "command-r",
-    "rating": 1162.9399868623484,
+    "rating": 1162.9297915065777,
     "organization": "cohere",
     "votes": 54036
   },
   {
     "model": "mixtral-8x22b-instruct-v0.1",
     "modelKey": "mixtral-8x22b-instruct-v0.1",
-    "rating": 1161.7919809062973,
+    "rating": 1161.7818353960688,
     "organization": "mistral",
     "votes": 51416
   },
   {
     "model": "qwq-32b-preview",
     "modelKey": "qwq-32b-preview",
-    "rating": 1161.596045928487,
+    "rating": 1161.5849460114032,
     "organization": "alibaba",
     "votes": 3231
   },
   {
     "model": "internlm2_5-20b-chat",
     "modelKey": "internlm2_5-20b-chat",
-    "rating": 1158.250369894772,
+    "rating": 1158.2402040134862,
     "organization": "",
     "votes": 9901
   },
   {
     "model": "gemma-2-2b-it",
     "modelKey": "gemma-2-2b-it",
-    "rating": 1155.5765416409654,
+    "rating": 1155.566822985898,
     "organization": "google",
     "votes": 46616
   },
   {
     "model": "granite-3.1-8b-instruct",
     "modelKey": "granite-3.1-8b-instruct",
-    "rating": 1149.3214859430263,
+    "rating": 1149.3123722994837,
     "organization": "ibm",
     "votes": 3090
   },
   {
     "model": "gemini-pro-dev-api",
     "modelKey": "gemini-pro-dev-api",
-    "rating": 1148.6533653032266,
+    "rating": 1148.6430745055281,
     "organization": "google",
     "votes": 18354
   },
   {
     "model": "zephyr-orpo-141b-A35b-v0.1",
     "modelKey": "zephyr-orpo-141b-A35b-v0.1",
-    "rating": 1143.49757993313,
+    "rating": 1143.48731553071,
     "organization": "",
     "votes": 4652
   },
   {
     "model": "phi-3-medium-4k-instruct",
     "modelKey": "phi-3-medium-4k-instruct",
-    "rating": 1137.355185299764,
+    "rating": 1137.3450890812596,
     "organization": "microsoft",
     "votes": 25055
   },
   {
     "model": "qwen1.5-32b-chat",
     "modelKey": "qwen1.5-32b-chat",
-    "rating": 1137.0075537052123,
+    "rating": 1136.9973088680838,
     "organization": "alibaba",
     "votes": 21741
   },
   {
     "model": "starling-lm-7b-beta",
     "modelKey": "starling-lm-7b-beta",
-    "rating": 1131.8480882766012,
+    "rating": 1131.8378281071518,
     "organization": "",
     "votes": 16056
   },
   {
     "model": "mixtral-8x7b-instruct-v0.1",
     "modelKey": "mixtral-8x7b-instruct-v0.1",
-    "rating": 1131.3633239259202,
+    "rating": 1131.3530984098109,
     "organization": "mistral",
     "votes": 73503
   },
   {
     "model": "gemini-pro",
     "modelKey": "gemini-pro",
-    "rating": 1130.3432190895558,
+    "rating": 1130.3329351825269,
     "organization": "google",
     "votes": 6390
   },
   {
     "model": "yi-34b-chat",
     "modelKey": "yi-34b-chat",
-    "rating": 1128.275084307003,
+    "rating": 1128.2648091684841,
     "organization": "",
     "votes": 15483
   },
   {
     "model": "qwen1.5-14b-chat",
     "modelKey": "qwen1.5-14b-chat",
-    "rating": 1127.4984883467428,
+    "rating": 1127.488213805931,
     "organization": "alibaba",
     "votes": 17839
   },
   {
     "model": "granite-3.1-2b-instruct",
     "modelKey": "granite-3.1-2b-instruct",
-    "rating": 1127.203400760289,
+    "rating": 1127.1942072834088,
     "organization": "ibm",
     "votes": 3188
   },
   {
     "model": "gpt-3.5-turbo-0125",
     "modelKey": "gpt-3.5-turbo-0125",
-    "rating": 1124.7255122299048,
+    "rating": 1124.715280890439,
     "organization": "openai",
     "votes": 66207
   },
   {
     "model": "tulu-2-dpo-70b",
     "modelKey": "tulu-2-dpo-70b",
-    "rating": 1120.839634143284,
+    "rating": 1120.8293429696446,
     "organization": "",
     "votes": 6535
   },
   {
     "model": "wizardlm-70b",
     "modelKey": "wizardlm-70b",
-    "rating": 1119.3252631411933,
+    "rating": 1119.3149722967992,
     "organization": "microsoft",
     "votes": 8214
   },
   {
     "model": "dbrx-instruct-preview",
     "modelKey": "dbrx-instruct-preview",
-    "rating": 1118.673393580377,
+    "rating": 1118.6631381249583,
     "organization": "",
     "votes": 32191
   },
   {
     "model": "llama-2-70b-chat",
     "modelKey": "llama-2-70b-chat",
-    "rating": 1115.0323678380191,
+    "rating": 1115.0220913571197,
     "organization": "meta",
     "votes": 38492
   },
   {
     "model": "nous-hermes-2-mixtral-8x7b-dpo",
     "modelKey": "nous-hermes-2-mixtral-8x7b-dpo",
-    "rating": 1111.8434030067697,
+    "rating": 1111.8331249406947,
     "organization": "",
     "votes": 3777
   },
   {
     "model": "phi-3-small-8k-instruct",
     "modelKey": "phi-3-small-8k-instruct",
-    "rating": 1109.6276950007086,
+    "rating": 1109.61748686874,
     "organization": "microsoft",
     "votes": 17766
   },
   {
     "model": "llama-3.2-3b-instruct",
     "modelKey": "llama-3.2-3b-instruct",
-    "rating": 1109.3385023215783,
+    "rating": 1109.328399018828,
     "organization": "meta",
     "votes": 7936
   },
   {
     "model": "starling-lm-7b-alpha",
     "modelKey": "starling-lm-7b-alpha",
-    "rating": 1107.4653597025776,
+    "rating": 1107.4550728115123,
     "organization": "",
     "votes": 10224
   },
   {
     "model": "openchat-3.5-0106",
     "modelKey": "openchat-3.5-0106",
-    "rating": 1106.4129214289496,
+    "rating": 1106.402624055544,
     "organization": "",
     "votes": 12637
   },
   {
     "model": "vicuna-33b",
     "modelKey": "vicuna-33b",
-    "rating": 1105.064341027958,
+    "rating": 1105.0540404529847,
     "organization": "",
     "votes": 22479
   },
   {
     "model": "deepseek-llm-67b-chat",
     "modelKey": "deepseek-llm-67b-chat",
-    "rating": 1104.8338604600453,
+    "rating": 1104.8235715692076,
     "organization": "deepseek",
     "votes": 4932
   },
   {
     "model": "snowflake-arctic-instruct",
     "modelKey": "snowflake-arctic-instruct",
-    "rating": 1100.7796692732436,
+    "rating": 1100.7694216464683,
     "organization": "",
     "votes": 32832
   },
   {
     "model": "llama2-70b-steerlm-chat",
     "modelKey": "llama2-70b-steerlm-chat",
-    "rating": 1097.8947557275117,
+    "rating": 1097.8844607624478,
     "organization": "nvidia",
     "votes": 3585
   },
   {
     "model": "openchat-3.5",
     "modelKey": "openchat-3.5",
-    "rating": 1096.836378299456,
+    "rating": 1096.8260897485584,
     "organization": "",
     "votes": 7968
   },
   {
     "model": "granite-3.0-8b-instruct",
     "modelKey": "granite-3.0-8b-instruct",
-    "rating": 1096.2499934181976,
+    "rating": 1096.2390071621246,
     "organization": "ibm",
     "votes": 6638
   },
   {
     "model": "gpt-3.5-turbo-1106",
     "modelKey": "gpt-3.5-turbo-1106",
-    "rating": 1093.925200219132,
+    "rating": 1093.9149048198237,
     "organization": "openai",
     "votes": 16619
   },
   {
     "model": "gemma-1.1-7b-it",
     "modelKey": "gemma-1.1-7b-it",
-    "rating": 1093.7767536324334,
+    "rating": 1093.7665229905456,
     "organization": "google",
     "votes": 23893
   },
   {
     "model": "openhermes-2.5-mistral-7b",
     "modelKey": "openhermes-2.5-mistral-7b",
-    "rating": 1092.3032911644875,
+    "rating": 1092.2930253607215,
     "organization": "",
     "votes": 5006
   },
   {
     "model": "mistral-7b-instruct-v0.2",
     "modelKey": "mistral-7b-instruct-v0.2",
-    "rating": 1089.3690044202351,
+    "rating": 1089.3587267133817,
     "organization": "mistral",
     "votes": 19402
   },
   {
     "model": "llama-2-13b-chat",
     "modelKey": "llama-2-13b-chat",
-    "rating": 1084.261049839793,
+    "rating": 1084.2507656568991,
     "organization": "meta",
     "votes": 19174
   },
   {
     "model": "qwen1.5-7b-chat",
     "modelKey": "qwen1.5-7b-chat",
-    "rating": 1083.2637940527432,
+    "rating": 1083.2535181059366,
     "organization": "alibaba",
     "votes": 4737
   },
   {
     "model": "solar-10.7b-instruct-v1.0",
     "modelKey": "solar-10.7b-instruct-v1.0",
-    "rating": 1082.8912176102938,
+    "rating": 1082.8809322662823,
     "organization": "",
     "votes": 4155
   },
   {
     "model": "dolphin-2.2.1-mistral-7b",
     "modelKey": "dolphin-2.2.1-mistral-7b",
-    "rating": 1080.7766795562402,
+    "rating": 1080.7665464538964,
     "organization": "",
     "votes": 1679
   },
   {
     "model": "phi-3-mini-4k-instruct-june-2024",
     "modelKey": "phi-3-mini-4k-instruct-june-2024",
-    "rating": 1079.7593532607025,
+    "rating": 1079.749167667429,
     "organization": "microsoft",
     "votes": 12297
   },
   {
     "model": "granite-3.0-2b-instruct",
     "modelKey": "granite-3.0-2b-instruct",
-    "rating": 1079.653292327643,
+    "rating": 1079.6422941832398,
     "organization": "ibm",
     "votes": 6837
   },
   {
     "model": "wizardlm-13b",
     "modelKey": "wizardlm-13b",
-    "rating": 1076.3414604187046,
+    "rating": 1076.3311245767704,
     "organization": "microsoft",
     "votes": 7044
   },
   {
     "model": "phi-3-mini-4k-instruct",
     "modelKey": "phi-3-mini-4k-instruct",
-    "rating": 1073.1099612633668,
+    "rating": 1073.0996998828982,
     "organization": "microsoft",
     "votes": 20118
   },
   {
     "model": "zephyr-7b-beta",
     "modelKey": "zephyr-7b-beta",
-    "rating": 1069.225268743335,
+    "rating": 1069.2149717017305,
     "organization": "",
     "votes": 11118
   },
   {
     "model": "mpt-30b-chat",
     "modelKey": "mpt-30b-chat",
-    "rating": 1068.4123957783727,
+    "rating": 1068.4020880672238,
     "organization": "",
     "votes": 2572
   },
   {
     "model": "codellama-34b-instruct",
     "modelKey": "codellama-34b-instruct",
-    "rating": 1065.2871808274867,
+    "rating": 1065.276886168876,
     "organization": "meta",
     "votes": 7366
   },
   {
     "model": "zephyr-7b-alpha",
     "modelKey": "zephyr-7b-alpha",
-    "rating": 1058.1725043610252,
+    "rating": 1058.1621957752136,
     "organization": "",
     "votes": 1785
   },
   {
     "model": "vicuna-13b",
     "modelKey": "vicuna-13b",
-    "rating": 1057.4611068985025,
+    "rating": 1057.4508051731004,
     "organization": "",
     "votes": 19367
   },
   {
     "model": "codellama-70b-instruct",
     "modelKey": "codellama-70b-instruct",
-    "rating": 1057.045271744837,
+    "rating": 1057.034966973552,
     "organization": "meta",
     "votes": 1143
   },
   {
     "model": "gemma-7b-it",
     "modelKey": "gemma-7b-it",
-    "rating": 1055.9580520291454,
+    "rating": 1055.947752860226,
     "organization": "google",
     "votes": 8925
   },
   {
     "model": "llama-3.2-1b-instruct",
     "modelKey": "llama-3.2-1b-instruct",
-    "rating": 1054.4388937806089,
+    "rating": 1054.4287567822398,
     "organization": "meta",
     "votes": 8045
   },
   {
     "model": "falcon-180b-chat",
     "modelKey": "falcon-180b-chat",
-    "rating": 1054.1565783472115,
+    "rating": 1054.1462719369151,
     "organization": "",
     "votes": 1295
   },
   {
     "model": "llama-2-7b-chat",
     "modelKey": "llama-2-7b-chat",
-    "rating": 1053.201636819535,
+    "rating": 1053.1913416038956,
     "organization": "meta",
     "votes": 14148
   },
   {
     "model": "guanaco-33b",
     "modelKey": "guanaco-33b",
-    "rating": 1053.1816267199972,
+    "rating": 1053.1712863359985,
     "organization": "",
     "votes": 2921
   },
   {
     "model": "qwen-14b-chat",
     "modelKey": "qwen-14b-chat",
-    "rating": 1050.8304059724353,
+    "rating": 1050.820110263022,
     "organization": "alibaba",
     "votes": 4964
   },
   {
     "model": "phi-3-mini-128k-instruct",
     "modelKey": "phi-3-mini-128k-instruct",
-    "rating": 1050.1924710863618,
+    "rating": 1050.1822285846592,
     "organization": "microsoft",
     "votes": 20685
   },
   {
     "model": "smollm2-1.7b-instruct",
     "modelKey": "smollm2-1.7b-instruct",
-    "rating": 1041.82401039276,
+    "rating": 1041.8128620194643,
     "organization": "",
     "votes": 2199
   },
   {
     "model": "stripedhyena-nous-7b",
     "modelKey": "stripedhyena-nous-7b",
-    "rating": 1038.2426957199523,
+    "rating": 1038.2324049771591,
     "organization": "",
     "votes": 5182
   },
   {
     "model": "olmo-7b-instruct",
     "modelKey": "olmo-7b-instruct",
-    "rating": 1031.6138033973964,
+    "rating": 1031.6034548100947,
     "organization": "allenai",
     "votes": 6328
   },
   {
     "model": "vicuna-7b",
     "modelKey": "vicuna-7b",
-    "rating": 1030.7494062694063,
+    "rating": 1030.739052426987,
     "organization": "",
     "votes": 6923
   },
   {
     "model": "palm-2",
     "modelKey": "palm-2",
-    "rating": 1027.0403574717557,
+    "rating": 1027.0300341124885,
     "organization": "google",
     "votes": 8554
   },
   {
     "model": "mistral-7b-instruct",
     "modelKey": "mistral-7b-instruct",
-    "rating": 1023.3104042104774,
+    "rating": 1023.3000688848118,
     "organization": "mistral",
     "votes": 8977
   },
   {
     "model": "gemma-1.1-2b-it",
     "modelKey": "gemma-1.1-2b-it",
-    "rating": 1022.0267178432007,
+    "rating": 1022.0164380021919,
     "organization": "google",
     "votes": 10854
   },
   {
     "model": "gemma-2b-it",
     "modelKey": "gemma-2b-it",
-    "rating": 1001.9497309577818,
+    "rating": 1001.9393915641518,
     "organization": "google",
     "votes": 4780
   },
   {
     "model": "qwen1.5-4b-chat",
     "modelKey": "qwen1.5-4b-chat",
-    "rating": 997.0371582023121,
+    "rating": 997.0268702169918,
     "organization": "alibaba",
     "votes": 7597
   },
   {
     "model": "koala-13b",
     "modelKey": "koala-13b",
-    "rating": 989.4109315061294,
+    "rating": 989.4004417590212,
     "organization": "",
     "votes": 6965
   },
   {
     "model": "chatglm3-6b",
     "modelKey": "chatglm3-6b",
-    "rating": 971.840230475883,
+    "rating": 971.82992920535,
     "organization": "",
     "votes": 4658
   },
   {
     "model": "gpt4all-13b-snoozy",
     "modelKey": "gpt4all-13b-snoozy",
-    "rating": 955.9831404065815,
+    "rating": 955.9725919872683,
     "organization": "",
     "votes": 1743
   },
   {
     "model": "mpt-7b-chat",
     "modelKey": "mpt-7b-chat",
-    "rating": 955.0206842624212,
+    "rating": 955.0102466069462,
     "organization": "",
     "votes": 3924
   },
   {
     "model": "RWKV-4-Raven-14B",
     "modelKey": "RWKV-4-Raven-14B",
-    "rating": 948.1875636822992,
+    "rating": 948.1771223944644,
     "organization": "",
     "votes": 4845
   },
   {
     "model": "chatglm2-6b",
     "modelKey": "chatglm2-6b",
-    "rating": 938.4290153614413,
+    "rating": 938.4187861536674,
     "organization": "",
     "votes": 2658
   },
   {
     "model": "alpaca-13b",
     "modelKey": "alpaca-13b",
-    "rating": 932.6121608921485,
+    "rating": 932.6017183424524,
     "organization": "",
     "votes": 5745
   },
   {
     "model": "chatglm-6b",
     "modelKey": "chatglm-6b",
-    "rating": 918.2659900384675,
+    "rating": 918.2555594636674,
     "organization": "",
     "votes": 4914
   },
   {
     "model": "oasst-pythia-12b",
     "modelKey": "oasst-pythia-12b",
-    "rating": 915.8679128632766,
+    "rating": 915.8574833929023,
     "organization": "",
     "votes": 6310
   },
   {
     "model": "fastchat-t5-3b",
     "modelKey": "fastchat-t5-3b",
-    "rating": 894.2004689234834,
+    "rating": 894.1900596278123,
     "organization": "",
     "votes": 4203
   },
   {
     "model": "stablelm-tuned-alpha-7b",
     "modelKey": "stablelm-tuned-alpha-7b",
-    "rating": 866.3746442129273,
+    "rating": 866.364248403237,
     "organization": "",
     "votes": 3287
   },
   {
     "model": "dolly-v2-12b",
     "modelKey": "dolly-v2-12b",
-    "rating": 850.9287843842412,
+    "rating": 850.9185787115732,
     "organization": "",
     "votes": 3412
   },
   {
     "model": "llama-13b",
     "modelKey": "llama-13b",
-    "rating": 833.3115982020676,
+    "rating": 833.3012120095647,
     "organization": "meta",
     "votes": 2391
   }
