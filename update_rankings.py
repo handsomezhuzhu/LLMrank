@@ -355,6 +355,16 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
 
 # Explicit Arena / AA slug mapping (display name -> (arena_key, aa_slug))
 MODEL_MAPPING = {
+    "Claude Fable 5.1": ("claude-fable-5.1-max", "claude-fable-5-1"),
+    "GPT-6 Astra": (None, "gpt-6-astra"),
+    "Claude Opus 5": ("claude-opus-5-high", "claude-opus-5"),
+    "Gemini 3.8 Flash": ("gemini-3.8-flash-high", "gemini-3-8-flash"),
+    "GLM-5.3": ("glm-5.3-max", "glm-5-3"),
+    "GLM-5.3 Flash": ("glm-5.3-flash", "glm-5-3-flash"),
+    "Qwen3.8 Max": ("qwen3.8-max", "qwen3-8-max"),
+    "Grok 4.5": ("grok-4.5", "grok-4-5"),
+    "Claude Sonnet 5": ("claude-sonnet-5-high", "claude-sonnet-5"),
+    "Gemini 3.7 Flash": ("gemini-3.7-flash-high", "gemini-3-7-flash"),
     "Claude Opus 4.7": ("claude-opus-4-7-20260305", "claude-opus-4-7"),
     "GPT-5.5 High": ("gpt-5.5-high", "gpt-5.5"),
     "Claude Opus 4.8": ("claude-opus-4-8", "claude-opus-4-8"),
