@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-10T00:00:23Z",
+  "updated_at": "2026-09-11T00:00:41Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1004,7 +1004,7 @@
         "currency": "USD",
         "input": 0.6,
         "output": 2.5,
-        "cache_read": -1,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1074,8 +1074,8 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.29,
-        "output": 2.4,
+        "input": 0.26,
+        "output": 2.08,
         "cache_read": -1,
         "cache_write": -1
       },
@@ -1530,8 +1530,8 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.32,
-        "output": 0.89,
+        "input": 0.2574,
+        "output": 1.0287,
         "cache_read": -1,
         "cache_write": -1
       },
@@ -1709,9 +1709,9 @@
       "ctx": 1310720,
       "price": {
         "currency": "USD",
-        "input": 0.07,
-        "output": 0.2333,
-        "cache_read": 0.014,
+        "input": 0.15,
+        "output": 0.5,
+        "cache_read": 0.03,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",
