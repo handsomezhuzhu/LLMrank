@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-13T00:01:04Z",
+  "updated_at": "2026-09-14T00:00:57Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -258,9 +258,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.6,
-        "output": 2.0,
-        "cache_read": 0.15,
+        "input": 0.966,
+        "output": 3.036,
+        "cache_read": 0.1932,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1688,9 +1688,9 @@
       "ctx": 1310720,
       "price": {
         "currency": "USD",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.26,
+        "input": 1.092,
+        "output": 3.432,
+        "cache_read": 0.2028,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
