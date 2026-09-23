@@ -2125,8 +2125,8 @@
     "deprecated": false,
     "released": "2026-01-05",
     "context_window": 32000,
-    "price_input": 0,
-    "price_output": 0,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -7832,8 +7832,8 @@
     "deprecated": false,
     "released": "2026-05-28",
     "context_window": 32768,
-    "price_input": 0,
-    "price_output": 0,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null

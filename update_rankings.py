@@ -474,12 +474,12 @@ MODEL_MAPPING = {
     "DeepSeek V4 Flash 0731": ("deepseek-v4-flash", "deepseek-v4-flash"),
     "MiMo V2 Pro": ("mimo-v2-pro", "mimo-v2-pro"),
     "Qwen3.6 Max": ("qwen3.6-max-preview", "qwen3-6-max"),
-    "MiMo V2.5": ("mimo-v2.5", None),  # live无新口径, 手动锚点估算27.5
+    "MiMo V2.5": ("mimo-v2.5", "mimo-v2-5-pro"),
     "GLM-5": ("glm-5", "glm-5"),
     "GPT-5.1 High": ("gpt-5.1-high", "gpt-5-1"),
     "Qwen3.6 Plus": ("qwen3.6-plus", "qwen3-6-plus"),
     "Grok 4.3": ("grok-4.3", "grok-4-3"),
-    "Grok 4.1": ("grok-4.1", None),  # live无新口径, 手动锚点估算27.0
+    "Grok 4.1": ("grok-4.1", "grok-4"),
     "Kimi K2.5": ("kimi-k2.5-thinking", "kimi-k2-5"),
     "Gemini 2.5 Pro": ("gemini-2.5-pro", "gemini-2-5-pro"),
     "GPT-5": ("gpt-5-high", "gpt-5"),
@@ -511,7 +511,7 @@ MODEL_MAPPING = {
     "DeepSeek R1": ("deepseek-r1", "deepseek-r1"),
     "DeepSeek V3": ("deepseek-v3", "deepseek-v3"),
     "Qwen3-235B": ("qwen3-235b-a22b", "qwen3-235b-a22b-instruct-2507"),
-    "Claude Fable 5": ("claude-fable-5", "claude-fable-5"),
+    "Claude Fable 5": ("claude-fable-5-high", "claude-fable-5-1"),
     "GPT-5.6 Sol High": ("gpt-5.6-sol-xhigh", "gpt-5-6-sol"),
     "Kimi K3": ("kimi-k3-max", "kimi-k3"),
 }
@@ -548,59 +548,67 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
         slug = m.get("slug") or m.get("id") or m.get("name")
         if slug:
             aa_map[slug] = m
-
     changes = []
     for m in models:
         name = m["name"]
         mapping = MODEL_MAPPING.get(name)
         if not mapping:
+            if arena_data:
+                m["arena"] = None
+            if aa_data:
+                m["ai_index"] = None
             continue
         arena_key, aa_slug = mapping
-        if arena_key and arena_key in arena_map and "rating" in arena_map[arena_key]:
-            new_rating = float(arena_map[arena_key]["rating"])
-            old = float(m.get("arena", 0))
-            if abs(new_rating - old) > 0.01:
-                changes.append(f"  {name}: Arena {old:.2f} -> {new_rating:.2f}")
-                m["arena"] = new_rating
-        if aa_slug and aa_slug in aa_map:
-            entry = aa_map[aa_slug]
+        arena_row = arena_map.get(arena_key) if arena_key else None
+        if arena_row and arena_row.get("rating") is not None:
+            new_rating = float(arena_row["rating"])
+            old = m.get("arena")
+            if old is None or abs(new_rating - float(old)) > 0.01:
+                changes.append(f"  {name}: Arena {old} -> {new_rating:.2f}")
+            m["arena"] = new_rating
+        elif arena_data:
+            if m.get("arena") is not None:
+                changes.append(f"  {name}: Arena {m.get('arena')} -> missing")
+            m["arena"] = None
+        entry = aa_map.get(aa_slug) if aa_slug else None
+        new_ii = None
+        if entry:
             new_ii = entry.get("intelligence_index") or entry.get("index") or entry.get("score")
-            if new_ii is not None:
-                new_ii = float(new_ii)
-                old = float(m.get("ai_index", 0))
-                if abs(new_ii - old) > 0.01:
-                    changes.append(f"  {name}: AI Index {old:.4f} -> {new_ii:.4f}")
-                    m["ai_index"] = new_ii
-                if entry.get("context_window"):
-                    m["ctx"] = int(entry["context_window"])
-                if isinstance(entry.get("intelligence_index_cost_per_task"), (int, float)):
-                    m["aa_cost_per_task_usd"] = float(entry["intelligence_index_cost_per_task"])
-                price = m.setdefault("price", {"currency": "USD"})
-                price["currency"] = "USD"
-                if (
-                    not m.get("openrouter_id")
-                    and isinstance(entry.get("price_input"), (int, float))
-                    and isinstance(entry.get("price_output"), (int, float))
-                ):
-                    price.update({
-                        "input": float(entry["price_input"]),
-                        "output": float(entry["price_output"]),
-                        "cache_read": float(entry["cache_read"]) if isinstance(entry.get("cache_read"), (int, float)) else -1,
-                        "cache_write": float(entry["cache_write"]) if isinstance(entry.get("cache_write"), (int, float)) else -1,
-                    })
-                    m["price_source"] = "artificialanalysis"
-                else:
-                    for field, aa_field in (("input", "price_input"), ("output", "price_output"), ("cache_read", "cache_read"), ("cache_write", "cache_write")):
-                        value = entry.get(aa_field)
-                        if isinstance(value, (int, float)) and (price.get(field) is None or float(price.get(field, -1)) < 0):
-                            price[field] = float(value)
-                release_date = AA_LIVE_RELEASES.get(aa_slug)
-                if release_date:
-                    m["released"] = release_date
-                    new_model_names = {"GPT-6 Luna", "GPT-6 Sol", "Claude Opus 5.5"}
-                    if name in new_model_names:
-                        arena_status = "Arena尚未收录" if m.get("arena") is None else "Arena已收录"
-                        m["note"] = f"新模型收录 {release_date} · {arena_status} · price/OpenRouter"
+        if new_ii is not None:
+            new_ii = float(new_ii)
+            old = m.get("ai_index")
+            if old is None or abs(new_ii - float(old)) > 0.01:
+                changes.append(f"  {name}: AI Index {old} -> {new_ii:.4f}")
+            m["ai_index"] = new_ii
+        elif aa_data:
+            if m.get("ai_index") is not None:
+                changes.append(f"  {name}: AI Index {m.get('ai_index')} -> missing")
+            m["ai_index"] = None
+        if entry and new_ii is not None:
+            if entry.get("context_window"):
+                m["ctx"] = int(entry["context_window"])
+            if isinstance(entry.get("intelligence_index_cost_per_task"), (int, float)):
+                m["aa_cost_per_task_usd"] = float(entry["intelligence_index_cost_per_task"])
+            price = m.setdefault("price", {"currency": "USD"})
+            price["currency"] = "USD"
+            if not m.get("openrouter_id") and isinstance(entry.get("price_input"), (int, float)) and isinstance(entry.get("price_output"), (int, float)):
+                price.update({
+                    "input": float(entry["price_input"]),
+                    "output": float(entry["price_output"]),
+                    "cache_read": float(entry["cache_read"]) if isinstance(entry.get("cache_read"), (int, float)) else -1,
+                    "cache_write": float(entry["cache_write"]) if isinstance(entry.get("cache_write"), (int, float)) else -1,
+                })
+                m["price_source"] = "artificialanalysis"
+            else:
+                for field, aa_field in (("input", "price_input"), ("output", "price_output"), ("cache_read", "cache_read"), ("cache_write", "cache_write")):
+                    value = entry.get(aa_field)
+                    if isinstance(value, (int, float)) and (price.get(field) is None or float(price.get(field, -1)) < 0):
+                        price[field] = float(value)
+            release_date = AA_LIVE_RELEASES.get(aa_slug)
+            if release_date:
+                m["released"] = release_date
+                if name in {"GPT-6 Luna", "GPT-6 Sol", "Claude Opus 5.5"}:
+                    m["note"] = f"新模型收录 {release_date} · Arena待收录 · price/OpenRouter"
     return changes
 
 
@@ -681,28 +689,24 @@ def refresh_prices_from_openrouter(models: list[dict], api_key: str | None = Non
 def recalculate_scores(models: list[dict]) -> list[dict]:
     """Return ranked list of score dicts; also attaches s* fields onto copies for legacy export."""
     arenas = [float(m["arena"]) if m.get("arena") is not None else None for m in models]
-    ais = [float(m.get("ai_index", 0) or 0) for m in models]
-    valid_arena_indices = [i for i, value in enumerate(arenas) if value is not None]
-    valid_arena_percentiles = percentile_scores([float(arenas[i]) for i in valid_arena_indices]) if valid_arena_indices else []
-    pA = [None] * len(models)
-    for i, score in zip(valid_arena_indices, valid_arena_percentiles):
-        pA[i] = score
+    ais = [float(m["ai_index"]) if m.get("ai_index") is not None else None for m in models]
+    valid_indices = [i for i, value in enumerate(arenas) if value is not None and ais[i] is not None]
+    models = [models[i] for i in valid_indices]
+    if not models:
+        return []
+    arenas = [float(m["arena"]) for m in models]
+    ais = [float(m["ai_index"]) for m in models]
+    pA = percentile_scores(arenas)
     pI = percentile_scores(ais)
     scored = []
     for i, m in enumerate(models):
-        # Arena component is omitted (and remaining weights renormalized) when no
-        # live Arena rating exists; do not fabricate a rating or penalize missing coverage.
-        if arenas[i] is None:
-            sA = None
-        else:
-            arena_abs = lin_norm(float(arenas[i]), 1300, 1520)
-            sA = round(hybrid(arena_abs, float(pA[i]), 0.65))
+        sA = round(hybrid(lin_norm(arenas[i], 1300, 1520), pA[i], 0.65))
         sAI = round(hybrid(lin_norm(ais[i], 0, 60), pI[i], 0.65), 1)
         eff = effective_price_usd(m.get("price"))
         sP = score_price_from_effective(eff)
         sM = score_multi(m.get("multi", 50))
         sC = score_ctx(m.get("ctx", 0))
-        total = total_score(sA or 0, sAI, sP, sM, sC, has_arena=sA is not None)
+        total = total_score(sA, sAI, sP, sM, sC)
         row = {
             **m,
             "sArena": None if sA is None else int(sA),
@@ -832,7 +836,8 @@ def main():
         print("  No AA update")
 
     print("\n3. Updating leaderboard fields...")
-    # Only apply fields when the corresponding live source succeeded this run.
+    # In strict dual-leaderboard mode, stale/missing observations invalidate the
+    # prior rating; refresh the numeric field only when that source is present.
     apply_arena = arena_data if arena_fresh else []
     apply_aa = aa_data if aa_fresh else []
     if not arena_fresh:
@@ -840,6 +845,38 @@ def main():
     if not aa_fresh:
         print("  Skipping AI Index field writes (no trusted remote refresh)")
     changes = update_leaderboard_fields(models, apply_arena, apply_aa)
+    live_arena_keys = set()
+    live_aa_slugs = set()
+    if arena_fresh:
+        live_arena_keys = {row.get("model") or row.get("name") for row in apply_arena}
+        for model in models:
+            mapping = MODEL_MAPPING.get(model.get("name"))
+            if mapping and mapping[0] and mapping[0] not in live_arena_keys and model.get("arena") is not None:
+                model["arena"] = None
+                changes.append(f"  {model['name']}: Arena no longer in current live snapshot -> excluded")
+    if aa_fresh:
+        live_aa_slugs = {row.get("slug") or row.get("id") for row in apply_aa}
+        for model in models:
+            mapping = MODEL_MAPPING.get(model.get("name"))
+            if mapping and mapping[1] and mapping[1] not in live_aa_slugs and model.get("ai_index") is not None:
+                model["ai_index"] = None
+                changes.append(f"  {model['name']}: AA no longer in current live index -> excluded")
+    if arena_fresh and aa_fresh:
+        eligible = []
+        dropped = []
+        for model in models:
+            mapping = MODEL_MAPPING.get(model.get("name"))
+            arena_key, aa_slug = mapping if mapping else (None, None)
+            has_arena = bool(arena_key and arena_key in live_arena_keys and model.get("arena") is not None)
+            has_aa = bool(aa_slug and aa_slug in live_aa_slugs and model.get("ai_index") is not None)
+            if has_arena and has_aa:
+                eligible.append(model)
+            else:
+                dropped.append((model.get("name"), has_arena, has_aa))
+        models[:] = eligible
+        print(f"  Strict dual-board filter: removed {len(dropped)}; retained {len(models)}")
+        for name, has_arena, has_aa in dropped:
+            print(f"    excluded {name}: Arena={has_arena}, AA={has_aa}")
     if changes:
         for c in changes:
             print(c)
@@ -861,7 +898,7 @@ def main():
     print("\n  Top 10:")
     for i, m in enumerate(scored[:10]):
         print(
-            f"  {i+1:2d}. {m['name']:25s} Arena={m['sArena']:2d} AI={m['sAI']:4.1f} "
+            f"  {i+1:2d}. {m['name']:25s} Arena={m['sArena'] if m['sArena'] is not None else '—':>3} AI={m['sAI']:4.1f} "
             f"Price={m['sPrice']:2d} Multi={m['sMulti']:2d} Ctx={m['sCtx']:2d} "
             f"eff$={m['effective_price_usd']} Total={m['total']:5.1f}"
         )
