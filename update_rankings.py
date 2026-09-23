@@ -138,7 +138,10 @@ def score_multi(multi: float) -> int:
     return int(round(40 + (multi or 0) * 0.6))
 
 
-def total_score(s_arena: float, s_ai: float, s_price: float, s_multi: float, s_ctx: float) -> float:
+def total_score(s_arena: float, s_ai: float, s_price: float, s_multi: float, s_ctx: float, has_arena: bool = True) -> float:
+    if not has_arena:
+        # Normalize the four remaining components to preserve their relative weights.
+        return round((s_ai * 0.35 + s_price * 0.10 + s_multi * 0.15 + s_ctx * 0.10) / 0.70, 1)
     return round(s_arena * 0.30 + s_ai * 0.35 + s_price * 0.10 + s_multi * 0.15 + s_ctx * 0.10, 1)
 
 
@@ -149,6 +152,15 @@ def total_score(s_arena: float, s_ai: float, s_price: float, s_multi: float, s_c
 MIN_ARENA_ROWS = 50
 MIN_AA_ROWS = 50
 MIN_OPENROUTER_MODELS = 50
+
+AA_LIVE_URL = "https://artificialanalysis.ai/leaderboards/models"
+AA_FETCH_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; LLMrank/1.0; +https://rank.zhuzihan.com)",
+    "Accept": "text/html,application/xhtml+xml",
+}
+AA_FETCHED_LIVE = False
+ARENA_FETCHED_LIVE = False
+AA_LIVE_RELEASES = {}
 
 
 def _http_json(url: str, headers: dict | None = None, timeout: int = 60) -> Any:
@@ -166,7 +178,7 @@ def _normalize_arena_rows(rows: list[dict]) -> list[dict] | None:
     for r in rows:
         if not isinstance(r, dict):
             continue
-        name = r.get("model") or r.get("model_name") or r.get("modelKey") or r.get("name")
+        name = r.get("model") or r.get("model_name") or r.get("modelDisplayName") or r.get("modelKey") or r.get("name")
         rating = r.get("rating")
         if rating is None:
             rating = r.get("score")
@@ -232,63 +244,125 @@ def _normalize_aa_rows(rows: list[dict]) -> list[dict] | None:
     return list(best.values())
 
 
-def fetch_arena_leaderboard() -> list[dict] | None:
-    """
-    Fetch Arena text/overall ratings from Hugging Face datasets-server.
-    Returns None on any failure — caller must NOT overwrite models.json fields.
-    """
+def _parse_arena_live_page(page: str) -> list[dict] | None:
+    """Extract the current overall leaderboard from Arena's rendered Next.js payload."""
+    chunks = re.findall(r'self\.__next_f\.push\(\[1,"((?:\\.|[^"\\])*)"\]\)', page, re.S)
+    if not chunks:
+        return None
     try:
-        offset = 0
-        length = 100
-        total = None
-        overall: list[dict] = []
-        while True:
-            url = (
-                "https://datasets-server.huggingface.co/rows"
-                "?dataset=lmarena-ai%2Fleaderboard-dataset"
-                f"&config=text&split=latest&offset={offset}&length={length}"
-            )
-            data = _http_json(url, timeout=45)
-            if total is None:
-                total = int(data.get("num_rows_total") or 0)
-            rows = data.get("rows") or []
-            if not rows:
-                break
-            for item in rows:
-                row = item.get("row") if isinstance(item, dict) else None
-                if not isinstance(row, dict):
-                    continue
-                if row.get("category") and row.get("category") != "overall":
-                    continue
-                overall.append(row)
-            offset += len(rows)
-            # overall rows are front-loaded; stop once we leave overall block
-            if rows and all(
-                (item.get("row") or {}).get("category") not in (None, "overall")
-                for item in rows
-            ):
-                break
-            if total and offset >= total:
-                break
-            if offset > 2000:  # safety
-                break
-        normalized = _normalize_arena_rows(overall)
+        text = "".join(json.loads('"' + chunk + '"') for chunk in chunks)
+    except Exception:
+        return None
+    marker = '"id":"leaderboard-sets/public/leaderboards/text-overall-style_control/leaderboard-snapshots/latest","entries":'
+    pos = text.find(marker)
+    if pos < 0:
+        return None
+    try:
+        rows, _ = json.JSONDecoder().raw_decode(text[pos + len(marker):])
+    except Exception:
+        return None
+    if not isinstance(rows, list):
+        return None
+    normalized = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        display = row.get("modelDisplayName")
+        rating = row.get("rating")
+        if not display or rating is None:
+            continue
+        normalized.append({
+            "model": str(display),
+            "modelKey": str(display),
+            "rating": float(rating),
+            "organization": row.get("modelOrganization") or "",
+            "votes": int(row.get("votes") or 0),
+            "rank": row.get("rank"),
+            "model_url": row.get("modelUrl"),
+        })
+    return normalized if len(normalized) >= MIN_ARENA_ROWS else None
+
+
+def fetch_arena_leaderboard() -> list[dict] | None:
+    """Fetch Arena's current overall leaderboard page; never apply an old HF snapshot as fresh."""
+    global ARENA_FETCHED_LIVE
+    ARENA_FETCHED_LIVE = False
+    try:
+        req = urllib.request.Request(
+            "https://arena.ai/leaderboard",
+            headers={"User-Agent": "Mozilla/5.0 (compatible; LLMrank/1.0; +https://rank.zhuzihan.com)"},
+        )
+        with urllib.request.urlopen(req, timeout=60) as response:
+            page = response.read().decode("utf-8", "replace")
+        normalized = _parse_arena_live_page(page)
         if not normalized:
-            print(f"  Arena fetch incomplete ({len(overall)} overall rows) — skip update")
+            print("  Arena live page did not yield a validated overall leaderboard")
             return None
-        print(f"  Arena fetch ok: {len(normalized)} models")
+        print(f"  Arena live fetch ok: {len(normalized)} overall models")
+        ARENA_FETCHED_LIVE = True
         return normalized
     except Exception as e:
-        print(f"  Arena fetch failed: {e}")
+        print(f"  Arena live fetch failed: {e}")
         return None
 
 
+def _parse_aa_live_page(page: str) -> list[dict] | None:
+    """Extract scored model records from Artificial Analysis's rendered RSC payload."""
+    chunks = re.findall(r'self\.__next_f\.push\(\[1,"((?:\\.|[^"\\])*)"\]\)', page, re.S)
+    if not chunks:
+        return None
+    try:
+        text = "".join(json.loads('"' + chunk + '"') for chunk in chunks)
+    except Exception:
+        return None
+    decoder = json.JSONDecoder()
+    best: dict[str, dict] = {}
+    release_date_pattern = re.compile(r'\{"slug":"([^"\\]+)","name":"[^"\\]+","deprecated":(?:true|false),"release":\{"slug":"[^"\\]+","name":"[^"\\]+"\},"releaseDate":"([^"\\]+)"')
+    releases = {slug: date for slug, date in release_date_pattern.findall(text)}
+    for match in re.finditer(r'\{"slug":"[^"\\]+","name":"[^"\\]+","shortName":', text):
+        try:
+            row, _ = decoder.raw_decode(text, match.start())
+        except Exception:
+            continue
+        slug = row.get("slug")
+        score = row.get("intelligenceIndex")
+        if not slug or not isinstance(score, (int, float)):
+            continue
+        best[slug] = {
+            "slug": slug,
+            "model": row.get("name") or slug,
+            "intelligence_index": float(score),
+            "deprecated": bool(row.get("deprecated", False)),
+            "released": releases.get(slug),
+            "context_window": row.get("contextWindowTokens"),
+            "price_input": row.get("price1mInputTokens"),
+            "price_output": row.get("price1mOutputTokens"),
+            "cache_read": row.get("cacheHitPrice"),
+            "cache_write": row.get("cacheWritePrice"),
+            "intelligence_index_cost_per_task": row.get("intelligenceIndexCostPerTask"),
+        }
+    global AA_LIVE_RELEASES
+    AA_LIVE_RELEASES = releases
+    return list(best.values()) if len(best) >= MIN_AA_ROWS else None
+
+
 def fetch_aa_intelligence() -> list[dict] | None:
-    """
-    Prefer local full AA cache if present and large enough.
-    Optional remote sources may be added later (official AA API needs a key).
-    Returns None on failure — never partial-write models.json.
-    """
+    """Fetch current AA Intelligence Index records, falling back to the full local cache."""
+    global AA_FETCHED_LIVE, AA_LIVE_RELEASES
+    AA_FETCHED_LIVE = False
+    AA_LIVE_RELEASES = {}
+    try:
+        req = urllib.request.Request(AA_LIVE_URL, headers=AA_FETCH_HEADERS)
+        with urllib.request.urlopen(req, timeout=60) as response:
+            page = response.read().decode("utf-8", "replace")
+        live = _parse_aa_live_page(page)
+        if live:
+            AA_FETCHED_LIVE = True
+            print(f"  AA live fetch ok: {len(live)} models")
+            return live
+        print("  AA live page did not yield a validated index — trying local cache")
+    except Exception as e:
+        print(f"  AA live fetch failed — trying local cache: {e}")
     try:
         if os.path.exists(AA_JSON):
             with open(AA_JSON) as f:
@@ -298,10 +372,10 @@ def fetch_aa_intelligence() -> list[dict] | None:
                 if normalized:
                     print(f"  AA using cached snapshot: {len(normalized)} models")
                     return normalized
-        print("  AA remote scrape disabled (Cloudflare / key required) — skip update")
+        print("  AA cache unavailable/invalid — skip update")
         return None
     except Exception as e:
-        print(f"  AA fetch failed: {e}")
+        print(f"  AA cache load failed: {e}")
         return None
 
 
@@ -367,7 +441,12 @@ MODEL_MAPPING = {
     "Qwen3.8 Max": ("qwen3.8-max", "qwen3-8-max"),
     "Grok 4.5": ("grok-4.5", "grok-4-5"),
     "Claude Sonnet 5": ("claude-sonnet-5-high", "claude-sonnet-5"),
+    "Claude Opus 5.5": (None, "claude-opus-5-5"),
+    "GPT-6 Luna": (None, "gpt-6-luna"),
+    "GPT-6 Sol": (None, "gpt-6-sol"),
+    "GPT-6 Astra": ("gpt-6-astra-max", "gpt-6-astra"),
     "Gemini 3.7 Flash": ("gemini-3.7-flash-high", "gemini-3-7-flash"),
+    "Gemini 3.6 Flash": ("gemini-3.6-flash-high", "gemini-3-6-flash"),
     "Claude Opus 4.7": ("claude-opus-4-7", "claude-opus-4-7"),
     "GPT-5.5 High": ("gpt-5.5-high", "gpt-5-5-high"),
     "Claude Opus 4.8": ("claude-opus-4-8", "claude-opus-4-8"),
@@ -451,7 +530,17 @@ def save_doc(doc: dict) -> None:
 
 
 def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[str]:
-    arena_map = {m.get("model") or m.get("name"): m for m in arena_data if isinstance(m, dict)}
+    arena_map = {}
+    for row in arena_data:
+        if not isinstance(row, dict):
+            continue
+        model_name = row.get("model") or row.get("name")
+        model_key = row.get("modelKey")
+        for key in (model_name, model_key):
+            if key:
+                prev = arena_map.get(key)
+                if prev is None or float(row.get("rating", 0)) > float(prev.get("rating", 0)):
+                    arena_map[key] = row
     aa_map = {}
     for m in aa_data if isinstance(aa_data, list) else []:
         if not isinstance(m, dict):
@@ -467,7 +556,7 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
         if not mapping:
             continue
         arena_key, aa_slug = mapping
-        if arena_key in arena_map and "rating" in arena_map[arena_key]:
+        if arena_key and arena_key in arena_map and "rating" in arena_map[arena_key]:
             new_rating = float(arena_map[arena_key]["rating"])
             old = float(m.get("arena", 0))
             if abs(new_rating - old) > 0.01:
@@ -482,6 +571,36 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
                 if abs(new_ii - old) > 0.01:
                     changes.append(f"  {name}: AI Index {old:.4f} -> {new_ii:.4f}")
                     m["ai_index"] = new_ii
+                if entry.get("context_window"):
+                    m["ctx"] = int(entry["context_window"])
+                if isinstance(entry.get("intelligence_index_cost_per_task"), (int, float)):
+                    m["aa_cost_per_task_usd"] = float(entry["intelligence_index_cost_per_task"])
+                price = m.setdefault("price", {"currency": "USD"})
+                price["currency"] = "USD"
+                if (
+                    not m.get("openrouter_id")
+                    and isinstance(entry.get("price_input"), (int, float))
+                    and isinstance(entry.get("price_output"), (int, float))
+                ):
+                    price.update({
+                        "input": float(entry["price_input"]),
+                        "output": float(entry["price_output"]),
+                        "cache_read": float(entry["cache_read"]) if isinstance(entry.get("cache_read"), (int, float)) else -1,
+                        "cache_write": float(entry["cache_write"]) if isinstance(entry.get("cache_write"), (int, float)) else -1,
+                    })
+                    m["price_source"] = "artificialanalysis"
+                else:
+                    for field, aa_field in (("input", "price_input"), ("output", "price_output"), ("cache_read", "cache_read"), ("cache_write", "cache_write")):
+                        value = entry.get(aa_field)
+                        if isinstance(value, (int, float)) and (price.get(field) is None or float(price.get(field, -1)) < 0):
+                            price[field] = float(value)
+                release_date = AA_LIVE_RELEASES.get(aa_slug)
+                if release_date:
+                    m["released"] = release_date
+                    new_model_names = {"GPT-6 Luna", "GPT-6 Sol", "Claude Opus 5.5"}
+                    if name in new_model_names:
+                        arena_status = "Arena尚未收录" if m.get("arena") is None else "Arena已收录"
+                        m["note"] = f"新模型收录 {release_date} · {arena_status} · price/OpenRouter"
     return changes
 
 
@@ -561,24 +680,32 @@ def refresh_prices_from_openrouter(models: list[dict], api_key: str | None = Non
 
 def recalculate_scores(models: list[dict]) -> list[dict]:
     """Return ranked list of score dicts; also attaches s* fields onto copies for legacy export."""
-    arenas = [float(m.get("arena", 0) or 0) for m in models]
+    arenas = [float(m["arena"]) if m.get("arena") is not None else None for m in models]
     ais = [float(m.get("ai_index", 0) or 0) for m in models]
-    pA = percentile_scores(arenas)
+    valid_arena_indices = [i for i, value in enumerate(arenas) if value is not None]
+    valid_arena_percentiles = percentile_scores([float(arenas[i]) for i in valid_arena_indices]) if valid_arena_indices else []
+    pA = [None] * len(models)
+    for i, score in zip(valid_arena_indices, valid_arena_percentiles):
+        pA[i] = score
     pI = percentile_scores(ais)
     scored = []
     for i, m in enumerate(models):
-        # Floor lowered so trailing models keep double-digit axis scores
-        # (old 1380/15 floors zeroed DeepSeek V3-class entries).
-        sA = round(hybrid(lin_norm(arenas[i], 1300, 1520), pA[i], 0.65))
+        # Arena component is omitted (and remaining weights renormalized) when no
+        # live Arena rating exists; do not fabricate a rating or penalize missing coverage.
+        if arenas[i] is None:
+            sA = None
+        else:
+            arena_abs = lin_norm(float(arenas[i]), 1300, 1520)
+            sA = round(hybrid(arena_abs, float(pA[i]), 0.65))
         sAI = round(hybrid(lin_norm(ais[i], 0, 60), pI[i], 0.65), 1)
         eff = effective_price_usd(m.get("price"))
         sP = score_price_from_effective(eff)
         sM = score_multi(m.get("multi", 50))
         sC = score_ctx(m.get("ctx", 0))
-        total = total_score(sA, sAI, sP, sM, sC)
+        total = total_score(sA or 0, sAI, sP, sM, sC, has_arena=sA is not None)
         row = {
             **m,
-            "sArena": int(sA),
+            "sArena": None if sA is None else int(sA),
             "sAI": sAI,
             "sPrice": int(sP),
             "sMulti": int(sM),
@@ -678,7 +805,7 @@ def main():
 
     print("\n1. Fetching Arena ratings...")
     new_arena = fetch_arena_leaderboard()
-    arena_fresh = False
+    arena_fresh = bool(new_arena and ARENA_FETCHED_LIVE)
     if new_arena:
         arena_data = new_arena
         arena_fresh = True
@@ -691,23 +818,21 @@ def main():
 
     print("\n2. Fetching AI Index...")
     new_aa = fetch_aa_intelligence()
-    aa_fresh = False
-    if new_aa and new_aa is not aa_data:
-        # Only treat as fresh if we actually got a validated payload.
-        # Cached reuse is OK for mapping, but we avoid rewriting models when
-        # the remote source is unavailable and nothing new was fetched.
+    aa_fresh = bool(new_aa and AA_FETCHED_LIVE)
+    if new_aa:
         aa_data = new_aa
-        # AA currently only returns the on-disk cache; do not mark fresh unless
-        # file mtime is recent AND caller explicitly wants. Safer default: allow
-        # field update only when remote fetch path succeeds later.
-        aa_fresh = False
-        print(f"  Using AA snapshot: {len(aa_data)} entries (no remote refresh)")
+        if aa_fresh:
+            with open(AA_JSON, "w") as f:
+                json.dump(aa_data, f, indent=2, ensure_ascii=False)
+                f.write("\n")
+            print(f"  Refreshed AA cache: {len(aa_data)} models")
+        else:
+            print(f"  Using AA snapshot fallback: {len(aa_data)} models (not written as fresh)")
     else:
         print("  No AA update")
 
     print("\n3. Updating leaderboard fields...")
-    # Only apply Arena updates when this run successfully fetched Arena.
-    # AA: keep existing models.json values unless we later add a trusted remote.
+    # Only apply fields when the corresponding live source succeeded this run.
     apply_arena = arena_data if arena_fresh else []
     apply_aa = aa_data if aa_fresh else []
     if not arena_fresh:

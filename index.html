@@ -916,7 +916,7 @@
                                 <td>
                                     <a class="vendor-pill" :href="vendorUrls[m.vendor] || '#'" target="_blank" rel="noopener">{{ m.vendor }}</a>
                                 </td>
-                                <td><span class="score" :class="sc(m.sArena)">{{ m.sArena }}</span></td>
+                                <td><span class="score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span></td>
                                 <td><span class="score" :class="sc(m.sAI)">{{ m.sAI }}</span></td>
                                 <td>
                                     <div class="price-cell">
@@ -977,7 +977,7 @@
                         <div class="m-scores">
                             <div class="m-score">
                                 <span class="k">Arena</span>
-                                <span class="v score" :class="sc(m.sArena)">{{ m.sArena }}</span>
+                                <span class="v score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span>
                             </div>
                             <div class="m-score">
                                 <span class="k">AI</span>
@@ -1047,7 +1047,7 @@
                 ·
                 <a href="https://rank.zhuzihan.com" target="_blank" rel="noopener">rank.zhuzihan.com</a>
             </div>
-            <div>MIT · July 2026</div>
+            <div>MIT · September 2026</div>
         </footer>
     </div>
 </div>
@@ -1155,20 +1155,24 @@ createApp({
             const arenas = models.map(m => m.arena)
             const ais = models.map(m => m.ai_index)
             const percentile = (vals) => {
+                const length = vals.length
                 const order = vals.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0])
-                const ranks = new Array(n).fill(0)
+                const ranks = new Array(length).fill(0)
                 let i = 0
-                while (i < n) {
+                while (i < length) {
                     let j = i
-                    while (j + 1 < n && order[j + 1][0] === order[i][0]) j++
+                    while (j + 1 < length && order[j + 1][0] === order[i][0]) j++
                     const avg = (i + j) / 2
                     for (let k = i; k <= j; k++) ranks[order[k][1]] = avg
                     i = j + 1
                 }
-                if (n === 1) return vals.map(() => 50)
-                return ranks.map(r => r / (n - 1) * 100)
+                if (length === 1) return vals.map(() => 50)
+                return ranks.map(r => r / (length - 1) * 100)
             }
-            const pA = percentile(arenas)
+            const pA = percentile(arenas.filter(v => v != null))
+            const arenaPercentiles = new Map()
+            let validIndex = 0
+            arenas.forEach((v, i) => { if (v != null) arenaPercentiles.set(i, pA[validIndex++]) })
             const pI = percentile(ais)
             const linNorm = (v, lo, hi) => hi === lo ? 0 : Math.max(0, Math.min(100, (v - lo) / (hi - lo) * 100))
             const hybrid = (abs, perc, w = 0.65) => abs * w + perc * (1 - w)
@@ -1185,14 +1189,17 @@ createApp({
             const scoreMulti = (multi) => Math.round(40 + multi * 0.6)
 
             return models.map((m, idx) => {
-                // Floor lowered so trailing models keep double-digit axis scores
-                const sA = Math.round(hybrid(linNorm(m.arena, 1300, 1520), pA[idx], 0.65))
+                // No current Arena row: omit this factor and renormalize the other weights.
+                const hasArena = m.arena != null
+                const sA = hasArena ? Math.round(hybrid(linNorm(m.arena, 1300, 1520), arenaPercentiles.get(idx), 0.65)) : null
                 const sAI = +hybrid(linNorm(m.ai_index, 0, 60), pI[idx], 0.65).toFixed(1)
                 const sP = scorePrice(m.price)
                 const sM = scoreMulti(m.multi)
                 const sC = scoreCtx(m.ctx)
                 const eff = effectivePriceUsd(m.price)
-                const total = sA * 0.30 + sAI * 0.35 + sP * 0.10 + sM * 0.15 + sC * 0.10
+                const total = hasArena
+                    ? sA * 0.30 + sAI * 0.35 + sP * 0.10 + sM * 0.15 + sC * 0.10
+                    : (sAI * 0.35 + sP * 0.10 + sM * 0.15 + sC * 0.10) / 0.70
                 return {
                     ...m,
                     sArena: sA,
