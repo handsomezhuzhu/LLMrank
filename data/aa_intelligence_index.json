@@ -8,7 +8,7 @@
     "context_window": 64000,
     "price_input": 0.6,
     "price_output": 1.8,
-    "cache_read": null,
+    "cache_read": 0.11,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -68,7 +68,7 @@
     "slug": "mercury-2",
     "model": "Mercury 2",
     "intelligence_index": 13.7691315513812,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2026-02-20",
     "context_window": 128000,
     "price_input": 0.25,
@@ -255,7 +255,7 @@
     "context_window": 400000,
     "price_input": 1.25,
     "price_output": 10,
-    "cache_read": null,
+    "cache_read": 0.125,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -305,11 +305,11 @@
     "deprecated": true,
     "released": "2025-08-12",
     "context_window": 128000,
-    "price_input": 0.4,
-    "price_output": 2,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.39219786538109047
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "gpt-5-nano-minimal",
@@ -458,14 +458,14 @@
     "slug": "devstral-2",
     "model": "Devstral 2",
     "intelligence_index": 8.61676079574885,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2025-12-09",
     "context_window": 256000,
-    "price_input": 0,
-    "price_output": 0,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "claude-35-sonnet",
@@ -489,7 +489,7 @@
     "context_window": 128000,
     "price_input": 1.635,
     "price_output": 2.75,
-    "cache_read": null,
+    "cache_read": 1.5675,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -723,7 +723,7 @@
     "context_window": 256000,
     "price_input": 0.15,
     "price_output": 0.6,
-    "cache_read": null,
+    "cache_read": 0.015,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -918,7 +918,7 @@
     "context_window": 128000,
     "price_input": 0.59,
     "price_output": 1.69,
-    "cache_read": null,
+    "cache_read": 0.59,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -1085,8 +1085,8 @@
     "deprecated": true,
     "released": "2023-12-11",
     "context_window": 32768,
-    "price_input": 1.5,
-    "price_output": 7.5,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -1176,8 +1176,8 @@
     "deprecated": true,
     "released": "2023-09-27",
     "context_window": 8192,
-    "price_input": 0.25,
-    "price_output": 0.25,
+    "price_input": 0.15,
+    "price_output": 0.2,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -1269,7 +1269,7 @@
     "context_window": 1000000,
     "price_input": 0.05,
     "price_output": 0.2,
-    "cache_read": null,
+    "cache_read": 0.05,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -1319,11 +1319,11 @@
     "deprecated": true,
     "released": "2025-03-17",
     "context_window": 128000,
-    "price_input": 0.1,
-    "price_output": 0.3,
+    "price_input": 0.11,
+    "price_output": 0.17,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.03276229387252031
+    "intelligence_index_cost_per_task": 0.03502860053476431
   },
   {
     "slug": "mimo-v2-6-pro",
@@ -1381,11 +1381,11 @@
     "slug": "llama-nemotron-super-49b-v1-5",
     "model": "Llama Nemotron Super 49B v1.5 (Non-reasoning)",
     "intelligence_index": 7.36435496013793,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2025-07-25",
     "context_window": 128000,
-    "price_input": 0.4,
-    "price_output": 0.4,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -1438,8 +1438,8 @@
     "context_window": 204800,
     "price_input": 0.3,
     "price_output": 1.2,
-    "cache_read": null,
-    "cache_write": null,
+    "cache_read": 0.03,
+    "cache_write": 0.375,
     "intelligence_index_cost_per_task": null
   },
   {
@@ -1581,7 +1581,7 @@
     "context_window": 200000,
     "price_input": 0.07,
     "price_output": 0.4,
-    "cache_read": 0.07,
+    "cache_read": 0.01,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -1802,7 +1802,7 @@
     "context_window": 64000,
     "price_input": 0.6,
     "price_output": 1.8,
-    "cache_read": null,
+    "cache_read": 0.11,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -1925,7 +1925,7 @@
   },
   {
     "slug": "sarvam-m-reasoning",
-    "model": "Sarvam M (Reasoning)",
+    "model": "Sarvam M (Reasoning, based on Mistral Small 3.1)",
     "intelligence_index": 5.31069666559541,
     "deprecated": true,
     "released": "2025-05-23",
@@ -1945,7 +1945,7 @@
     "context_window": 1000000,
     "price_input": 0.05,
     "price_output": 0.2,
-    "cache_read": null,
+    "cache_read": 0.01,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -1958,9 +1958,9 @@
     "context_window": 256000,
     "price_input": 0.5,
     "price_output": 3,
-    "cache_read": 0.05,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 1.9071250542601492
+    "intelligence_index_cost_per_task": 2.487757391889078
   },
   {
     "slug": "mistral-small-2402",
@@ -1969,8 +1969,8 @@
     "deprecated": true,
     "released": "2024-02-26",
     "context_window": 32768,
-    "price_input": 0.15,
-    "price_output": 0.6,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -1990,7 +1990,7 @@
   },
   {
     "slug": "intellect-3",
-    "model": "INTELLECT-3",
+    "model": "INTELLECT-3 (based on GLM-4.5-Air)",
     "intelligence_index": 10.6061102858178,
     "deprecated": false,
     "released": "2025-11-27",
@@ -2244,9 +2244,9 @@
     "context_window": 256000,
     "price_input": 0.15,
     "price_output": 0.6,
-    "cache_read": null,
+    "cache_read": 0.015,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.045070159253737405
+    "intelligence_index_cost_per_task": 0.01504679036588765
   },
   {
     "slug": "qwen3-5-0-8b-non-reasoning",
@@ -2335,7 +2335,7 @@
     "context_window": 128000,
     "price_input": 0.3,
     "price_output": 0.9,
-    "cache_read": null,
+    "cache_read": 0.1775,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -2411,8 +2411,8 @@
     "deprecated": true,
     "released": "2025-06-20",
     "context_window": 128000,
-    "price_input": 0.1,
-    "price_output": 0.3,
+    "price_input": 0.075,
+    "price_output": 0.2,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -2435,7 +2435,7 @@
     "model": "Claude Opus 5.5 (Adaptive Reasoning, Low Effort, Default Fallback)",
     "intelligence_index": 42.3077781466168,
     "deprecated": false,
-    "released": "2026-09-17",
+    "released": "2026-09-22",
     "context_window": 1000000,
     "price_input": 4,
     "price_output": 20,
@@ -2621,9 +2621,9 @@
     "context_window": 256000,
     "price_input": 0.5,
     "price_output": 1.5,
-    "cache_read": null,
+    "cache_read": 0.05,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.10436844417697419
+    "intelligence_index_cost_per_task": 0.05380432272748174
   },
   {
     "slug": "gpt-5-4-non-reasoning",
@@ -3232,7 +3232,7 @@
     "context_window": 262144,
     "price_input": 1.2,
     "price_output": 6,
-    "cache_read": null,
+    "cache_read": 0.24,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -3519,7 +3519,7 @@
     "price_input": 1.3,
     "price_output": 7.8,
     "cache_read": 0.13,
-    "cache_write": 1.625,
+    "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
   {
@@ -3674,9 +3674,9 @@
     "context_window": 256000,
     "price_input": 0.5,
     "price_output": 3,
-    "cache_read": 0.05,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.9034163174028444
+    "intelligence_index_cost_per_task": 1.133063774030521
   },
   {
     "slug": "motif-2-12-7b",
@@ -3713,9 +3713,9 @@
     "context_window": 256000,
     "price_input": 0.1,
     "price_output": 0.1,
-    "cache_read": null,
+    "cache_read": 0.01,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.042290829470686256
+    "intelligence_index_cost_per_task": 0.007846860809830004
   },
   {
     "slug": "lfm2-8b-a1b",
@@ -3765,7 +3765,7 @@
     "context_window": 200000,
     "price_input": 0.55,
     "price_output": 2.2,
-    "cache_read": 0.55,
+    "cache_read": 0.11,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -3867,9 +3867,9 @@
     "deprecated": false,
     "released": "2026-09-11",
     "context_window": 262144,
-    "price_input": 0,
-    "price_output": 0,
-    "cache_read": null,
+    "price_input": 0.075,
+    "price_output": 0.22,
+    "cache_read": 0.015,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -3919,9 +3919,9 @@
     "deprecated": false,
     "released": "2026-04-02",
     "context_window": 256000,
-    "price_input": 0.115,
-    "price_output": 0.37,
-    "cache_read": 0.085,
+    "price_input": 0.1,
+    "price_output": 0.34,
+    "cache_read": 0.07,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -3945,8 +3945,8 @@
     "deprecated": false,
     "released": "2025-10-28",
     "context_window": 128000,
-    "price_input": 0.2,
-    "price_output": 0.6,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -4012,7 +4012,7 @@
     "context_window": 200000,
     "price_input": 0.6,
     "price_output": 2.2,
-    "cache_read": 0.6,
+    "cache_read": 0.45,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -4051,7 +4051,7 @@
     "context_window": 256000,
     "price_input": 0.13,
     "price_output": 0.4,
-    "cache_read": 0.125,
+    "cache_read": 0.13,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -4077,9 +4077,9 @@
     "context_window": 256000,
     "price_input": 0.2,
     "price_output": 0.2,
-    "cache_read": null,
+    "cache_read": 0.02,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.13923016604368538
+    "intelligence_index_cost_per_task": 0.01943640228162961
   },
   {
     "slug": "k-exaone",
@@ -4150,11 +4150,11 @@
     "slug": "llama-3-1-nemotron-instruct-70b",
     "model": "Llama 3.1 Nemotron Instruct 70B",
     "intelligence_index": 6.9438219838506,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2024-10-15",
     "context_window": 128000,
-    "price_input": 1.2,
-    "price_output": 1.2,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -4264,6 +4264,19 @@
     "intelligence_index_cost_per_task": null
   },
   {
+    "slug": "mercury-2-5",
+    "model": "Mercury 2.5",
+    "intelligence_index": 12.3408453757638,
+    "deprecated": false,
+    "released": "2026-09-08",
+    "context_window": 260000,
+    "price_input": 0.25,
+    "price_output": 0.75,
+    "cache_read": 0.025,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.06417269581708425
+  },
+  {
     "slug": "gpt-4-turbo",
     "model": "GPT-4 Turbo",
     "intelligence_index": 7.04351520157305,
@@ -4298,7 +4311,7 @@
     "context_window": 1000000,
     "price_input": 0.05,
     "price_output": 0.2,
-    "cache_read": null,
+    "cache_read": 0.05,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.01675160944475661
   },
@@ -4465,8 +4478,8 @@
     "deprecated": true,
     "released": "2024-09-17",
     "context_window": 32768,
-    "price_input": 0.2,
-    "price_output": 0.6,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -4532,9 +4545,9 @@
     "context_window": 256000,
     "price_input": 0.5,
     "price_output": 3,
-    "cache_read": 0.05,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.8340096586526328
+    "intelligence_index_cost_per_task": 1.0482225365160391
   },
   {
     "slug": "solar-open2-250b",
@@ -4662,7 +4675,7 @@
     "context_window": 200000,
     "price_input": 0.6,
     "price_output": 2.2,
-    "cache_read": 0.525,
+    "cache_read": 0.28500000000000003,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -4805,7 +4818,7 @@
     "context_window": 400000,
     "price_input": 1.75,
     "price_output": 14,
-    "cache_read": 0.9625,
+    "cache_read": 0.175,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -5058,7 +5071,7 @@
   },
   {
     "slug": "agnes-2-5-pro-alpha",
-    "model": "Agnes 2.5 Pro Alpha",
+    "model": "Agnes 2.5 Pro Alpha (based on Qwen3.5 397B A17B)",
     "intelligence_index": 26.7727524271576,
     "deprecated": false,
     "released": "2026-07-24",
@@ -5273,7 +5286,7 @@
     "context_window": 200000,
     "price_input": 0.575,
     "price_output": 2.2,
-    "cache_read": null,
+    "cache_read": 0.355,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -5325,9 +5338,9 @@
     "context_window": 256000,
     "price_input": 0.15,
     "price_output": 0.15,
-    "cache_read": null,
+    "cache_read": 0.015,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.0655161894090132
+    "intelligence_index_cost_per_task": 0.011086416592507111
   },
   {
     "slug": "llama-3-3-instruct-70b",
@@ -5845,9 +5858,9 @@
     "context_window": 1000000,
     "price_input": 0.4,
     "price_output": 1.6,
-    "cache_read": 0.04,
-    "cache_write": 0.5,
-    "intelligence_index_cost_per_task": 0.32527343198119174
+    "cache_read": 0.08,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.2951713662785588
   },
   {
     "slug": "gpt-5-4",
@@ -6131,9 +6144,9 @@
     "context_window": 256000,
     "price_input": 0.5,
     "price_output": 3,
-    "cache_read": 0.05,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.8200193956505801
+    "intelligence_index_cost_per_task": 1.0073149536565944
   },
   {
     "slug": "motif-3",
@@ -6416,10 +6429,10 @@
     "released": "2026-04-01",
     "context_window": 512000,
     "price_input": 0.25,
-    "price_output": 0.9,
-    "cache_read": null,
+    "price_output": 0.8,
+    "cache_read": 0.06,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.3533614843871682
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "deephermes-3-llama-3-1-8b-preview",
@@ -6638,7 +6651,7 @@
     "context_window": 256000,
     "price_input": 0.6,
     "price_output": 2.5,
-    "cache_read": null,
+    "cache_read": 0.6,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -6937,7 +6950,7 @@
     "context_window": 256000,
     "price_input": 0.1,
     "price_output": 0.3,
-    "cache_read": null,
+    "cache_read": 0.02,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -6950,7 +6963,7 @@
     "context_window": 200000,
     "price_input": 0.07,
     "price_output": 0.4,
-    "cache_read": null,
+    "cache_read": 0.04,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -7041,7 +7054,7 @@
     "context_window": 262144,
     "price_input": 1.2,
     "price_output": 6,
-    "cache_read": null,
+    "cache_read": 0.24,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -7140,14 +7153,14 @@
     "slug": "devstral-small-2",
     "model": "Devstral Small 2",
     "intelligence_index": 7.5369358990318,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2025-12-09",
     "context_window": 256000,
-    "price_input": 0,
-    "price_output": 0,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "qwq-32b",
@@ -7262,7 +7275,7 @@
     "context_window": 128000,
     "price_input": 0.3,
     "price_output": 0.9,
-    "cache_read": null,
+    "cache_read": 0.1775,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -7713,7 +7726,7 @@
     "model": "Claude Opus 5.5 (Adaptive Reasoning, Xhigh Effort, Default Fallback)",
     "intelligence_index": 55.9873505840139,
     "deprecated": false,
-    "released": "2026-09-17",
+    "released": "2026-09-22",
     "context_window": 1000000,
     "price_input": 4,
     "price_output": 20,
@@ -7756,7 +7769,7 @@
     "context_window": 128000,
     "price_input": 0.27,
     "price_output": 1,
-    "cache_read": 0.27,
+    "cache_read": 0.135,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -7816,11 +7829,11 @@
     "slug": "llama-nemotron-super-49b-v1-5-reasoning",
     "model": "Llama Nemotron Super 49B v1.5 (Reasoning)",
     "intelligence_index": 9.01435430969758,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2025-07-25",
     "context_window": 128000,
-    "price_input": 0.4,
-    "price_output": 0.4,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -7910,8 +7923,8 @@
     "deprecated": true,
     "released": "2025-01-30",
     "context_window": 32000,
-    "price_input": 0.1,
-    "price_output": 0.3,
+    "price_input": 0.05,
+    "price_output": 0.08,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -7999,7 +8012,7 @@
     "model": "Claude Opus 5.5 (Adaptive Reasoning, Medium Effort, Default Fallback)",
     "intelligence_index": 51.2434931792768,
     "deprecated": false,
-    "released": "2026-09-17",
+    "released": "2026-09-22",
     "context_window": 1000000,
     "price_input": 4,
     "price_output": 20,
@@ -8220,7 +8233,7 @@
     "model": "Claude Opus 5.5 (Adaptive Reasoning, High Effort, Default Fallback)",
     "intelligence_index": 53.5831959822067,
     "deprecated": false,
-    "released": "2026-09-17",
+    "released": "2026-09-22",
     "context_window": 1000000,
     "price_input": 4,
     "price_output": 20,
@@ -8251,7 +8264,7 @@
     "price_input": 0.5,
     "price_output": 3,
     "cache_read": 0.05,
-    "cache_write": 0.625,
+    "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
   {
@@ -8523,7 +8536,7 @@
     "context_window": 400000,
     "price_input": 0.25,
     "price_output": 2,
-    "cache_read": null,
+    "cache_read": 0.025,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },

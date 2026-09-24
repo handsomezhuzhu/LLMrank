@@ -760,10 +760,10 @@
     "arena": 1457.3401876620214,
     "ai_index": 35.9967791278402,
     "eco": 45,
-    "po": 3.96,
-    "price_input": 1.32,
-    "price_output": 3.96,
-    "price_cache_read": 0.044,
+    "po": 1.386,
+    "price_input": 0.462,
+    "price_output": 1.386,
+    "price_cache_read": 0.0154,
     "price_cache_write": -1,
     "price_currency": "USD",
     "multi": 50,
@@ -773,11 +773,11 @@
     "openrouter_id": "deepseek/deepseek-v4-pro-0813",
     "sArena": 64,
     "sAI": 64.2,
-    "sPrice": 49,
+    "sPrice": 63,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 45,
-    "total": 63.2
+    "total": 64.6
   },
   {
     "name": "Grok 4.20",

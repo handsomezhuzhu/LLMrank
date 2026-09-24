@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-23T02:26:15Z",
+  "updated_at": "2026-09-24T00:00:21Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -556,9 +556,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_read": 0.044,
+        "input": 0.462,
+        "output": 1.386,
+        "cache_read": 0.0154,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1552,7 +1552,7 @@
       "note": "",
       "auto_price": true,
       "slug": "mistral-large-3",
-      "aa_cost_per_task_usd": 0.10436844417697419,
+      "aa_cost_per_task_usd": 0.05380432272748174,
       "released": "2025-12-02"
     },
     {
