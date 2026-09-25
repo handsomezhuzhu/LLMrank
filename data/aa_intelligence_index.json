@@ -3048,11 +3048,11 @@
     "deprecated": false,
     "released": "2026-08-10",
     "context_window": 131072,
-    "price_input": 0.35,
-    "price_output": 1.5,
+    "price_input": 0.32499999999999996,
+    "price_output": 1.35,
     "cache_read": 0.04,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.05509175451443994
+    "intelligence_index_cost_per_task": 0.05670634665029995
   },
   {
     "slug": "gpt-5-6-luna-medium",
@@ -3783,19 +3783,6 @@
     "intelligence_index_cost_per_task": null
   },
   {
-    "slug": "agnes-3-0-flash",
-    "model": "Agnes 3.0 Flash",
-    "intelligence_index": 35.5,
-    "deprecated": false,
-    "released": "2026-09-11",
-    "context_window": 1000000,
-    "price_input": 0.05,
-    "price_output": 0.15,
-    "cache_read": 0.005,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": null
-  },
-  {
     "slug": "gemini-2-5-flash",
     "model": "Gemini 2.5 Flash (Non-reasoning)",
     "intelligence_index": 9.85128154382851,
@@ -3920,8 +3907,8 @@
     "released": "2026-04-02",
     "context_window": 256000,
     "price_input": 0.1,
-    "price_output": 0.34,
-    "cache_read": 0.07,
+    "price_output": 0.37,
+    "cache_read": 0.060000000000000005,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -4051,7 +4038,7 @@
     "context_window": 256000,
     "price_input": 0.13,
     "price_output": 0.4,
-    "cache_read": 0.13,
+    "cache_read": 0.1,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -4184,6 +4171,19 @@
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
+  },
+  {
+    "slug": "deepseek-v4-1-flash-non-reasoning",
+    "model": "DeepSeek V4.1 Flash (Non-Reasoning)",
+    "intelligence_index": 24.6733593924318,
+    "deprecated": false,
+    "released": "2026-09-10",
+    "context_window": 1000000,
+    "price_input": 0.3,
+    "price_output": 1.2,
+    "cache_read": 0.006,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.14670039195227308
   },
   {
     "slug": "gemini-3-8-flash-medium",
@@ -5066,19 +5066,6 @@
     "price_input": null,
     "price_output": null,
     "cache_read": null,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": null
-  },
-  {
-    "slug": "agnes-2-5-pro-alpha",
-    "model": "Agnes 2.5 Pro Alpha (based on Qwen3.5 397B A17B)",
-    "intelligence_index": 26.7727524271576,
-    "deprecated": false,
-    "released": "2026-07-24",
-    "context_window": 1000000,
-    "price_input": 0.45,
-    "price_output": 0.9,
-    "cache_read": 0.01,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -7059,6 +7046,19 @@
     "intelligence_index_cost_per_task": null
   },
   {
+    "slug": "glm-5-3-low",
+    "model": "GLM-5.3 (low)",
+    "intelligence_index": 34.2990078159643,
+    "deprecated": false,
+    "released": "2026-08-18",
+    "context_window": 1000000,
+    "price_input": 1.4,
+    "price_output": 4.4,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 3.6634208691514356
+  },
+  {
     "slug": "devstral-small-2505",
     "model": "Devstral Small (May '25)",
     "intelligence_index": 8.73503199772396,
@@ -8264,19 +8264,6 @@
     "price_input": 0.5,
     "price_output": 3,
     "cache_read": 0.05,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": null
-  },
-  {
-    "slug": "agnes-2-5-pro-beta",
-    "model": "Agnes 2.5 Pro Beta",
-    "intelligence_index": 35.2413300369053,
-    "deprecated": false,
-    "released": "2026-08-26",
-    "context_window": 1000000,
-    "price_input": 0.1,
-    "price_output": 0.3,
-    "cache_read": 0.01,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
