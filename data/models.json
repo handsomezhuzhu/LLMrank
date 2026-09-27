@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-26T00:01:11Z",
+  "updated_at": "2026-09-27T00:01:45Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -286,7 +286,7 @@
       "note": "",
       "auto_price": true,
       "slug": "glm-5-2",
-      "aa_cost_per_task_usd": 0.9648813120929373,
+      "aa_cost_per_task_usd": 1.4726179494034382,
       "released": "2026-06-16"
     },
     {
@@ -658,7 +658,7 @@
       "ctx": 1310720,
       "price": {
         "currency": "USD",
-        "input": 0.022,
+        "input": 0.021,
         "output": 0.32,
         "cache_read": 0.016,
         "cache_write": -1
@@ -846,7 +846,7 @@
       "note": "",
       "auto_price": true,
       "slug": "grok-4-3",
-      "aa_cost_per_task_usd": 0.16529989544512777,
+      "aa_cost_per_task_usd": 0.20537871205068303,
       "released": "2026-04-30"
     },
     {
@@ -1552,7 +1552,7 @@
       "note": "",
       "auto_price": true,
       "slug": "mistral-large-3",
-      "aa_cost_per_task_usd": 0.05380432272748174,
+      "aa_cost_per_task_usd": 0.031125992260624492,
       "released": "2025-12-02"
     },
     {
@@ -1785,9 +1785,9 @@
       "ctx": 1310720,
       "price": {
         "currency": "USD",
-        "input": 0.045,
-        "output": 0.14,
-        "cache_read": 0.01,
+        "input": 0.04,
+        "output": 0.5,
+        "cache_read": 0.015,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",

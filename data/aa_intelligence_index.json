@@ -439,7 +439,7 @@
     "price_output": 2.7,
     "cache_read": 0.05,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.715523357458521
+    "intelligence_index_cost_per_task": 0.7174901509283937
   },
   {
     "slug": "qwen3-5-2b-non-reasoning",
@@ -556,7 +556,7 @@
     "price_output": 4.05,
     "cache_read": 0.17,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.6070445010820831
+    "intelligence_index_cost_per_task": "$undefined"
   },
   {
     "slug": "kimi-k2-6",
@@ -1505,7 +1505,7 @@
     "price_output": 0.22,
     "cache_read": 0.05,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.09831568891927728
+    "intelligence_index_cost_per_task": 0.10037244756930194
   },
   {
     "slug": "qwen3-4b-2507-instruct-reasoning",
@@ -2623,7 +2623,7 @@
     "price_output": 1.5,
     "cache_read": 0.05,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.05380432272748174
+    "intelligence_index_cost_per_task": 0.031125992260624492
   },
   {
     "slug": "gpt-5-4-non-reasoning",
@@ -2714,7 +2714,7 @@
     "price_output": 1.2,
     "cache_read": 0.06,
     "cache_write": 0.375,
-    "intelligence_index_cost_per_task": 0.10166685146353358
+    "intelligence_index_cost_per_task": "$undefined"
   },
   {
     "slug": "grok-1",
@@ -3247,7 +3247,7 @@
     "price_output": 2.5,
     "cache_read": 0.16,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.5494500259673998
+    "intelligence_index_cost_per_task": 0.5975984799533358
   },
   {
     "slug": "longcat-2-0",
@@ -4274,7 +4274,7 @@
     "price_output": 0.75,
     "cache_read": 0.025,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.06417269581708425
+    "intelligence_index_cost_per_task": 0.11668472036336801
   },
   {
     "slug": "gpt-4-turbo",
@@ -5158,7 +5158,7 @@
     "price_output": 2.5,
     "cache_read": 0.2,
     "cache_write": 1.25,
-    "intelligence_index_cost_per_task": 0.13744224560676677
+    "intelligence_index_cost_per_task": 0.16974590796834474
   },
   {
     "slug": "claude-4-5-sonnet-thinking",
@@ -5288,7 +5288,7 @@
     "price_output": 2.5,
     "cache_read": 0.2,
     "cache_write": 1.25,
-    "intelligence_index_cost_per_task": 0.16529989544512777
+    "intelligence_index_cost_per_task": 0.20537871205068303
   },
   {
     "slug": "olmo-3-1-32b-instruct",
@@ -5743,7 +5743,7 @@
     "price_output": 5,
     "cache_read": 0.1,
     "cache_write": 1.25,
-    "intelligence_index_cost_per_task": 0.2077123803588505
+    "intelligence_index_cost_per_task": 0.27682075830176456
   },
   {
     "slug": "granite-4-0-h-350m",
@@ -5847,7 +5847,7 @@
     "price_output": 1.6,
     "cache_read": 0.08,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.2951713662785588
+    "intelligence_index_cost_per_task": 0.21702592259078568
   },
   {
     "slug": "gpt-5-4",
@@ -6419,7 +6419,7 @@
     "price_output": 0.8,
     "cache_read": 0.06,
     "cache_write": null,
-    "intelligence_index_cost_per_task": "$undefined"
+    "intelligence_index_cost_per_task": 0.11883788334567012
   },
   {
     "slug": "deephermes-3-llama-3-1-8b-preview",
@@ -6523,7 +6523,7 @@
     "price_output": 4.5,
     "cache_read": 0.075,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.40970114992092954
+    "intelligence_index_cost_per_task": 0.4473810333705224
   },
   {
     "slug": "k2-horizon-375b-a23b",
@@ -7472,7 +7472,7 @@
     "price_output": 0.28,
     "cache_read": 0.028,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.11794440406341464
+    "intelligence_index_cost_per_task": 0.1074631228275786
   },
   {
     "slug": "claude-3-7-sonnet",
@@ -7628,7 +7628,7 @@
     "price_output": 7.5,
     "cache_read": 0.15,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.43697278975091847
+    "intelligence_index_cost_per_task": 0.5020382394983653
   },
   {
     "slug": "k2-v2-medium",
@@ -8382,7 +8382,7 @@
     "price_output": 4.4,
     "cache_read": 0.26,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.9648813120929373
+    "intelligence_index_cost_per_task": 1.4726179494034382
   },
   {
     "slug": "kimi-k3",
