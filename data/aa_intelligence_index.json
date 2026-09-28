@@ -689,6 +689,19 @@
     "intelligence_index_cost_per_task": "$undefined"
   },
   {
+    "slug": "mimo-v2-6-flash",
+    "model": "MiMo-V2.6-Flash",
+    "intelligence_index": 37.8843590141754,
+    "deprecated": false,
+    "released": "2026-09-21",
+    "context_window": 1000000,
+    "price_input": 0.14,
+    "price_output": 0.28,
+    "cache_read": 0.0028,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.0621899731897297
+  },
+  {
     "slug": "lfm-40b",
     "model": "LFM 40B",
     "intelligence_index": 5.41798540794277,

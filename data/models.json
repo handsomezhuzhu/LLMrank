@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-27T00:01:45Z",
+  "updated_at": "2026-09-28T00:00:43Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -530,9 +530,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.9646,
-        "output": 3.0316,
-        "cache_read": 0.17914,
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -556,9 +556,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.264,
-        "output": 0.792,
-        "cache_read": 0.0088,
+        "input": 0.24298,
+        "output": 3.5,
+        "cache_read": 0.172,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -962,9 +962,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.06,
+        "input": 0.21,
+        "output": 0.84,
+        "cache_read": 0.042,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1617,8 +1617,8 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.32,
-        "output": 0.89,
+        "input": 0.2574,
+        "output": 1.0287,
         "cache_read": -1,
         "cache_write": -1
       },
@@ -1762,9 +1762,9 @@
       "ctx": 1310720,
       "price": {
         "currency": "USD",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.26,
+        "input": 0.3556,
+        "output": 2.574,
+        "cache_read": 0.06604,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -1785,9 +1785,9 @@
       "ctx": 1310720,
       "price": {
         "currency": "USD",
-        "input": 0.04,
-        "output": 0.5,
-        "cache_read": 0.015,
+        "input": 0.045,
+        "output": 0.14,
+        "cache_read": 0.01,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",
