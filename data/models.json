@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-29T00:01:01Z",
+  "updated_at": "2026-09-30T00:00:33Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.6496,
-        "output": 2.0416,
-        "cache_read": 0.12064,
+        "input": 0.1449,
+        "output": 3.99,
+        "cache_read": 0.1159,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -556,9 +556,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.3949,
-        "output": 4.2,
-        "cache_read": 0.3159,
+        "input": 0.4,
+        "output": 3.49,
+        "cache_read": 0.32,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -655,12 +655,12 @@
       "ai_index": 34.3305129347816,
       "multi": 50,
       "eco": 45,
-      "ctx": 1310720,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.018,
         "output": 0.32,
-        "cache_read": 0.01,
+        "cache_read": 0.018,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -962,9 +962,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.06,
+        "input": 0.21,
+        "output": 0.84,
+        "cache_read": 0.042,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1316,9 +1316,9 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.27,
+        "input": 0.3,
         "output": 1.0,
-        "cache_read": -1,
+        "cache_read": 0.135,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1759,7 +1759,7 @@
       "ai_index": 44.777392385614,
       "multi": 85,
       "eco": 50,
-      "ctx": 1310720,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 1.4,
@@ -1782,7 +1782,7 @@
       "ai_index": 41.807466113455,
       "multi": 85,
       "eco": 50,
-      "ctx": 1310720,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.15,
