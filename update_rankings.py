@@ -253,6 +253,8 @@ def _parse_arena_live_page(page: str) -> list[dict] | None:
         text = "".join(json.loads('"' + chunk + '"') for chunk in chunks)
     except Exception:
         return None
+    # Arena migrated the public leaderboard view from /leaderboard to /leaderboard/text.
+    # Keep the endpoint anchored to the explicit text overall leaderboard path.
     marker = '"id":"leaderboard-sets/public/leaderboards/text-overall-style_control/leaderboard-snapshots/latest","entries":'
     pos = text.find(marker)
     if pos < 0:
@@ -289,7 +291,7 @@ def fetch_arena_leaderboard() -> list[dict] | None:
     ARENA_FETCHED_LIVE = False
     try:
         req = urllib.request.Request(
-            "https://arena.ai/leaderboard",
+            "https://arena.ai/leaderboard/text",
             headers={"User-Agent": "Mozilla/5.0 (compatible; LLMrank/1.0; +https://rank.zhuzihan.com)"},
         )
         with urllib.request.urlopen(req, timeout=60) as response:
@@ -317,7 +319,9 @@ def _parse_aa_live_page(page: str) -> list[dict] | None:
         return None
     decoder = json.JSONDecoder()
     best: dict[str, dict] = {}
-    release_date_pattern = re.compile(r'\{"slug":"([^"\\]+)","name":"[^"\\]+","deprecated":(?:true|false),"release":\{"slug":"[^"\\]+","name":"[^"\\]+"\},"releaseDate":"([^"\\]+)"')
+    # Release dates are separate sibling records in the RSC payload, e.g.
+    # {"slug":"gpt-6-luna","name":"GPT-6 Luna","deprecated":false,"releaseDate":"2026-09-22",...}
+    release_date_pattern = re.compile(r'\{"slug":"([^"\\]+)","name":"[^"\\]+","deprecated":(?:true|false),"releaseDate":"([^"\\]+)"')
     releases = {slug: date for slug, date in release_date_pattern.findall(text)}
     for match in re.finditer(r'\{"slug":"[^"\\]+","name":"[^"\\]+","shortName":', text):
         try:
@@ -430,7 +434,6 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
 # Explicit Arena / AA slug mapping (display name -> (arena_key, aa_slug))
 MODEL_MAPPING = {
     "Claude Fable 5.1": ("claude-fable-5.1-max", "claude-fable-5-1"),
-    "GPT-6 Astra": ("gpt-6-astra-max", "gpt-6-astra"),
     "Muse Spark 1.3": ("muse-spark-1.3-max", "muse-spark-1-3"),
     "GPT-5.6 Terra": ("gpt-5.6-terra-xhigh", "gpt-5-6-terra"),
     "MiniMax M3": ("minimax-m3", "minimax-m3"),
@@ -440,10 +443,25 @@ MODEL_MAPPING = {
     "GLM-5.3 Flash": ("glm-5.3-flash", "glm-5-3-flash"),
     "Qwen3.8 Max": ("qwen3.8-max", "qwen3-8-max"),
     "Grok 4.5": ("grok-4.5", "grok-4-5"),
-    "Claude Sonnet 5": ("claude-sonnet-5-high", "claude-sonnet-5"),
-    "Claude Opus 5.5": (None, "claude-opus-5-5"),
-    "GPT-6 Luna": (None, "gpt-6-luna"),
-    "GPT-6 Sol": (None, "gpt-6-sol"),
+    "Claude Opus 5.5": ("claude-opus-5.5-high", "claude-opus-5-5"),
+    "GPT-6 Luna": ("gpt-6-luna-max", "gpt-6-luna"),
+    "GPT-6 Sol": ("gpt-6-sol-max", "gpt-6-sol"),
+    "GPT-5.6 Luna": ("gpt-5.6-luna-xhigh", "gpt-5-6-luna"),
+    "Muse Spark 1.2": ("muse-spark-1.2 (xHigh)", "muse-spark-1-2"),
+    "Muse Spark 1.1": ("muse-spark-1.1", "muse-spark-1-1"),
+    "MiMo V2.6 Pro": ("mimo-v2.6-pro", "mimo-v2-6-pro"),
+    "MiMo V2.6 Flash": ("mimo-v2.6-flash", "mimo-v2-6-flash"),
+    "DeepSeek V4.1 Flash": ("deepseek-v4.1-flash-max", "deepseek-v4-1-flash"),
+    "Gemini 3.5 Flash Lite": ("gemini-3.5-flash-lite", "gemini-3-5-flash-lite"),
+    "Qwen3.7 Plus": ("qwen3.7-plus", "qwen3-7-plus"),
+    "Qwen3.8 27B": ("qwen3.8-27b", "qwen3-8-27b"),
+    "Gemma 4 31B": ("gemma-4-31b", "gemma-4-31b"),
+    "Gemma 4 26B A4B": ("gemma-4-26b-a4b", "gemma-4-26b-a4b"),
+    "Solar Pro 4": ("solar-pro4", "solar-pro4"),
+    "Mistral Medium 3.5": ("mistral-medium-3.5", "mistral-medium-3-5"),
+    "GPT-5.4 mini": ("gpt-5.4-mini-high", "gpt-5-4-mini"),
+    "GPT-5.4 nano": ("gpt-5.4-nano-high", "gpt-5-4-nano"),
+    "Grok 4.7": ("grok-4.7-xhigh", "grok-4-7"),
     "GPT-6 Astra": ("gpt-6-astra-max", "gpt-6-astra"),
     "Gemini 3.7 Flash": ("gemini-3.7-flash-high", "gemini-3-7-flash"),
     "Gemini 3.6 Flash": ("gemini-3.6-flash-high", "gemini-3-6-flash"),
