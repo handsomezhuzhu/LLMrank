@@ -27,7 +27,7 @@
   },
   {
     "slug": "mimo-v2-5-pro",
-    "model": "MiMo-V2.5-Pro",
+    "model": "MiMo-V2.5-Pro (Reasoning)",
     "intelligence_index": 25.9868888896511,
     "deprecated": true,
     "released": "2026-04-22",
@@ -54,15 +54,15 @@
   {
     "slug": "gpt-6-sol-low",
     "model": "GPT-6 Sol (Low)",
-    "intelligence_index": 33.9008505585733,
-    "deprecated": false,
+    "intelligence_index": 34.1548755585733,
+    "deprecated": true,
     "released": null,
-    "context_window": 872000,
+    "context_window": 1050000,
     "price_input": 2,
     "price_output": 10,
     "cache_read": 0.2,
     "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 0.1326186130291875
+    "intelligence_index_cost_per_task": 0.1327768361714764
   },
   {
     "slug": "mercury-2",
@@ -586,7 +586,7 @@
   },
   {
     "slug": "kimi-k2-6",
-    "model": "Kimi K2.6",
+    "model": "Kimi K2.6 (Reasoning)",
     "intelligence_index": 26.9791999742844,
     "deprecated": true,
     "released": "2026-04-20",
@@ -938,7 +938,7 @@
   {
     "slug": "gpt-6-luna-xhigh",
     "model": "GPT-6 Luna (Xhigh)",
-    "intelligence_index": 33.8845820217785,
+    "intelligence_index": 34.5587320217785,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -946,7 +946,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.04208218646439018
+    "intelligence_index_cost_per_task": 0.042183547923951084
   },
   {
     "slug": "deepseek-v3-1-reasoning",
@@ -1181,6 +1181,19 @@
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": "$undefined"
+  },
+  {
+    "slug": "grok-4-7-low",
+    "model": "Grok 4.7 (Low)",
+    "intelligence_index": 42.2166560223448,
+    "deprecated": false,
+    "released": null,
+    "context_window": 500000,
+    "price_input": 2,
+    "price_output": 6,
+    "cache_read": 0.5,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 1.2479664056943975
   },
   {
     "slug": "claude-opus-5-low",
@@ -2030,7 +2043,7 @@
   {
     "slug": "gpt-6-luna-medium",
     "model": "GPT-6 Luna (Medium)",
-    "intelligence_index": 29.4619523515762,
+    "intelligence_index": 29.9251773515762,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -2038,7 +2051,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.01756122553820397
+    "intelligence_index_cost_per_task": 0.017476906067835942
   },
   {
     "slug": "intellect-3",
@@ -2627,7 +2640,7 @@
   },
   {
     "slug": "jt236b",
-    "model": "JT-4.1 Flash 236B A21B",
+    "model": "JT-4.1 Flash 236B A21B (Reasoning)",
     "intelligence_index": 33.9172581709394,
     "deprecated": false,
     "released": null,
@@ -2861,7 +2874,7 @@
   },
   {
     "slug": "exaone-4-5-33b",
-    "model": "EXAONE 4.5 33B",
+    "model": "EXAONE 4.5 33B (Reasoning)",
     "intelligence_index": 13.2058394009382,
     "deprecated": false,
     "released": "2026-04-09",
@@ -2966,15 +2979,15 @@
   {
     "slug": "gpt-6-sol-high",
     "model": "GPT-6 Sol (High)",
-    "intelligence_index": 42.8215513642985,
-    "deprecated": false,
+    "intelligence_index": 42.4004513642985,
+    "deprecated": true,
     "released": null,
-    "context_window": 872000,
+    "context_window": 1050000,
     "price_input": 2,
     "price_output": 10,
     "cache_read": 0.2,
     "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 0.3753396394543572
+    "intelligence_index_cost_per_task": 0.3728406839161857
   },
   {
     "slug": "gemma-4-e4b-non-reasoning",
@@ -3681,7 +3694,7 @@
   {
     "slug": "gpt-6-luna-non-reasoning",
     "model": "GPT-6 Luna (Non-reasoning)",
-    "intelligence_index": 18.2617465935701,
+    "intelligence_index": 18.4678465935701,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -3689,7 +3702,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.01146983124544933
+    "intelligence_index_cost_per_task": 0.011341233858951989
   },
   {
     "slug": "minicpm5-2b",
@@ -4071,7 +4084,7 @@
   {
     "slug": "gpt-6-luna",
     "model": "GPT-6 Luna (Max)",
-    "intelligence_index": 37.2559686869738,
+    "intelligence_index": 38.1245186869738,
     "deprecated": false,
     "released": "2026-09-22",
     "context_window": 1000000,
@@ -4079,7 +4092,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.06792906856485216
+    "intelligence_index_cost_per_task": 0.06765421772017903
   },
   {
     "slug": "glm-4-7",
@@ -4448,15 +4461,15 @@
   {
     "slug": "gpt-6-sol-medium",
     "model": "GPT-6 Sol (Medium)",
-    "intelligence_index": 39.7820971749522,
-    "deprecated": false,
+    "intelligence_index": 39.8118971749522,
+    "deprecated": true,
     "released": null,
-    "context_window": 872000,
+    "context_window": 1050000,
     "price_input": 2,
     "price_output": 10,
     "cache_read": 0.2,
     "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 0.24721927010382636
+    "intelligence_index_cost_per_task": 0.24728577052042386
   },
   {
     "slug": "claude-3-opus",
@@ -4604,7 +4617,7 @@
   {
     "slug": "gpt-6-luna-high",
     "model": "GPT-6 Luna (High)",
-    "intelligence_index": 32.1482304150837,
+    "intelligence_index": 32.9282054150837,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -4612,7 +4625,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.029067566599182932
+    "intelligence_index_cost_per_task": 0.029023834521101737
   },
   {
     "slug": "nanbeige4-1-3b",
@@ -6675,11 +6688,11 @@
     "deprecated": false,
     "released": "2026-09-03",
     "context_window": 524288,
-    "price_input": null,
-    "price_output": null,
+    "price_input": 0,
+    "price_output": 0,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": "$undefined"
+    "intelligence_index_cost_per_task": 0
   },
   {
     "slug": "gemini-3-1-pro-preview",
@@ -6827,7 +6840,7 @@
   {
     "slug": "gpt-6-luna-low",
     "model": "GPT-6 Luna (Low)",
-    "intelligence_index": 20.9225480080866,
+    "intelligence_index": 21.5261980080866,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -6835,7 +6848,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.0045215478273067
+    "intelligence_index_cost_per_task": 0.0045151153559203
   },
   {
     "slug": "grok-4-6-low",
@@ -6983,15 +6996,15 @@
   {
     "slug": "gpt-6-sol",
     "model": "GPT-6 Sol (Max)",
-    "intelligence_index": 47.5276426437724,
-    "deprecated": false,
+    "intelligence_index": 47.6305176437724,
+    "deprecated": true,
     "released": "2026-09-22",
-    "context_window": 872000,
+    "context_window": 1050000,
     "price_input": 2,
     "price_output": 10,
     "cache_read": 0.2,
     "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 1.049410804880785
+    "intelligence_index_cost_per_task": 1.0446616686054255
   },
   {
     "slug": "gemini-2-0-pro-experimental-02-05",
@@ -7477,15 +7490,15 @@
   {
     "slug": "gpt-6-sol-non-reasoning",
     "model": "GPT-6 Sol (Non-reasoning)",
-    "intelligence_index": 28.0921663410513,
-    "deprecated": false,
+    "intelligence_index": 28.5121413410513,
+    "deprecated": true,
     "released": null,
-    "context_window": 872000,
+    "context_window": 1050000,
     "price_input": 2,
     "price_output": 10,
     "cache_read": 0.2,
     "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 0.333379364253275
+    "intelligence_index_cost_per_task": 0.33365590023828273
   },
   {
     "slug": "granite-4-1-30b",
@@ -7698,15 +7711,15 @@
   {
     "slug": "gpt-6-sol-xhigh",
     "model": "GPT-6 Sol (Xhigh)",
-    "intelligence_index": 44.1009705516407,
-    "deprecated": false,
+    "intelligence_index": 44.2448955516407,
+    "deprecated": true,
     "released": null,
-    "context_window": 872000,
+    "context_window": 1050000,
     "price_input": 2,
     "price_output": 10,
     "cache_read": 0.2,
     "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 0.523567515784736
+    "intelligence_index_cost_per_task": 0.5208098524368193
   },
   {
     "slug": "qwen3-coder-30b-a3b-instruct",
