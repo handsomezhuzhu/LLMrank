@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T00:00:24Z",
+  "updated_at": "2026-10-04T00:01:29Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 2.7,
-        "output": 13.5,
-        "cache_read": 0.27,
+        "input": 0.499,
+        "output": 13.0,
+        "cache_read": 0.49,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -275,8 +275,8 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.41,
-        "output": 3.99,
+        "input": 0.3,
+        "output": 3.49,
         "cache_read": 0.26,
         "cache_write": -1
       },
@@ -530,9 +530,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.9646,
-        "output": 3.0316,
-        "cache_read": 0.17914,
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -556,9 +556,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.66,
-        "output": 1.98,
-        "cache_read": 0.022,
+        "input": 0.22,
+        "output": 4.2,
+        "cache_read": 0.14,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -632,9 +632,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.43415,
-        "output": 1.828,
-        "cache_read": 0.07312,
+        "input": 0.95,
+        "output": 4.0,
+        "cache_read": 0.16,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0051,
+        "input": 0.0152,
         "output": 1.28,
-        "cache_read": 0.0051,
+        "cache_read": 0.0137,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.14,
+        "input": 0.22,
+        "output": 3.39,
+        "cache_read": 0.176,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -2025,7 +2025,7 @@
       "openrouter_id": "openai/gpt-6-luna",
       "url": "https://openai.com/index/gpt-6-luna/",
       "released": "2026-09-22",
-      "aa_cost_per_task_usd": 0.06782295669812205,
+      "aa_cost_per_task_usd": 0.06765421772017903,
       "note": "新模型收录 2026-09-22 · Arena待收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "gpt-6-luna"
@@ -2129,7 +2129,7 @@
       "openrouter_id": "xiaomi/mimo-v2.6-flash",
       "url": "https://huggingface.co/XiaomiMiMo",
       "released": "2026-09-21",
-      "aa_cost_per_task_usd": 0.06231470136619077,
+      "aa_cost_per_task_usd": 0.0621899731897297,
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "mimo-v2-6-flash"
