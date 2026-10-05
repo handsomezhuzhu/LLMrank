@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T00:01:29Z",
+  "updated_at": "2026-10-05T00:01:09Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.499,
-        "output": 13.0,
-        "cache_read": 0.49,
+        "input": 0.72,
+        "output": 14.0,
+        "cache_read": 0.7,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 3.49,
-        "cache_read": 0.26,
+        "input": 0.104,
+        "output": 8.0,
+        "cache_read": 0.1,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -556,9 +556,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.22,
-        "output": 4.2,
-        "cache_read": 0.14,
+        "input": 0.85,
+        "output": 5.0,
+        "cache_read": 0.7,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -660,7 +660,7 @@
         "currency": "USD",
         "input": 0.0152,
         "output": 1.28,
-        "cache_read": 0.0137,
+        "cache_read": 0.0152,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.22,
-        "output": 3.39,
-        "cache_read": 0.176,
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.14,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -2146,9 +2146,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.006,
+        "input": 0.003,
+        "output": 2.4,
+        "cache_read": 0.003,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2224,10 +2224,10 @@
       "ctx": 1000000,
       "price": {
         "currency": "USD",
-        "input": 0.42,
-        "output": 3.0,
+        "input": 0.425,
+        "output": 2.55,
         "cache_read": 0.085,
-        "cache_write": -1
+        "cache_write": 0.53125
       },
       "price_source": "openrouter",
       "openrouter_id": "qwen/qwen3.8-27b",
