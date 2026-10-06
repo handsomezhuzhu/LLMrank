@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-05T00:01:09Z",
+  "updated_at": "2026-10-06T00:00:56Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.72,
+        "input": 1.19,
         "output": 14.0,
-        "cache_read": 0.7,
+        "cache_read": 0.39,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.104,
-        "output": 8.0,
-        "cache_read": 0.1,
+        "input": 0.052,
+        "output": 12.0,
+        "cache_read": 0.052,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -556,9 +556,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.85,
-        "output": 5.0,
-        "cache_read": 0.7,
+        "input": 0.66,
+        "output": 1.98,
+        "cache_read": 0.022,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1013,9 +1013,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.55,
-        "output": 3.5,
-        "cache_read": 0.225,
+        "input": 0.45,
+        "output": 3.0,
+        "cache_read": 0.22,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1316,9 +1316,9 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.27,
+        "input": 0.3,
         "output": 1.0,
-        "cache_read": -1,
+        "cache_read": 0.135,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.14,
+        "input": 0.07,
+        "output": 7.0,
+        "cache_read": 0.065,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -2026,7 +2026,7 @@
       "url": "https://openai.com/index/gpt-6-luna/",
       "released": "2026-09-22",
       "aa_cost_per_task_usd": 0.06765421772017903,
-      "note": "新模型收录 2026-09-22 · Arena待收录 · price/OpenRouter",
+      "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "gpt-6-luna"
     },
@@ -2052,7 +2052,7 @@
       "url": "https://openai.com/index/gpt-6-sol/",
       "released": "2026-09-22",
       "aa_cost_per_task_usd": 1.0446616686054255,
-      "note": "新模型收录 2026-09-22 · Arena待收录 · price/OpenRouter",
+      "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "gpt-6-sol"
     },
@@ -2078,7 +2078,7 @@
       "url": "https://www.anthropic.com/claude-opus-5-5",
       "released": "2026-09-22",
       "aa_cost_per_task_usd": 5.982012019521066,
-      "note": "新模型收录 2026-09-22 · Arena待收录 · price/OpenRouter",
+      "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "claude-opus-5-5"
     },
@@ -2146,9 +2146,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.003,
-        "output": 2.4,
-        "cache_read": 0.003,
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.006,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2276,9 +2276,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_read": 0.0375,
+        "input": 0.0765,
+        "output": 0.255,
+        "cache_read": 0.0425,
         "cache_write": -1
       },
       "price_source": "openrouter",

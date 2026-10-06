@@ -626,7 +626,8 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
             if release_date:
                 m["released"] = release_date
                 if name in {"GPT-6 Luna", "GPT-6 Sol", "Claude Opus 5.5"}:
-                    m["note"] = f"新模型收录 {release_date} · Arena待收录 · price/OpenRouter"
+                    arena_status = "Arena已收录" if m.get("arena") is not None else "Arena尚未收录"
+                    m["note"] = f"新模型收录 {release_date} · {arena_status} · price/OpenRouter"
     return changes
 
 
