@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-06T00:00:56Z",
+  "updated_at": "2026-10-07T00:00:17Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 1.19,
-        "output": 14.0,
-        "cache_read": 0.39,
+        "input": 0.79,
+        "output": 15.0,
+        "cache_read": 0.26,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -184,7 +184,7 @@
       "note": "",
       "auto_price": true,
       "slug": "gemini-3-5-flash",
-      "aa_cost_per_task_usd": 1.5625413241435933,
+      "aa_cost_per_task_usd": 3.6936902127611133,
       "released": "2026-05-19"
     },
     {
@@ -210,7 +210,7 @@
       "note": "",
       "auto_price": true,
       "slug": "gemini-3-1-pro-preview",
-      "aa_cost_per_task_usd": 0.6747317275695374,
+      "aa_cost_per_task_usd": 1.2985855086120641,
       "released": "2026-02-19"
     },
     {
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.052,
+        "input": 0.152,
         "output": 12.0,
-        "cache_read": 0.052,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0152,
+        "input": 0.0163,
         "output": 1.28,
-        "cache_read": 0.0152,
+        "cache_read": 0.0163,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -922,7 +922,7 @@
       "note": "",
       "auto_price": true,
       "slug": "gemini-2-5-pro",
-      "aa_cost_per_task_usd": 0.23166603200256353,
+      "aa_cost_per_task_usd": 0.33028590601998487,
       "released": "2025-06-05"
     },
     {
@@ -1316,9 +1316,9 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.3,
+        "input": 0.27,
         "output": 1.0,
-        "cache_read": 0.135,
+        "cache_read": -1,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1341,9 +1341,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 1.0,
-        "cache_read": 0.05,
+        "input": 0.08,
+        "output": 0.75,
+        "cache_read": 0.04,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1679,7 +1679,7 @@
       "note": "",
       "auto_price": true,
       "slug": "grok-4-6",
-      "aa_cost_per_task_usd": 1.8589423352127492,
+      "aa_cost_per_task_usd": 1.4848449196688633,
       "released": "2026-08-12"
     },
     {
@@ -1846,7 +1846,7 @@
       "price_source": "openrouter",
       "auto_price": true,
       "note": "",
-      "aa_cost_per_task_usd": 1.0364552526545159,
+      "aa_cost_per_task_usd": 0.8806608417078763,
       "released": "2026-07-08",
       "id": "grok-4-5"
     },
@@ -2001,7 +2001,7 @@
       "note": "",
       "auto_price": true,
       "slug": "gemini-3-6-flash",
-      "aa_cost_per_task_usd": 0.9288448964661649,
+      "aa_cost_per_task_usd": 1.600530533263267,
       "released": "2026-07-21"
     },
     {
@@ -2025,7 +2025,7 @@
       "openrouter_id": "openai/gpt-6-luna",
       "url": "https://openai.com/index/gpt-6-luna/",
       "released": "2026-09-22",
-      "aa_cost_per_task_usd": 0.06765421772017903,
+      "aa_cost_per_task_usd": 0.06782295669812205,
       "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "gpt-6-luna"
@@ -2129,7 +2129,7 @@
       "openrouter_id": "xiaomi/mimo-v2.6-flash",
       "url": "https://huggingface.co/XiaomiMiMo",
       "released": "2026-09-21",
-      "aa_cost_per_task_usd": 0.0621899731897297,
+      "aa_cost_per_task_usd": 0.06231470136619077,
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "mimo-v2-6-flash"
@@ -2146,9 +2146,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.006,
+        "input": 0.044,
+        "output": 0.3,
+        "cache_read": 0.015,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2181,7 +2181,7 @@
       "openrouter_id": "google/gemini-3.5-flash-lite",
       "url": "https://deepmind.google/technologies/gemini/flash/",
       "released": "2026-07-21",
-      "aa_cost_per_task_usd": 0.12352689651593446,
+      "aa_cost_per_task_usd": 0.1927430131409478,
       "note": "雙榜收錄 · release 2026-07-21 · OR modalities text,image,video,file,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "gemini-3-5-flash-lite"
