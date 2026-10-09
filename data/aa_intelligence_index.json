@@ -463,9 +463,9 @@
     "context_window": 1000000,
     "price_input": 1,
     "price_output": 2.7,
-    "cache_read": 0.05,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.7174901509283937
+    "intelligence_index_cost_per_task": 1.0264068637684054
   },
   {
     "slug": "qwen3-5-2b-non-reasoning",
@@ -924,7 +924,7 @@
   },
   {
     "slug": "glm-5-3-flash",
-    "model": "GLM 5.3 Flash",
+    "model": "GLM-5.3-Flash",
     "intelligence_index": 41.807466113455,
     "deprecated": false,
     "released": "2026-08-26",
