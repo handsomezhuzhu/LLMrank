@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T00:00:23Z",
+  "updated_at": "2026-10-10T00:01:12Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.82,
+        "input": 0.8,
         "output": 13.5,
-        "cache_read": 0.45,
+        "cache_read": 0.55,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.069,
-        "output": 4.3,
-        "cache_read": 0.068,
+        "input": 0.06,
+        "output": 7.0,
+        "cache_read": 0.059,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -634,7 +634,7 @@
         "currency": "USD",
         "input": 0.465,
         "output": 2.45,
-        "cache_read": 0.0975,
+        "cache_read": 0.0875,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0079,
+        "input": 0.0137,
         "output": 1.28,
-        "cache_read": 0.0079,
+        "cache_read": 0.0137,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -706,7 +706,7 @@
       "ai_index": 28.3748690464685,
       "multi": 50,
       "eco": 72,
-      "ctx": 262144,
+      "ctx": 256000,
       "price": {
         "currency": "USD",
         "input": 0.78,
@@ -1066,7 +1066,7 @@
         "currency": "USD",
         "input": 0.6,
         "output": 2.5,
-        "cache_read": -1,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1291,9 +1291,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.43,
-        "output": 1.75,
-        "cache_read": 0.08,
+        "input": 0.5,
+        "output": 2.0,
+        "cache_read": 0.1,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1341,9 +1341,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 1.0,
-        "cache_read": 0.05,
+        "input": 0.08,
+        "output": 0.75,
+        "cache_read": 0.04,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1617,8 +1617,8 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.2574,
-        "output": 1.0287,
+        "input": 0.32,
+        "output": 0.89,
         "cache_read": -1,
         "cache_write": -1
       },
@@ -1640,7 +1640,7 @@
       "ai_index": 11.9970837221274,
       "multi": 50,
       "eco": 72,
-      "ctx": 131072,
+      "ctx": 256000,
       "price": {
         "currency": "USD",
         "input": 0.455,
@@ -1766,7 +1766,7 @@
       "price": {
         "currency": "USD",
         "input": 0.039,
-        "output": 3.39,
+        "output": 6.0,
         "cache_read": 0.038,
         "cache_write": -1
       },
@@ -1816,7 +1816,7 @@
         "input": 2.0,
         "output": 6.0,
         "cache_read": 0.25,
-        "cache_write": 2.5
+        "cache_write": -1
       },
       "openrouter_id": "qwen/qwen3.8-max-0902",
       "price_source": "openrouter",
@@ -2276,9 +2276,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0765,
-        "output": 0.255,
-        "cache_read": 0.0425,
+        "input": 0.0675,
+        "output": 0.225,
+        "cache_read": 0.0375,
         "cache_write": -1
       },
       "price_source": "openrouter",

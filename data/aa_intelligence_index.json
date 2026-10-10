@@ -691,7 +691,7 @@
   {
     "slug": "granite-4-2-30b",
     "model": "Granite 4.2 30B",
-    "intelligence_index": 14.8312405050789,
+    "intelligence_index": 12.68315341158,
     "deprecated": false,
     "released": "2026-08-25",
     "context_window": 131072,
@@ -699,7 +699,7 @@
     "price_output": 0.65,
     "cache_read": 0.04,
     "cache_write": null,
-    "intelligence_index_cost_per_task": null
+    "intelligence_index_cost_per_task": 0.0716641484962871
   },
   {
     "slug": "k2-horizon-7b",
@@ -2446,7 +2446,7 @@
   {
     "slug": "claude-haiku-5-5-low",
     "model": "Claude Haiku 5.5 (Low)",
-    "intelligence_index": 29.4494981304947,
+    "intelligence_index": 29.4523685891139,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -3399,11 +3399,11 @@
     "deprecated": false,
     "released": "2026-06-29",
     "context_window": 1000000,
-    "price_input": 0.3,
-    "price_output": 1.2,
-    "cache_read": 0.006,
+    "price_input": 0.75,
+    "price_output": 2.95,
+    "cache_read": 0.015,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.05898990881433253
+    "intelligence_index_cost_per_task": 0.14624850952440743
   },
   {
     "slug": "nova-lite",
@@ -3584,7 +3584,7 @@
     "price_input": 1.25,
     "price_output": 2.5,
     "cache_read": 0.2,
-    "cache_write": 1.25,
+    "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
   {
@@ -3728,7 +3728,7 @@
     "price_output": 0.4,
     "cache_read": 0.01,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.36336112521859043
+    "intelligence_index_cost_per_task": 0.3655852120863359
   },
   {
     "slug": "nvidia-nemotron-3-super-120b-a12b",
@@ -3754,7 +3754,7 @@
     "price_output": 0.5,
     "cache_read": 0.01,
     "cache_write": 0.125,
-    "intelligence_index_cost_per_task": 0.011342690862652438
+    "intelligence_index_cost_per_task": 0.011345057120527267
   },
   {
     "slug": "minicpm5-2b",
@@ -5326,7 +5326,7 @@
     "price_input": 1.25,
     "price_output": 2.5,
     "cache_read": 0.2,
-    "cache_write": 1.25,
+    "cache_write": null,
     "intelligence_index_cost_per_task": 0.16974590796834474
   },
   {
@@ -5456,7 +5456,7 @@
     "price_input": 1.25,
     "price_output": 2.5,
     "cache_read": 0.2,
-    "cache_write": 1.25,
+    "cache_write": null,
     "intelligence_index_cost_per_task": 0.20537871205068303
   },
   {
@@ -5944,7 +5944,7 @@
     "slug": "claude-4-5-haiku-reasoning",
     "model": "Claude 4.5 Haiku (Reasoning)",
     "intelligence_index": 16.8822352291856,
-    "deprecated": false,
+    "deprecated": true,
     "released": null,
     "context_window": 200000,
     "price_input": 1,
@@ -7010,7 +7010,7 @@
     "slug": "claude-4-5-haiku",
     "model": "Claude 4.5 Haiku (Non-reasoning)",
     "intelligence_index": 15.410949885381,
-    "deprecated": false,
+    "deprecated": true,
     "released": "2025-10-15",
     "context_window": 200000,
     "price_input": 1,
@@ -8862,7 +8862,7 @@
     "price_input": 1.25,
     "price_output": 2.5,
     "cache_read": 0.2,
-    "cache_write": 1.25,
+    "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
   {
