@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-11T00:00:36Z",
+  "updated_at": "2026-10-11T14:22:30Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -71,7 +71,7 @@
       "price": {
         "currency": "USD",
         "input": 0.8,
-        "output": 15.0,
+        "output": 10.0,
         "cache_read": 0.55,
         "cache_write": -1
       },
@@ -632,9 +632,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.4344,
-        "output": 2.45,
-        "cache_read": 0.1077,
+        "input": 0.65,
+        "output": 3.41,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0095,
-        "output": 1.28,
-        "cache_read": 0.0095,
+        "input": 0.018,
+        "output": 0.64,
+        "cache_read": 0.018,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.039,
+        "input": 0.07,
         "output": 4.8,
-        "cache_read": 0.038,
+        "cache_read": 0.05,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -2224,10 +2224,10 @@
       "ctx": 1000000,
       "price": {
         "currency": "USD",
-        "input": 0.425,
-        "output": 2.55,
-        "cache_read": 0.085,
-        "cache_write": 0.53125
+        "input": 0.04,
+        "output": 2.3,
+        "cache_read": 0.0198,
+        "cache_write": -1
       },
       "price_source": "openrouter",
       "openrouter_id": "qwen/qwen3.8-27b",
@@ -2365,6 +2365,32 @@
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,file; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "grok-4-7"
+    },
+    {
+      "id": "mistral-large-4",
+      "name": "Mistral Large 4",
+      "vendor": "Mistral",
+      "region": "EU",
+      "arena": 1429.257417234147,
+      "ai_index": 38.3770408917494,
+      "multi": 75,
+      "eco": 60,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 0.68,
+        "output": 2.09,
+        "cache_read": 0.07,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "mistralai/mistral-large-4-0",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "note": "雙榜收錄 · release 2026-10-06 · OR modalities text,image; multi/eco estimates",
+      "auto_price": true,
+      "slug": "mistral-large-4",
+      "released": "2026-10-06",
+      "aa_cost_per_task_usd": 1.1317590533008346
     }
   ]
 }

@@ -461,6 +461,7 @@ MODEL_MAPPING = {
     "Mistral Medium 3.5": ("mistral-medium-3.5", "mistral-medium-3-5"),
     "GPT-5.4 mini": ("gpt-5.4-mini-high", "gpt-5-4-mini"),
     "GPT-5.4 nano": ("gpt-5.4-nano-high", "gpt-5-4-nano"),
+    "Mistral Large 4": ("mistral-large-4", "mistral-large-4"),
     "Grok 4.7": ("grok-4.7-xhigh", "grok-4-7"),
     "GPT-6 Astra": ("gpt-6-astra-max", "gpt-6-astra"),
     "Gemini 3.7 Flash": ("gemini-3.7-flash-high", "gemini-3-7-flash"),
