@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T00:01:27Z",
+  "updated_at": "2026-10-13T00:00:50Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -71,7 +71,7 @@
       "price": {
         "currency": "USD",
         "input": 0.73,
-        "output": 13.5,
+        "output": 10.0,
         "cache_read": 0.55,
         "cache_write": -1
       },
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0122,
+        "input": 0.016,
         "output": 0.64,
-        "cache_read": 0.0122,
+        "cache_read": 0.016,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1114,9 +1114,9 @@
       "ctx": 1000000,
       "price": {
         "currency": "USD",
-        "input": 4.0,
-        "output": 20.0,
-        "cache_read": 1.5375,
+        "input": 3.0,
+        "output": 15.0,
+        "cache_read": 0.75,
         "cache_write": -1
       },
       "price_source": "artificialanalysis",
@@ -1645,7 +1645,7 @@
         "currency": "USD",
         "input": 0.455,
         "output": 1.82,
-        "cache_read": -1,
+        "cache_read": 0.22,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.07,
+        "input": 0.079,
         "output": 4.8,
-        "cache_read": 0.05,
+        "cache_read": 0.059,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -1789,9 +1789,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 0.5,
-        "cache_read": 0.03,
+        "input": 0.0232,
+        "output": 1.2,
+        "cache_read": 0.0096,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",
@@ -2129,7 +2129,7 @@
       "openrouter_id": "xiaomi/mimo-v2.6-flash",
       "url": "https://huggingface.co/XiaomiMiMo",
       "released": "2026-09-21",
-      "aa_cost_per_task_usd": 0.06231470136619077,
+      "aa_cost_per_task_usd": 0.06237567475410205,
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "mimo-v2-6-flash"
@@ -2146,9 +2146,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.006,
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": 0.003,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2276,9 +2276,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_read": 0.0375,
+        "input": 0.0765,
+        "output": 0.255,
+        "cache_read": 0.0425,
         "cache_write": -1
       },
       "price_source": "openrouter",
