@@ -931,9 +931,9 @@
     "context_window": 1000000,
     "price_input": 0.15,
     "price_output": 0.5,
-    "cache_read": 0.026,
+    "cache_read": 0.03,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.2532595604307378
+    "intelligence_index_cost_per_task": 0.2835948232103717
   },
   {
     "slug": "gpt-6-luna-xhigh",
@@ -1581,7 +1581,7 @@
     "context_window": 1000000,
     "price_input": 0.06,
     "price_output": 0.2,
-    "cache_read": 0.05,
+    "cache_read": 0.04,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.09309918417597017
   },
@@ -2025,7 +2025,7 @@
     "price_output": 4.18,
     "cache_read": 0.14,
     "cache_write": 1.36,
-    "intelligence_index_cost_per_task": 1.1317590533008346
+    "intelligence_index_cost_per_task": 1.1341017484612892
   },
   {
     "slug": "qwen-turbo",
@@ -3191,11 +3191,11 @@
     "deprecated": false,
     "released": "2026-08-10",
     "context_window": 131072,
-    "price_input": 0.32499999999999996,
-    "price_output": 1.35,
+    "price_input": 0.3,
+    "price_output": 1.2,
     "cache_read": 0.04,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.05670634665029995
+    "intelligence_index_cost_per_task": 0.05354887073483047
   },
   {
     "slug": "gpt-5-6-luna-medium",
