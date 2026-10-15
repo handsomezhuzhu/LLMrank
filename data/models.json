@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T00:00:10Z",
+  "updated_at": "2026-10-15T00:00:22Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -44,10 +44,10 @@
       "ctx": 1050000,
       "price": {
         "currency": "USD",
-        "input": 2.0,
-        "output": 10.0,
-        "cache_read": 0.2,
-        "cache_write": 2.5
+        "input": 4.0,
+        "output": 20.0,
+        "cache_read": 0.4,
+        "cache_write": 5.0
       },
       "price_source": "openrouter",
       "openrouter_id": "openai/gpt-5.6-sol",
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.73,
-        "output": 10.0,
-        "cache_read": 0.55,
+        "input": 0.5,
+        "output": 15.0,
+        "cache_read": 0.28,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.06,
+        "input": 0.04,
         "output": 7.0,
-        "cache_read": 0.059,
+        "cache_read": 0.039,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -530,9 +530,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.966,
-        "output": 3.036,
-        "cache_read": 0.1794,
+        "input": 1.33,
+        "output": 4.18,
+        "cache_read": 0.247,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1013,9 +1013,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.55,
-        "output": 3.5,
-        "cache_read": 0.225,
+        "input": 0.5,
+        "output": 3.6,
+        "cache_read": 0.3,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.079,
+        "input": 0.1,
         "output": 4.8,
-        "cache_read": 0.059,
+        "cache_read": 0.099,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -1789,9 +1789,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.036,
-        "output": 0.9,
-        "cache_read": 0.0108,
+        "input": 0.15,
+        "output": 0.5,
+        "cache_read": 0.03,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",
@@ -2146,9 +2146,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 0.6,
-        "cache_read": 0.003,
+        "input": 0.01584,
+        "output": 0.891,
+        "cache_read": 0.0054,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2218,7 +2218,7 @@
       "vendor": "Alibaba",
       "region": "CN",
       "arena": 1438.0951397071794,
-      "ai_index": 33.6962858057476,
+      "ai_index": 33.6762858057476,
       "multi": 100,
       "eco": 72,
       "ctx": 1000000,
@@ -2226,14 +2226,14 @@
         "currency": "USD",
         "input": 0.04,
         "output": 2.3,
-        "cache_read": 0.0198,
+        "cache_read": 0.039,
         "cache_write": -1
       },
       "price_source": "openrouter",
       "openrouter_id": "qwen/qwen3.8-27b",
       "url": "https://qwen.ai/",
       "released": "2026-08-14",
-      "aa_cost_per_task_usd": 1.0073149536565944,
+      "aa_cost_per_task_usd": 1.0074896941565943,
       "note": "雙榜收錄 · release 2026-08-14 · OR modalities text,image,video; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "qwen3-8-27b"
@@ -2250,9 +2250,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.09,
-        "output": 0.34,
-        "cache_read": 0.05,
+        "input": 0.2,
+        "output": 0.4,
+        "cache_read": -1,
         "cache_write": -1
       },
       "price_source": "openrouter",
