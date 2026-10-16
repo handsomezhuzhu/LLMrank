@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-15T00:00:22Z",
+  "updated_at": "2026-10-16T00:00:41Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,7 +70,7 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.5,
+        "input": 0.405,
         "output": 15.0,
         "cache_read": 0.28,
         "cache_write": -1
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.04,
+        "input": 0.037,
         "output": 7.0,
-        "cache_read": 0.039,
+        "cache_read": 0.036,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -530,9 +530,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 1.33,
-        "output": 4.18,
-        "cache_read": 0.247,
+        "input": 0.966,
+        "output": 3.036,
+        "cache_read": 0.1794,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.016,
+        "input": 0.0058,
         "output": 0.64,
-        "cache_read": 0.016,
+        "cache_read": 0.0058,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -760,9 +760,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.6,
-        "output": 1.92,
-        "cache_read": 0.12,
+        "input": 1.0,
+        "output": 3.2,
+        "cache_read": 0.2,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1216,8 +1216,8 @@
       "price": {
         "currency": "USD",
         "input": 0.27,
-        "output": 1.08,
-        "cache_read": 0.027,
+        "output": 0.95,
+        "cache_read": 0.03,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1741,9 +1741,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.75,
-        "output": 3.75,
-        "cache_read": 0.075,
+        "input": 0.825,
+        "output": 4.125,
+        "cache_read": 0.0825,
         "cache_write": 0.041667
       },
       "openrouter_id": "google/gemini-3.8-flash",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.1,
-        "output": 4.8,
-        "cache_read": 0.099,
+        "input": 0.4,
+        "output": 8.0,
+        "cache_read": 0.399,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -2146,8 +2146,8 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.01584,
-        "output": 0.891,
+        "input": 0.01035,
+        "output": 0.72,
         "cache_read": 0.0054,
         "cache_write": -1
       },
@@ -2224,9 +2224,9 @@
       "ctx": 1000000,
       "price": {
         "currency": "USD",
-        "input": 0.04,
-        "output": 2.3,
-        "cache_read": 0.039,
+        "input": 0.24,
+        "output": 2.2,
+        "cache_read": 0.05,
         "cache_write": -1
       },
       "price_source": "openrouter",
