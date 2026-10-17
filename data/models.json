@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-16T00:00:41Z",
+  "updated_at": "2026-10-17T00:00:41Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,9 +70,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.405,
-        "output": 15.0,
-        "cache_read": 0.28,
+        "input": 0.304,
+        "output": 11.936,
+        "cache_read": 0.21,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -275,9 +275,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.037,
-        "output": 7.0,
-        "cache_read": 0.036,
+        "input": 0.62,
+        "output": 2.42,
+        "cache_read": 0.14,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0058,
-        "output": 0.64,
-        "cache_read": 0.0058,
+        "input": 0.0111,
+        "output": 1.28,
+        "cache_read": 0.0111,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1765,9 +1765,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.4,
-        "output": 8.0,
-        "cache_read": 0.399,
+        "input": 0.079,
+        "output": 4.8,
+        "cache_read": 0.078,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -1789,9 +1789,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 0.5,
-        "cache_read": 0.03,
+        "input": 0.0176,
+        "output": 0.7688,
+        "cache_read": 0.0125,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",
@@ -2146,8 +2146,8 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.01035,
-        "output": 0.72,
+        "input": 0.036,
+        "output": 0.405,
         "cache_read": 0.0054,
         "cache_write": -1
       },
@@ -2276,9 +2276,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0765,
-        "output": 0.255,
-        "cache_read": 0.0425,
+        "input": 0.0675,
+        "output": 0.225,
+        "cache_read": 0.0375,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2295,7 +2295,7 @@
       "vendor": "Upstage",
       "region": "KR",
       "arena": 1386.1515674113475,
-      "ai_index": 28.1541333537469,
+      "ai_index": 26.5600314812231,
       "multi": 50,
       "eco": 55,
       "ctx": 524288,
@@ -2312,7 +2312,8 @@
       "released": "2026-08-06",
       "note": "雙榜收錄 · release 2026-08-06 · OR modalities text; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "solar-pro4"
+      "slug": "solar-pro4",
+      "aa_cost_per_task_usd": 0.7113065897513132
     },
     {
       "id": "mistral-medium-3-5",
