@@ -1698,9 +1698,9 @@
     "context_window": 1000000,
     "price_input": 0.3,
     "price_output": 1.2,
-    "cache_read": 0.006,
+    "cache_read": 0.007,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.14670039195227308
+    "intelligence_index_cost_per_task": 0.22122822673888506
   },
   {
     "slug": "gemini-3-8-flash-medium",
@@ -1791,7 +1791,7 @@
     "price_output": 1.32,
     "cache_read": 0.014,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.314372044499279
+    "intelligence_index_cost_per_task": 1.037910627432751
   },
   {
     "slug": "minicpm5-1b",
@@ -3091,7 +3091,7 @@
     "price_output": 1.2,
     "cache_read": 0.006,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.26522527009606844
+    "intelligence_index_cost_per_task": 0.485662249576018
   },
   {
     "slug": "mistral-medium-3-5",

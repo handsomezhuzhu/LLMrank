@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T00:01:48Z",
+  "updated_at": "2026-10-19T00:00:17Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,7 +70,7 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.304,
+        "input": 0.249,
         "output": 11.936,
         "cache_read": 0.21,
         "cache_write": -1
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0151,
-        "output": 1.28,
-        "cache_read": 0.0151,
+        "input": 0.0199,
+        "output": 0.45,
+        "cache_read": 0.0199,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1766,7 +1766,7 @@
       "price": {
         "currency": "USD",
         "input": 0.079,
-        "output": 3.2,
+        "output": 1.4,
         "cache_read": 0.078,
         "cache_write": -1
       },
@@ -2146,8 +2146,8 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0552,
-        "output": 0.144,
+        "input": 0.0632,
+        "output": 0.12,
         "cache_read": 0.0016,
         "cache_write": -1
       },
@@ -2155,7 +2155,7 @@
       "openrouter_id": "deepseek/deepseek-v4.1-flash",
       "url": "https://www.deepseek.com/",
       "released": "2026-09-10",
-      "aa_cost_per_task_usd": 0.26522527009606844,
+      "aa_cost_per_task_usd": 0.485662249576018,
       "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "deepseek-v4-1-flash"
