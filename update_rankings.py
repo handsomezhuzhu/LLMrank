@@ -501,6 +501,10 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
 # Arena aliases are the exact live display names from arena.ai/leaderboard/text
 # (e.g. "Claude Opus 5.5 (High)"); AA slugs are Artificial Analysis model slugs.
 MODEL_MAPPING = {
+    "Hy3": ("Hy3", "hy3"),
+    "Inkling": ("Inkling", "inkling"),
+    "Inkling Small": ("Inkling-Small", "inkling-small"),
+    "Muse Glimmer 30B": ("Muse Glimmer", "muse-glimmer"),
     "Claude Fable 5.1": ("Claude Fable 5.1 (Max)", "claude-fable-5-1"),
     "Muse Spark 1.3": ("Muse Spark 1.3 (Max)", "muse-spark-1-3"),
     "GPT-5.6 Terra": ("GPT-5.6 Terra (xHigh)", "gpt-5-6-terra"),

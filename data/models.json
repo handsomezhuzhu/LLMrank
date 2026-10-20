@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-20T00:12:54Z",
+  "updated_at": "2026-10-20T05:31:29Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -235,7 +235,9 @@
       "note": "",
       "aa_cost_per_task_usd": 7.629706364004841,
       "released": "2026-09-01",
-      "id": "claude-fable-5-1"
+      "id": "claude-fable-5-1",
+      "slug": "claude-fable-5-1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
     },
     {
       "name": "Gemini 3.8 Flash",
@@ -259,7 +261,9 @@
       "note": "",
       "aa_cost_per_task_usd": 1.2427947606950427,
       "released": "2026-09-02",
-      "id": "gemini-3-8-flash"
+      "id": "gemini-3-8-flash",
+      "slug": "gemini-3-8-flash",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
     },
     {
       "name": "GLM-5.3",
@@ -283,7 +287,9 @@
       "note": "",
       "aa_cost_per_task_usd": 2.0056375150449584,
       "released": "2026-08-18",
-      "id": "glm-5-3"
+      "id": "glm-5-3",
+      "slug": "glm-5-3",
+      "url": "https://z.ai/blog/glm-5.3"
     },
     {
       "name": "GLM-5.3 Flash",
@@ -307,7 +313,9 @@
       "note": "",
       "aa_cost_per_task_usd": 0.2835948232103717,
       "released": "2026-08-26",
-      "id": "glm-5-3-flash"
+      "id": "glm-5-3-flash",
+      "slug": "glm-5-3-flash",
+      "url": "https://z.ai/blog/glm-5.3"
     },
     {
       "name": "Qwen3.8 Max",
@@ -331,7 +339,9 @@
       "note": "",
       "aa_cost_per_task_usd": 5.408509428374016,
       "released": "2026-08-03",
-      "id": "qwen3-8-max"
+      "id": "qwen3-8-max",
+      "slug": "qwen3-8-max",
+      "url": "https://www.qwencloud.com/models/qwen3.8-max"
     },
     {
       "id": "gpt-6-astra",
@@ -631,9 +641,9 @@
       "ctx": 1000000,
       "price": {
         "currency": "USD",
-        "input": 0.24,
-        "output": 2.2,
-        "cache_read": 0.05,
+        "input": 0.04,
+        "output": 1.35,
+        "cache_read": 0.018,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -929,6 +939,110 @@
       "slug": "claude-sonnet-5-5-xhigh",
       "released": "2026-09-28",
       "aa_cost_per_task_usd": 5.4608525948098325
+    },
+    {
+      "id": "hy3",
+      "name": "Hy3",
+      "vendor": "Tencent",
+      "region": "CN",
+      "arena": 1453.1921880349164,
+      "ai_index": 25.2972775731571,
+      "multi": 50,
+      "eco": 55,
+      "ctx": 262144,
+      "price": {
+        "currency": "USD",
+        "input": 0.132,
+        "output": 0.528,
+        "cache_read": 0.033,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "tencent/hy3",
+      "url": "https://huggingface.co/tencent/Hy3",
+      "released": "2026-07-06",
+      "note": "雙榜收錄 · release 2026-07-06 · OR modalities text; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "hy3",
+      "aa_cost_per_task_usd": 0.07179763081859954
+    },
+    {
+      "id": "inkling",
+      "name": "Inkling",
+      "vendor": "Thinking Machines",
+      "region": "US",
+      "arena": 1440.8717396141749,
+      "ai_index": 24.9847810999384,
+      "multi": 100,
+      "eco": 60,
+      "ctx": 524288,
+      "price": {
+        "currency": "USD",
+        "input": 1.0,
+        "output": 4.05,
+        "cache_read": 0.17,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling",
+      "url": "https://thinkingmachines.ai/news/introducing-inkling/",
+      "released": "2026-07-15",
+      "note": "雙榜收錄 · release 2026-07-15 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "inkling",
+      "aa_cost_per_task_usd": null
+    },
+    {
+      "id": "inkling-small",
+      "name": "Inkling Small",
+      "vendor": "Thinking Machines",
+      "region": "US",
+      "arena": 1403.9804130510786,
+      "ai_index": 25.6582584411942,
+      "multi": 100,
+      "eco": 55,
+      "ctx": 524288,
+      "price": {
+        "currency": "USD",
+        "input": 0.45,
+        "output": 1.2,
+        "cache_read": 0.1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling-small",
+      "url": "https://thinkingmachines.ai/news/inkling-small/",
+      "released": "2026-07-30",
+      "note": "雙榜收錄 · release 2026-07-30 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "inkling-small",
+      "aa_cost_per_task_usd": 0.0894649973284348
+    },
+    {
+      "id": "muse-glimmer",
+      "name": "Muse Glimmer 30B",
+      "vendor": "Meta",
+      "region": "US",
+      "arena": 1424.5427613711804,
+      "ai_index": 17.4754176089465,
+      "multi": 75,
+      "eco": 75,
+      "ctx": 131072,
+      "price": {
+        "currency": "USD",
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.04,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "meta/muse-glimmer-30b",
+      "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+      "released": "2026-08-10",
+      "note": "雙榜收錄 · release 2026-08-10 · OR modalities text,image; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "muse-glimmer",
+      "aa_cost_per_task_usd": 0.05755125039078422
     }
   ]
 }

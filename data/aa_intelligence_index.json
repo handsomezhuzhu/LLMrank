@@ -580,9 +580,9 @@
     "context_window": 1000000,
     "price_input": 0.06,
     "price_output": 0.2,
-    "cache_read": 0.04,
+    "cache_read": 0.035,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.09309918417597017
+    "intelligence_index_cost_per_task": 0.07948959749314857
   },
   {
     "slug": "phi-4-multimodal",
@@ -2979,7 +2979,7 @@
   {
     "slug": "minimax-m3-1-flash",
     "model": "MiniMax-M3.1-Flash",
-    "intelligence_index": 42.3811052132362,
+    "intelligence_index": 42.7057475126235,
     "deprecated": false,
     "released": "2026-10-19",
     "context_window": 1000000,
