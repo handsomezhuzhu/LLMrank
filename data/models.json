@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T00:42:08Z",
+  "updated_at": "2026-10-20T00:01:08Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -70,7 +70,7 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.249,
+        "input": 0.239,
         "output": 11.936,
         "cache_read": 0.21,
         "cache_write": -1
@@ -658,9 +658,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 0.15,
-        "cache_read": 0.042,
+        "input": 0.44,
+        "output": 1.32,
+        "cache_read": 0.014,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -760,9 +760,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 1.0,
-        "output": 3.2,
-        "cache_read": 0.2,
+        "input": 0.6,
+        "output": 1.92,
+        "cache_read": 0.12,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1013,9 +1013,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.5,
-        "output": 3.6,
-        "cache_read": 0.3,
+        "input": 0.39,
+        "output": 2.34,
+        "cache_read": -1,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1165,9 +1165,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.195,
-        "output": 1.56,
-        "cache_read": -1,
+        "input": 0.27,
+        "output": 2.16,
+        "cache_read": 0.27,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1291,9 +1291,9 @@
       "ctx": 204800,
       "price": {
         "currency": "USD",
-        "input": 0.5,
-        "output": 2.0,
-        "cache_read": 0.1,
+        "input": 0.55,
+        "output": 2.2,
+        "cache_read": 0.11,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1617,8 +1617,8 @@
       "ctx": 163840,
       "price": {
         "currency": "USD",
-        "input": 0.32,
-        "output": 0.89,
+        "input": 0.2574,
+        "output": 1.0287,
         "cache_read": -1,
         "cache_write": -1
       },
@@ -1790,7 +1790,7 @@
       "price": {
         "currency": "USD",
         "input": 0.048,
-        "output": 0.2,
+        "output": 0.16,
         "cache_read": 0.006,
         "cache_write": -1
       },
@@ -2140,14 +2140,14 @@
       "vendor": "DeepSeek",
       "region": "CN",
       "arena": 1474.5389720399148,
-      "ai_index": 39.456167472527,
+      "ai_index": null,
       "multi": 75,
       "eco": 45,
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0624,
-        "output": 0.12,
+        "input": 0.0352,
+        "output": 0.0112,
         "cache_read": 0.0016,
         "cache_write": -1
       },
@@ -2276,9 +2276,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_read": 0.0375,
+        "input": 0.0765,
+        "output": 0.255,
+        "cache_read": 0.0425,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2301,9 +2301,9 @@
       "ctx": 524288,
       "price": {
         "currency": "USD",
-        "input": 0.09,
-        "output": 0.36,
-        "cache_read": 0.018,
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": 0.03,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -2399,7 +2399,7 @@
       "vendor": "Meta",
       "region": "US",
       "arena": 1508.8795055977137,
-      "ai_index": 52.393894697293,
+      "ai_index": null,
       "multi": 100,
       "eco": 100,
       "ctx": 1048576,
@@ -2425,7 +2425,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1523.9035861299108,
-      "ai_index": 52.5605655745982,
+      "ai_index": null,
       "multi": 100,
       "eco": 100,
       "ctx": 1048576,
@@ -2451,7 +2451,7 @@
       "vendor": "StepFun",
       "region": "CN",
       "arena": 1447.2701609595606,
-      "ai_index": 43.7343049141614,
+      "ai_index": null,
       "multi": 100,
       "eco": 75,
       "ctx": 1048576,
@@ -2477,7 +2477,7 @@
       "vendor": "OpenAI",
       "region": "US",
       "arena": 1483.8469422064072,
-      "ai_index": 51.8332597011541,
+      "ai_index": null,
       "multi": 75,
       "eco": 50,
       "ctx": 1050000,
@@ -2503,7 +2503,7 @@
       "vendor": "Anthropic",
       "region": "US",
       "arena": 1474.93871350729,
-      "ai_index": 51.8955544183089,
+      "ai_index": null,
       "multi": 75,
       "eco": 70,
       "ctx": 1000000,

@@ -1690,19 +1690,6 @@
     "intelligence_index_cost_per_task": 0.0894649973284348
   },
   {
-    "slug": "deepseek-v4-1-flash-non-reasoning",
-    "model": "DeepSeek V4.1 Flash (Non-reasoning)",
-    "intelligence_index": 24.6733593924318,
-    "deprecated": false,
-    "released": null,
-    "context_window": 1000000,
-    "price_input": 0.3,
-    "price_output": 1.2,
-    "cache_read": 0.007,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": 0.22122822673888506
-  },
-  {
     "slug": "gemini-3-8-flash-medium",
     "model": "Gemini 3.8 Flash (Medium)",
     "intelligence_index": 39.7740187061926,
@@ -2990,6 +2977,19 @@
     "intelligence_index_cost_per_task": null
   },
   {
+    "slug": "minimax-m3-1-flash",
+    "model": "MiniMax-M3.1-Flash",
+    "intelligence_index": 42.3811052132362,
+    "deprecated": false,
+    "released": "2026-10-19",
+    "context_window": 1000000,
+    "price_input": 0.15,
+    "price_output": 0.6,
+    "cache_read": 0.015,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.2201135746720313
+  },
+  {
     "slug": "deepseek-v4-pro-non-reasoning",
     "model": "DeepSeek V4 Pro 0813 (Non-reasoning)",
     "intelligence_index": 20.3605101726847,
@@ -3079,19 +3079,6 @@
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
-  },
-  {
-    "slug": "deepseek-v4-1-flash",
-    "model": "DeepSeek V4.1 Flash (Max)",
-    "intelligence_index": 39.456167472527,
-    "deprecated": false,
-    "released": "2026-09-10",
-    "context_window": 1000000,
-    "price_input": 0.3,
-    "price_output": 1.2,
-    "cache_read": 0.006,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": 0.485662249576018
   },
   {
     "slug": "mistral-medium-3-5",
@@ -3300,6 +3287,19 @@
     "cache_read": 0.095,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.0921933712679154
+  },
+  {
+    "slug": "deepseek-v4-1-flash-1017",
+    "model": "DeepSeek V4.1 Flash 1017 (Max)",
+    "intelligence_index": 45.0965048681912,
+    "deprecated": false,
+    "released": "2026-10-17",
+    "context_window": 1000000,
+    "price_input": 0.3,
+    "price_output": 1.2,
+    "cache_read": 0.006,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.2620484273114172
   },
   {
     "slug": "nvidia-nemotron-nano-9b-v2-reasoning",
