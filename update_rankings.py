@@ -285,10 +285,74 @@ def _parse_arena_live_page(page: str) -> list[dict] | None:
     return normalized if len(normalized) >= MIN_ARENA_ROWS else None
 
 
+_BROWSER_FETCH_HELPER = r"""
+import sys
+from playwright.sync_api import sync_playwright
+
+out_path = sys.argv[1]
+with sync_playwright() as p:
+    browser = p.chromium.launch(
+        headless=False,
+        args=["--no-sandbox", "--disable-blink-features=AutomationControlled"],
+    )
+    ctx = browser.new_context(
+        user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        viewport={"width": 1366, "height": 900},
+        locale="en-US",
+    )
+    page = ctx.new_page()
+    page.goto("https://arena.ai/leaderboard/text", wait_until="domcontentloaded", timeout=60000)
+    for _ in range(45):
+        title = page.title() or ""
+        if "moment" not in title.lower():
+            break
+        page.wait_for_timeout(2000)
+    page.wait_for_timeout(5000)
+    html = page.content()
+    with open(out_path, "w") as f:
+        f.write(html)
+    browser.close()
+"""
+
+
+def _fetch_arena_with_browser() -> str | None:
+    """arena.ai is behind a Cloudflare challenge that blocks plain HTTP clients.
+
+    Render the leaderboard page in a real (Xvfb-displayed) Chromium and return the HTML.
+    """
+    import subprocess
+    import tempfile
+
+    helper = tempfile.NamedTemporaryFile("w", suffix=".py", delete=False)
+    helper.write(_BROWSER_FETCH_HELPER)
+    helper.close()
+    out_path = helper.name + ".html"
+    try:
+        subprocess.run(
+            ["xvfb-run", "-a", "python3", helper.name, out_path],
+            timeout=180,
+            check=False,
+        )
+        if os.path.exists(out_path) and os.path.getsize(out_path) > 0:
+            with open(out_path) as f:
+                return f.read()
+    except Exception as e:
+        print(f"  Browser fallback failed: {e}")
+    finally:
+        for p in (helper.name, out_path):
+            try:
+                os.unlink(p)
+            except OSError:
+                pass
+    return None
+
+
 def fetch_arena_leaderboard() -> list[dict] | None:
     """Fetch Arena's current overall leaderboard page; never apply an old HF snapshot as fresh."""
     global ARENA_FETCHED_LIVE
     ARENA_FETCHED_LIVE = False
+    page = None
     try:
         req = urllib.request.Request(
             "https://arena.ai/leaderboard/text",
@@ -296,17 +360,19 @@ def fetch_arena_leaderboard() -> list[dict] | None:
         )
         with urllib.request.urlopen(req, timeout=60) as response:
             page = response.read().decode("utf-8", "replace")
-        normalized = _parse_arena_live_page(page)
-        if not normalized:
-            print("  Arena live page did not yield a validated overall leaderboard")
-            return None
-        print(f"  Arena live fetch ok: {len(normalized)} overall models")
-        ARENA_FETCHED_LIVE = True
-        return normalized
     except Exception as e:
-        print(f"  Arena live fetch failed: {e}")
+        print(f"  Arena direct fetch failed: {e}")
+    normalized = _parse_arena_live_page(page) if page else None
+    if not normalized:
+        # Cloudflare challenge: fall back to a real browser session.
+        page = _fetch_arena_with_browser()
+        normalized = _parse_arena_live_page(page) if page else None
+    if not normalized:
+        print("  Arena live page did not yield a validated overall leaderboard")
         return None
-
+    print(f"  Arena live fetch ok: {len(normalized)} overall models")
+    ARENA_FETCHED_LIVE = True
+    return normalized
 
 def _parse_aa_live_page(page: str) -> list[dict] | None:
     """Extract scored model records from Artificial Analysis's rendered RSC payload."""
@@ -431,108 +497,115 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
     return out
 
 
-# Explicit Arena / AA slug mapping (display name -> (arena_key, aa_slug))
+# Explicit Arena / AA slug mapping (display name -> (arena_alias, aa_slug))
+# Arena aliases are the exact live display names from arena.ai/leaderboard/text
+# (e.g. "Claude Opus 5.5 (High)"); AA slugs are Artificial Analysis model slugs.
 MODEL_MAPPING = {
-    "Claude Fable 5.1": ("claude-fable-5.1-max", "claude-fable-5-1"),
-    "Muse Spark 1.3": ("muse-spark-1.3-max", "muse-spark-1-3"),
-    "GPT-5.6 Terra": ("gpt-5.6-terra-xhigh", "gpt-5-6-terra"),
-    "MiniMax M3": ("minimax-m3", "minimax-m3"),
-    "Claude Opus 5": ("claude-opus-5-high", "claude-opus-5"),
-    "Gemini 3.8 Flash": ("gemini-3.8-flash-high", "gemini-3-8-flash"),
-    "GLM-5.3": ("glm-5.3-max", "glm-5-3"),
-    "GLM-5.3 Flash": ("glm-5.3-flash", "glm-5-3-flash"),
-    "Qwen3.8 Max": ("qwen3.8-max", "qwen3-8-max"),
-    "Grok 4.5": ("grok-4.5", "grok-4-5"),
-    "Claude Opus 5.5": ("claude-opus-5.5-high", "claude-opus-5-5"),
-    "GPT-6 Luna": ("gpt-6-luna-max", "gpt-6-luna"),
-    "GPT-6 Sol": ("gpt-6-sol-max", "gpt-6-sol"),
-    "GPT-5.6 Luna": ("gpt-5.6-luna-xhigh", "gpt-5-6-luna"),
-    "Muse Spark 1.2": ("muse-spark-1.2 (xHigh)", "muse-spark-1-2"),
-    "Muse Spark 1.1": ("muse-spark-1.1", "muse-spark-1-1"),
-    "MiMo V2.6 Pro": ("mimo-v2.6-pro", "mimo-v2-6-pro"),
-    "MiMo V2.6 Flash": ("mimo-v2.6-flash", "mimo-v2-6-flash"),
-    "DeepSeek V4.1 Flash": ("deepseek-v4.1-flash-max", "deepseek-v4-1-flash"),
-    "Gemini 3.5 Flash Lite": ("gemini-3.5-flash-lite", "gemini-3-5-flash-lite"),
-    "Qwen3.7 Plus": ("qwen3.7-plus", "qwen3-7-plus"),
-    "Qwen3.8 27B": ("qwen3.8-27b", "qwen3-8-27b"),
-    "Gemma 4 31B": ("gemma-4-31b", "gemma-4-31b"),
-    "Gemma 4 26B A4B": ("gemma-4-26b-a4b", "gemma-4-26b-a4b"),
-    "Solar Pro 4": ("solar-pro4", "solar-pro4"),
-    "Mistral Medium 3.5": ("mistral-medium-3.5", "mistral-medium-3-5"),
-    "GPT-5.4 mini": ("gpt-5.4-mini-high", "gpt-5-4-mini"),
-    "GPT-5.4 nano": ("gpt-5.4-nano-high", "gpt-5-4-nano"),
-    "Mistral Large 4": ("mistral-large-4", "mistral-large-4"),
-    "Grok 4.7": ("grok-4.7-xhigh", "grok-4-7"),
-    "GPT-6 Astra": ("gpt-6-astra-max", "gpt-6-astra"),
-    "Gemini 3.7 Flash": ("gemini-3.7-flash-high", "gemini-3-7-flash"),
-    "Gemini 3.6 Flash": ("gemini-3.6-flash-high", "gemini-3-6-flash"),
-    "Claude Opus 4.7": ("claude-opus-4-7", "claude-opus-4-7"),
-    "GPT-5.5 High": ("gpt-5.5-high", "gpt-5-5-high"),
-    "Claude Opus 4.8": ("claude-opus-4-8", "claude-opus-4-8"),
-    "Gemini 3.5 Flash": ("gemini-3.5-flash-high", "gemini-3-5-flash"),
-    "Gemini 3.1 Pro": ("gemini-3.1-pro-preview", "gemini-3-1-pro-preview"),
-    "GPT-5.4 High": ("gpt-5.4-high", "gpt-5-4"),
-    "Claude Opus 4.6": ("claude-opus-4-6", "claude-opus-4-6"),
-    "GLM-5.2": ("glm-5.2-max", "glm-5-2"),
-    "GPT-5.5": ("gpt-5.5", "gpt-5-5"),
-    "Claude Sonnet 4.6": ("claude-sonnet-4-6", "claude-sonnet-4-6"),
-    "GPT-5.5 Instant": ("gpt-5.5-instant", "gpt-5-5-instant-06-26"),
-    "Gemini 3 Pro": ("gemini-3-pro", "gemini-3-pro"),
-    "Qwen3.7 Max": ("qwen3.7-max-preview", "qwen3-7-max"),
-    "Gemini 3 Flash": ("gemini-3-flash", "gemini-3-flash"),
-    "GPT-5.2": ("gpt-5.2", "gpt-5-2"),
-    "Muse Spark": ("muse-spark", "muse-spark"),
-    "MiMo V2.5 Pro": ("mimo-v2.5-pro", "mimo-v2-5-pro"),
-    "GLM-5.1": ("glm-5.1", "glm-5-1"),
-    "DeepSeek V4 Pro 0813": ("deepseek-v4-pro", "deepseek-v4-pro"),
-    "GPT-5.4": ("gpt-5.4", "gpt-5-4"),
-    "Grok 4.6": ("grok-4.6-high", "grok-4-6"),
-    "Grok 4.20": ("grok-4.20-beta1", "grok-4-20"),
+    "Claude Fable 5.1": ("Claude Fable 5.1 (Max)", "claude-fable-5-1"),
+    "Muse Spark 1.3": ("Muse Spark 1.3 (Max)", "muse-spark-1-3"),
+    "GPT-5.6 Terra": ("GPT-5.6 Terra (xHigh)", "gpt-5-6-terra"),
+    "MiniMax M3": ("MiniMax-M3", "minimax-m3"),
+    "Claude Opus 5": ("Claude Opus 5 (High)", "claude-opus-5"),
+    "Gemini 3.8 Flash": ("Gemini 3.8 Flash (High)", "gemini-3-8-flash"),
+    "GLM-5.3": ("GLM-5.3 (Max)", "glm-5-3"),
+    "GLM-5.3 Flash": ("GLM-5.3-Flash", "glm-5-3-flash"),
+    "Qwen3.8 Max": ("Qwen3.8-Max", "qwen3-8-max"),
+    "Grok 4.5": ("Grok 4.5", "grok-4-5"),
+    "Claude Opus 5.5": ("Claude Opus 5.5 (High)", "claude-opus-5-5"),
+    "GPT-6 Luna": ("GPT-6 Luna (Max)", "gpt-6-luna"),
+    "GPT-6 Sol": ("GPT-6 Sol (Max)", "gpt-6-sol"),
+    "GPT-5.6 Luna": ("GPT-5.6 Luna (xHigh)", "gpt-5-6-luna"),
+    "Muse Spark 1.2": ("Muse Spark 1.2 (xHigh)", "muse-spark-1-2"),
+    "Muse Spark 1.1": ("Muse Spark 1.1", "muse-spark-1-1"),
+    "MiMo V2.6 Pro": ("MiMo-V2.6-Pro", "mimo-v2-6-pro"),
+    "MiMo V2.6 Flash": ("MiMo-V2.6-Flash", "mimo-v2-6-flash"),
+    "DeepSeek V4.1 Flash": ("DeepSeek-V4.1-Flash-20260910 (Max)", "deepseek-v4-1-flash-1017"),
+    "Gemini 3.5 Flash Lite": ("Gemini 3.5 Flash-Lite", "gemini-3-5-flash-lite"),
+    "Qwen3.7 Plus": ("Qwen3.7-Plus", "qwen3-7-plus"),
+    "Qwen3.8 27B": ("Qwen3.8-27B", "qwen3-8-27b"),
+    "Gemma 4 31B": ("Gemma 4 31B", "gemma-4-31b"),
+    "Gemma 4 26B A4B": ("Gemma 4 26B A4B", "gemma-4-26b-a4b"),
+    "Solar Pro 4": ("Solar Pro 4", "solar-pro4"),
+    "Mistral Medium 3.5": ("Mistral Medium 3.5", "mistral-medium-3-5"),
+    "GPT-5.4 mini": ("GPT-5.4 mini (High)", "gpt-5-4-mini"),
+    "GPT-5.4 nano": ("GPT-5.4 nano (High)", "gpt-5-4-nano"),
+    "Mistral Large 4": ("Mistral Large 4", "mistral-large-4"),
+    "Grok 4.7": ("Grok 4.7 (xHigh)", "grok-4-7"),
+    "GPT-6 Astra": ("GPT-6 Astra (Max)", "gpt-6-astra"),
+    "Gemini 3.7 Flash": ("Gemini 3.7 Flash (High)", "gemini-3-7-flash"),
+    "Gemini 3.6 Flash": ("Gemini 3.6 Flash (High)", "gemini-3-6-flash"),
+    "Claude Opus 4.7": ("Claude Opus 4.7", "claude-opus-4-7"),
+    "GPT-5.5 High": ("GPT-5.5 (High)", "gpt-5-5-high"),
+    "Claude Opus 4.8": ("Claude Opus 4.8", "claude-opus-4-8"),
+    "Gemini 3.5 Flash": ("Gemini 3.5 Flash (High)", "gemini-3-5-flash"),
+    "Gemini 3.1 Pro": ("Gemini 3.1 Pro Preview", "gemini-3-1-pro-preview"),
+    "GPT-5.4 High": ("GPT-5.4 (High)", "gpt-5-4"),
+    "Claude Opus 4.6": ("Claude Opus 4.6", "claude-opus-4-6"),
+    "GLM-5.2": ("GLM-5.2 (Max)", "glm-5-2"),
+    "GPT-5.5": ("GPT-5.5", "gpt-5-5"),
+    "Claude Sonnet 4.6": ("Claude Sonnet 4.6", "claude-sonnet-4-6"),
+    "GPT-5.5 Instant": ("GPT-5.5 Instant", "gpt-5-5-instant-06-26"),
+    "Gemini 3 Pro": ("Gemini 3 Pro", "gemini-3-pro"),
+    "Qwen3.7 Max": ("Qwen3.7-Max-Preview", "qwen3-7-max"),
+    "Gemini 3 Flash": ("Gemini 3 Flash", "gemini-3-flash"),
+    "GPT-5.2": ("GPT-5.2", "gpt-5-2"),
+    "Muse Spark": ("Muse Spark", "muse-spark"),
+    "MiMo V2.5 Pro": ("MiMo-V2.5-Pro", "mimo-v2-5-pro"),
+    "GLM-5.1": ("GLM-5.1", "glm-5-1"),
+    "DeepSeek V4 Pro 0813": ("DeepSeek-V4-Pro", "deepseek-v4-pro"),
+    "GPT-5.4": ("GPT-5.4", "gpt-5-4"),
+    "Grok 4.6": ("Grok 4.6 (High)", "grok-4-6"),
+    "Grok 4.20": ("Grok 4.20 Beta 1", "grok-4-20"),
     "Kimi K2.7 Code": (None, "kimi-k2-7-code"),
-    "Kimi K2.6": ("kimi-k2.6", "kimi-k2-6"),
-    "DeepSeek V4 Flash 0731": ("deepseek-v4-flash", "deepseek-v4-flash"),
-    "MiMo V2 Pro": ("mimo-v2-pro", "mimo-v2-pro"),
-    "Qwen3.6 Max": ("qwen3.6-max-preview", "qwen3-6-max"),
-    "MiMo V2.5": ("mimo-v2.5", "mimo-v2-5-pro"),
-    "GLM-5": ("glm-5", "glm-5"),
-    "GPT-5.1 High": ("gpt-5.1-high", "gpt-5-1"),
-    "Qwen3.6 Plus": ("qwen3.6-plus", "qwen3-6-plus"),
-    "Grok 4.3": ("grok-4.3", "grok-4-3"),
-    "Grok 4.1": ("grok-4.1", "grok-4"),
-    "Kimi K2.5": ("kimi-k2.5-thinking", "kimi-k2-5"),
-    "Gemini 2.5 Pro": ("gemini-2.5-pro", "gemini-2-5-pro"),
-    "GPT-5": ("gpt-5-high", "gpt-5"),
-    "MiniMax M2.7": ("minimax-m2.7", "minimax-m2-7"),
-    "GLM-4.7": ("glm-4.7", "glm-4-7"),
-    "Qwen3.5-397B": ("qwen3.5-397b-a17b", "qwen3-5-397b-a17b"),
-    "o3": ("o3-2025-04-16", "o3"),
-    "Kimi K2 Thinking": ("kimi-k2-thinking-turbo", "kimi-k2-thinking"),
-    "Grok 4 Fast": ("grok-4-fast-reasoning", "grok-4-fast"),
-    "Qwen3.5-122B": ("qwen3.5-122b-a10b", "qwen3-5-122b-a10b"),
-    "Qwen3.5-27B": ("qwen3.5-27b", "qwen3-5-27b"),
-    "DeepSeek V3.2": ("deepseek-v3.2", "deepseek-v3-2"),
-    "MiniMax M2.5": ("minimax-m2.5", "minimax-m2-5"),
-    "GPT-5 mini": ("gpt-5-mini-high", "gpt-5-mini"),
-    "Qwen3 Max": ("qwen3-max-2025-09-23", "qwen3-max"),
-    "GLM-4.6": ("glm-4.6", "glm-4-6"),
-    "DeepSeek V3.1": ("deepseek-v3.1", "deepseek-v3-1"),
-    "Qwen3.5-35B": ("qwen3.5-35b-a3b", "qwen3-5-35b-a3b"),
-    "GLM-4.5": ("glm-4.5", "glm-4-5-air"),
-    "GPT-4o": ("chatgpt-4o-latest-20250326", "gpt-4o"),
-    "GPT-4.1": ("gpt-4.1-2025-04-14", "gpt-4-1"),
-    "Step 3.5 Flash": ("step-3.5-flash", "step-3-5-flash"),
-    "Gemini 2.5 Flash": ("gemini-2.5-flash", "gemini-2-5-flash"),
-    "o1": ("o1-2024-12-17", "o1"),
-    "Kimi K2": ("kimi-k2-0711-preview", "kimi-k2"),
-    "Mistral Large 3": ("mistral-large-3", "mistral-large-3"),
-    "Grok 3": ("grok-3-preview-02-24", "grok-3"),
-    "Claude Haiku 4.5": ("claude-haiku-4-5-20251001", "claude-3-5-haiku"),
-    "DeepSeek R1": ("deepseek-r1", "deepseek-r1"),
-    "DeepSeek V3": ("deepseek-v3", "deepseek-v3"),
-    "Qwen3-235B": ("qwen3-235b-a22b", "qwen3-235b-a22b-instruct-2507"),
-    "Claude Fable 5": ("claude-fable-5-high", "claude-fable-5-1"),
-    "GPT-5.6 Sol High": ("gpt-5.6-sol-xhigh", "gpt-5-6-sol"),
-    "Kimi K3": ("kimi-k3-max", "kimi-k3"),
+    "Kimi K2.6": ("Kimi K2.6", "kimi-k2-6"),
+    "DeepSeek V4 Flash 0731": ("DeepSeek-V4-Flash", "deepseek-v4-flash"),
+    "MiMo V2 Pro": ("MiMo-V2-Pro", "mimo-v2-pro"),
+    "Qwen3.6 Max": ("Qwen3.6-Max-Preview", "qwen3-6-max"),
+    "MiMo V2.5": ("MiMo-V2.5", "mimo-v2-5-pro"),
+    "GLM-5": ("GLM-5", "glm-5"),
+    "GPT-5.1 High": ("GPT-5.1 (High)", "gpt-5-1"),
+    "Qwen3.6 Plus": ("Qwen3.6-Plus", "qwen3-6-plus"),
+    "Grok 4.3": ("Grok 4.3", "grok-4-3"),
+    "Grok 4.1": ("Grok 4.1", "grok-4"),
+    "Kimi K2.5": ("Kimi K2.5 (Thinking)", "kimi-k2-5"),
+    "Gemini 2.5 Pro": ("Gemini 2.5 Pro", "gemini-2-5-pro"),
+    "GPT-5": ("GPT-5 (High)", "gpt-5"),
+    "MiniMax M2.7": ("MiniMax-M2.7", "minimax-m2-7"),
+    "GLM-4.7": ("GLM-4.7", "glm-4-7"),
+    "Qwen3.5-397B": ("Qwen3.5-397B-A17B", "qwen3-5-397b-a17b"),
+    "o3": ("o3 (2025-04-16)", "o3"),
+    "Kimi K2 Thinking": ("Kimi K2 Thinking Turbo", "kimi-k2-thinking"),
+    "Grok 4 Fast": ("Grok 4 Fast (Reasoning)", "grok-4-fast"),
+    "Qwen3.5-122B": ("Qwen3.5-122B-A10B", "qwen3-5-122b-a10b"),
+    "Qwen3.5-27B": ("Qwen3.5-27B", "qwen3-5-27b"),
+    "DeepSeek V3.2": ("DeepSeek-V3.2", "deepseek-v3-2"),
+    "MiniMax M2.5": ("MiniMax-M2.5", "minimax-m2-5"),
+    "GPT-5 mini": ("GPT-5 mini (High)", "gpt-5-mini"),
+    "Qwen3 Max": ("Qwen3-Max (2025-09-23)", "qwen3-max"),
+    "GLM-4.6": ("GLM-4.6", "glm-4-6"),
+    "DeepSeek V3.1": ("DeepSeek-V3.1", "deepseek-v3-1"),
+    "Qwen3.5-35B": ("Qwen3.5-35B-A3B", "qwen3-5-35b-a3b"),
+    "GLM-4.5": ("GLM-4.5", "glm-4-5-air"),
+    "GPT-4o": ("ChatGPT-4o Latest (20250326)", "gpt-4o"),
+    "GPT-4.1": ("GPT-4.1 (2025-04-14)", "gpt-4-1"),
+    "Step 3.5 Flash": ("Step-3.5-Flash", "step-3-5-flash"),
+    "Gemini 2.5 Flash": ("Gemini 2.5 Flash", "gemini-2-5-flash"),
+    "o1": ("o1 (2024-12-17)", "o1"),
+    "Kimi K2": ("Kimi K2 Preview (0711)", "kimi-k2"),
+    "Mistral Large 3": ("Mistral Large 3", "mistral-large-3"),
+    "Grok 3": ("Grok 3 Preview (02-24)", "grok-3"),
+    "Claude Haiku 4.5": ("Claude Haiku 4.5 (20251001)", "claude-3-5-haiku"),
+    "DeepSeek R1": ("DeepSeek-R1", "deepseek-r1"),
+    "DeepSeek V3": ("DeepSeek-V3", "deepseek-v3"),
+    "Qwen3-235B": ("Qwen3-235B-A22B", "qwen3-235b-a22b-instruct-2507"),
+    "Claude Fable 5": ("Claude Fable 5 (High)", "claude-fable-5-1"),
+    "GPT-5.6 Sol High": ("GPT-5.6 Sol (xHigh)", "gpt-5-6-sol"),
+    "Kimi K3": ("Kimi K3 (Max)", "kimi-k3"),
+    "Muse Wonder": ("Muse Wonder (Max)", "muse-wonder"),
+    "Gemini 4 Argon": ("Gemini 4 Argon (High)", "gemini-4-argon"),
+    "Step 5 Preview": ("Step 5 Preview", "step-5"),
+    "GPT-6.1 Sol": ("GPT-6.1 Sol (Max)", "gpt-6-1-sol"),
+    "Claude Sonnet 5.5": ("Claude Sonnet 5.5 (xHigh)", "claude-sonnet-5-5"),
 }
 
 
