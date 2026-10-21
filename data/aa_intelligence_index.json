@@ -306,7 +306,7 @@
     "released": null,
     "context_window": 131072,
     "price_input": 0.07,
-    "price_output": 0.25,
+    "price_output": 0.275,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -851,11 +851,11 @@
     "deprecated": false,
     "released": "2025-08-05",
     "context_window": 131072,
-    "price_input": 0.0575,
-    "price_output": 0.215,
+    "price_input": 0.07,
+    "price_output": 0.25,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.011451402590850306
+    "intelligence_index_cost_per_task": 0.01372825635290159
   },
   {
     "slug": "olmo-3-1-32b-think",
@@ -1580,7 +1580,7 @@
     "released": "2026-04-02",
     "context_window": 256000,
     "price_input": 0.1,
-    "price_output": 0.37,
+    "price_output": 0.34,
     "cache_read": 0.05,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -1657,9 +1657,9 @@
     "deprecated": false,
     "released": null,
     "context_window": 256000,
-    "price_input": 0.13,
+    "price_input": 0.115,
     "price_output": 0.4,
-    "cache_read": 0.07,
+    "cache_read": 0.060000000000000005,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -2047,9 +2047,9 @@
     "deprecated": false,
     "released": "2026-04-29",
     "context_window": 256000,
-    "price_input": 0.3,
-    "price_output": 0.9,
-    "cache_read": 0.1,
+    "price_input": 0.4,
+    "price_output": 1.365,
+    "cache_read": 0.2,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -2853,9 +2853,9 @@
     "deprecated": false,
     "released": null,
     "context_window": 131072,
-    "price_input": 0.1,
-    "price_output": 0.59,
-    "cache_read": 0.1,
+    "price_input": 0.125,
+    "price_output": 0.595,
+    "cache_read": 0.125,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -3282,11 +3282,11 @@
     "deprecated": false,
     "released": "2025-08-05",
     "context_window": 131072,
-    "price_input": 0.125,
-    "price_output": 0.595,
-    "cache_read": 0.095,
+    "price_input": 0.15,
+    "price_output": 0.6,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.0921933712679154
+    "intelligence_index_cost_per_task": 0.10755929276182966
   },
   {
     "slug": "deepseek-v4-1-flash-1017",
