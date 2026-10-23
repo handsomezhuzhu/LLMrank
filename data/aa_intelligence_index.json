@@ -1209,6 +1209,19 @@
     "intelligence_index_cost_per_task": null
   },
   {
+    "slug": "ling-3-1-flash-1019",
+    "model": "Ling 3.1 Flash 1019",
+    "intelligence_index": 43.8973584978265,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1048576,
+    "price_input": 0.3,
+    "price_output": 0.9,
+    "cache_read": 0.06,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 1.4886425967752979
+  },
+  {
     "slug": "k2-horizon-mova-36b-a4b",
     "model": "K2 Horizon MoVA 36B A4B",
     "intelligence_index": 25.3037790731435,
@@ -2389,7 +2402,7 @@
     "price_output": 0.9,
     "cache_read": 0.06,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.9996439559293879
+    "intelligence_index_cost_per_task": 1.0017657227856889
   },
   {
     "slug": "granite-4-0-h-350m",
@@ -3373,11 +3386,11 @@
     "deprecated": false,
     "released": "2026-08-10",
     "context_window": 1000000,
-    "price_input": 0.6,
-    "price_output": 1.8,
-    "cache_read": null,
+    "price_input": 0.11,
+    "price_output": 0.33,
+    "cache_read": 0.0099,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 2.024611832657714
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "lfm2-24b-a2b",
