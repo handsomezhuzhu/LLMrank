@@ -790,7 +790,7 @@
     "price_output": 4.18,
     "cache_read": 0.14,
     "cache_write": 1.36,
-    "intelligence_index_cost_per_task": 1.1341017484612892
+    "intelligence_index_cost_per_task": 1.1344391582388638
   },
   {
     "slug": "qwen3-8-27b-non-reasoning",
@@ -816,7 +816,7 @@
     "price_output": 4.25,
     "cache_read": 0.15,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.8435187802958677
+    "intelligence_index_cost_per_task": 0.8441853713458678
   },
   {
     "slug": "gpt-6-luna-medium",
@@ -1183,19 +1183,6 @@
     "intelligence_index_cost_per_task": null
   },
   {
-    "slug": "kimi-k3-low",
-    "model": "Kimi K3 (Low)",
-    "intelligence_index": 30.0666987529068,
-    "deprecated": false,
-    "released": null,
-    "context_window": 1048576,
-    "price_input": 3,
-    "price_output": 15,
-    "cache_read": 0.3,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": 1.1463056165227514
-  },
-  {
     "slug": "gemma-4-e4b-non-reasoning",
     "model": "Gemma 4 E4B (Non-reasoning)",
     "intelligence_index": 7.45765296912625,
@@ -1508,6 +1495,19 @@
     "intelligence_index_cost_per_task": 1.133063774030521
   },
   {
+    "slug": "kimi-k3-1-pro",
+    "model": "Kimi K3.1 Pro",
+    "intelligence_index": 55.0869210959395,
+    "deprecated": false,
+    "released": "2026-10-23",
+    "context_window": 1000000,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.2,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 2.1145052918767275
+  },
+  {
     "slug": "motif-2-12-7b",
     "model": "Motif-2-12.7B-Reasoning",
     "intelligence_index": 9.18748556817538,
@@ -1579,9 +1579,9 @@
     "deprecated": false,
     "released": "2026-09-11",
     "context_window": 262144,
-    "price_input": 0.075,
-    "price_output": 0.22,
-    "cache_read": 0.015,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
   },
@@ -2402,7 +2402,7 @@
     "price_output": 0.9,
     "cache_read": 0.06,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 1.0017657227856889
+    "intelligence_index_cost_per_task": 1.010607821950605
   },
   {
     "slug": "granite-4-0-h-350m",
@@ -3367,19 +3367,6 @@
     "intelligence_index_cost_per_task": null
   },
   {
-    "slug": "kimi-k3",
-    "model": "Kimi K3 (Max)",
-    "intelligence_index": 43.5938229518782,
-    "deprecated": false,
-    "released": "2026-07-16",
-    "context_window": 1048576,
-    "price_input": 3,
-    "price_output": 15,
-    "cache_read": 0.3,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": 2.0001323004425493
-  },
-  {
     "slug": "quasar-438b",
     "model": "Quasar 438B (Max, Based on GLM-5.2)",
     "intelligence_index": 26.7372536607816,
@@ -3468,6 +3455,6 @@
     "price_output": 20,
     "cache_read": 0.2,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 4.515677444063016
+    "intelligence_index_cost_per_task": 4.540034681803926
   }
 ]
