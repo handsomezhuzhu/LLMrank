@@ -142,11 +142,31 @@ def score_multi(multi: float) -> int:
     return int(round(40 + (multi or 0) * 0.6))
 
 
-def total_score(s_arena: float, s_ai: float, s_price: float, s_multi: float, s_ctx: float, has_arena: bool = True) -> float:
-    if not has_arena:
-        # Normalize the four remaining components to preserve their relative weights.
-        return round((s_ai * 0.35 + s_price * 0.10 + s_multi * 0.15 + s_ctx * 0.10) / 0.70, 1)
-    return round(s_arena * 0.30 + s_ai * 0.35 + s_price * 0.10 + s_multi * 0.15 + s_ctx * 0.10, 1)
+def total_score(
+    s_arena: float,
+    s_ai: float,
+    s_price: float,
+    s_multi: float,
+    s_ctx: float,
+    has_arena: bool = True,
+    has_ai: bool = True,
+) -> float:
+    """Weighted total; a dimension with no observation is dropped and the rest
+    re-normalized so the weights still sum to 1 (never scored as zero)."""
+    weights = {
+        "arena": (s_arena, 0.30, has_arena),
+        "ai": (s_ai, 0.35, has_ai),
+        "price": (s_price, 0.10, True),
+        "multi": (s_multi, 0.15, True),
+        "ctx": (s_ctx, 0.10, True),
+    }
+    live = [(v, w) for v, w, present in weights.values() if present and v is not None]
+    if not live:
+        return 0.0
+    total_w = sum(w for _, w in live)
+    if total_w <= 0:
+        return 0.0
+    return round(sum(v * w for v, w in live) / total_w, 1)
 
 
 # ── External data fetch ─────────────────────────────────────────────────────
@@ -871,26 +891,37 @@ def model_status(m: dict) -> str:
 
 
 def recalculate_scores(models: list[dict]) -> list[dict]:
-    """Return ranked list of score dicts; also attaches s* fields onto copies for legacy export."""
+    """Return ranked list of score dicts; also attaches s* fields onto copies for legacy export.
+
+    A model needs at least an Arena rating to be ranked. When its AI Index is
+    missing (and could not be imputed), that dimension is dropped from the total
+    rather than scored as zero, and the row is labelled stale.
+    """
     arenas = [float(m["arena"]) if m.get("arena") is not None else None for m in models]
     ais = [float(m["ai_index"]) if m.get("ai_index") is not None else None for m in models]
-    valid_indices = [i for i, value in enumerate(arenas) if value is not None and ais[i] is not None]
+    valid_indices = [i for i, value in enumerate(arenas) if value is not None]
     models = [models[i] for i in valid_indices]
     if not models:
         return []
     arenas = [float(m["arena"]) for m in models]
-    ais = [float(m["ai_index"]) for m in models]
+    ais = [float(m["ai_index"]) if m.get("ai_index") is not None else None for m in models]
+    # Percentile / linear maps are built from rows that actually have each value.
     pA = percentile_scores(arenas)
-    pI = percentile_scores(ais)
+    ai_present = [a for a in ais if a is not None]
+    pI = percentile_scores(ai_present) if len(ai_present) > 1 else [100.0] * len(ai_present)
+    ai_rank = {round(v, 6): pI[i] for i, v in enumerate(ai_present)}
     scored = []
     for i, m in enumerate(models):
         sA = round(hybrid(lin_norm(arenas[i], 1300, 1520), pA[i], 0.65))
-        sAI = round(hybrid(lin_norm(ais[i], 0, 60), pI[i], 0.65), 1)
+        if ais[i] is None:
+            sAI = None
+        else:
+            sAI = round(hybrid(lin_norm(ais[i], 0, 60), ai_rank.get(round(ais[i], 6), 50.0), 0.65), 1)
         eff = effective_price_usd(m.get("price"))
         sP = score_price_from_effective(eff)
         sM = score_multi(m.get("multi", 50))
         sC = score_ctx(m.get("ctx", 0))
-        total = total_score(sA, sAI, sP, sM, sC)
+        total = total_score(sA, sAI, sP, sM, sC, has_ai=sAI is not None)
         row = {
             **m,
             "sArena": None if sA is None else int(sA),
