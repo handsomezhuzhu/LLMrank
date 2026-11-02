@@ -138,7 +138,24 @@ def score_ctx(ctx: float) -> int:
     return int(round(100 / (1 + math.exp(-1.1 * (math.log10(ctx) - math.log10(400000))))))
 
 
+# Multimodal score from modality coverage: how many non-text input modalities a
+# model accepts, per OpenRouter's architecture.input_modalities. Derived data, so
+# it can never drift the way a hand-maintained tag does.
+MULTI_TIER_SCORE = {0: 50, 1: 70, 2: 85, 3: 95, 4: 100}
+MULTI_MODALITIES = ("image", "file", "video", "audio")
+
+
+def modalities_to_multi(modalities: list[str] | None) -> int:
+    """Map a modality list to the canonical tier (50/75/100 or a tier score)."""
+    if not modalities:
+        return 50
+    return MULTI_TIER_SCORE[min(len(set(modalities) & set(MULTI_MODALITIES)), 4)]
+
+
 def score_multi(multi: float) -> int:
+    """A tier value is already its score; anything else is clamped to the ladder."""
+    if multi in MULTI_TIER_SCORE.values():
+        return int(multi)
     return int(round(40 + (multi or 0) * 0.6))
 
 
@@ -787,12 +804,54 @@ def should_auto_refresh_price(m: dict) -> bool:
     return True
 
 
-def refresh_prices_from_openrouter(models: list[dict], api_key: str | None = None) -> list[str]:
+def openrouter_modality_map(or_models: list[dict]) -> dict[str, list[str]]:
+    """model id -> its input modalities, per OpenRouter's architecture block."""
+    out: dict[str, list[str]] = {}
+    for m in or_models:
+        mid = m.get("id")
+        if not mid:
+            continue
+        arch = m.get("architecture") or {}
+        mods = arch.get("input_modalities")
+        if isinstance(mods, list) and mods:
+            out[mid] = [str(x) for x in mods]
+    return out
+
+
+def sync_multi_from_openrouter(models: list[dict], or_models: list[dict]) -> list[str]:
+    """Recompute every row's multimodal tag from its modality coverage.
+
+    Models with no OpenRouter listing keep their current tag (they simply have no
+    modality data to derive from).
+    """
+    mmap = openrouter_modality_map(or_models)
+    changes = []
+    for m in models:
+        oid = m.get("openrouter_id")
+        mods = mmap.get(oid) if oid else None
+        if not mods:
+            continue
+        want = modalities_to_multi(mods)
+        if m.get("multi") != want:
+            changes.append(f"  {m['name']}: multi {m.get('multi')} -> {want} "
+                           f"({','.join(sorted(set(mods) & set(MULTI_MODALITIES))) or 'text only'})")
+            m["multi"] = want
+        m["modalities"] = sorted(mods)
+    return changes
+
+
+def refresh_prices_from_openrouter(
+    models: list[dict], api_key: str | None = None, cache: dict | None = None
+) -> list[str]:
+    """Refresh prices/ctx. `cache` receives the raw OpenRouter payload so the
+    modality pass can reuse it instead of fetching twice."""
     try:
         or_models = fetch_openrouter_models(api_key)
     except Exception as e:
         print(f"  OpenRouter fetch failed — keeping existing prices: {e}")
         return []
+    if cache is not None:
+        cache["or_models"] = or_models
     pmap = openrouter_price_map(or_models)
     if len(pmap) < MIN_OPENROUTER_MODELS:
         print(f"  OpenRouter map too small ({len(pmap)}) — skip price update")
@@ -1107,7 +1166,8 @@ def main():
         print("  No leaderboard field changes")
 
     print("\n4. Refreshing OpenRouter prices/ctx...")
-    pchanges = refresh_prices_from_openrouter(models, find_openrouter_key())
+    or_cache: dict = {}
+    pchanges = refresh_prices_from_openrouter(models, find_openrouter_key(), or_cache)
     if pchanges:
         for c in pchanges[:20]:
             print(c)
@@ -1115,6 +1175,18 @@ def main():
             print(f"  ... +{len(pchanges)-20} more")
     else:
         print("  No price changes / fetch skipped")
+
+    print("\n4b. Recomputing multimodal tiers from modality coverage...")
+    if or_cache.get("or_models"):
+        mchanges = sync_multi_from_openrouter(models, or_cache["or_models"])
+        if mchanges:
+            print(f"  Updated {len(mchanges)} model(s):")
+            for c in mchanges:
+                print(c)
+        else:
+            print("  All tiers already match modality coverage")
+    else:
+        print("  Skipped (no OpenRouter payload)")
 
     print("\n5. Recalculating scores from models.json...")
     # Models AA has not scored yet borrow an AI Index from Arena-nearby models

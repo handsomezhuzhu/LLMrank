@@ -1466,7 +1466,9 @@ createApp({
                 if (!ctx || ctx <= 0) return 0
                 return Math.round(100 / (1 + Math.exp(-1.1 * (Math.log10(ctx) - Math.log10(400000)))))
             }
-            const scoreMulti = (multi) => Math.round(40 + multi * 0.6)
+            // A modality-coverage tier is already its score; anything else clamps.
+            const MULTI_TIER = [50, 70, 85, 95, 100]
+            const scoreMulti = (multi) => MULTI_TIER.includes(multi) ? multi : Math.round(40 + multi * 0.6)
 
             return rankedModels.map((m, idx) => {
                 const sA = Math.round(hybrid(linNorm(m.arena, 1300, 1520), arenaPercentiles.get(idx), 0.65))
