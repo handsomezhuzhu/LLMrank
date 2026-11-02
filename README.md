@@ -16,7 +16,7 @@ Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (
 |-------|---------|
 | `arena` | Arena AI rating |
 | `ai_index` | Artificial Analysis Intelligence Index |
-| `multi` | Multimodal capability tag (50/75/100) |
+| `multi` | Multimodal tier, derived from modality coverage (50/70/85/95/100) |
 | `eco` | Eco score (display only; not in v4 total) |
 | `ctx` | Context window (tokens) |
 | `price.currency` | `USD` or `CNY` |
@@ -40,9 +40,9 @@ Capability-first. Weights sum to **100%**.
 | Dimension | Weight | Method |
 |-----------|--------|--------|
 | **Arena** | 30% | Hybrid: linear abs (1300–1520) 65% + in-list percentile 35% |
-| **AI Index** | 35% | Hybrid: linear abs (0–60) 65% + percentile 35% |
-| **Price** | 10% | Effective $/1M from 4-part price → log vs $1/M ref; missing/free = 20 |
-| **Multimodal** | 15% | Raw multi compressed: 50/75/100 → 70/85/100 |
+| **AI Index** | 30% | Hybrid: linear abs (0–60) 65% + percentile 35% |
+| **Price** | 15% | Effective $/1M from 4-part price → log vs $1/M ref; missing/free = 20 |
+| **Multimodal** | 15% | Tier from non-text input modalities: 0→50, 1→70, 2→85, 3→95, 4→100 |
 | **Context** | 10% | Sigmoid centered ~400K |
 
 ### Effective price blend

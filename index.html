@@ -704,6 +704,14 @@
             color: var(--text-secondary);
         }
         .explain ol li { margin-bottom: 4px; }
+        .explain ul {
+            margin: 0 0 10px;
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+        .explain ul li { margin-bottom: 4px; }
         .explain code {
             font-family: var(--mono);
             font-size: 12px;
@@ -1245,13 +1253,33 @@
                     score therefore costs a model its evidence, not marks.
                 </p>
 
-                <h3>4. The weighting</h3>
+                <h3>4. Multimodal coverage is derived, not assigned</h3>
+                <p>
+                    The multimodal dimension is not a hand-maintained label. It is recomputed on every run
+                    from the model's declared input modalities (image, file, video, audio) as published by
+                    OpenRouter, by counting how many non-text modalities the model accepts:
+                </p>
+                <ul>
+                    <li><strong>0</strong> (text only) → 50</li>
+                    <li><strong>1</strong> → 70</li>
+                    <li><strong>2</strong> → 85</li>
+                    <li><strong>3</strong> → 95</li>
+                    <li><strong>4</strong> (all of image, file, video, audio) → 100</li>
+                </ul>
+                <p class="muted">
+                    Hand-assigned tags tended to drift: two models advertising the same modalities could carry
+                    very different values, which made the 15% weight impossible to compare fairly. Deriving the
+                    tier from a published list removes that inconsistency. A model with no OpenRouter listing
+                    keeps its previous tier, since there is no modality data to derive from.
+                </p>
+
+                <h3>5. The weighting</h3>
                 <p>
                     Capability first. Arena 30% · AI Index 30% · Price 15% · Multimodal 15% · Context 10%.
                     Price, multimodal capability and context are always available, so they never need imputation.
                 </p>
 
-                <h3>5. Reading the badges</h3>
+                <h3>6. Reading the badges</h3>
                 <p>Every row states how much of it is actually measured. The overall total is only as trustworthy
                     as its weakest input.</p>
             </div>
@@ -1291,7 +1319,7 @@
             </div>
 
             <div class="explain">
-                <h3>6. Why a model may be missing an AI Index column entry</h3>
+                <h3>7. Why a model may be missing an AI Index column entry</h3>
                 <p class="muted">
                     A dashed <code>—</code> in the AI column means both that the index is unpublished and that no
                     model within ±20 Arena points had one to borrow from. Rather than invent a number, the column is
@@ -1609,7 +1637,7 @@ createApp({
                 {
                     t: 'Multimodal',
                     w: '15%',
-                    d: 'Compressed capability map: raw multi 50 / 75 / 100 → score 70 / 85 / 100. Avoids pure multimodal labels dominating the board.'
+                    d: 'Derived from modality coverage, not hand-assigned: the number of non-text input modalities a model accepts (image, file, video, audio, per OpenRouter) maps to a tier — 0 → 50, 1 → 70, 2 → 85, 3 → 95, 4 → 100. Recomputed every run, so a model cannot carry a stale or inflated tag.'
                 },
                 {
                     t: 'Context',
