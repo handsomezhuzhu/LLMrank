@@ -42,7 +42,7 @@ CNY_PER_USD = 7.2
 
 # How close two Arena ratings must be for one model's AI Index to stand in for
 # another's (KNN band, in Arena rating points).
-IMPUTE_ARENA_BAND = 15.0
+IMPUTE_ARENA_BAND = 20.0
 
 # ── Formula v4 ──────────────────────────────────────────────────────────────
 # Arena 30% + AI Index 35% + Price 10% + Multimodal 15% + Context 10%

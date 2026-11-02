@@ -625,6 +625,72 @@
             display: inline-block;
         }
 
+        /* "How the ranking works" explainer */
+        .explain { margin-top: 28px; }
+        .explain h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 22px 0 8px;
+            letter-spacing: -0.01em;
+        }
+        .explain h3:first-child { margin-top: 0; }
+        .explain p {
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin: 0 0 10px;
+        }
+        .explain p.muted { color: var(--text-muted); }
+        .explain ol {
+            margin: 0 0 10px;
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+        .explain ol li { margin-bottom: 4px; }
+        .explain code {
+            font-family: var(--mono);
+            font-size: 12px;
+            padding: 1px 5px;
+            border-radius: 4px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .status-legend {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 22px 0 4px;
+        }
+        .status-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 16px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+        .status-item h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0 0 6px;
+        }
+        .status-item p {
+            font-size: 12px;
+            line-height: 1.65;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .status-item .status-badge { align-self: flex-start; }
+        @media (max-width: 820px) {
+            .status-legend { grid-template-columns: 1fr; }
+        }
+
         footer {
             margin-top: 56px;
             padding-top: 20px;
@@ -1076,6 +1142,103 @@
             </div>
         </section>
 
+        <section class="section" id="how-it-works">
+            <div class="section-head">
+                <h2>How the ranking works</h2>
+                <p>Coverage model, data provenance, and how to read each row</p>
+            </div>
+
+            <div class="explain">
+                <h3>1. Two leaderboards, not always unanimous</h3>
+                <p>
+                    Each model is scored on two independent measurements: an <strong>Arena</strong> rating and an
+                    <strong>Artificial Analysis Intelligence Index</strong>. These boards do not always agree on
+                    which models exist. A model can be listed on both, listed on only one, or drop off one board
+                    after having been listed before. Requiring both boards to agree for a model to appear would
+                    silently delete legitimately ranked models — that is what this scheme replaces.
+                    <strong>A model is now ranked whenever it has an Arena rating</strong>, and its coverage is
+                    declared explicitly instead of being decided by deletion.
+                </p>
+
+                <h3>2. Filling a missing AI Index (k-nearest-neighbour imputation)</h3>
+                <p>
+                    When a model has an Arena rating but no published AI Index, it borrows an estimate from models
+                    that sit close to it on the Arena scale:
+                </p>
+                <ol>
+                    <li>Collect every model that has <em>both</em> an Arena rating and a measured AI Index.</li>
+                    <li>Keep those whose Arena rating is within <strong>±20 points</strong> of the target model.</li>
+                    <li>Its AI Index becomes the <strong>mean</strong> of that neighbourhood.</li>
+                    <li>If the neighbourhood is empty, nothing is guessed — that dimension is left blank.</li>
+                </ol>
+                <p class="muted">
+                    Imputation only runs in one direction. Because Arena is a directly measured rating, models
+                    within a narrow Arena band are genuinely comparable, and their AI Index is the best available
+                    stand-in. The reverse — guessing an Arena rating from AI Index — is deliberately not done: the
+                    two boards measure different quantities, so their neighbourhoods are not interchangeable.
+                </p>
+
+                <h3>3. Missing dimensions are dropped, never zeroed</h3>
+                <p>
+                    A model without an AI Index is not penalised to zero. That dimension is removed from the
+                    denominator and the remaining weights are re-normalised so they still sum to 100%. A missing
+                    score therefore costs a model its evidence, not marks.
+                </p>
+
+                <h3>4. The weighting</h3>
+                <p>
+                    Capability first. Arena 30% · AI Index 35% · Price 10% · Multimodal 15% · Context 10%.
+                    Price, multimodal capability and context are always available, so they never need imputation.
+                </p>
+
+                <h3>5. Reading the badges</h3>
+                <p>Every row states how much of it is actually measured. The overall total is only as trustworthy
+                    as its weakest input.</p>
+            </div>
+
+            <div class="status-legend">
+                <article class="status-item">
+                    <span class="status-badge verified"><span class="dot"></span>Verified</span>
+                    <div>
+                        <h4>Both scores measured</h4>
+                        <p>The Arena rating and the AI Index are both live values read from their boards on the
+                            most recent run. Nothing on this row is inferred. These rows are directly comparable
+                            with one another.</p>
+                    </div>
+                </article>
+                <article class="status-item">
+                    <span class="status-badge estimated"><span class="dot"></span>Estimated</span>
+                    <div>
+                        <h4>At least one score inferred</h4>
+                        <p>The AI Index was not published for this model, so it was imputed from Arena-nearby
+                            models (±20 points) and is shown with a leading <code>~</code>. The total is
+                            provisional: it can be read as a reasonable placement, but it is not a measurement and
+                            should not be compared too finely against a Verified row. The tooltip names how many
+                            models contributed.</p>
+                    </div>
+                </article>
+                <article class="status-item">
+                    <span class="status-badge stale"><span class="dot"></span>Stale</span>
+                    <div>
+                        <h4>A score carried over</h4>
+                        <p>No longer listed on one or both boards, or no comparable neighbour existed to impute
+                            from. Its previous values are kept so it does not silently disappear, but the total is
+                            struck through and the row is dimmed. Treat it as an archived entry, not a current
+                            ranking.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="explain">
+                <h3>6. Why a model may be missing an AI Index column entry</h3>
+                <p class="muted">
+                    A dashed <code>—</code> in the AI column means both that the index is unpublished and that no
+                    model within ±20 Arena points had one to borrow from. Rather than invent a number, the column is
+                    left empty and the row is labelled Stale.
+                </p>
+            </div>
+        </section>
+
         <section class="section" id="sources">
             <div class="section-head">
                 <h2>Data sources</h2>
@@ -1342,7 +1505,7 @@ createApp({
                 'scores carried over from an earlier run.'
         }
         const aiImputedTitle = (m) =>
-            '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±15 Arena points'
+            '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±20 Arena points'
 
         return {
             ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice, fmtCtx,

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T01:30:27Z",
+  "updated_at": "2026-11-02T01:34:22Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1415,7 +1415,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1370.7389769238102,
-      "ai_index": null,
+      "ai_index": 20.2188,
       "multi": 50,
       "eco": 38,
       "ctx": 131072,
@@ -1436,7 +1436,9 @@
       "board_missing": [
         "aa"
       ],
-      "status": "stale"
+      "status": "estimated",
+      "ai_index_imputed": true,
+      "ai_index_neighbours": 3
     }
   ]
 }
