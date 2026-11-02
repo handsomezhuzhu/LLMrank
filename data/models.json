@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T01:24:05Z",
+  "updated_at": "2026-11-02T01:25:47Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -31,7 +31,8 @@
       "slug": "claude-fable-5",
       "aa_cost_per_task_usd": 12.993997201178466,
       "released": "2026-09-01",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gemini-3-1-pro",
@@ -60,7 +61,8 @@
       "released": "2026-02-19",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "gpt-5-5-instant",
@@ -89,7 +91,8 @@
       "released": "2026-06-25",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "deepseek-v4-pro",
@@ -116,7 +119,8 @@
       "slug": "deepseek-v4-pro",
       "aa_cost_per_task_usd": 1.7691338076407441,
       "released": "2026-08-13",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "qwen3-5-397b",
@@ -145,7 +149,8 @@
       "released": "2026-02-16",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "o3",
@@ -173,7 +178,8 @@
       "released": "2025-04-16",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "qwen3-5-122b",
@@ -202,7 +208,8 @@
       "released": "2026-02-24",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "name": "Claude Fable 5.1",
@@ -229,7 +236,8 @@
       "id": "claude-fable-5-1",
       "slug": "claude-fable-5-1",
       "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "name": "Gemini 3.8 Flash",
@@ -256,7 +264,8 @@
       "id": "gemini-3-8-flash",
       "slug": "gemini-3-8-flash",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "name": "GLM-5.3",
@@ -283,7 +292,8 @@
       "id": "glm-5-3",
       "slug": "glm-5-3",
       "url": "https://z.ai/blog/glm-5.3",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "name": "GLM-5.3 Flash",
@@ -310,7 +320,8 @@
       "id": "glm-5-3-flash",
       "slug": "glm-5-3-flash",
       "url": "https://z.ai/blog/glm-5.3",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "name": "Qwen3.8 Max",
@@ -337,7 +348,8 @@
       "id": "qwen3-8-max",
       "slug": "qwen3-8-max",
       "url": "https://www.qwencloud.com/models/qwen3.8-max",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gpt-6-astra",
@@ -364,7 +376,8 @@
       "slug": "gpt-6-astra",
       "aa_cost_per_task_usd": 6.244666943602518,
       "released": "2026-09-03",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gpt-5-6-terra",
@@ -393,7 +406,8 @@
       "released": "2026-07-09",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "minimax-m3",
@@ -420,7 +434,8 @@
       "slug": "minimax-m3",
       "aa_cost_per_task_usd": 1.2850974407373852,
       "released": "2026-06-01",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gpt-6-luna",
@@ -447,7 +462,8 @@
       "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "gpt-6-luna",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "claude-opus-5-5",
@@ -474,7 +490,8 @@
       "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
       "slug": "claude-opus-5-5",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "mimo-v2-6-pro",
@@ -501,7 +518,8 @@
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "mimo-v2-6-pro",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "mimo-v2-6-flash",
@@ -528,7 +546,8 @@
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "mimo-v2-6-flash",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "deepseek-v4-1-flash",
@@ -555,7 +574,8 @@
       "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "deepseek-v4-1-flash",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gemini-3-5-flash-lite",
@@ -582,7 +602,8 @@
       "note": "雙榜收錄 · release 2026-07-21 · OR modalities text,image,video,file,audio; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "gemini-3-5-flash-lite",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "qwen3-7-plus",
@@ -611,7 +632,8 @@
       "slug": "qwen3-7-plus",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "qwen3-8-27b",
@@ -638,7 +660,8 @@
       "note": "雙榜收錄 · release 2026-08-14 · OR modalities text,image,video; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "qwen3-8-27b",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gemma-4-31b",
@@ -667,7 +690,8 @@
       "aa_cost_per_task_usd": 0.0,
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "gemma-4-26b-a4b",
@@ -695,7 +719,8 @@
       "slug": "gemma-4-26b-a4b",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "solar-pro4",
@@ -724,7 +749,8 @@
       "aa_cost_per_task_usd": 0.7113065897513132,
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "mistral-medium-3-5",
@@ -753,7 +779,8 @@
       "slug": "mistral-medium-3-5",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "grok-4-7",
@@ -780,7 +807,8 @@
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,file; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "grok-4-7",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "mistral-large-4",
@@ -807,7 +835,8 @@
       "slug": "mistral-large-4",
       "released": "2026-10-29",
       "aa_cost_per_task_usd": 2.061496607384404,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "muse-wonder",
@@ -834,7 +863,8 @@
       "slug": "muse-wonder",
       "released": "2026-10-12",
       "aa_cost_per_task_usd": 6.9520364786062245,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gemini-4-argon",
@@ -861,7 +891,8 @@
       "slug": "gemini-4-argon",
       "released": "2026-09-30",
       "aa_cost_per_task_usd": 7.682671372515551,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "step-5-preview",
@@ -888,7 +919,8 @@
       "slug": "step-5",
       "released": null,
       "aa_cost_per_task_usd": 2.3452525606205166,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gpt-6.1-sol",
@@ -915,7 +947,8 @@
       "slug": "gpt-6-1-sol",
       "released": "2026-09-29",
       "aa_cost_per_task_usd": 1.2720632679446995,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "claude-sonnet-5.5",
@@ -942,7 +975,8 @@
       "slug": "claude-sonnet-5-5-xhigh",
       "released": "2026-09-28",
       "aa_cost_per_task_usd": 10.020621343395753,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "hy3",
@@ -971,7 +1005,8 @@
       "aa_cost_per_task_usd": 0.07179763081859954,
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     },
     {
       "id": "inkling",
@@ -998,7 +1033,8 @@
       "auto_price": true,
       "slug": "inkling",
       "aa_cost_per_task_usd": 1.3519575079737436,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "inkling-small",
@@ -1025,7 +1061,8 @@
       "auto_price": true,
       "slug": "inkling-small",
       "aa_cost_per_task_usd": 0.20316116043899832,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "muse-glimmer",
@@ -1052,7 +1089,8 @@
       "auto_price": true,
       "slug": "muse-glimmer",
       "aa_cost_per_task_usd": 0.16096168039127723,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "gemini-4-carbon",
@@ -1078,7 +1116,8 @@
       "slug": "gemini-4-carbon",
       "released": "2026-10-28",
       "aa_cost_per_task_usd": 7.755545745286556,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "claude-haiku-5-5",
@@ -1105,7 +1144,8 @@
       "slug": "claude-haiku-5-5",
       "released": "2026-10-07",
       "aa_cost_per_task_usd": 0.41100741536816304,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "nemotron-3-5-super-vl",
@@ -1132,7 +1172,8 @@
       "slug": "nemotron-3-5-super-vl",
       "released": "2026-10-15",
       "aa_cost_per_task_usd": 0.5382257339551116,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "nvidia-nemotron-3-ultra-550b-a55b",
@@ -1159,7 +1200,8 @@
       "slug": "nvidia-nemotron-3-ultra-550b-a55b",
       "released": "2026-10-18",
       "aa_cost_per_task_usd": 2.2257365504312134,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "command-a-plus",
@@ -1186,7 +1228,8 @@
       "slug": "command-a-plus",
       "released": "2026-05-20",
       "aa_cost_per_task_usd": 0.0,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "nemotron-3-5-lightning",
@@ -1213,7 +1256,8 @@
       "slug": "nemotron-3-5-lightning",
       "released": "2026-08-11",
       "aa_cost_per_task_usd": 0.28980699398265014,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "granite-4-2-3b",
@@ -1240,7 +1284,8 @@
       "slug": "granite-4-2-3b",
       "released": "2026-08-25",
       "aa_cost_per_task_usd": 0.0,
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "kimi-k3",
@@ -1267,7 +1312,8 @@
       "slug": "kimi-k3",
       "aa_cost_per_task_usd": 3.6812002895742055,
       "released": "2026-10-23",
-      "board_missing": []
+      "board_missing": [],
+      "status": "verified"
     },
     {
       "id": "kimi-k2-6",
@@ -1298,7 +1344,8 @@
         "aa"
       ],
       "ai_index_imputed": true,
-      "ai_index_neighbours": 11
+      "ai_index_neighbours": 11,
+      "status": "estimated"
     },
     {
       "id": "kimi-k2-5",
@@ -1328,7 +1375,8 @@
         "aa"
       ],
       "ai_index_imputed": true,
-      "ai_index_neighbours": 17
+      "ai_index_neighbours": 17,
+      "status": "estimated"
     },
     {
       "id": "kimi-k2-thinking",
@@ -1358,7 +1406,8 @@
         "aa"
       ],
       "ai_index_imputed": true,
-      "ai_index_neighbours": 7
+      "ai_index_neighbours": 7,
+      "status": "estimated"
     },
     {
       "id": "kimi-k2",
@@ -1386,7 +1435,8 @@
       "released": "2025-07-11",
       "board_missing": [
         "aa"
-      ]
+      ],
+      "status": "stale"
     }
   ]
 }

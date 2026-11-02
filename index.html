@@ -961,7 +961,8 @@
                                 </td>
                                 <td><span class="score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span></td>
                                 <td>
-                                    <span class="score" :class="sc(m.sAI)" :title="m.ai_imputed ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~' : '' }}{{ m.sAI }}</span>
+                                    <span v-if="m.sAI == null" class="score" title="AI Index not published and not estimable">—</span>
+                                    <span v-else class="score" :class="sc(m.sAI)" :title="m.ai_imputed ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~' : '' }}{{ m.sAI }}</span>
                                 </td>
                                 <td>
                                     <div class="price-cell">
@@ -1029,7 +1030,8 @@
                             </div>
                             <div class="m-score">
                                 <span class="k">AI</span>
-                                <span class="v score" :class="sc(m.sAI)">{{ m.sAI }}</span>
+                                <span v-if="m.sAI == null" class="v score">—</span>
+                                <span v-else class="v score" :class="sc(m.sAI)">{{ m.ai_imputed ? '~' : '' }}{{ m.sAI }}</span>
                             </div>
                             <div class="m-score">
                                 <span class="k">Price</span>
@@ -1200,9 +1202,11 @@ createApp({
             const models = modelsRef.value
             const n = models.length
             if (!n) return []
-            const rankedModels = models.filter(m => m.arena != null && m.ai_index != null)
+            // Ranked when an Arena rating exists. A missing AI Index drops that
+            // dimension from the total instead of scoring it as zero.
+            const rankedModels = models.filter(m => m.arena != null)
             const arenas = rankedModels.map(m => m.arena)
-            const ais = rankedModels.map(m => m.ai_index)
+            const ais = rankedModels.filter(m => m.ai_index != null).map(m => m.ai_index)
             const percentile = (vals) => {
                 const length = vals.length
                 const order = vals.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0])
@@ -1221,7 +1225,9 @@ createApp({
             const pA = percentile(arenas)
             const arenaPercentiles = new Map()
             arenas.forEach((v, i) => arenaPercentiles.set(i, pA[i]))
-            const pI = percentile(ais)
+            const pI = ais.length > 1 ? percentile(ais) : [100]
+            const aiPercentile = new Map()
+            ais.forEach((v, i) => aiPercentile.set(v, pI[i]))
             const linNorm = (v, lo, hi) => hi === lo ? 0 : Math.max(0, Math.min(100, (v - lo) / (hi - lo) * 100))
             const hybrid = (abs, perc, w = 0.65) => abs * w + perc * (1 - w)
             const scorePrice = (price) => {
@@ -1238,16 +1244,25 @@ createApp({
 
             return rankedModels.map((m, idx) => {
                 const sA = Math.round(hybrid(linNorm(m.arena, 1300, 1520), arenaPercentiles.get(idx), 0.65))
-                const sAI = +hybrid(linNorm(m.ai_index, 0, 60), pI[idx], 0.65).toFixed(1)
+                const hasAI = m.ai_index != null
+                const sAI = hasAI
+                    ? +hybrid(linNorm(m.ai_index, 0, 60), aiPercentile.get(m.ai_index) ?? 50, 0.65).toFixed(1)
+                    : null
                 const sP = scorePrice(m.price)
                 const sM = scoreMulti(m.multi)
                 const sC = scoreCtx(m.ctx)
                 const eff = effectivePriceUsd(m.price)
-                const total = sA * 0.30 + sAI * 0.35 + sP * 0.10 + sM * 0.15 + sC * 0.10
+                // Missing dimensions are dropped and the remaining weights re-normalized.
+                let total
+                if (hasAI) {
+                    total = sA * 0.30 + sAI * 0.35 + sP * 0.10 + sM * 0.15 + sC * 0.10
+                } else {
+                    total = (sA * 0.30 + sP * 0.10 + sM * 0.15 + sC * 0.10) / 0.65
+                }
                 return {
                     ...m,
                     sArena: sA,
-                    sAI: Math.round(sAI),
+                    sAI: hasAI ? Math.round(sAI) : null,
                     sEco: m.eco,
                     sPrice: sP,
                     sMulti: sM,
@@ -1273,7 +1288,7 @@ createApp({
             })
         })
 
-        const sc = (v) => v >= 70 ? 'hi' : v >= 50 ? 'mid' : v >= 30 ? 'lo' : 'vlo'
+        const sc = (v) => v == null ? '' : v >= 70 ? 'hi' : v >= 50 ? 'mid' : v >= 30 ? 'lo' : 'vlo'
         const tier = (s) =>
             s >= 75 ? { l: 'S+', c: '#f5d76e' } :
             s >= 68 ? { l: 'S',  c: '#e0b85a' } :

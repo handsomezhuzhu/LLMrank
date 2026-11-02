@@ -1137,6 +1137,15 @@ def main():
         )
 
     print("\n6. Saving...")
+    # Record provenance on each row so the site can label verified / estimated /
+    # stale without re-deriving it (the site recomputes scores in the browser).
+    by_name = {r["name"]: r for r in scored}
+    for m in doc["models"]:
+        row = by_name.get(m.get("name"))
+        if row:
+            m["status"] = row["status"]
+        elif m.get("arena") is None and m.get("ai_index") is None:
+            m["status"] = "stale"
     # Always re-export derived views; models.json only changes if fields changed.
     save_doc(doc)
     export_legacy(scored)
