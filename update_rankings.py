@@ -539,6 +539,13 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
 # Arena aliases are the exact live display names from arena.ai/leaderboard/text
 # (e.g. "Claude Opus 5.5 (High)"); AA slugs are Artificial Analysis model slugs.
 MODEL_MAPPING = {
+    "Gemini 4 Carbon": ("Gemini 4 Carbon (High)", "gemini-4-carbon"),
+    "Claude Haiku 5.5": ("Claude Haiku 5.5 (High)", "claude-haiku-5-5"),
+    "Nemotron 3 Ultra 550B": ("NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)", "nvidia-nemotron-3-ultra-550b-a55b"),
+    "Nemotron 3.5 Super VL": ("NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)", "nemotron-3-5-super-vl"),
+    "Nemotron 3.5 Lightning": ("NVIDIA-Nemotron-3.5-Lightning", "nemotron-3-5-lightning"),
+    "Command A+": ("Command A (03-2025)", "command-a-plus"),
+    "Granite 4.2 3B": ("Granite 4.2 3B", "granite-4-2-3b"),
     "Hy3": ("Hy3", "hy3"),
     "Inkling": ("Inkling", "inkling"),
     "Inkling Small": ("Inkling-Small", "inkling-small"),
