@@ -348,29 +348,67 @@ def _fetch_arena_with_browser() -> str | None:
     return None
 
 
+ARENA_HF_LATEST_URL = (
+    "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/"
+    "resolve/main/text/latest-00000-of-00001.parquet"
+)
+
+
+def _fetch_arena_from_hf() -> list[dict] | None:
+    """Arena's site sits behind a Cloudflare bot wall that refuses every automated
+    client (plain HTTP and headless/headed Chromium alike). Use Arena's own official
+    Hugging Face dataset instead: the "latest" text snapshot, overall category.
+
+    The snapshot trails the live site by a few days, which is fine for a daily job.
+    Returns rows in the same shape _normalize_arena_rows accepts.
+    """
+    import io
+
+    req = urllib.request.Request(
+        ARENA_HF_LATEST_URL,
+        headers={"User-Agent": "LLMrank/1.0 (+https://rank.zhuzihan.com)"},
+    )
+    with urllib.request.urlopen(req, timeout=120) as response:
+        blob = response.read()
+    if len(blob) < 1024:
+        raise RuntimeError(f"HF parquet too small: {len(blob)} bytes")
+    try:
+        import pyarrow.parquet as pq
+    except ImportError as e:  # pragma: no cover - depends on the host
+        raise RuntimeError("pyarrow not installed; run: pip install pyarrow") from e
+    table = pq.read_table(io.BytesIO(blob))
+    rows = [
+        {
+            "model": r.get("model_name"),
+            "modelKey": r.get("model_name"),
+            "rating": r.get("rating"),
+            "organization": r.get("organization") or "",
+            "votes": r.get("vote_count") or 0,
+            "publish_date": r.get("leaderboard_publish_date"),
+        }
+        for r in table.to_pylist()
+        if r.get("category") == "overall"
+    ]
+    if rows:
+        dates = {r.get("publish_date") for r in rows if r.get("publish_date")}
+        if dates:
+            print(f"  Arena HF snapshot dated {max(dates)}")
+    return rows or None
+
+
 def fetch_arena_leaderboard() -> list[dict] | None:
-    """Fetch Arena's current overall leaderboard page; never apply an old HF snapshot as fresh."""
+    """Fetch the current overall Arena leaderboard from its official HF dataset."""
     global ARENA_FETCHED_LIVE
     ARENA_FETCHED_LIVE = False
-    page = None
+    normalized = None
     try:
-        req = urllib.request.Request(
-            "https://arena.ai/leaderboard/text",
-            headers={"User-Agent": "Mozilla/5.0 (compatible; LLMrank/1.0; +https://rank.zhuzihan.com)"},
-        )
-        with urllib.request.urlopen(req, timeout=60) as response:
-            page = response.read().decode("utf-8", "replace")
+        normalized = _normalize_arena_rows(_fetch_arena_from_hf() or [])
     except Exception as e:
-        print(f"  Arena direct fetch failed: {e}")
-    normalized = _parse_arena_live_page(page) if page else None
+        print(f"  Arena HF fetch failed: {e}")
     if not normalized:
-        # Cloudflare challenge: fall back to a real browser session.
-        page = _fetch_arena_with_browser()
-        normalized = _parse_arena_live_page(page) if page else None
-    if not normalized:
-        print("  Arena live page did not yield a validated overall leaderboard")
+        print("  Arena HF snapshot did not yield a validated overall leaderboard")
         return None
-    print(f"  Arena live fetch ok: {len(normalized)} overall models")
+    print(f"  Arena fetch ok (HF): {len(normalized)} overall models")
     ARENA_FETCHED_LIVE = True
     return normalized
 
@@ -649,10 +687,7 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
         name = m["name"]
         mapping = MODEL_MAPPING.get(name)
         if not mapping:
-            if arena_data:
-                m["arena"] = None
-            if aa_data:
-                m["ai_index"] = None
+            # No mapping: leave whatever score the row already carries.
             continue
         arena_key, aa_slug = mapping
         arena_row = arena_map.get(arena_key) if arena_key else None
@@ -662,10 +697,7 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
             if old is None or abs(new_rating - float(old)) > 0.01:
                 changes.append(f"  {name}: Arena {old} -> {new_rating:.2f}")
             m["arena"] = new_rating
-        elif arena_data:
-            if m.get("arena") is not None:
-                changes.append(f"  {name}: Arena {m.get('arena')} -> missing")
-            m["arena"] = None
+        # Absent from a fresh board: keep the last known rating untouched.
         entry = aa_map.get(aa_slug) if aa_slug else None
         new_ii = None
         if entry:
@@ -676,10 +708,7 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
             if old is None or abs(new_ii - float(old)) > 0.01:
                 changes.append(f"  {name}: AI Index {old} -> {new_ii:.4f}")
             m["ai_index"] = new_ii
-        elif aa_data:
-            if m.get("ai_index") is not None:
-                changes.append(f"  {name}: AI Index {m.get('ai_index')} -> missing")
-            m["ai_index"] = None
+        # Absent from a fresh index: keep the last known AI Index untouched.
         if entry and new_ii is not None:
             if entry.get("context_window"):
                 m["ctx"] = int(entry["context_window"])
@@ -933,8 +962,9 @@ def main():
         print("  No AA update")
 
     print("\n3. Updating leaderboard fields...")
-    # In strict dual-leaderboard mode, stale/missing observations invalidate the
-    # prior rating; refresh the numeric field only when that source is present.
+    # A model missing from a fresh fetch KEEPS its last known score (the owner's
+    # rule: stay listed, carry the old value forward). Only a genuinely new
+    # observation overwrites a field; nothing is ever nulled out by absence.
     apply_arena = arena_data if arena_fresh else []
     apply_aa = aa_data if aa_fresh else []
     if not arena_fresh:
@@ -946,34 +976,27 @@ def main():
     live_aa_slugs = set()
     if arena_fresh:
         live_arena_keys = {row.get("model") or row.get("name") for row in apply_arena}
-        for model in models:
-            mapping = MODEL_MAPPING.get(model.get("name"))
-            if mapping and mapping[0] and mapping[0] not in live_arena_keys and model.get("arena") is not None:
-                model["arena"] = None
-                changes.append(f"  {model['name']}: Arena no longer in current live snapshot -> excluded")
     if aa_fresh:
         live_aa_slugs = {row.get("slug") or row.get("id") for row in apply_aa}
-        for model in models:
-            mapping = MODEL_MAPPING.get(model.get("name"))
-            if mapping and mapping[1] and mapping[1] not in live_aa_slugs and model.get("ai_index") is not None:
-                model["ai_index"] = None
-                changes.append(f"  {model['name']}: AA no longer in current live index -> excluded")
-    if arena_fresh and aa_fresh:
-        eligible = []
-        dropped = []
-        for model in models:
-            mapping = MODEL_MAPPING.get(model.get("name"))
-            arena_key, aa_slug = mapping if mapping else (None, None)
-            has_arena = bool(arena_key and arena_key in live_arena_keys and model.get("arena") is not None)
-            has_aa = bool(aa_slug and aa_slug in live_aa_slugs and model.get("ai_index") is not None)
-            if has_arena and has_aa:
-                eligible.append(model)
-            else:
-                dropped.append((model.get("name"), has_arena, has_aa))
-        models[:] = eligible
-        print(f"  Strict dual-board filter: removed {len(dropped)}; retained {len(models)}")
-        for name, has_arena, has_aa in dropped:
-            print(f"    excluded {name}: Arena={has_arena}, AA={has_aa}")
+    # Report (never mutate) how each listed model stands against the two boards.
+    missing_arena, missing_aa = [], []
+    for model in models:
+        mapping = MODEL_MAPPING.get(model.get("name"))
+        arena_key, aa_slug = mapping if mapping else (None, None)
+        if arena_fresh and arena_key and arena_key not in live_arena_keys:
+            missing_arena.append(model.get("name"))
+        if aa_fresh and aa_slug and aa_slug not in live_aa_slugs:
+            missing_aa.append(model.get("name"))
+    if missing_arena:
+        print(f"  Not on current Arena board ({len(missing_arena)}) — keeping last known rating:")
+        for name in missing_arena:
+            print(f"    {name}")
+    if missing_aa:
+        print(f"  Not on current AI Index ({len(missing_aa)}) — keeping last known index:")
+        for name in missing_aa:
+            print(f"    {name}")
+    unaffected = len(models) - len(set(missing_arena) | set(missing_aa))
+    print(f"  Models still on both boards: {unaffected}/{len(models)}; none dropped.")
     if changes:
         for c in changes:
             print(c)
