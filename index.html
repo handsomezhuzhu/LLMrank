@@ -1010,8 +1010,8 @@
             </p>
             <div class="weight-row">
                 <span class="weight-chip">Arena <b>30%</b></span>
-                <span class="weight-chip">AI Index <b>35%</b></span>
-                <span class="weight-chip">Price <b>10%</b></span>
+                <span class="weight-chip">AI Index <b>30%</b></span>
+                <span class="weight-chip">Price <b>15%</b></span>
                 <span class="weight-chip">Multimodal <b>15%</b></span>
                 <span class="weight-chip">Context <b>10%</b></span>
             </div>
@@ -1056,9 +1056,9 @@
                                 </th>
                                 <th>
                                     <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">AI Index</a>
-                                    <span class="w">35%</span>
+                                    <span class="w">30%</span>
                                 </th>
-                                <th>Price<span class="w">10%</span></th>
+                                <th>Price<span class="w">15%</span></th>
                                 <th>Multi<span class="w">15%</span></th>
                                 <th>Ctx<span class="w">10%</span></th>
                                 <th class="th-total">Total</th>
@@ -1247,7 +1247,7 @@
 
                 <h3>4. The weighting</h3>
                 <p>
-                    Capability first. Arena 30% · AI Index 35% · Price 10% · Multimodal 15% · Context 10%.
+                    Capability first. Arena 30% · AI Index 30% · Price 15% · Multimodal 15% · Context 10%.
                     Price, multimodal capability and context are always available, so they never need imputation.
                 </p>
 
@@ -1423,7 +1423,7 @@ createApp({
             }
         })
 
-        // Formula v4: Arena 30% + AI Index 35% + Price 10% + Multimodal 15% + Context 10%
+        // Formula v4: Arena 30% + AI Index 30% + Price 15% + Multimodal 15% + Context 10%
         const ranked = computed(() => {
             const models = modelsRef.value
             const n = models.length
@@ -1481,9 +1481,9 @@ createApp({
                 // Missing dimensions are dropped and the remaining weights re-normalized.
                 let total
                 if (hasAI) {
-                    total = sA * 0.30 + sAI * 0.35 + sP * 0.10 + sM * 0.15 + sC * 0.10
+                    total = sA * 0.30 + sAI * 0.30 + sP * 0.15 + sM * 0.15 + sC * 0.10
                 } else {
-                    total = (sA * 0.30 + sP * 0.10 + sM * 0.15 + sC * 0.10) / 0.65
+                    total = (sA * 0.30 + sP * 0.15 + sM * 0.15 + sC * 0.10) / 0.70
                 }
                 return {
                     ...m,
@@ -1596,12 +1596,12 @@ createApp({
                 },
                 {
                     t: 'AI Index',
-                    w: '35%',
-                    d: 'Hybrid of absolute linear (0–60) at 65% and percentile at 35%. Artificial Analysis composite — highest weight to counter pure popularity bias.'
+                    w: '30%',
+                    d: 'Hybrid of absolute linear (0–60) at 65% and percentile at 35%. Artificial Analysis composite — weighted equally with Arena to counter pure popularity bias.'
                 },
                 {
                     t: 'Price',
-                    w: '10%',
+                    w: '15%',
                     d: 'Blended effective $/1M from input 25% + output 55% + cache_read 10% + cache_write 10% (missing components redistribute; -1 = missing). Log-compressed vs $1/M. Missing/free scores a neutral 20.'
                 },
                 {

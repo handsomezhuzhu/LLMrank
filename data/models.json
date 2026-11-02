@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T01:34:22Z",
+  "updated_at": "2026-11-02T01:45:57Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -705,8 +705,8 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.023,
-        "output": 0.07,
+        "input": 0.024,
+        "output": 0.071,
         "cache_read": 0.012,
         "cache_write": -1
       },
@@ -1276,11 +1276,10 @@
         "cache_read": -1,
         "cache_write": -1
       },
-      "price_source": "openrouter",
-      "openrouter_id": "ibm-granite/granite-4.2-3b",
+      "price_source": "manual",
       "url": "https://ibm.com/granite",
-      "note": "Dual-board verified · open weights",
-      "auto_price": true,
+      "note": "Dual-board verified · open weights · no OpenRouter listing for the 3B variant (price manual)",
+      "auto_price": false,
       "slug": "granite-4-2-3b",
       "released": "2026-08-25",
       "aa_cost_per_task_usd": 0.0,

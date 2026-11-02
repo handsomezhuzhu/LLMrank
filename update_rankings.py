@@ -155,8 +155,8 @@ def total_score(
     re-normalized so the weights still sum to 1 (never scored as zero)."""
     weights = {
         "arena": (s_arena, 0.30, has_arena),
-        "ai": (s_ai, 0.35, has_ai),
-        "price": (s_price, 0.10, True),
+        "ai": (s_ai, 0.30, has_ai),
+        "price": (s_price, 0.15, True),
         "multi": (s_multi, 0.15, True),
         "ctx": (s_ctx, 0.10, True),
     }
