@@ -40,6 +40,10 @@ AA_JSON = os.path.join(REPO, "data", "aa_intelligence_index.json")
 # USD per CNY for price scoring when currency == CNY
 CNY_PER_USD = 7.2
 
+# How close two Arena ratings must be for one model's AI Index to stand in for
+# another's (KNN band, in Arena rating points).
+IMPUTE_ARENA_BAND = 15.0
+
 # ── Formula v4 ──────────────────────────────────────────────────────────────
 # Arena 30% + AI Index 35% + Price 10% + Multimodal 15% + Context 10%
 
@@ -649,7 +653,7 @@ MODEL_MAPPING = {
     "Qwen3-235B": ("Qwen3-235B-A22B", "qwen3-235b-a22b-instruct-2507"),
     "Claude Fable 5": ("Claude Fable 5 (High)", "claude-fable-5-1"),
     "GPT-5.6 Sol High": ("GPT-5.6 Sol (xHigh)", "gpt-5-6-sol"),
-    "Kimi K3": ("Kimi K3 (Max)", "kimi-k3"),
+    "Kimi K3": ("Kimi K3 (Max)", "kimi-k3-1-pro"),
     "Muse Wonder": ("Muse Wonder (Max)", "muse-wonder"),
     "Gemini 4 Argon": ("Gemini 4 Argon (High)", "gemini-4-argon"),
     "Step 5 Preview": ("Step 5 Preview", "step-5"),
@@ -819,6 +823,53 @@ def refresh_prices_from_openrouter(models: list[dict], api_key: str | None = Non
     return changes
 
 
+def impute_missing_scores(models: list[dict], band: float) -> None:
+    """Fill a missing AI Index from Arena-neighbours (KNN, +/- band points).
+
+    Only that direction: an Arena rating is a *measured* score, so models sitting
+    within a narrow Arena band are genuinely comparable, and their AA Index is
+    the best available estimate for a model AA has not published yet. The reverse
+    (guessing an Arena rating from AA) is not done — AA measures a different
+    quantity and its neighbourhoods are not interchangeable.
+
+    Sets `ai_index_imputed` (and `ai_index_neighbours`) when the value is an
+    estimate. A measured value is never overwritten.
+    """
+    measured = [
+        (float(m["arena"]), float(m["ai_index"]))
+        for m in models
+        if m.get("arena") is not None
+        and m.get("ai_index") is not None
+        and not m.get("ai_index_imputed")
+    ]
+    for m in models:
+        if m.get("ai_index") is not None or m.get("arena") is None:
+            continue
+        arena = float(m["arena"])
+        near = [ai for a, ai in measured if abs(a - arena) <= band]
+        if not near:
+            continue  # nothing comparable: leave it unscored rather than guess
+        m["ai_index"] = round(sum(near) / len(near), 4)
+        m["ai_index_imputed"] = True
+        m["ai_index_neighbours"] = len(near)
+
+
+def model_status(m: dict) -> str:
+    """How much of this row is actually measured.
+
+    verified  — Arena and AI Index both observed on their boards
+    estimated — at least one value imputed from comparable models
+    stale     — a board no longer lists it; values carried over from earlier runs
+    """
+    if m.get("ai_index_imputed"):
+        return "estimated"
+    has_arena = m.get("arena") is not None
+    has_ai = m.get("ai_index") is not None
+    if has_arena and has_ai and not m.get("board_missing"):
+        return "verified"
+    return "stale"
+
+
 def recalculate_scores(models: list[dict]) -> list[dict]:
     """Return ranked list of score dicts; also attaches s* fields onto copies for legacy export."""
     arenas = [float(m["arena"]) if m.get("arena") is not None else None for m in models]
@@ -852,6 +903,10 @@ def recalculate_scores(models: list[dict]) -> list[dict]:
             "total": total,
             "po": (m.get("price") or {}).get("output", -1),  # legacy field = output $/M
             "r": m.get("region", m.get("r", "US")),
+            # Provenance, so the site can label verified / estimated / stale.
+            "status": model_status(m),
+            "ai_imputed": bool(m.get("ai_index_imputed")),
+            "ai_neighbours": m.get("ai_index_neighbours"),
         }
         scored.append(row)
     scored.sort(key=lambda x: x["total"], reverse=True)
@@ -995,10 +1050,15 @@ def main():
     for model in models:
         mapping = MODEL_MAPPING.get(model.get("name"))
         arena_key, aa_slug = mapping if mapping else (None, None)
+        gone = []
         if arena_fresh and arena_key and arena_key not in live_arena_keys:
             missing_arena.append(model.get("name"))
+            gone.append("arena")
         if aa_fresh and aa_slug and aa_slug not in live_aa_slugs:
             missing_aa.append(model.get("name"))
+            gone.append("aa")
+        # Remember which board dropped it, so the row can be labelled stale.
+        model["board_missing"] = sorted(gone)
     if missing_arena:
         print(f"  Not on current Arena board ({len(missing_arena)}) — keeping last known rating:")
         for name in missing_arena:
@@ -1026,6 +1086,16 @@ def main():
         print("  No price changes / fetch skipped")
 
     print("\n5. Recalculating scores from models.json...")
+    # Models AA has not scored yet borrow an AI Index from Arena-nearby models
+    # so they can still be ranked (labelled `estimated`, never `verified`).
+    impute_missing_scores(models, IMPUTE_ARENA_BAND)
+    imputed_rows = [m for m in models if m.get("ai_index_imputed")]
+    if imputed_rows:
+        print(f"  Imputed AI Index for {len(imputed_rows)} model(s) "
+              f"(Arena +/-{IMPUTE_ARENA_BAND:g}, labelled estimated):")
+        for m in imputed_rows:
+            print(f"    {m['name']}: ~{m['ai_index']} "
+                  f"(from {m.get('ai_index_neighbours')} neighbours)")
     scored = recalculate_scores(models)
     print("\n  Top 10:")
     for i, m in enumerate(scored[:10]):

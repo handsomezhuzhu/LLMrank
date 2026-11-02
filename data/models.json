@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T00:20:53Z",
+  "updated_at": "2026-11-02T01:15:21Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -30,7 +30,8 @@
       "auto_price": true,
       "slug": "claude-fable-5",
       "aa_cost_per_task_usd": 12.993997201178466,
-      "released": "2026-09-01"
+      "released": "2026-09-01",
+      "board_missing": []
     },
     {
       "id": "gemini-3-1-pro",
@@ -56,7 +57,10 @@
       "auto_price": true,
       "slug": "gemini-3-1-pro-preview",
       "aa_cost_per_task_usd": 1.2985855086120641,
-      "released": "2026-02-19"
+      "released": "2026-02-19",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "gpt-5-5-instant",
@@ -82,7 +86,10 @@
       "auto_price": true,
       "slug": "gpt-5-5-instant-05-26",
       "aa_cost_per_task_usd": 0.6914853678439488,
-      "released": "2026-06-25"
+      "released": "2026-06-25",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "deepseek-v4-pro",
@@ -108,7 +115,8 @@
       "auto_price": true,
       "slug": "deepseek-v4-pro",
       "aa_cost_per_task_usd": 1.7691338076407441,
-      "released": "2026-08-13"
+      "released": "2026-08-13",
+      "board_missing": []
     },
     {
       "id": "qwen3-5-397b",
@@ -134,7 +142,10 @@
       "auto_price": true,
       "slug": "qwen3-5-397b-a17b",
       "aa_cost_per_task_usd": 0.47457695829894075,
-      "released": "2026-02-16"
+      "released": "2026-02-16",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "o3",
@@ -159,7 +170,10 @@
       "note": "",
       "auto_price": true,
       "slug": "o3",
-      "released": "2025-04-16"
+      "released": "2025-04-16",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "qwen3-5-122b",
@@ -185,7 +199,10 @@
       "auto_price": true,
       "slug": "qwen3-5-122b-a10b",
       "aa_cost_per_task_usd": 0.3247468637357143,
-      "released": "2026-02-24"
+      "released": "2026-02-24",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "name": "Claude Fable 5.1",
@@ -211,7 +228,8 @@
       "released": "2026-09-01",
       "id": "claude-fable-5-1",
       "slug": "claude-fable-5-1",
-      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "board_missing": []
     },
     {
       "name": "Gemini 3.8 Flash",
@@ -237,7 +255,8 @@
       "released": "2026-09-02",
       "id": "gemini-3-8-flash",
       "slug": "gemini-3-8-flash",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "board_missing": []
     },
     {
       "name": "GLM-5.3",
@@ -263,7 +282,8 @@
       "released": "2026-08-18",
       "id": "glm-5-3",
       "slug": "glm-5-3",
-      "url": "https://z.ai/blog/glm-5.3"
+      "url": "https://z.ai/blog/glm-5.3",
+      "board_missing": []
     },
     {
       "name": "GLM-5.3 Flash",
@@ -289,7 +309,8 @@
       "released": "2026-08-26",
       "id": "glm-5-3-flash",
       "slug": "glm-5-3-flash",
-      "url": "https://z.ai/blog/glm-5.3"
+      "url": "https://z.ai/blog/glm-5.3",
+      "board_missing": []
     },
     {
       "name": "Qwen3.8 Max",
@@ -315,7 +336,8 @@
       "released": "2026-08-03",
       "id": "qwen3-8-max",
       "slug": "qwen3-8-max",
-      "url": "https://www.qwencloud.com/models/qwen3.8-max"
+      "url": "https://www.qwencloud.com/models/qwen3.8-max",
+      "board_missing": []
     },
     {
       "id": "gpt-6-astra",
@@ -341,7 +363,8 @@
       "auto_price": true,
       "slug": "gpt-6-astra",
       "aa_cost_per_task_usd": 6.244666943602518,
-      "released": "2026-09-03"
+      "released": "2026-09-03",
+      "board_missing": []
     },
     {
       "id": "gpt-5-6-terra",
@@ -367,7 +390,10 @@
       "auto_price": true,
       "slug": "gpt-5-6-terra",
       "aa_cost_per_task_usd": 1.3987235612691513,
-      "released": "2026-07-09"
+      "released": "2026-07-09",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "minimax-m3",
@@ -393,7 +419,8 @@
       "auto_price": true,
       "slug": "minimax-m3",
       "aa_cost_per_task_usd": 1.2850974407373852,
-      "released": "2026-06-01"
+      "released": "2026-06-01",
+      "board_missing": []
     },
     {
       "id": "gpt-6-luna",
@@ -419,7 +446,8 @@
       "aa_cost_per_task_usd": 0.15195575732105837,
       "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
-      "slug": "gpt-6-luna"
+      "slug": "gpt-6-luna",
+      "board_missing": []
     },
     {
       "id": "claude-opus-5-5",
@@ -445,7 +473,8 @@
       "aa_cost_per_task_usd": 10.036409719512749,
       "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
       "auto_price": true,
-      "slug": "claude-opus-5-5"
+      "slug": "claude-opus-5-5",
+      "board_missing": []
     },
     {
       "id": "mimo-v2-6-pro",
@@ -471,7 +500,8 @@
       "aa_cost_per_task_usd": 0.25718036275876155,
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "mimo-v2-6-pro"
+      "slug": "mimo-v2-6-pro",
+      "board_missing": []
     },
     {
       "id": "mimo-v2-6-flash",
@@ -497,7 +527,8 @@
       "aa_cost_per_task_usd": 0.12852987084014672,
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "mimo-v2-6-flash"
+      "slug": "mimo-v2-6-flash",
+      "board_missing": []
     },
     {
       "id": "deepseek-v4-1-flash",
@@ -523,7 +554,8 @@
       "aa_cost_per_task_usd": 0.60210514783598,
       "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "deepseek-v4-1-flash"
+      "slug": "deepseek-v4-1-flash",
+      "board_missing": []
     },
     {
       "id": "gemini-3-5-flash-lite",
@@ -549,7 +581,8 @@
       "aa_cost_per_task_usd": 0.6929018557975878,
       "note": "雙榜收錄 · release 2026-07-21 · OR modalities text,image,video,file,audio; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "gemini-3-5-flash-lite"
+      "slug": "gemini-3-5-flash-lite",
+      "board_missing": []
     },
     {
       "id": "qwen3-7-plus",
@@ -575,7 +608,10 @@
       "aa_cost_per_task_usd": 0.21702592259078568,
       "note": "雙榜收錄 · release 2026-06-01 · OR modalities text,image; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "qwen3-7-plus"
+      "slug": "qwen3-7-plus",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "qwen3-8-27b",
@@ -601,7 +637,8 @@
       "aa_cost_per_task_usd": 3.5295494751410654,
       "note": "雙榜收錄 · release 2026-08-14 · OR modalities text,image,video; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "qwen3-8-27b"
+      "slug": "qwen3-8-27b",
+      "board_missing": []
     },
     {
       "id": "gemma-4-31b",
@@ -627,7 +664,10 @@
       "note": "雙榜收錄 · release 2026-04-02 · OR modalities image,text,video; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "gemma-4-31b",
-      "aa_cost_per_task_usd": 0.0
+      "aa_cost_per_task_usd": 0.0,
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "gemma-4-26b-a4b",
@@ -641,9 +681,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.021,
-        "output": 0.064,
-        "cache_read": 0.011,
+        "input": 0.019,
+        "output": 0.056,
+        "cache_read": 0.009,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -652,7 +692,10 @@
       "released": "2026-04-02",
       "note": "雙榜收錄 · release 2026-04-02 · OR modalities image,text,video; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "gemma-4-26b-a4b"
+      "slug": "gemma-4-26b-a4b",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "solar-pro4",
@@ -678,7 +721,10 @@
       "note": "雙榜收錄 · release 2026-08-06 · OR modalities text; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "solar-pro4",
-      "aa_cost_per_task_usd": 0.7113065897513132
+      "aa_cost_per_task_usd": 0.7113065897513132,
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "mistral-medium-3-5",
@@ -704,7 +750,10 @@
       "aa_cost_per_task_usd": 0.5020382394983653,
       "note": "雙榜收錄 · release 2026-04-29 · OR modalities text,image,file; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "mistral-medium-3-5"
+      "slug": "mistral-medium-3-5",
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "grok-4-7",
@@ -730,7 +779,8 @@
       "aa_cost_per_task_usd": 7.511769586408455,
       "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,file; multi/eco are coarse estimates",
       "auto_price": true,
-      "slug": "grok-4-7"
+      "slug": "grok-4-7",
+      "board_missing": []
     },
     {
       "id": "mistral-large-4",
@@ -756,7 +806,8 @@
       "auto_price": true,
       "slug": "mistral-large-4",
       "released": "2026-10-29",
-      "aa_cost_per_task_usd": 2.061496607384404
+      "aa_cost_per_task_usd": 2.061496607384404,
+      "board_missing": []
     },
     {
       "id": "muse-wonder",
@@ -782,7 +833,8 @@
       "auto_price": true,
       "slug": "muse-wonder",
       "released": "2026-10-12",
-      "aa_cost_per_task_usd": 6.9520364786062245
+      "aa_cost_per_task_usd": 6.9520364786062245,
+      "board_missing": []
     },
     {
       "id": "gemini-4-argon",
@@ -808,7 +860,8 @@
       "auto_price": true,
       "slug": "gemini-4-argon",
       "released": "2026-09-30",
-      "aa_cost_per_task_usd": 7.682671372515551
+      "aa_cost_per_task_usd": 7.682671372515551,
+      "board_missing": []
     },
     {
       "id": "step-5-preview",
@@ -834,7 +887,8 @@
       "auto_price": true,
       "slug": "step-5",
       "released": null,
-      "aa_cost_per_task_usd": 2.3452525606205166
+      "aa_cost_per_task_usd": 2.3452525606205166,
+      "board_missing": []
     },
     {
       "id": "gpt-6.1-sol",
@@ -860,7 +914,8 @@
       "auto_price": true,
       "slug": "gpt-6-1-sol",
       "released": "2026-09-29",
-      "aa_cost_per_task_usd": 1.2720632679446995
+      "aa_cost_per_task_usd": 1.2720632679446995,
+      "board_missing": []
     },
     {
       "id": "claude-sonnet-5.5",
@@ -886,7 +941,8 @@
       "auto_price": true,
       "slug": "claude-sonnet-5-5-xhigh",
       "released": "2026-09-28",
-      "aa_cost_per_task_usd": 10.020621343395753
+      "aa_cost_per_task_usd": 10.020621343395753,
+      "board_missing": []
     },
     {
       "id": "hy3",
@@ -912,7 +968,10 @@
       "note": "雙榜收錄 · release 2026-07-06 · OR modalities text; multi/eco are coarse estimates (補錄 2026-10-20)",
       "auto_price": true,
       "slug": "hy3",
-      "aa_cost_per_task_usd": 0.07179763081859954
+      "aa_cost_per_task_usd": 0.07179763081859954,
+      "board_missing": [
+        "aa"
+      ]
     },
     {
       "id": "inkling",
@@ -938,7 +997,8 @@
       "note": "雙榜收錄 · release 2026-07-15 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
       "auto_price": true,
       "slug": "inkling",
-      "aa_cost_per_task_usd": 1.3519575079737436
+      "aa_cost_per_task_usd": 1.3519575079737436,
+      "board_missing": []
     },
     {
       "id": "inkling-small",
@@ -964,7 +1024,8 @@
       "note": "雙榜收錄 · release 2026-07-30 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
       "auto_price": true,
       "slug": "inkling-small",
-      "aa_cost_per_task_usd": 0.20316116043899832
+      "aa_cost_per_task_usd": 0.20316116043899832,
+      "board_missing": []
     },
     {
       "id": "muse-glimmer",
@@ -990,7 +1051,8 @@
       "note": "雙榜收錄 · release 2026-08-10 · OR modalities text,image; multi/eco are coarse estimates (補錄 2026-10-20)",
       "auto_price": true,
       "slug": "muse-glimmer",
-      "aa_cost_per_task_usd": 0.16096168039127723
+      "aa_cost_per_task_usd": 0.16096168039127723,
+      "board_missing": []
     },
     {
       "id": "gemini-4-carbon",
@@ -1015,7 +1077,8 @@
       "auto_price": false,
       "slug": "gemini-4-carbon",
       "released": "2026-10-28",
-      "aa_cost_per_task_usd": 7.755545745286556
+      "aa_cost_per_task_usd": 7.755545745286556,
+      "board_missing": []
     },
     {
       "id": "claude-haiku-5-5",
@@ -1041,7 +1104,8 @@
       "auto_price": true,
       "slug": "claude-haiku-5-5",
       "released": "2026-10-07",
-      "aa_cost_per_task_usd": 0.41100741536816304
+      "aa_cost_per_task_usd": 0.41100741536816304,
+      "board_missing": []
     },
     {
       "id": "nemotron-3-5-super-vl",
@@ -1067,7 +1131,8 @@
       "auto_price": true,
       "slug": "nemotron-3-5-super-vl",
       "released": "2026-10-15",
-      "aa_cost_per_task_usd": 0.5382257339551116
+      "aa_cost_per_task_usd": 0.5382257339551116,
+      "board_missing": []
     },
     {
       "id": "nvidia-nemotron-3-ultra-550b-a55b",
@@ -1093,7 +1158,8 @@
       "auto_price": true,
       "slug": "nvidia-nemotron-3-ultra-550b-a55b",
       "released": "2026-10-18",
-      "aa_cost_per_task_usd": 2.2257365504312134
+      "aa_cost_per_task_usd": 2.2257365504312134,
+      "board_missing": []
     },
     {
       "id": "command-a-plus",
@@ -1119,7 +1185,8 @@
       "auto_price": true,
       "slug": "command-a-plus",
       "released": "2026-05-20",
-      "aa_cost_per_task_usd": 0.0
+      "aa_cost_per_task_usd": 0.0,
+      "board_missing": []
     },
     {
       "id": "nemotron-3-5-lightning",
@@ -1145,7 +1212,8 @@
       "auto_price": true,
       "slug": "nemotron-3-5-lightning",
       "released": "2026-08-11",
-      "aa_cost_per_task_usd": 0.28980699398265014
+      "aa_cost_per_task_usd": 0.28980699398265014,
+      "board_missing": []
     },
     {
       "id": "granite-4-2-3b",
@@ -1171,7 +1239,154 @@
       "auto_price": true,
       "slug": "granite-4-2-3b",
       "released": "2026-08-25",
-      "aa_cost_per_task_usd": 0.0
+      "aa_cost_per_task_usd": 0.0,
+      "board_missing": []
+    },
+    {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1475.6886282072523,
+      "ai_index": 46.0026236744189,
+      "multi": 75,
+      "eco": 45,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 0.192,
+        "output": 15.0,
+        "cache_read": 0.182,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k3",
+      "url": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k3",
+      "aa_cost_per_task_usd": 3.6812002895742055,
+      "released": "2026-10-23",
+      "board_missing": []
+    },
+    {
+      "id": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1455.5569844394659,
+      "ai_index": 29.8476,
+      "multi": 50,
+      "eco": 38,
+      "ctx": 262144,
+      "price": {
+        "currency": "USD",
+        "input": 0.65,
+        "output": 3.41,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k2.6",
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k2-6",
+      "aa_cost_per_task_usd": 0.799769615295709,
+      "released": "2026-04-20",
+      "board_missing": [
+        "aa"
+      ],
+      "ai_index_imputed": true,
+      "ai_index_neighbours": 11
+    },
+    {
+      "id": "kimi-k2-5",
+      "name": "Kimi K2.5",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1444.9047566343556,
+      "ai_index": 25.4553,
+      "multi": 50,
+      "eco": 38,
+      "ctx": 262144,
+      "price": {
+        "currency": "USD",
+        "input": 0.5,
+        "output": 2.5,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k2.5",
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k2-5",
+      "released": "2026-01-27",
+      "board_missing": [
+        "aa"
+      ],
+      "ai_index_imputed": true,
+      "ai_index_neighbours": 17
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1414.3595905612751,
+      "ai_index": 19.8197,
+      "multi": 50,
+      "eco": 38,
+      "ctx": 262144,
+      "price": {
+        "currency": "USD",
+        "input": 0.6,
+        "output": 2.5,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k2-thinking",
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k2-thinking",
+      "released": "2025-11-06",
+      "board_missing": [
+        "aa"
+      ],
+      "ai_index_imputed": true,
+      "ai_index_neighbours": 7
+    },
+    {
+      "id": "kimi-k2",
+      "name": "Kimi K2",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1370.7389769238102,
+      "ai_index": null,
+      "multi": 50,
+      "eco": 38,
+      "ctx": 131072,
+      "price": {
+        "currency": "USD",
+        "input": 0.57,
+        "output": 2.3,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k2",
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k2",
+      "released": "2025-07-11",
+      "board_missing": [
+        "aa"
+      ]
     }
   ]
 }

@@ -414,9 +414,48 @@
             background: rgba(255, 255, 255, 0.02);
             white-space: nowrap;
         }
-        .vendor-pill:hover {
+        /* Provenance badge: how much of a row is actually measured. */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: help;
+            border: 1px solid transparent;
+        }
+        .status-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+        .status-badge.verified {
+            color: var(--success);
+            border-color: rgba(16, 185, 129, 0.35);
+            background: rgba(16, 185, 129, 0.10);
+        }
+        .status-badge.estimated {
+            color: var(--warn);
+            border-color: rgba(234, 179, 8, 0.40);
+            background: rgba(234, 179, 8, 0.12);
+        }
+        .status-badge.stale {
+            color: var(--text-faint);
             border-color: var(--border-strong);
-            color: var(--text);
+            border-style: dashed;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        /* Estimated rows read as provisional; stale rows read as archived. */
+        tr.row-estimated { background: rgba(234, 179, 8, 0.035); }
+        tr.row-estimated .total-num { color: var(--warn); }
+        tr.row-stale { opacity: 0.5; }
+        tr.row-stale .total-num { text-decoration: line-through; }
+        .m-card.row-estimated { background: rgba(234, 179, 8, 0.045); }
+        .m-card.row-stale { opacity: 0.5; }
+        .imputed-note { font-size: 10px; color: var(--warn); opacity: 0.85; margin-left: 4px; }
+        .vendor-pill:hover {
+            border-color: var(--border-strong);            color: var(--text);
             text-decoration: none;
             background: rgba(255, 255, 255, 0.04);
         }
@@ -900,7 +939,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="m in filtered" :key="m.id || m.name" :class="{top3: m._rank < 3}">
+                            <tr v-for="m in filtered" :key="m.id || m.name" :class="[{top3: m._rank < 3}, 'row-' + (m.status || 'verified')]">
                                 <td class="td-rank">
                                     <span class="medal" :class="'m' + (m._rank + 1)" v-if="m._rank < 3">{{ m._rank + 1 }}</span>
                                     <span v-else>{{ m._rank + 1 }}</span>
@@ -910,6 +949,10 @@
                                         <span class="region" :class="m.region === 'CN' ? 'cn' : 'us'">{{ m.region }}</span>
                                         <div>
                                             <a class="model-name" :href="m.url" target="_blank" rel="noopener">{{ m.name }}</a>
+                                            <span class="status-badge" :class="m.status || 'verified'"
+                                                  :title="statusTitle(m)">
+                                                <span class="dot"></span>{{ statusLabel(m.status) }}
+                                            </span>
                                         </div>
                                     </div>
                                 </td>
@@ -917,7 +960,9 @@
                                     <a class="vendor-pill" :href="vendorUrls[m.vendor] || '#'" target="_blank" rel="noopener">{{ m.vendor }}</a>
                                 </td>
                                 <td><span class="score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span></td>
-                                <td><span class="score" :class="sc(m.sAI)">{{ m.sAI }}</span></td>
+                                <td>
+                                    <span class="score" :class="sc(m.sAI)" :title="m.ai_imputed ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~' : '' }}{{ m.sAI }}</span>
+                                </td>
                                 <td>
                                     <div class="price-cell">
                                         <span class="score" :class="sc(m.sPrice)">{{ m.sPrice }}</span>
@@ -951,7 +996,7 @@
                         class="m-card"
                         v-for="m in filtered"
                         :key="'m-' + (m.id || m.name)"
-                        :class="{top3: m._rank < 3}"
+                        :class="[{top3: m._rank < 3}, 'row-' + (m.status || 'verified')]"
                     >
                         <div class="m-card-top">
                             <div class="m-card-left">
@@ -962,6 +1007,9 @@
                                 <div class="m-identity">
                                     <div class="m-name-row">
                                         <a class="m-name" :href="m.url" target="_blank" rel="noopener">{{ m.name }}</a>
+                                        <span class="status-badge" :class="m.status || 'verified'" :title="statusTitle(m)">
+                                            <span class="dot"></span>{{ statusLabel(m.status) }}
+                                        </span>
                                     </div>
                                     <div class="m-meta">
                                         <span class="region" :class="m.region === 'CN' ? 'cn' : 'us'">{{ m.region }}</span>
@@ -1258,8 +1306,32 @@ createApp({
             return String(ctx)
         }
 
+        // Provenance: how much of a row is measured rather than carried over.
+        const statusLabel = (s) => ({
+            verified: 'Verified',
+            estimated: 'Estimated',
+            stale: 'Stale',
+        }[s] || 'Verified')
+        const statusTitle = (m) => {
+            const s = m.status || 'verified'
+            if (s === 'verified') return 'Arena rating and AI Index are both measured values from the live boards.'
+            if (s === 'estimated') {
+                const n = m.ai_neighbours
+                return 'AI Index is not published for this model; the value is imputed from ' +
+                    (n ? n + ' Arena-nearby models' : 'comparable models') +
+                    '. Treat its total as provisional.'
+            }
+            const gone = (m.board_missing || [])
+            return 'No longer listed on ' +
+                (gone.length ? gone.join(' and ') + ' — ' : 'either board. ') +
+                'scores carried over from an earlier run.'
+        }
+        const aiImputedTitle = (m) =>
+            '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±15 Arena points'
+
         return {
             ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice, fmtCtx,
+            statusLabel, statusTitle, aiImputedTitle,
             err, ready, updatedAt, q, region, theme, toggleTheme,
             tiers: [
                 { l: 'S+ · 75+', c: '#f5d76e' },

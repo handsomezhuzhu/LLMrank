@@ -448,11 +448,11 @@
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
-    "price_input": 0.44999999999999996,
-    "price_output": 1.7999999999999998,
-    "cache_read": 0.009000000000000001,
+    "price_input": 0.3,
+    "price_output": 1.2,
+    "cache_read": 0.006,
     "cache_write": null,
-    "intelligence_index_cost_per_task": null
+    "intelligence_index_cost_per_task": 0.4254202455035728
   },
   {
     "slug": "muse-glimmer",
