@@ -33,11 +33,12 @@ fail() { echo "RESULT: failed"; echo "REASON: $*"; exit "${2:-1}"; }
 [ -d "$REPO_DIR/.git" ] || fail "repo not found at $REPO_DIR (set LLMRANK_DIR)" 2
 cd "$REPO_DIR" || fail "cannot cd to $REPO_DIR" 2
 
-# Keep the working tree usable: a previous run that died mid-way must not brick
-# this one. Only tracked files are reset; untracked tools we add are left alone.
+# A previous run that died mid-way must not brick this one, but never throw away
+# work: keep the leftover changes as a stash instead of a hard reset.
 if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
-  echo "NOTE: discarding leftover tracked modifications from a previous run"
-  git checkout -- . || fail "cannot reset working tree" 2
+  STASH_TAG="llmrank-leftover-$(date -u +%Y%m%dT%H%M%SZ)"
+  git stash push -q -m "$STASH_TAG" || fail "cannot stash leftover changes" 2
+  echo "NOTE: stashed leftover tracked changes as '$STASH_TAG'"
 fi
 
 if [ "$NO_PULL" -eq 0 ]; then
@@ -45,14 +46,27 @@ if [ "$NO_PULL" -eq 0 ]; then
 fi
 
 echo "=== update_rankings.py ==="
-UPDATE_LOG="$(python3 update_rankings.py 2>&1)"
+DRY_BASE="$(git rev-parse HEAD)"
+if [ "$DRY_RUN" -eq 1 ]; then
+  # Commit locally, never push, then undo exactly that commit afterwards.
+  UPDATE_LOG="$(LLMRANK_NO_PUSH=1 python3 update_rankings.py 2>&1)"
+else
+  UPDATE_LOG="$(python3 update_rankings.py 2>&1)"
+fi
 UPDATE_CODE=$?
 echo "$UPDATE_LOG"
 if [ $UPDATE_CODE -ne 0 ]; then
   # The updater commits at the end; a failure after saving still leaves changes.
   echo "CHANGED_FILES:"
   git status --porcelain
+  [ "$DRY_RUN" -eq 1 ] && git reset --quiet --hard "$DRY_BASE"
   fail "update_rankings.py exited $UPDATE_CODE"
+fi
+if [ "$DRY_RUN" -eq 1 ]; then
+  echo "CHANGED_FILES (dry-run, local commit only):"
+  git diff --stat "$DRY_BASE" HEAD
+  # Undo only the commit this run made, back to the exact starting point.
+  git reset --quiet --hard "$DRY_BASE"
 fi
 
 SUMMARY="$(printf '%s\n' "$UPDATE_LOG" | grep -E '^📊 LLM排名已更新' | tail -1)"

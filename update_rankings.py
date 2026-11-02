@@ -908,6 +908,11 @@ def git_commit_push(message: str) -> bool:
         print("No changes to commit.")
         return False
     subprocess.run(["git", "commit", "-m", message], cwd=REPO, check=True)
+    # LLMRANK_NO_PUSH=1 commits locally but never pushes, so a dry run can
+    # inspect the outcome without touching origin.
+    if os.environ.get("LLMRANK_NO_PUSH") == "1":
+        print("LLMRANK_NO_PUSH=1 — committed locally, not pushed.")
+        return True
     subprocess.run(["git", "push"], cwd=REPO, check=True)
     return True
 
