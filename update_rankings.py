@@ -586,7 +586,6 @@ MODEL_MAPPING = {
     "Nemotron 3.5 Super VL": ("NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)", "nemotron-3-5-super-vl"),
     "Nemotron 3.5 Lightning": ("NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)", "nemotron-3-5-lightning"),
     "Command A+": ("Command A (03-2025)", "command-a-plus"),
-    "Granite 4.2 3B": ("Granite 4.2 3B", "granite-4-2-3b"),
     "Hy3": ("Hy3", "hy3"),
     "Inkling": ("Inkling", "inkling"),
     "Inkling Small": ("Inkling-Small", "inkling-small"),

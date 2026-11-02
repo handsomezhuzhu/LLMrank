@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T02:11:55Z",
+  "updated_at": "2026-11-02T02:28:54Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -827,8 +827,8 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.023,
-        "output": 0.07,
+        "input": 0.024,
+        "output": 0.073,
         "cache_read": 0.012,
         "cache_write": -1
       },
@@ -1468,33 +1468,6 @@
       "modalities": [
         "text"
       ]
-    },
-    {
-      "id": "granite-4-2-3b",
-      "name": "Granite 4.2 3B",
-      "vendor": "IBM",
-      "region": "US",
-      "arena": 1293.314650450622,
-      "ai_index": 4.72268717901823,
-      "multi": 50,
-      "eco": 90,
-      "ctx": 131072,
-      "price": {
-        "currency": "USD",
-        "input": -1,
-        "output": -1,
-        "cache_read": -1,
-        "cache_write": -1
-      },
-      "price_source": "manual",
-      "url": "https://ibm.com/granite",
-      "note": "Dual-board verified · open weights · no OpenRouter listing for the 3B variant (price manual)",
-      "auto_price": false,
-      "slug": "granite-4-2-3b",
-      "released": "2026-08-25",
-      "aa_cost_per_task_usd": 0.0,
-      "board_missing": [],
-      "status": "verified"
     },
     {
       "id": "kimi-k3",
