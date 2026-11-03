@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T02:28:54Z",
+  "updated_at": "2026-11-03T01:31:10Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -756,7 +756,7 @@
       "ai_index": 20.1068756031705,
       "multi": 85,
       "eco": 72,
-      "ctx": 1000000,
+      "ctx": 1024000,
       "price": {
         "currency": "USD",
         "input": 0.15,
@@ -827,9 +827,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.024,
-        "output": 0.073,
-        "cache_read": 0.012,
+        "input": 0.042,
+        "output": 0.127,
+        "cache_read": 0.021,
         "cache_write": -1
       },
       "price_source": "openrouter",

@@ -91,6 +91,19 @@
     "intelligence_index_cost_per_task": 0.22589585897456366
   },
   {
+    "slug": "gemini-4-carbon-medium",
+    "model": "Gemini 4 Carbon (Medium)",
+    "intelligence_index": 57.7087824022788,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 4,
+    "price_output": 20,
+    "cache_read": 0.2,
+    "cache_write": 4,
+    "intelligence_index_cost_per_task": 6.585776867225546
+  },
+  {
     "slug": "inkling",
     "model": "Inkling (Xhigh)",
     "intelligence_index": 12.4781698715401,
@@ -429,6 +442,19 @@
     "intelligence_index_cost_per_task": 0.9755293224458845
   },
   {
+    "slug": "nanbeige4-3-33b",
+    "model": "Nanbeige4.3-33B",
+    "intelligence_index": 20.4071119588083,
+    "deprecated": false,
+    "released": "2026-10-25",
+    "context_window": 524288,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "ling-3-1-flash-1019",
     "model": "Ling 3.1 Flash 1019",
     "intelligence_index": 29.470119369837,
@@ -741,6 +767,19 @@
     "intelligence_index_cost_per_task": 1.4237229635663595
   },
   {
+    "slug": "granite-4-2-8b",
+    "model": "Granite 4.2 8B",
+    "intelligence_index": 5.09826495217051,
+    "deprecated": false,
+    "released": "2026-08-25",
+    "context_window": 131072,
+    "price_input": 0.06,
+    "price_output": 0.25,
+    "cache_read": 0.015,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.0404628507686443
+  },
+  {
     "slug": "claude-haiku-5-5-medium",
     "model": "Claude Haiku 5.5 (Medium)",
     "intelligence_index": 24.5513254343023,
@@ -819,6 +858,19 @@
     "intelligence_index_cost_per_task": 1.2720632679446995
   },
   {
+    "slug": "gemini-4-carbon-low",
+    "model": "Gemini 4 Carbon (Low)",
+    "intelligence_index": 53.7206114502924,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 4,
+    "price_output": 20,
+    "cache_read": 0.2,
+    "cache_write": 4,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "k2-horizon-375b-a23b",
     "model": "K2 Horizon 375B A23B",
     "intelligence_index": 17.7702731734027,
@@ -856,6 +908,19 @@
     "cache_read": 0.01,
     "cache_write": 0.125,
     "intelligence_index_cost_per_task": 0.005115255188520391
+  },
+  {
+    "slug": "deepseek-v4-1-flash-1017-high",
+    "model": "DeepSeek V4.1 Flash 1017 (High)",
+    "intelligence_index": 28.5437391540402,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 0.3,
+    "price_output": 1.2,
+    "cache_read": 0.006,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "gpt-6-1-terra-medium",
