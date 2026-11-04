@@ -2,7 +2,7 @@
   {
     "slug": "claude-sonnet-5-5-medium",
     "model": "Claude Sonnet 5.5 (Medium, Default Fallback)",
-    "intelligence_index": 30.3195522148431,
+    "intelligence_index": 30.8195522148431,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -15,7 +15,7 @@
   {
     "slug": "claude-fable-5-1-low",
     "model": "Claude Fable 5.1 (Low, Default Fallback)",
-    "intelligence_index": 38.483648810734,
+    "intelligence_index": 38.683648810734,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -28,7 +28,7 @@
   {
     "slug": "gpt-6-1-sol-xhigh",
     "model": "GPT-6.1 Sol (Xhigh)",
-    "intelligence_index": 52.308219253291,
+    "intelligence_index": 52.458219253291,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -80,7 +80,7 @@
   {
     "slug": "gpt-6-1-terra-non-reasoning",
     "model": "GPT-6.1 Terra (Non-reasoning)",
-    "intelligence_index": 30.415898867357,
+    "intelligence_index": 30.515898867357,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -93,7 +93,7 @@
   {
     "slug": "gemini-4-carbon-medium",
     "model": "Gemini 4 Carbon (Medium)",
-    "intelligence_index": 57.7087824022788,
+    "intelligence_index": 58.2587824022788,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -132,7 +132,7 @@
   {
     "slug": "glm-5-3-flash",
     "model": "GLM-5.3-Flash",
-    "intelligence_index": 27.753889160883,
+    "intelligence_index": 27.803889160883,
     "deprecated": false,
     "released": "2026-08-26",
     "context_window": 1000000,
@@ -145,7 +145,7 @@
   {
     "slug": "gpt-6-luna-xhigh",
     "model": "GPT-6 Luna (Xhigh)",
-    "intelligence_index": 23.3008728089378,
+    "intelligence_index": 23.4508728089378,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -158,7 +158,7 @@
   {
     "slug": "gpt-6-astra-xhigh",
     "model": "GPT-6 Astra (Xhigh)",
-    "intelligence_index": 55.2557468569681,
+    "intelligence_index": 55.3057468569681,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -171,7 +171,7 @@
   {
     "slug": "claude-haiku-5-5-high",
     "model": "Claude Haiku 5.5 (High)",
-    "intelligence_index": 29.624315467743,
+    "intelligence_index": 29.874315467743,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -184,7 +184,7 @@
   {
     "slug": "grok-4-7-low",
     "model": "Grok 4.7 (Low)",
-    "intelligence_index": 30.882077602567,
+    "intelligence_index": 31.132077602567,
     "deprecated": false,
     "released": null,
     "context_window": 500000,
@@ -210,7 +210,7 @@
   {
     "slug": "claude-sonnet-5-5-high",
     "model": "Claude Sonnet 5.5 (High, Default Fallback)",
-    "intelligence_index": 41.115109087048,
+    "intelligence_index": 41.515109087048,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -223,7 +223,7 @@
   {
     "slug": "grok-4-7-high",
     "model": "Grok 4.7 (High)",
-    "intelligence_index": 35.0122962959703,
+    "intelligence_index": 35.2122962959703,
     "deprecated": false,
     "released": null,
     "context_window": 500000,
@@ -236,7 +236,7 @@
   {
     "slug": "minimax-m3",
     "model": "MiniMax-M3",
-    "intelligence_index": 18.7289083859255,
+    "intelligence_index": 18.8789083859255,
     "deprecated": false,
     "released": "2026-06-01",
     "context_window": 1000000,
@@ -249,7 +249,7 @@
   {
     "slug": "mistral-large-4-medium",
     "model": "Mistral Large 4 (Medium)",
-    "intelligence_index": 23.0777321742266,
+    "intelligence_index": 23.1277321742266,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -301,7 +301,7 @@
   {
     "slug": "claude-opus-5-5",
     "model": "Claude Opus 5.5 (Max, Default Fallback)",
-    "intelligence_index": 58.4060336078904,
+    "intelligence_index": 59.1060336078904,
     "deprecated": false,
     "released": "2026-09-22",
     "context_window": 1000000,
@@ -327,7 +327,7 @@
   {
     "slug": "muse-spark-open",
     "model": "Muse Spark Open (Xhigh)",
-    "intelligence_index": 24.6815868992913,
+    "intelligence_index": 24.8815868992913,
     "deprecated": false,
     "released": "2026-10-15",
     "context_window": 1048576,
@@ -340,7 +340,7 @@
   {
     "slug": "gpt-6-luna-medium",
     "model": "GPT-6 Luna (Medium)",
-    "intelligence_index": 18.3042156192416,
+    "intelligence_index": 18.4542156192416,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -353,7 +353,7 @@
   {
     "slug": "claude-fable-5-1-medium",
     "model": "Claude Fable 5.1 (Medium, Default Fallback)",
-    "intelligence_index": 42.971597828284,
+    "intelligence_index": 43.171597828284,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -366,7 +366,7 @@
   {
     "slug": "gpt-6-1-sol-high",
     "model": "GPT-6.1 Sol (High)",
-    "intelligence_index": 50.2291231936536,
+    "intelligence_index": 50.3291231936536,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -379,7 +379,7 @@
   {
     "slug": "claude-fable-5-1",
     "model": "Claude Fable 5.1 (Max, Default Fallback)",
-    "intelligence_index": 49.0102124158081,
+    "intelligence_index": 49.1602124158081,
     "deprecated": false,
     "released": "2026-09-01",
     "context_window": 1000000,
@@ -405,7 +405,7 @@
   {
     "slug": "claude-haiku-5-5-xhigh",
     "model": "Claude Haiku 5.5 (Xhigh)",
-    "intelligence_index": 34.3387759486628,
+    "intelligence_index": 34.6387759486628,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -431,7 +431,7 @@
   {
     "slug": "claude-opus-5-5-low",
     "model": "Claude Opus 5.5 (Low, Default Fallback)",
-    "intelligence_index": 34.502785007759,
+    "intelligence_index": 34.752785007759,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -457,7 +457,7 @@
   {
     "slug": "ling-3-1-flash-1019",
     "model": "Ling 3.1 Flash 1019",
-    "intelligence_index": 29.470119369837,
+    "intelligence_index": 29.570119369837,
     "deprecated": false,
     "released": null,
     "context_window": 1048576,
@@ -496,7 +496,7 @@
   {
     "slug": "grok-4-7",
     "model": "Grok 4.7 (Xhigh)",
-    "intelligence_index": 34.3350117067196,
+    "intelligence_index": 35.4850117067196,
     "deprecated": false,
     "released": "2026-09-21",
     "context_window": 500000,
@@ -504,7 +504,7 @@
     "price_output": 6,
     "cache_read": 0.5,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 7.511769586408455
+    "intelligence_index_cost_per_task": 7.771539401587139
   },
   {
     "slug": "nvidia-nemotron-3-ultra-550b-a55b",
@@ -522,7 +522,7 @@
   {
     "slug": "gpt-6-luna-non-reasoning",
     "model": "GPT-6 Luna (Non-reasoning)",
-    "intelligence_index": 9.39244373619813,
+    "intelligence_index": 9.44244373619813,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -548,7 +548,7 @@
   {
     "slug": "kimi-k3-1-pro",
     "model": "Kimi K3.1 Pro",
-    "intelligence_index": 46.0026236744189,
+    "intelligence_index": 46.4526236744189,
     "deprecated": false,
     "released": "2026-10-23",
     "context_window": 1000000,
@@ -574,7 +574,7 @@
   {
     "slug": "gpt-6-luna",
     "model": "GPT-6 Luna (Max)",
-    "intelligence_index": 27.7552004938153,
+    "intelligence_index": 27.8552004938153,
     "deprecated": false,
     "released": "2026-09-22",
     "context_window": 1000000,
@@ -600,7 +600,7 @@
   {
     "slug": "gemini-3-8-flash-medium",
     "model": "Gemini 3.8 Flash (Medium)",
-    "intelligence_index": 29.978569475636,
+    "intelligence_index": 30.078569475636,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -613,7 +613,7 @@
   {
     "slug": "claude-haiku-5-5",
     "model": "Claude Haiku 5.5 (Max)",
-    "intelligence_index": 36.2345435880142,
+    "intelligence_index": 36.4845435880142,
     "deprecated": false,
     "released": "2026-10-07",
     "context_window": 1000000,
@@ -626,7 +626,7 @@
   {
     "slug": "gpt-6-luna-high",
     "model": "GPT-6 Luna (High)",
-    "intelligence_index": 21.3790170864582,
+    "intelligence_index": 21.4290170864582,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -665,7 +665,7 @@
   {
     "slug": "gemini-3-8-flash",
     "model": "Gemini 3.8 Flash (High)",
-    "intelligence_index": 30.5468119957291,
+    "intelligence_index": 30.8468119957291,
     "deprecated": false,
     "released": "2026-09-02",
     "context_window": 1000000,
@@ -678,7 +678,7 @@
   {
     "slug": "gemini-4-carbon",
     "model": "Gemini 4 Carbon (High)",
-    "intelligence_index": 59.425738829526,
+    "intelligence_index": 60.025738829526,
     "deprecated": false,
     "released": "2026-10-28",
     "context_window": 1000000,
@@ -691,7 +691,7 @@
   {
     "slug": "claude-sonnet-5-5-xhigh",
     "model": "Claude Sonnet 5.5 (Xhigh, Default Fallback)",
-    "intelligence_index": 49.5740327787242,
+    "intelligence_index": 49.9240327787242,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -704,7 +704,7 @@
   {
     "slug": "claude-fable-5-1-xhigh",
     "model": "Claude Fable 5.1 (Xhigh, Default Fallback)",
-    "intelligence_index": 49.6716384248632,
+    "intelligence_index": 50.0216384248632,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -717,7 +717,7 @@
   {
     "slug": "claude-fable-5-1-high",
     "model": "Claude Fable 5.1 (High, Default Fallback)",
-    "intelligence_index": 47.024988245604,
+    "intelligence_index": 47.174988245604,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -743,7 +743,7 @@
   {
     "slug": "gpt-6-1-sol-medium",
     "model": "GPT-6.1 Sol (Medium)",
-    "intelligence_index": 46.1468797067114,
+    "intelligence_index": 46.3468797067114,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -756,7 +756,7 @@
   {
     "slug": "gpt-6-astra-low",
     "model": "GPT-6 Astra (Low)",
-    "intelligence_index": 43.0349823228524,
+    "intelligence_index": 43.3349823228524,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -782,7 +782,7 @@
   {
     "slug": "claude-haiku-5-5-medium",
     "model": "Claude Haiku 5.5 (Medium)",
-    "intelligence_index": 24.5513254343023,
+    "intelligence_index": 24.6013254343023,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -808,7 +808,7 @@
   {
     "slug": "gpt-6-1-terra",
     "model": "GPT-6.1 Terra (Max)",
-    "intelligence_index": 50.9765188577015,
+    "intelligence_index": 51.3265188577015,
     "deprecated": false,
     "released": "2026-10-26",
     "context_window": 1000000,
@@ -821,7 +821,7 @@
   {
     "slug": "qwen3-8-max",
     "model": "Qwen3.8 Max (0902)",
-    "intelligence_index": 33.5545627367888,
+    "intelligence_index": 33.6545627367888,
     "deprecated": false,
     "released": "2026-08-03",
     "context_window": 983616,
@@ -834,7 +834,7 @@
   {
     "slug": "claude-sonnet-5-5",
     "model": "Claude Sonnet 5.5 (Max, Default Fallback)",
-    "intelligence_index": 54.24133407109,
+    "intelligence_index": 54.54133407109,
     "deprecated": false,
     "released": "2026-09-28",
     "context_window": 1000000,
@@ -847,7 +847,7 @@
   {
     "slug": "gpt-6-1-sol",
     "model": "GPT-6.1 Sol (Max)",
-    "intelligence_index": 54.5087338138148,
+    "intelligence_index": 54.6087338138148,
     "deprecated": false,
     "released": "2026-09-29",
     "context_window": 1000000,
@@ -860,7 +860,7 @@
   {
     "slug": "gemini-4-carbon-low",
     "model": "Gemini 4 Carbon (Low)",
-    "intelligence_index": 53.7206114502924,
+    "intelligence_index": 54.2206114502924,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -868,12 +868,12 @@
     "price_output": 20,
     "cache_read": 0.2,
     "cache_write": 4,
-    "intelligence_index_cost_per_task": null
+    "intelligence_index_cost_per_task": 7.186577262951972
   },
   {
     "slug": "k2-horizon-375b-a23b",
     "model": "K2 Horizon 375B A23B",
-    "intelligence_index": 17.7702731734027,
+    "intelligence_index": 17.8202731734027,
     "deprecated": false,
     "released": "2026-09-03",
     "context_window": 524288,
@@ -886,7 +886,7 @@
   {
     "slug": "claude-sonnet-5-5-low",
     "model": "Claude Sonnet 5.5 (Low, Default Fallback)",
-    "intelligence_index": 25.299704549789,
+    "intelligence_index": 25.649704549789,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -912,7 +912,7 @@
   {
     "slug": "deepseek-v4-1-flash-1017-high",
     "model": "DeepSeek V4.1 Flash 1017 (High)",
-    "intelligence_index": 28.5437391540402,
+    "intelligence_index": 28.6437391540402,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -920,12 +920,12 @@
     "price_output": 1.2,
     "cache_read": 0.006,
     "cache_write": null,
-    "intelligence_index_cost_per_task": null
+    "intelligence_index_cost_per_task": 0.45619449806633267
   },
   {
     "slug": "gpt-6-1-terra-medium",
     "model": "GPT-6.1 Terra (Medium)",
-    "intelligence_index": 38.1152076677975,
+    "intelligence_index": 38.1652076677975,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -938,7 +938,7 @@
   {
     "slug": "gpt-6-1-terra-low",
     "model": "GPT-6.1 Terra (Low)",
-    "intelligence_index": 29.2169280792131,
+    "intelligence_index": 29.4169280792131,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -951,7 +951,7 @@
   {
     "slug": "glm-5-3-low",
     "model": "GLM-5.3 (Low)",
-    "intelligence_index": 23.0579373025379,
+    "intelligence_index": 23.1079373025379,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -990,7 +990,7 @@
   {
     "slug": "minimax-m3-1-flash",
     "model": "MiniMax-M3.1-Flash",
-    "intelligence_index": 28.9095214290458,
+    "intelligence_index": 29.0595214290458,
     "deprecated": false,
     "released": "2026-10-19",
     "context_window": 1000000,
@@ -1003,7 +1003,7 @@
   {
     "slug": "claude-opus-5-5-xhigh",
     "model": "Claude Opus 5.5 (Xhigh, Default Fallback)",
-    "intelligence_index": 56.9947060170507,
+    "intelligence_index": 57.4447060170507,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1042,7 +1042,7 @@
   {
     "slug": "gpt-6-1-sol-low",
     "model": "GPT-6.1 Sol (Low)",
-    "intelligence_index": 34.502924431456,
+    "intelligence_index": 34.8029244314559,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1055,7 +1055,7 @@
   {
     "slug": "gpt-6-1-terra-xhigh",
     "model": "GPT-6.1 Terra (Xhigh)",
-    "intelligence_index": 44.950051789066,
+    "intelligence_index": 45.250051789066,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1068,7 +1068,7 @@
   {
     "slug": "gpt-6-astra-medium",
     "model": "GPT-6 Astra (Medium)",
-    "intelligence_index": 51.4548393864113,
+    "intelligence_index": 51.5548393864113,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1081,7 +1081,7 @@
   {
     "slug": "muse-wonder-full",
     "model": "Muse Wonder Full (Max)",
-    "intelligence_index": 49.7272123627021,
+    "intelligence_index": 50.0772123627021,
     "deprecated": false,
     "released": "2026-10-12",
     "context_window": 1000000,
@@ -1094,7 +1094,7 @@
   {
     "slug": "gpt-6-1-terra-high",
     "model": "GPT-6.1 Terra (High)",
-    "intelligence_index": 42.3344508712563,
+    "intelligence_index": 42.4344508712563,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1107,7 +1107,7 @@
   {
     "slug": "mistral-large-4",
     "model": "Mistral Large 4 (High)",
-    "intelligence_index": 26.0249946754784,
+    "intelligence_index": 26.1249946754784,
     "deprecated": false,
     "released": "2026-10-29",
     "context_window": 1000000,
@@ -1120,7 +1120,7 @@
   {
     "slug": "claude-opus-5-5-medium",
     "model": "Claude Opus 5.5 (Medium, Default Fallback)",
-    "intelligence_index": 48.0581024960691,
+    "intelligence_index": 48.2081024960691,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1133,7 +1133,7 @@
   {
     "slug": "deepseek-v4-1-flash-1017",
     "model": "DeepSeek V4.1 Flash 1017 (Max)",
-    "intelligence_index": 32.4896393532027,
+    "intelligence_index": 32.5896393532027,
     "deprecated": false,
     "released": "2026-10-17",
     "context_window": 1000000,
@@ -1146,7 +1146,7 @@
   {
     "slug": "claude-opus-5-5-high",
     "model": "Claude Opus 5.5 (High, Default Fallback)",
-    "intelligence_index": 51.6859958227294,
+    "intelligence_index": 51.8359958227294,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1159,7 +1159,7 @@
   {
     "slug": "gemini-3-8-flash-low",
     "model": "Gemini 3.8 Flash (Low)",
-    "intelligence_index": 22.348302237854,
+    "intelligence_index": 22.548302237854,
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
@@ -1172,7 +1172,7 @@
   {
     "slug": "muse-wonder",
     "model": "Muse Wonder (Max)",
-    "intelligence_index": 43.3248225998431,
+    "intelligence_index": 43.5748225998431,
     "deprecated": false,
     "released": "2026-10-12",
     "context_window": 1048576,
