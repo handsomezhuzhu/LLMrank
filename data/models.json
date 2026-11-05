@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T01:30:56Z",
+  "updated_at": "2026-11-05T01:30:53Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -124,7 +124,7 @@
       "price": {
         "currency": "USD",
         "input": 0.115,
-        "output": 4.0,
+        "output": 4.6,
         "cache_read": 0.11,
         "cache_write": -1
       },
@@ -325,9 +325,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.08,
-        "output": 3.6,
-        "cache_read": 0.076,
+        "input": 0.0699,
+        "output": 1.4,
+        "cache_read": 0.0689,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -356,8 +356,8 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0313,
-        "output": 0.0846,
+        "input": 0.15,
+        "output": 0.5,
         "cache_read": 0.03,
         "cache_write": -1
       },
@@ -827,9 +827,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.077,
-        "output": 0.232,
-        "cache_read": 0.039,
+        "input": 0.036,
+        "output": 0.109,
+        "cache_read": 0.018,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -888,7 +888,7 @@
       "vendor": "Mistral",
       "region": "EU",
       "arena": 1420.7694872452512,
-      "ai_index": 14.1889227802691,
+      "ai_index": 4.64508756526957,
       "multi": 85,
       "eco": 60,
       "ctx": 262144,
@@ -903,14 +903,12 @@
       "openrouter_id": "mistralai/mistral-medium-3-5",
       "url": "https://mistral.ai/news/",
       "released": "2026-04-29",
-      "aa_cost_per_task_usd": 0.5020382394983653,
+      "aa_cost_per_task_usd": 1.0390849688366068,
       "note": "雙榜收錄 · release 2026-04-29 · OR modalities text,image,file; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "mistral-medium-3-5",
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "file",
         "image",
@@ -1041,7 +1039,7 @@
       "auto_price": true,
       "slug": "gemini-4-argon",
       "released": "2026-09-30",
-      "aa_cost_per_task_usd": 7.682671372515551,
+      "aa_cost_per_task_usd": 9.946608711550533,
       "board_missing": [],
       "status": "verified",
       "modalities": [
