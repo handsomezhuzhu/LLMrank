@@ -156,6 +156,19 @@
     "intelligence_index_cost_per_task": 0.10409320921120957
   },
   {
+    "slug": "north-mini-code",
+    "model": "North Mini Code",
+    "intelligence_index": 3.42470262148493,
+    "deprecated": false,
+    "released": "2026-06-09",
+    "context_window": 256000,
+    "price_input": 0,
+    "price_output": 0,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0
+  },
+  {
     "slug": "gpt-6-astra-xhigh",
     "model": "GPT-6 Astra (Xhigh)",
     "intelligence_index": 55.3057468569681,
@@ -257,7 +270,7 @@
     "price_output": 2.1,
     "cache_read": 0.07,
     "cache_write": 0.7,
-    "intelligence_index_cost_per_task": 1.4119376739255958
+    "intelligence_index_cost_per_task": 1.4120973060945472
   },
   {
     "slug": "nemotron-3-5-lightning",
@@ -349,6 +362,19 @@
     "cache_read": 0.01,
     "cache_write": 0.125,
     "intelligence_index_cost_per_task": 0.042201836106537785
+  },
+  {
+    "slug": "muse-wonder-high",
+    "model": "Muse Wonder (High)",
+    "intelligence_index": 40.5266079185604,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1048576,
+    "price_input": 4,
+    "price_output": 20,
+    "cache_read": 0.2,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 4.560546278670271
   },
   {
     "slug": "claude-fable-5-1-medium",
@@ -962,6 +988,19 @@
     "intelligence_index_cost_per_task": 1.5749301149593384
   },
   {
+    "slug": "gemma-4-31b",
+    "model": "Gemma 4 31B (Reasoning)",
+    "intelligence_index": 4.38438284215374,
+    "deprecated": false,
+    "released": "2026-04-02",
+    "context_window": 256000,
+    "price_input": 0,
+    "price_output": 0,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "glm-5-3",
     "model": "GLM-5.3 (Max)",
     "intelligence_index": 31.653381843882,
@@ -973,6 +1012,19 @@
     "cache_read": 0.26,
     "cache_write": null,
     "intelligence_index_cost_per_task": 5.009264601719954
+  },
+  {
+    "slug": "tencent-hy4",
+    "model": "Tencent Hy4",
+    "intelligence_index": 34.5552385392508,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1048576,
+    "price_input": 0.834,
+    "price_output": 2.501,
+    "cache_read": 0.042,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 1.0311060706397974
   },
   {
     "slug": "gemini-4-argon",
@@ -1066,6 +1118,19 @@
     "intelligence_index_cost_per_task": 0.5382257339551116
   },
   {
+    "slug": "inkling-2-small",
+    "model": "Inkling 2 Small",
+    "intelligence_index": 30.6286781498958,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1024000,
+    "price_input": 0.3,
+    "price_output": 1,
+    "cache_read": 0.03,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 1.1784281349617984
+  },
+  {
     "slug": "gpt-6-1-sol-low",
     "model": "GPT-6.1 Sol (Low)",
     "intelligence_index": 34.8029244314559,
@@ -1141,7 +1206,7 @@
     "price_output": 2.1,
     "cache_read": 0.07,
     "cache_write": 0.7,
-    "intelligence_index_cost_per_task": 2.061496607384404
+    "intelligence_index_cost_per_task": 2.0617306268126856
   },
   {
     "slug": "claude-opus-5-5-medium",

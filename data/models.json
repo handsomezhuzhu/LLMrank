@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T01:30:53Z",
+  "updated_at": "2026-11-06T01:30:52Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -123,9 +123,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.115,
-        "output": 4.6,
-        "cache_read": 0.11,
+        "input": 0.103,
+        "output": 4.11,
+        "cache_read": 0.098,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -786,7 +786,7 @@
       "vendor": "Google",
       "region": "US",
       "arena": 1442.9592444545483,
-      "ai_index": 14.6689500745828,
+      "ai_index": 4.38438284215374,
       "multi": 85,
       "eco": 94,
       "ctx": 262144,
@@ -805,10 +805,8 @@
       "auto_price": true,
       "slug": "gemma-4-31b",
       "aa_cost_per_task_usd": 0.0,
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "image",
         "text",
@@ -827,9 +825,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.036,
-        "output": 0.109,
-        "cache_read": 0.018,
+        "input": 0.0765,
+        "output": 0.255,
+        "cache_read": 0.0425,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -972,7 +970,7 @@
       "auto_price": true,
       "slug": "mistral-large-4",
       "released": "2026-10-29",
-      "aa_cost_per_task_usd": 2.061496607384404,
+      "aa_cost_per_task_usd": 2.0617306268126856,
       "board_missing": [],
       "status": "verified",
       "modalities": [
