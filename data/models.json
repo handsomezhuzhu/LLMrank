@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-06T01:30:52Z",
+  "updated_at": "2026-11-07T01:30:29Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -123,9 +123,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.103,
-        "output": 4.11,
-        "cache_read": 0.098,
+        "input": 0.1165,
+        "output": 4.66,
+        "cache_read": 0.111,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -658,8 +658,8 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.045,
-        "output": 0.5,
+        "input": 0.051,
+        "output": 0.567,
         "cache_read": 0.018,
         "cache_write": -1
       },
@@ -825,9 +825,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0765,
-        "output": 0.255,
-        "cache_read": 0.0425,
+        "input": 0.0675,
+        "output": 0.225,
+        "cache_read": 0.0375,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1362,7 +1362,7 @@
       "auto_price": true,
       "slug": "nemotron-3-5-super-vl",
       "released": "2026-10-15",
-      "aa_cost_per_task_usd": 0.5382257339551116,
+      "aa_cost_per_task_usd": 0.5196327287868884,
       "board_missing": [],
       "status": "verified",
       "modalities": [

@@ -130,6 +130,19 @@
     "intelligence_index_cost_per_task": 0.12852987084014672
   },
   {
+    "slug": "k-exaone-2-0-0803",
+    "model": "K-EXAONE 2.0",
+    "intelligence_index": 7.56357436827474,
+    "deprecated": false,
+    "released": "2026-08-12",
+    "context_window": 262144,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "glm-5-3-flash",
     "model": "GLM-5.3-Flash",
     "intelligence_index": 27.803889160883,
@@ -1111,11 +1124,11 @@
     "deprecated": false,
     "released": "2026-10-15",
     "context_window": 1000000,
-    "price_input": 0.2,
+    "price_input": 0.175,
     "price_output": 0.5,
     "cache_read": 0.05,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.5382257339551116
+    "intelligence_index_cost_per_task": 0.5196327287868884
   },
   {
     "slug": "inkling-2-small",
