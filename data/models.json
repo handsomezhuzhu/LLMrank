@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-10T08:13:15Z",
+  "updated_at": "2026-11-10T08:16:46Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -122,7 +122,7 @@
       "ai_index": 23.0632981493003,
       "multi": 50,
       "eco": 45,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.111,
@@ -291,7 +291,7 @@
       "ai_index": 30.8468119957291,
       "multi": 100,
       "eco": 50,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.825,
@@ -326,7 +326,7 @@
       "ai_index": 31.653381843882,
       "multi": 50,
       "eco": 50,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.0699,
@@ -357,7 +357,7 @@
       "ai_index": 27.803889160883,
       "multi": 85,
       "eco": 50,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.15,
@@ -390,7 +390,7 @@
       "ai_index": 33.6545627367888,
       "multi": 85,
       "eco": 50,
-      "ctx": 1000000,
+      "ctx": 983616,
       "price": {
         "currency": "USD",
         "input": 2.0,
@@ -424,7 +424,7 @@
       "ai_index": 56.8538559596797,
       "multi": 85,
       "eco": 60,
-      "ctx": 1050000,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 10.0,
@@ -492,13 +492,13 @@
       "ai_index": 18.8789083859255,
       "multi": 85,
       "eco": 80,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.3,
         "output": 1.2,
         "cache_read": 0.06,
-        "cache_write": -1
+        "cache_write": 0.375
       },
       "price_source": "openrouter",
       "openrouter_id": "minimax/minimax-m3",
@@ -525,7 +525,7 @@
       "ai_index": 27.8552004938153,
       "multi": 85,
       "eco": 96,
-      "ctx": 1050000,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.1,
@@ -591,7 +591,7 @@
       "ai_index": 29.8897833093321,
       "multi": 95,
       "eco": 12,
-      "ctx": 1050000,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.435,
@@ -625,7 +625,7 @@
       "ai_index": 26.7276981444568,
       "multi": 95,
       "eco": 12,
-      "ctx": 1050000,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.14,
@@ -659,7 +659,7 @@
       "ai_index": 32.5896393532027,
       "multi": 70,
       "eco": 45,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.006,
@@ -691,7 +691,7 @@
       "ai_index": 11.6563462044212,
       "multi": 100,
       "eco": 94,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.3,
@@ -760,7 +760,7 @@
       "ai_index": 20.1068756031705,
       "multi": 85,
       "eco": 72,
-      "ctx": 1048575,
+      "ctx": 256000,
       "price": {
         "currency": "USD",
         "input": 0.15,
@@ -793,7 +793,7 @@
       "ai_index": 4.38438284215374,
       "multi": 85,
       "eco": 94,
-      "ctx": 262144,
+      "ctx": 256000,
       "price": {
         "currency": "USD",
         "input": 0.2,
@@ -893,12 +893,12 @@
       "ai_index": 4.64508756526957,
       "multi": 85,
       "eco": 60,
-      "ctx": 262144,
+      "ctx": 256000,
       "price": {
         "currency": "USD",
         "input": 1.5,
         "output": 7.5,
-        "cache_read": -1,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -959,13 +959,13 @@
       "ai_index": 26.1249946754784,
       "multi": 70,
       "eco": 60,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.7,
         "output": 2.1,
         "cache_read": 0.07,
-        "cache_write": -1
+        "cache_write": 0.7
       },
       "price_source": "openrouter",
       "openrouter_id": "mistralai/mistral-large-4-0",
@@ -1026,7 +1026,7 @@
       "ai_index": 50.4121935905389,
       "multi": 100,
       "eco": 100,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 2.0,
@@ -1094,7 +1094,7 @@
       "ai_index": 54.6087338138148,
       "multi": 85,
       "eco": 50,
-      "ctx": 1050000,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 2.0,
@@ -1193,7 +1193,7 @@
       "ai_index": 12.4781698715401,
       "multi": 85,
       "eco": 60,
-      "ctx": 524288,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 1.0,
@@ -1226,7 +1226,7 @@
       "ai_index": 12.9101620926084,
       "multi": 85,
       "eco": 55,
-      "ctx": 524288,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.45,
@@ -1351,7 +1351,7 @@
       "ai_index": 13.6203422723141,
       "multi": 85,
       "eco": 95,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.15,
@@ -1447,7 +1447,7 @@
       "ai_index": 5.5346663903388,
       "multi": 50,
       "eco": 95,
-      "ctx": 262144,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.07,
@@ -1478,7 +1478,7 @@
       "ai_index": 46.4526236744189,
       "multi": 85,
       "eco": 45,
-      "ctx": 1048576,
+      "ctx": 1000000,
       "price": {
         "currency": "USD",
         "input": 0.192,
@@ -1646,8 +1646,8 @@
       "name": "gpt-oss-120b",
       "vendor": "OpenAI",
       "region": "US",
-      "arena": 1365.4666,
-      "ai_index": 3.8198,
+      "arena": 1365.466613194138,
+      "ai_index": 3.81981165137417,
       "multi": 50,
       "eco": 90,
       "ctx": 131072,
@@ -1666,7 +1666,8 @@
       "slug": "gpt-oss-120b",
       "released": "2025-08-05",
       "board_missing": [],
-      "status": "verified"
+      "status": "verified",
+      "aa_cost_per_task_usd": 0.34534207651823257
     }
   ]
 }
