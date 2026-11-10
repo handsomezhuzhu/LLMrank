@@ -13,19 +13,6 @@
     "intelligence_index_cost_per_task": 0.7806560352024481
   },
   {
-    "slug": "claude-fable-5-1-low",
-    "model": "Claude Fable 5.1 (Low, Default Fallback)",
-    "intelligence_index": 38.683648810734,
-    "deprecated": false,
-    "released": null,
-    "context_window": 1000000,
-    "price_input": 10,
-    "price_output": 50,
-    "cache_read": 0.25,
-    "cache_write": 12.5,
-    "intelligence_index_cost_per_task": 4.471135894646431
-  },
-  {
     "slug": "gpt-6-1-sol-xhigh",
     "model": "GPT-6.1 Sol (Xhigh)",
     "intelligence_index": 52.458219253291,
@@ -76,6 +63,19 @@
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
+  },
+  {
+    "slug": "claude-fable-5-2-medium",
+    "model": "Claude Fable 5.2 (Medium, Default Fallback)",
+    "intelligence_index": 56.4083157101519,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 8,
+    "price_output": 40,
+    "cache_read": 0.2,
+    "cache_write": 10,
+    "intelligence_index_cost_per_task": 3.8026050641787634
   },
   {
     "slug": "gpt-6-1-terra-non-reasoning",
@@ -294,9 +294,9 @@
     "context_window": 1000000,
     "price_input": 0.06,
     "price_output": 0.2,
-    "cache_read": 0.035,
+    "cache_read": 0.04,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.28980699398265014
+    "intelligence_index_cost_per_task": 0.31445225066768195
   },
   {
     "slug": "command-a-plus",
@@ -390,19 +390,6 @@
     "intelligence_index_cost_per_task": 4.560546278670271
   },
   {
-    "slug": "claude-fable-5-1-medium",
-    "model": "Claude Fable 5.1 (Medium, Default Fallback)",
-    "intelligence_index": 43.171597828284,
-    "deprecated": false,
-    "released": null,
-    "context_window": 1000000,
-    "price_input": 10,
-    "price_output": 50,
-    "cache_read": 0.25,
-    "cache_write": 12.5,
-    "intelligence_index_cost_per_task": 5.564264690221474
-  },
-  {
     "slug": "gpt-6-1-sol-high",
     "model": "GPT-6.1 Sol (High)",
     "intelligence_index": 50.3291231936536,
@@ -414,19 +401,6 @@
     "cache_read": 0.1,
     "cache_write": 2.5,
     "intelligence_index_cost_per_task": 0.5909853515780825
-  },
-  {
-    "slug": "claude-fable-5-1",
-    "model": "Claude Fable 5.1 (Max, Default Fallback)",
-    "intelligence_index": 49.1602124158081,
-    "deprecated": false,
-    "released": "2026-09-01",
-    "context_window": 1000000,
-    "price_input": 10,
-    "price_output": 50,
-    "cache_read": 0.25,
-    "cache_write": 12.5,
-    "intelligence_index_cost_per_task": 12.993997201178466
   },
   {
     "slug": "mistral-small-4",
@@ -530,7 +504,20 @@
     "price_output": 1.2,
     "cache_read": 0.04,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.16096168039127723
+    "intelligence_index_cost_per_task": 0.16950439773904172
+  },
+  {
+    "slug": "claude-fable-5-2",
+    "model": "Claude Fable 5.2 (Max, Default Fallback)",
+    "intelligence_index": 64.563595756626,
+    "deprecated": false,
+    "released": "2026-11-09",
+    "context_window": 1000000,
+    "price_input": 8,
+    "price_output": 40,
+    "cache_read": 0.2,
+    "cache_write": 10,
+    "intelligence_index_cost_per_task": 26.53855780398091
   },
   {
     "slug": "grok-4-7",
@@ -650,6 +637,32 @@
     "intelligence_index_cost_per_task": 6.258586089480771
   },
   {
+    "slug": "claude-fable-5-2-xhigh",
+    "model": "Claude Fable 5.2 (Xhigh, Default Fallback)",
+    "intelligence_index": 62.2167392403357,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 8,
+    "price_output": 40,
+    "cache_read": 0.2,
+    "cache_write": 10,
+    "intelligence_index_cost_per_task": 14.828587632511116
+  },
+  {
+    "slug": "muse-ember-xhigh",
+    "model": "Muse Ember (Xhigh)",
+    "intelligence_index": 34.1149608609788,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1048576,
+    "price_input": 0.1,
+    "price_output": 0.5,
+    "cache_read": 0.004,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.1162277983030469
+  },
+  {
     "slug": "claude-haiku-5-5",
     "model": "Claude Haiku 5.5 (Max)",
     "intelligence_index": 36.4845435880142,
@@ -739,32 +752,6 @@
     "cache_read": 0.1,
     "cache_write": 2.5,
     "intelligence_index_cost_per_task": 4.091984916321919
-  },
-  {
-    "slug": "claude-fable-5-1-xhigh",
-    "model": "Claude Fable 5.1 (Xhigh, Default Fallback)",
-    "intelligence_index": 50.0216384248632,
-    "deprecated": false,
-    "released": null,
-    "context_window": 1000000,
-    "price_input": 10,
-    "price_output": 50,
-    "cache_read": 0.25,
-    "cache_write": 12.5,
-    "intelligence_index_cost_per_task": 10.847474706140272
-  },
-  {
-    "slug": "claude-fable-5-1-high",
-    "model": "Claude Fable 5.1 (High, Default Fallback)",
-    "intelligence_index": 47.174988245604,
-    "deprecated": false,
-    "released": null,
-    "context_window": 1000000,
-    "price_input": 10,
-    "price_output": 50,
-    "cache_read": 0.25,
-    "cache_write": 12.5,
-    "intelligence_index_cost_per_task": 7.539956160226559
   },
   {
     "slug": "nvidia-nemotron-3-nano-4b",
@@ -1027,6 +1014,19 @@
     "intelligence_index_cost_per_task": 5.009264601719954
   },
   {
+    "slug": "claude-fable-5-2-low",
+    "model": "Claude Fable 5.2 (Low, Default Fallback)",
+    "intelligence_index": 53.9249388799182,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 8,
+    "price_output": 40,
+    "cache_read": 0.2,
+    "cache_write": 10,
+    "intelligence_index_cost_per_task": 3.097241904274546
+  },
+  {
     "slug": "tencent-hy4",
     "model": "Tencent Hy4",
     "intelligence_index": 34.5552385392508,
@@ -1066,6 +1066,19 @@
     "intelligence_index_cost_per_task": 0.49097067348453205
   },
   {
+    "slug": "agnes-2-5-pro-theta",
+    "model": "Agnes 2.5 Pro Theta",
+    "intelligence_index": 24.029012523359,
+    "deprecated": false,
+    "released": "2026-11-07",
+    "context_window": 1000000,
+    "price_input": 0.1,
+    "price_output": 0.3,
+    "cache_read": 0.01,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.5746675567739363
+  },
+  {
     "slug": "deepseek-v4-pro-non-reasoning",
     "model": "DeepSeek V4 Pro 0813 (Non-reasoning)",
     "intelligence_index": 12.5675939779921,
@@ -1077,6 +1090,19 @@
     "cache_read": 0.044,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.9769879356486032
+  },
+  {
+    "slug": "muse-ember",
+    "model": "Muse Ember (Max)",
+    "intelligence_index": 36.0212987864912,
+    "deprecated": false,
+    "released": "2026-11-09",
+    "context_window": 1048576,
+    "price_input": 0.1,
+    "price_output": 0.5,
+    "cache_read": 0.004,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.1359356168986363
   },
   {
     "slug": "mistral-medium-3-5",
@@ -1235,6 +1261,19 @@
     "intelligence_index_cost_per_task": 2.4510894376611723
   },
   {
+    "slug": "gpt-oss-120b",
+    "model": "gpt-oss-120b (High)",
+    "intelligence_index": 3.81981165137417,
+    "deprecated": false,
+    "released": "2025-08-05",
+    "context_window": 131072,
+    "price_input": 0.15,
+    "price_output": 0.6,
+    "cache_read": 0.1,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.34534207651823257
+  },
+  {
     "slug": "deepseek-v4-1-flash-1017",
     "model": "DeepSeek V4.1 Flash 1017 (Max)",
     "intelligence_index": 32.5896393532027,
@@ -1272,6 +1311,19 @@
     "cache_read": 0.075,
     "cache_write": 0.75,
     "intelligence_index_cost_per_task": null
+  },
+  {
+    "slug": "claude-fable-5-2-high",
+    "model": "Claude Fable 5.2 (High, Default Fallback)",
+    "intelligence_index": 61.8218785440284,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 8,
+    "price_output": 40,
+    "cache_read": 0.2,
+    "cache_write": 10,
+    "intelligence_index_cost_per_task": 9.078414777860381
   },
   {
     "slug": "muse-wonder",
