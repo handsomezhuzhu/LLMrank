@@ -1035,11 +1035,11 @@
                 <button type="button" :class="{active: region==='US'}" @click="region='US'">US</button>
                 <button type="button" :class="{active: region==='CN'}" @click="region='CN'">CN</button>
             </div>
-            <label class="toggle" :class="{on: showStale}"
-                   :title="showStale ? 'Hide rows whose scores are carried over' : 'Show archived rows whose scores are carried over'">
+            <label class="toggle" :class="{on: !showStale}"
+                   :title="showStale ? 'Hide rows whose scores are carried over' : 'Show rows whose scores are carried over'">
                 <input type="checkbox" v-model="showStale">
                 <span class="toggle-track"><span class="toggle-knob"></span></span>
-                <span class="toggle-label">Show stale <b v-if="staleCount">{{ staleCount }}</b></span>
+                <span class="toggle-label">Hide stale <b v-if="staleCount">{{ staleCount }}</b></span>
             </label>
             <div class="meta-line" v-if="ready">
                 {{ filtered.length }} / {{ ranked.length }} models
@@ -1312,8 +1312,8 @@
                         <p>No longer listed on one or both boards, or no comparable neighbour existed to impute
                             from. Its previous values are kept so it does not silently disappear, but the total is
                             struck through and the row is dimmed. Treat it as an archived entry, not a current
-                            ranking. <strong>Hidden by default</strong> — enable “Show stale” above the table to
-                            list them.</p>
+                            ranking. Shown by default; use “Hide stale” above the table to filter them
+                            out.</p>
                     </div>
                 </article>
             </div>
@@ -1413,8 +1413,8 @@ createApp({
         const updatedAt = ref('')
         const q = ref('')
         const region = ref('all')
-        // Archived rows (scores carried over from earlier runs) are hidden by default.
-        const showStale = ref(false)
+        // Carried-over rows are shown by default; the toggle filters them out.
+        const showStale = ref(true)
         const theme = ref((document.documentElement.getAttribute('data-theme') === 'light') ? 'light' : 'dark')
         const toggleTheme = () => {
             theme.value = theme.value === 'dark' ? 'light' : 'dark'
