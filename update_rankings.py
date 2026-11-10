@@ -394,6 +394,18 @@ ARENA_HF_LATEST_URL = (
     "resolve/main/text/latest-00000-of-00001.parquet"
 )
 
+# Full history of every Arena snapshot, used only to carry forward a rating for a
+# model that has dropped off the latest board.
+ARENA_HF_FULL_URL = (
+    "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/"
+    "resolve/main/text/full-00000-of-00001.parquet"
+)
+
+# A carried-forward Arena rating is only trustworthy for so long: Arena's scale
+# drifts as the vote pool changes, so an old snapshot is not comparable with the
+# current board. Beyond this many days the rating is treated as expired.
+ARENA_STALE_DAYS = 90
+
 
 def _fetch_arena_from_hf() -> list[dict] | None:
     """Arena's site sits behind a Cloudflare bot wall that refuses every automated
@@ -435,6 +447,57 @@ def _fetch_arena_from_hf() -> list[dict] | None:
         if dates:
             print(f"  Arena HF snapshot dated {max(dates)}")
     return rows or None
+
+
+def fetch_arena_history() -> dict[str, dict]:
+    """Last rating Arena published for each model, from the full HF history.
+
+    Returns {arena model name: {"rating": float, "publish_date": date}}.
+    The full snapshot is ~60 MB, so it is fetched once per run and only queried
+    for models that are missing from the latest board.
+    """
+    import io
+    from datetime import date as _date
+
+    req = urllib.request.Request(
+        ARENA_HF_FULL_URL,
+        headers={"User-Agent": "LLMrank/1.0 (+https://rank.zhuzihan.com)"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=300) as response:
+            blob = response.read()
+        if len(blob) < 1024:
+            raise RuntimeError(f"HF parquet too small: {len(blob)} bytes")
+        import pyarrow.parquet as pq
+
+        table = pq.read_table(io.BytesIO(blob))
+    except Exception as e:
+        print(f"  Arena history unavailable — cannot carry forward dropped models: {e}")
+        return {}
+
+    best: dict[str, dict] = {}
+    for r in table.to_pylist():
+        if r.get("category") != "overall":
+            continue
+        name = r.get("model_name")
+        rating = r.get("rating")
+        raw_date = r.get("leaderboard_publish_date")
+        if not name or rating is None or raw_date is None:
+            continue
+        if isinstance(raw_date, _date):
+            day = raw_date
+        else:
+            try:
+                day = _date.fromisoformat(str(raw_date)[:10])
+            except ValueError:
+                continue
+        prev = best.get(name)
+        if prev is None or day > prev["publish_date"]:
+            best[name] = {"rating": float(rating), "publish_date": day}
+    if best:
+        newest = max(v["publish_date"] for v in best.values())
+        print(f"  Arena history loaded: {len(best)} models, newest snapshot {newest}")
+    return best
 
 
 def fetch_arena_leaderboard() -> list[dict] | None:
@@ -711,7 +774,18 @@ def save_doc(doc: dict) -> None:
         f.write("\n")
 
 
-def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[str]:
+def update_leaderboard_fields(
+    models: list[dict], arena_data, aa_data, arena_history: dict | None = None
+) -> list[str]:
+    """Refresh Arena ratings and AI Index values from the live boards.
+
+    A model missing from the latest Arena board keeps its rating only if the
+    full history still has one; the date it was last published is recorded so
+    the row can say how old it is. Nothing is invented when the history has no
+    record either.
+    """
+    from datetime import date as _date
+
     arena_map = {}
     for row in arena_data:
         if not isinstance(row, dict):
@@ -745,6 +819,23 @@ def update_leaderboard_fields(models: list[dict], arena_data, aa_data) -> list[s
             if old is None or abs(new_rating - float(old)) > 0.01:
                 changes.append(f"  {name}: Arena {old} -> {new_rating:.2f}")
             m["arena"] = new_rating
+            m["arena_publish_date"] = str(arena_row.get("publish_date") or "")[:10] or None
+            m.pop("arena_carried_over", None)
+        elif arena_history and arena_key in arena_history:
+            # Dropped from the latest board: fall back to the last rating Arena
+            # actually published for this model.
+            rec = arena_history[arena_key]
+            days = (_date.today() - rec["publish_date"]).days
+            old = m.get("arena")
+            if old is None or abs(rec["rating"] - float(old)) > 0.01:
+                changes.append(
+                    f"  {name}: Arena {old} -> {rec['rating']:.2f} "
+                    f"(last published {rec['publish_date']}, {days}d ago)"
+                )
+            m["arena"] = rec["rating"]
+            m["arena_publish_date"] = str(rec["publish_date"])
+            m["arena_carried_over"] = True
+            m["arena_age_days"] = days
         # Absent from a fresh board: keep the last known rating untouched.
         entry = aa_map.get(aa_slug) if aa_slug else None
         new_ii = None
@@ -933,20 +1024,40 @@ def impute_missing_scores(models: list[dict], band: float) -> None:
         m["ai_index_neighbours"] = len(near)
 
 
+def arena_expired(m: dict, max_age_days: int = ARENA_STALE_DAYS) -> bool:
+    """True when this row's Arena rating came from history and is older than the
+    freshness window, so it should not be compared with the current board."""
+    if not m.get("arena_carried_over"):
+        return False
+    age = m.get("arena_age_days")
+    if age is None:
+        return False
+    return age > max_age_days
+
+
 def model_status(m: dict) -> str:
     """How much of this row is actually measured.
 
     verified  — Arena and AI Index both observed on their boards
-    estimated — at least one value imputed from comparable models
-    stale     — a board no longer lists it; values carried over from earlier runs
+    estimated — at least one value imputed from comparable models, or an Arena
+                rating carried forward from history that is still fresh
+    stale     — a board no longer lists it, or the carried-forward Arena rating
+                is older than ARENA_STALE_DAYS; values carried over from earlier runs
     """
     if m.get("ai_index_imputed"):
         return "estimated"
     has_arena = m.get("arena") is not None
     has_ai = m.get("ai_index") is not None
-    if has_arena and has_ai and not m.get("board_missing"):
-        return "verified"
-    return "stale"
+    if not (has_arena and has_ai):
+        return "stale"
+    if arena_expired(m):
+        return "stale"
+    if m.get("arena_carried_over"):
+        # Rating from an older snapshot but still inside the window: usable, not measured today.
+        return "estimated"
+    if m.get("board_missing"):
+        return "stale"
+    return "verified"
 
 
 def recalculate_scores(models: list[dict]) -> list[dict]:
@@ -997,6 +1108,9 @@ def recalculate_scores(models: list[dict]) -> list[dict]:
             "status": model_status(m),
             "ai_imputed": bool(m.get("ai_index_imputed")),
             "ai_neighbours": m.get("ai_index_neighbours"),
+            "arena_carried_over": bool(m.get("arena_carried_over")),
+            "arena_publish_date": m.get("arena_publish_date"),
+            "arena_age_days": m.get("arena_age_days"),
         }
         scored.append(row)
     scored.sort(key=lambda x: x["total"], reverse=True)
@@ -1128,7 +1242,22 @@ def main():
         print("  Skipping Arena field writes (fetch not fresh)")
     if not aa_fresh:
         print("  Skipping AI Index field writes (no trusted remote refresh)")
-    changes = update_leaderboard_fields(models, apply_arena, apply_aa)
+    # Only pull the 60 MB history when a listed model has actually dropped off the
+    # latest board — otherwise there is nothing to carry forward.
+    arena_history: dict = {}
+    if arena_fresh:
+        live_names = {row.get("model") or row.get("name") for row in apply_arena}
+        dropped = []
+        for model in models:
+            mapping = MODEL_MAPPING.get(model.get("name"))
+            key = mapping[0] if mapping else None
+            if key and key not in live_names:
+                dropped.append(model.get("name"))
+        if dropped:
+            print(f"  {len(dropped)} model(s) missing from latest Arena board — "
+                  f"checking history for their last published rating")
+            arena_history = fetch_arena_history()
+    changes = update_leaderboard_fields(models, apply_arena, apply_aa, arena_history)
     live_arena_keys = set()
     live_aa_slugs = set()
     if arena_fresh:
