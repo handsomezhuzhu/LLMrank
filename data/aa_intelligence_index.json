@@ -13,6 +13,19 @@
     "intelligence_index_cost_per_task": 0.7806560352024481
   },
   {
+    "slug": "apodex-1-1",
+    "model": "Apodex 1.1",
+    "intelligence_index": 13.6712884627289,
+    "deprecated": false,
+    "released": "2026-08-30",
+    "context_window": 256000,
+    "price_input": 0.3,
+    "price_output": 3,
+    "cache_read": 0.03,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.764236100822604
+  },
+  {
     "slug": "gpt-6-1-sol-xhigh",
     "model": "GPT-6.1 Sol (Xhigh)",
     "intelligence_index": 52.458219253291,
