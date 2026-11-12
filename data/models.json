@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-11T01:30:41Z",
+  "updated_at": "2026-11-12T01:31:15Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -681,9 +681,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.051,
-        "output": 0.567,
-        "cache_read": 0.018,
+        "input": 0.022,
+        "output": 0.4,
+        "cache_read": 0.004,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -882,7 +882,7 @@
       "vendor": "Upstage",
       "region": "KR",
       "arena": 1388.1968381331894,
-      "ai_index": 26.5600314812231,
+      "ai_index": 14.1589437644357,
       "multi": 50,
       "eco": 55,
       "ctx": 524288,
@@ -900,11 +900,9 @@
       "note": "雙榜收錄 · release 2026-08-06 · OR modalities text; multi/eco are coarse estimates",
       "auto_price": true,
       "slug": "solar-pro4",
-      "aa_cost_per_task_usd": 0.7113065897513132,
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "aa_cost_per_task_usd": 0.9557366659448332,
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "text"
       ],

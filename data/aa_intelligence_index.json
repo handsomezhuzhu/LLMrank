@@ -143,6 +143,19 @@
     "intelligence_index_cost_per_task": 0.12852987084014672
   },
   {
+    "slug": "solar-pro4",
+    "model": "Solar Pro 4",
+    "intelligence_index": 14.1589437644357,
+    "deprecated": false,
+    "released": null,
+    "context_window": 512000,
+    "price_input": 0.3,
+    "price_output": 1.2,
+    "cache_read": 0.06,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.9557366659448332
+  },
+  {
     "slug": "k-exaone-2-0-0803",
     "model": "K-EXAONE 2.0",
     "intelligence_index": 7.56357436827474,
@@ -767,6 +780,19 @@
     "intelligence_index_cost_per_task": 4.091984916321919
   },
   {
+    "slug": "qwen3-8-flash-next",
+    "model": "Qwen3.8-Flash-Next",
+    "intelligence_index": 28.5750026655353,
+    "deprecated": false,
+    "released": "2026-08-26",
+    "context_window": 256000,
+    "price_input": 0.15,
+    "price_output": 0.47,
+    "cache_read": 0.016,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.5693810918846318
+  },
+  {
     "slug": "nvidia-nemotron-3-nano-4b",
     "model": "NVIDIA Nemotron 3 Nano 4B",
     "intelligence_index": 1.81584603785463,
@@ -895,6 +921,19 @@
     "cache_read": 0.1,
     "cache_write": 2.5,
     "intelligence_index_cost_per_task": 1.2720632679446995
+  },
+  {
+    "slug": "jt-4-1-flash-236b-a21b",
+    "model": "JT-4.1 Flash 236B A21B",
+    "intelligence_index": 18.952876906667,
+    "deprecated": false,
+    "released": "2026-11-11",
+    "context_window": 262144,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "gemini-4-carbon-low",

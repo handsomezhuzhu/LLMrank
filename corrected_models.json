@@ -312,6 +312,32 @@
     "total": 71.8
   },
   {
+    "name": "DeepSeek V4.1 Flash",
+    "vendor": "DeepSeek",
+    "r": "CN",
+    "arena": 1463.390381391253,
+    "ai_index": 32.5896393532027,
+    "eco": 45,
+    "po": 0.4,
+    "price_input": 0.022,
+    "price_output": 0.4,
+    "price_cache_read": 0.004,
+    "price_cache_write": -1,
+    "price_currency": "USD",
+    "multi": 70,
+    "ctx": 1048576,
+    "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
+    "url": "https://www.deepseek.com/",
+    "openrouter_id": "deepseek/deepseek-v4.1-flash",
+    "sArena": 73,
+    "sAI": 60.3,
+    "sPrice": 100,
+    "sMulti": 70,
+    "sCtx": 61,
+    "sEco": 45,
+    "total": 71.6
+  },
+  {
     "name": "MiMo V2.6 Flash",
     "vendor": "Xiaomi",
     "r": "CN",
@@ -387,32 +413,6 @@
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 50,
-    "total": 69.5
-  },
-  {
-    "name": "DeepSeek V4.1 Flash",
-    "vendor": "DeepSeek",
-    "r": "CN",
-    "arena": 1463.390381391253,
-    "ai_index": 32.5896393532027,
-    "eco": 45,
-    "po": 0.567,
-    "price_input": 0.051,
-    "price_output": 0.567,
-    "price_cache_read": 0.018,
-    "price_cache_write": -1,
-    "price_currency": "USD",
-    "multi": 70,
-    "ctx": 1048576,
-    "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
-    "url": "https://www.deepseek.com/",
-    "openrouter_id": "deepseek/deepseek-v4.1-flash",
-    "sArena": 73,
-    "sAI": 60.3,
-    "sPrice": 86,
-    "sMulti": 70,
-    "sCtx": 61,
-    "sEco": 45,
     "total": 69.5
   },
   {
@@ -590,12 +590,12 @@
     "url": "https://qwen.ai/",
     "openrouter_id": "qwen/qwen3.7-plus",
     "sArena": 69,
-    "sAI": 41.5,
+    "sAI": 42.3,
     "sPrice": 66,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 72,
-    "total": 59.6
+    "total": 59.9
   },
   {
     "name": "GPT-6 Luna",
@@ -642,12 +642,12 @@
     "url": "https://ai.google.dev/gemma",
     "openrouter_id": "google/gemma-4-26b-a4b-it",
     "sArena": 52,
-    "sAI": 26.6,
+    "sAI": 27.3,
     "sPrice": 100,
     "sMulti": 85,
     "sCtx": 45,
     "sEco": 94,
-    "total": 55.8
+    "total": 56.0
   },
   {
     "name": "Hy3",
@@ -668,12 +668,12 @@
     "url": "https://huggingface.co/tencent/Hy3",
     "openrouter_id": "tencent/hy3",
     "sArena": 57,
-    "sAI": 42.4,
+    "sAI": 43.1,
     "sPrice": 86,
     "sMulti": 50,
     "sCtx": 45,
     "sEco": 55,
-    "total": 54.7
+    "total": 54.9
   },
   {
     "name": "Grok 4.7",
@@ -720,12 +720,12 @@
     "url": "https://platform.moonshot.cn/docs/intro",
     "openrouter_id": "moonshotai/kimi-k2.5",
     "sArena": 62,
-    "sAI": 43.3,
+    "sAI": 44.0,
     "sPrice": 51,
     "sMulti": 70,
     "sCtx": 45,
     "sEco": 38,
-    "total": 54.2
+    "total": 54.4
   },
   {
     "name": "Qwen3.8 27B",
@@ -746,12 +746,12 @@
     "url": "https://qwen.ai/",
     "openrouter_id": "qwen/qwen3.8-27b",
     "sArena": 54,
-    "sAI": 33.2,
+    "sAI": 33.9,
     "sPrice": 60,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 72,
-    "total": 54.0
+    "total": 54.2
   },
   {
     "name": "DeepSeek V4 Pro 0813",
@@ -772,12 +772,12 @@
     "url": "https://api-docs.deepseek.com/",
     "openrouter_id": "deepseek/deepseek-v4-pro-0813",
     "sArena": 68,
-    "sAI": 38.6,
+    "sAI": 39.3,
     "sPrice": 49,
     "sMulti": 50,
     "sCtx": 61,
     "sEco": 45,
-    "total": 52.9
+    "total": 53.1
   },
   {
     "name": "MiniMax M3",
@@ -798,12 +798,12 @@
     "url": "https://www.minimaxi.com",
     "openrouter_id": "minimax/minimax-m3",
     "sArena": 50,
-    "sAI": 30.5,
+    "sAI": 31.2,
     "sPrice": 66,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 80,
-    "total": 52.9
+    "total": 53.1
   },
   {
     "name": "GPT-5.5 Instant",
@@ -824,12 +824,12 @@
     "url": "https://platform.openai.com/docs/models",
     "openrouter_id": "openai/gpt-5.5",
     "sArena": 46,
-    "sAI": 44.6,
+    "sAI": 45.3,
     "sPrice": 35,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 96,
-    "total": 51.3
+    "total": 51.5
   },
   {
     "name": "Mistral Large 4",
@@ -850,12 +850,38 @@
     "url": "https://mistral.ai/news/mistral-large-4/",
     "openrouter_id": "mistralai/mistral-large-4-0",
     "sArena": 42,
-    "sAI": 45.4,
+    "sAI": 46.2,
     "sPrice": 56,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 60,
-    "total": 51.2
+    "total": 51.5
+  },
+  {
+    "name": "Qwen3.5-397B",
+    "vendor": "Alibaba",
+    "r": "CN",
+    "arena": 1437.5752866772705,
+    "ai_index": 18.4204249294815,
+    "eco": 72,
+    "po": 3.6,
+    "price_input": 0.6,
+    "price_output": 3.6,
+    "price_cache_read": 0.12,
+    "price_cache_write": -1,
+    "price_currency": "USD",
+    "multi": 85,
+    "ctx": 262144,
+    "note": "",
+    "url": "https://qwenlm.github.io/blog/qwen3.5/",
+    "openrouter_id": "qwen/qwen3.5-397b-a17b",
+    "sArena": 56,
+    "sAI": 30.0,
+    "sPrice": 51,
+    "sMulti": 85,
+    "sCtx": 45,
+    "sEco": 72,
+    "total": 50.7
   },
   {
     "name": "Gemini 3.5 Flash Lite",
@@ -882,32 +908,6 @@
     "sCtx": 61,
     "sEco": 94,
     "total": 50.6
-  },
-  {
-    "name": "Qwen3.5-397B",
-    "vendor": "Alibaba",
-    "r": "CN",
-    "arena": 1437.5752866772705,
-    "ai_index": 18.4204249294815,
-    "eco": 72,
-    "po": 3.6,
-    "price_input": 0.6,
-    "price_output": 3.6,
-    "price_cache_read": 0.12,
-    "price_cache_write": -1,
-    "price_currency": "USD",
-    "multi": 85,
-    "ctx": 262144,
-    "note": "",
-    "url": "https://qwenlm.github.io/blog/qwen3.5/",
-    "openrouter_id": "qwen/qwen3.5-397b-a17b",
-    "sArena": 56,
-    "sAI": 29.2,
-    "sPrice": 51,
-    "sMulti": 85,
-    "sCtx": 45,
-    "sEco": 72,
-    "total": 50.5
   },
   {
     "name": "Nemotron 3.5 Super VL",
@@ -988,32 +988,6 @@
     "total": 49.5
   },
   {
-    "name": "Solar Pro 4",
-    "vendor": "Upstage",
-    "r": "KR",
-    "arena": 1388.1968381331894,
-    "ai_index": 26.5600314812231,
-    "eco": 55,
-    "po": 0.6,
-    "price_input": 0.15,
-    "price_output": 0.6,
-    "price_cache_read": 0.03,
-    "price_cache_write": -1,
-    "price_currency": "USD",
-    "multi": 50,
-    "ctx": 524288,
-    "note": "雙榜收錄 · release 2026-08-06 · OR modalities text; multi/eco are coarse estimates",
-    "url": "https://www.upstage.ai/",
-    "openrouter_id": "upstage/solar-pro4",
-    "sArena": 29,
-    "sAI": 46.6,
-    "sPrice": 82,
-    "sMulti": 50,
-    "sCtx": 53,
-    "sEco": 55,
-    "total": 47.8
-  },
-  {
     "name": "Qwen3.5-122B",
     "vendor": "Alibaba",
     "r": "CN",
@@ -1032,12 +1006,12 @@
     "url": "https://qwenlm.github.io/blog/qwen3.5/",
     "openrouter_id": "qwen/qwen3.5-122b-a10b",
     "sArena": 45,
-    "sAI": 24.7,
+    "sAI": 25.4,
     "sPrice": 56,
     "sMulti": 85,
     "sCtx": 45,
     "sEco": 72,
-    "total": 46.6
+    "total": 46.8
   },
   {
     "name": "Inkling Small",
@@ -1084,12 +1058,12 @@
     "url": "https://platform.openai.com/docs/models",
     "openrouter_id": "openai/o3",
     "sArena": 40,
-    "sAI": 34.0,
+    "sAI": 34.7,
     "sPrice": 43,
     "sMulti": 85,
     "sCtx": 42,
     "sEco": 96,
-    "total": 45.6
+    "total": 45.8
   },
   {
     "name": "Nemotron 3 Ultra 550B",
@@ -1136,12 +1110,38 @@
     "url": "https://platform.moonshot.cn/docs/intro",
     "openrouter_id": "moonshotai/kimi-k2-thinking",
     "sArena": 43,
-    "sAI": 32.2,
+    "sAI": 32.9,
     "sPrice": 54,
     "sMulti": 50,
     "sCtx": 45,
     "sEco": 38,
-    "total": 42.7
+    "total": 42.9
+  },
+  {
+    "name": "Solar Pro 4",
+    "vendor": "Upstage",
+    "r": "KR",
+    "arena": 1388.1968381331894,
+    "ai_index": 14.1589437644357,
+    "eco": 55,
+    "po": 0.6,
+    "price_input": 0.15,
+    "price_output": 0.6,
+    "price_cache_read": 0.03,
+    "price_cache_write": -1,
+    "price_currency": "USD",
+    "multi": 50,
+    "ctx": 524288,
+    "note": "雙榜收錄 · release 2026-08-06 · OR modalities text; multi/eco are coarse estimates",
+    "url": "https://www.upstage.ai/",
+    "openrouter_id": "upstage/solar-pro4",
+    "sArena": 29,
+    "sAI": 23.2,
+    "sPrice": 82,
+    "sMulti": 50,
+    "sCtx": 53,
+    "sEco": 55,
+    "total": 40.8
   },
   {
     "name": "Mistral Medium 3.5",
@@ -1188,12 +1188,12 @@
     "url": "https://platform.moonshot.cn/docs/intro",
     "openrouter_id": "moonshotai/kimi-k2",
     "sArena": 23,
-    "sAI": 34.8,
+    "sAI": 35.5,
     "sPrice": 54,
     "sMulti": 50,
     "sCtx": 37,
     "sEco": 38,
-    "total": 36.6
+    "total": 36.9
   },
   {
     "name": "Muse Glimmer 30B",
