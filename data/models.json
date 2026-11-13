@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T01:31:15Z",
+  "updated_at": "2026-11-13T01:30:40Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -338,9 +338,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0699,
-        "output": 1.4,
-        "cache_read": 0.0689,
+        "input": 0.084,
+        "output": 3.6,
+        "cache_read": 0.079,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3",
@@ -853,9 +853,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.08,
-        "output": 0.1,
-        "cache_read": 0.046,
+        "input": 0.0765,
+        "output": 0.255,
+        "cache_read": 0.0425,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1069,7 +1069,7 @@
       "auto_price": true,
       "slug": "gemini-4-argon",
       "released": "2026-09-30",
-      "aa_cost_per_task_usd": 9.946608711550533,
+      "aa_cost_per_task_usd": 4.973304355775267,
       "board_missing": [],
       "status": "verified",
       "modalities": [
@@ -1330,9 +1330,9 @@
       "ctx": 1000000,
       "price": {
         "currency": "USD",
-        "input": 4.0,
-        "output": 20.0,
-        "cache_read": 0.2,
+        "input": 2.0,
+        "output": 10.0,
+        "cache_read": 0.1,
         "cache_write": 4.0
       },
       "price_source": "artificialanalysis",
@@ -1341,7 +1341,7 @@
       "auto_price": false,
       "slug": "gemini-4-carbon",
       "released": "2026-10-28",
-      "aa_cost_per_task_usd": 7.755545745286556,
+      "aa_cost_per_task_usd": 5.484780948230178,
       "board_missing": [],
       "status": "verified",
       "arena_publish_date": null
@@ -1594,9 +1594,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.532,
-        "output": 3.325,
-        "cache_read": 0.209,
+        "input": 0.5,
+        "output": 2.5,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",

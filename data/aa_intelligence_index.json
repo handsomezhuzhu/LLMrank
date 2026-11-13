@@ -110,11 +110,11 @@
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
-    "price_input": 4,
-    "price_output": 20,
-    "cache_read": 0.2,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.1,
     "cache_write": 4,
-    "intelligence_index_cost_per_task": 6.585776867225546
+    "intelligence_index_cost_per_task": 4.677653677420589
   },
   {
     "slug": "inkling",
@@ -156,7 +156,7 @@
     "intelligence_index_cost_per_task": 0.9557366659448332
   },
   {
-    "slug": "k-exaone-2-0-0803",
+    "slug": "k-exaone-2-0",
     "model": "K-EXAONE 2.0",
     "intelligence_index": 7.56357436827474,
     "deprecated": false,
@@ -741,6 +741,19 @@
     "intelligence_index_cost_per_task": 1.7691338076407441
   },
   {
+    "slug": "gemini-4-hydrogen-low",
+    "model": "Gemini 4 Hydrogen (Low)",
+    "intelligence_index": 26.8936694361562,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 1.5,
+    "price_output": 7.5,
+    "cache_read": 0.075,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.2922227000200506
+  },
+  {
     "slug": "gemini-3-8-flash",
     "model": "Gemini 3.8 Flash (High)",
     "intelligence_index": 30.8468119957291,
@@ -760,11 +773,11 @@
     "deprecated": false,
     "released": "2026-10-28",
     "context_window": 1000000,
-    "price_input": 4,
-    "price_output": 20,
-    "cache_read": 0.2,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.1,
     "cache_write": 4,
-    "intelligence_index_cost_per_task": 7.755545745286556
+    "intelligence_index_cost_per_task": 5.484780948230178
   },
   {
     "slug": "claude-sonnet-5-5-xhigh",
@@ -942,11 +955,11 @@
     "deprecated": false,
     "released": null,
     "context_window": 1000000,
-    "price_input": 4,
-    "price_output": 20,
-    "cache_read": 0.2,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.1,
     "cache_write": 4,
-    "intelligence_index_cost_per_task": 7.186577262951972
+    "intelligence_index_cost_per_task": 5.221404723668021
   },
   {
     "slug": "k2-horizon-375b-a23b",
@@ -1098,11 +1111,11 @@
     "deprecated": false,
     "released": "2026-09-30",
     "context_window": 1000000,
-    "price_input": 4,
-    "price_output": 20,
-    "cache_read": 0.2,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.1,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 9.946608711550533
+    "intelligence_index_cost_per_task": 4.973304355775267
   },
   {
     "slug": "minimax-m3-1-flash",
@@ -1142,6 +1155,32 @@
     "cache_read": 0.044,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.9769879356486032
+  },
+  {
+    "slug": "gemini-4-hydrogen",
+    "model": "Gemini 4 Hydrogen (Xhigh)",
+    "intelligence_index": 53.9192287317542,
+    "deprecated": false,
+    "released": "2026-11-12",
+    "context_window": 1000000,
+    "price_input": 1.5,
+    "price_output": 7.5,
+    "cache_read": 0.075,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 3.1601590757006157
+  },
+  {
+    "slug": "gemini-4-hydrogen-high",
+    "model": "Gemini 4 Hydrogen (High)",
+    "intelligence_index": 50.7870826951304,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 1.5,
+    "price_output": 7.5,
+    "cache_read": 0.075,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 1.8733140062520008
   },
   {
     "slug": "muse-ember",
@@ -1324,6 +1363,19 @@
     "cache_read": 0.1,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.34534207651823257
+  },
+  {
+    "slug": "gemini-4-hydrogen-medium",
+    "model": "Gemini 4 Hydrogen (Medium)",
+    "intelligence_index": 41.2329566992579,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 1.5,
+    "price_output": 7.5,
+    "cache_read": 0.075,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.7979866055252406
   },
   {
     "slug": "deepseek-v4-1-flash-1017",
