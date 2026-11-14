@@ -481,6 +481,19 @@
     "intelligence_index_cost_per_task": 0.9755293224458845
   },
   {
+    "slug": "gemini-4-argon-medium",
+    "model": "Gemini 4 Argon (Medium)",
+    "intelligence_index": 47.6040598289046,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.1,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 4.314621569087732
+  },
+  {
     "slug": "nanbeige4-3-33b",
     "model": "Nanbeige4.3-33B",
     "intelligence_index": 20.4071119588083,
@@ -1285,6 +1298,19 @@
     "cache_read": 0.05,
     "cache_write": 1.25,
     "intelligence_index_cost_per_task": 0.40068900166662513
+  },
+  {
+    "slug": "deepseek-v4-pro-high",
+    "model": "DeepSeek V4 Pro 0813 (High)",
+    "intelligence_index": 20.799409628237,
+    "deprecated": false,
+    "released": null,
+    "context_window": 1000000,
+    "price_input": 1.32,
+    "price_output": 3.96,
+    "cache_read": 0.044,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.8485312855493328
   },
   {
     "slug": "gpt-6-astra-medium",
