@@ -531,18 +531,51 @@ def _parse_aa_live_page(page: str) -> list[dict] | None:
     # {"slug":"gpt-6-luna","name":"GPT-6 Luna","deprecated":false,"releaseDate":"2026-09-22",...}
     release_date_pattern = re.compile(r'\{"slug":"([^"\\]+)","name":"[^"\\]+","deprecated":(?:true|false),"releaseDate":"([^"\\]+)"')
     releases = {slug: date for slug, date in release_date_pattern.findall(text)}
-    for match in re.finditer(r'\{"slug":"[^"\\]+","name":"[^"\\]+","shortName":', text):
+    # Same record, nested form: {"release":{"slug":"...","name":"..."},"name":..,"shortName":..,"suffix":..,"deprecated":..,"isReasoning":..}
+    nested_release_pattern = re.compile(
+        r'"release":\{"slug":"([^"\\]+)","name":"[^"\\]+"\},"name":"[^"\\]+","shortName":[^,]+,"suffix":[^,]+,"deprecated":(?:true|false),'
+        r'"isReasoning":(?:true|false),"isOpenWeights":(?:true|false)'
+    )
+    for _m in nested_release_pattern.finditer(text):
+        releases.setdefault(_m.group(1), None)
+    # Models used to be flat ({"slug":...}) and were nested under "release" when AA
+    # reshaped its RSC payload; accept both so a redesign does not silently drop
+    # the whole index back to cache.
+    flat_starts = [m.start() for m in re.finditer(r'\{"slug":"[^"\\]+","name":"[^"\\]+","shortName":', text)]
+    nested_starts = []
+    pos = 0
+    needle = '"release":{"slug":"'
+    while True:
+        i = text.find(needle, pos)
+        if i < 0:
+            break
+        pos = i + 1
+        start = text.rfind("{", 0, i)
+        if start >= 0:
+            nested_starts.append(start)
+    for start in flat_starts + nested_starts:
         try:
-            row, _ = decoder.raw_decode(text, match.start())
+            row, _ = decoder.raw_decode(text, start)
         except Exception:
             continue
-        slug = row.get("slug")
+        release = row.get("release") if isinstance(row.get("release"), dict) else {}
+        slug = row.get("slug") or release.get("slug")
         score = row.get("intelligenceIndex")
         if not slug or not isinstance(score, (int, float)):
             continue
+        # One slug carries one record per reasoning effort (Low/Medium/High/Xhigh/
+        # Max); keep the strongest so the score is not whichever row happened to be
+        # parsed last.
+        tier = (row.get("suffix") or "").lower()
+        rank = 4 if "max" in tier else 3 if "xhigh" in tier else 2 if "high" in tier \
+            else 1 if "medium" in tier else 0
+        prev = best.get(slug)
+        if prev is not None and prev["_rank"] > rank:
+            continue
         best[slug] = {
+            "_rank": rank,
             "slug": slug,
-            "model": row.get("name") or slug,
+            "model": row.get("name") or release.get("name") or slug,
             "intelligence_index": float(score),
             "deprecated": bool(row.get("deprecated", False)),
             "released": releases.get(slug),
@@ -555,7 +588,11 @@ def _parse_aa_live_page(page: str) -> list[dict] | None:
         }
     global AA_LIVE_RELEASES
     AA_LIVE_RELEASES = releases
-    return list(best.values()) if len(best) >= MIN_AA_ROWS else None
+    out = []
+    for rec in best.values():
+        rec.pop("_rank", None)
+        out.append(rec)
+    return out if len(out) >= MIN_AA_ROWS else None
 
 
 def fetch_aa_intelligence() -> list[dict] | None:
