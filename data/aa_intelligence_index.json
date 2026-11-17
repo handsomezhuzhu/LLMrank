@@ -481,32 +481,6 @@
     "intelligence_index_cost_per_task": 0.28440671352465285
   },
   {
-    "slug": "inkling-small",
-    "model": "Inkling Small",
-    "intelligence_index": 12.9101620926084,
-    "deprecated": false,
-    "released": "2026-07-30",
-    "context_window": 1000000,
-    "price_input": 0.3,
-    "price_output": 1.2,
-    "cache_read": 0.06,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": 0.20316116043899832
-  },
-  {
-    "slug": "gemini-3-8-flash",
-    "model": "Gemini 3.8 Flash (High)",
-    "intelligence_index": 30.8468119957291,
-    "deprecated": false,
-    "released": "2026-09-02",
-    "context_window": 1000000,
-    "price_input": 0.75,
-    "price_output": 3.75,
-    "cache_read": 0.075,
-    "cache_write": 0.75,
-    "intelligence_index_cost_per_task": 7.766006178152514
-  },
-  {
     "slug": "muse-ember",
     "model": "Muse Ember (Max)",
     "intelligence_index": 36.0212987864912,
@@ -583,19 +557,6 @@
     "cache_read": 0.015,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.0404628507686443
-  },
-  {
-    "slug": "qwen3-8-max",
-    "model": "Qwen3.8 Max (0902)",
-    "intelligence_index": 33.6545627367888,
-    "deprecated": false,
-    "released": "2026-09-02",
-    "context_window": 983616,
-    "price_input": 2,
-    "price_output": 6,
-    "cache_read": 0.25,
-    "cache_write": null,
-    "intelligence_index_cost_per_task": 10.023891571541945
   },
   {
     "slug": "jt-4-1-flash-236b-a21b",
@@ -752,5 +713,18 @@
     "cache_read": 0.125,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.34534207651823257
+  },
+  {
+    "slug": "qwen4-max",
+    "model": "Qwen4 Max",
+    "intelligence_index": 42.8914543287565,
+    "deprecated": false,
+    "released": "2026-11-16",
+    "context_window": 983616,
+    "price_input": 1.5,
+    "price_output": 4.5,
+    "cache_read": 0.075,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 3.2681327300897323
   }
 ]
