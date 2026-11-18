@@ -26,19 +26,6 @@
     "intelligence_index_cost_per_task": 0.764236100822604
   },
   {
-    "slug": "gpt-6-1-sol",
-    "model": "GPT-6.1 Sol (Max)",
-    "intelligence_index": 54.6087338138148,
-    "deprecated": false,
-    "released": "2026-09-29",
-    "context_window": 1000000,
-    "price_input": 2,
-    "price_output": 10,
-    "cache_read": 0.1,
-    "cache_write": 2.5,
-    "intelligence_index_cost_per_task": 1.2720632679446995
-  },
-  {
     "slug": "gemini-3-5-flash-lite",
     "model": "Gemini 3.5 Flash-Lite",
     "intelligence_index": 11.6563462044212,
@@ -208,19 +195,6 @@
     "intelligence_index_cost_per_task": 0
   },
   {
-    "slug": "gpt-6-astra",
-    "model": "GPT-6 Astra (Max)",
-    "intelligence_index": 56.8538559596797,
-    "deprecated": false,
-    "released": "2026-09-03",
-    "context_window": 1000000,
-    "price_input": 10,
-    "price_output": 50,
-    "cache_read": 1,
-    "cache_write": 12.5,
-    "intelligence_index_cost_per_task": 6.244666943602518
-  },
-  {
     "slug": "claude-haiku-5-5",
     "model": "Claude Haiku 5.5 (Max)",
     "intelligence_index": 36.4845435880142,
@@ -286,6 +260,19 @@
     "intelligence_index_cost_per_task": 2.0617306268126856
   },
   {
+    "slug": "gpt-6-2-sol",
+    "model": "GPT-6.2 Sol (Max)",
+    "intelligence_index": 57.2576209885477,
+    "deprecated": false,
+    "released": "2026-11-17",
+    "context_window": 1000000,
+    "price_input": 2,
+    "price_output": 10,
+    "cache_read": 0.1,
+    "cache_write": 2.5,
+    "intelligence_index_cost_per_task": 1.014379970300768
+  },
+  {
     "slug": "nemotron-3-5-lightning",
     "model": "Nemotron 3.5 Lightning",
     "intelligence_index": 5.5346663903388,
@@ -297,6 +284,19 @@
     "cache_read": 0.04,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.31445225066768195
+  },
+  {
+    "slug": "lfm3-vl-2b",
+    "model": "LFM3-VL-2B",
+    "intelligence_index": 1.70629313092144,
+    "deprecated": false,
+    "released": "2026-10-27",
+    "context_window": 128000,
+    "price_input": 0.1,
+    "price_output": 0.5,
+    "cache_read": 0.02,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.12372622709334724
   },
   {
     "slug": "command-a-plus",
@@ -442,6 +442,19 @@
     "intelligence_index_cost_per_task": 0.17820832971071474
   },
   {
+    "slug": "gpt-6-2-astra",
+    "model": "GPT-6.2 Astra (Max)",
+    "intelligence_index": 62.1387990593969,
+    "deprecated": false,
+    "released": "2026-11-17",
+    "context_window": 1000000,
+    "price_input": 8,
+    "price_output": 40,
+    "cache_read": 0.4,
+    "cache_write": 10,
+    "intelligence_index_cost_per_task": 3.9979061566801852
+  },
+  {
     "slug": "nemotron-3-ultra-550b-a55b",
     "model": "Nemotron 3 Ultra 550B A55B (Reasoning)",
     "intelligence_index": 11.7592726308177,
@@ -492,6 +505,19 @@
     "cache_read": 0.004,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.1359356168986363
+  },
+  {
+    "slug": "a-x-k2",
+    "model": "A.X-K2",
+    "intelligence_index": 9.04405716512642,
+    "deprecated": false,
+    "released": "2026-08-12",
+    "context_window": 262144,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "deepseek-v4-pro",
@@ -585,6 +611,19 @@
     "intelligence_index_cost_per_task": 0
   },
   {
+    "slug": "lfm3-1-7b",
+    "model": "LFM3-1.7B",
+    "intelligence_index": 5.99389916662478,
+    "deprecated": false,
+    "released": "2026-10-27",
+    "context_window": 262144,
+    "price_input": 0.08,
+    "price_output": 0.2,
+    "cache_read": 0.02,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.17318927264981218
+  },
+  {
     "slug": "glm-5-3",
     "model": "GLM-5.3 (Max)",
     "intelligence_index": 31.653381843882,
@@ -650,6 +689,19 @@
     "intelligence_index_cost_per_task": 0.5746675567739363
   },
   {
+    "slug": "gemma-4-e4b",
+    "model": "Gemma 4 E4B (Reasoning)",
+    "intelligence_index": 4.78077714822335,
+    "deprecated": false,
+    "released": "2026-04-03",
+    "context_window": 128000,
+    "price_input": 0.02,
+    "price_output": 0.1,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.008266637382002534
+  },
+  {
     "slug": "mistral-medium-3-5",
     "model": "Mistral Medium 3.5",
     "intelligence_index": 4.64508756526957,
@@ -669,11 +721,11 @@
     "deprecated": false,
     "released": "2026-10-15",
     "context_window": 1000000,
-    "price_input": 0.2,
+    "price_input": 0.15,
     "price_output": 0.5,
     "cache_read": 0.05,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.5574566144919201
+    "intelligence_index_cost_per_task": 0.48180884308185656
   },
   {
     "slug": "inkling-2-small",

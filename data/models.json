@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-17T01:31:26Z",
+  "updated_at": "2026-11-18T01:31:00Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -125,7 +125,7 @@
       "ai_index": 23.0632981493003,
       "multi": 50,
       "eco": 45,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.111,
@@ -160,9 +160,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.6,
-        "output": 3.6,
-        "cache_read": 0.12,
+        "input": 0.45,
+        "output": 3.0,
+        "cache_read": 0.22,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -337,7 +337,7 @@
       "ai_index": 31.653381843882,
       "multi": 50,
       "eco": 50,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.0699,
@@ -369,11 +369,11 @@
       "ai_index": 27.803889160883,
       "multi": 85,
       "eco": 50,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.0399,
-        "output": 0.0784,
+        "input": 0.15,
+        "output": 0.5,
         "cache_read": 0.03,
         "cache_write": -1
       },
@@ -440,7 +440,7 @@
       "ai_index": 56.8538559596797,
       "multi": 85,
       "eco": 60,
-      "ctx": 1000000,
+      "ctx": 1050000,
       "price": {
         "currency": "USD",
         "input": 10.0,
@@ -456,8 +456,10 @@
       "slug": "gpt-6-astra",
       "aa_cost_per_task_usd": 6.244666943602518,
       "released": "2026-09-03",
-      "board_missing": [],
-      "status": "verified",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
       "modalities": [
         "file",
         "image",
@@ -510,13 +512,13 @@
       "ai_index": 18.8789083859255,
       "multi": 85,
       "eco": 80,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.3,
         "output": 1.2,
         "cache_read": 0.06,
-        "cache_write": 0.375
+        "cache_write": -1
       },
       "price_source": "openrouter",
       "openrouter_id": "minimax/minimax-m3",
@@ -544,7 +546,7 @@
       "ai_index": 27.8552004938153,
       "multi": 85,
       "eco": 96,
-      "ctx": 1000000,
+      "ctx": 1050000,
       "price": {
         "currency": "USD",
         "input": 0.1,
@@ -612,7 +614,7 @@
       "ai_index": 29.8897833093321,
       "multi": 95,
       "eco": 12,
-      "ctx": 1000000,
+      "ctx": 1050000,
       "price": {
         "currency": "USD",
         "input": 0.435,
@@ -647,7 +649,7 @@
       "ai_index": 26.7276981444568,
       "multi": 95,
       "eco": 12,
-      "ctx": 1000000,
+      "ctx": 1050000,
       "price": {
         "currency": "USD",
         "input": 0.14,
@@ -682,12 +684,12 @@
       "ai_index": 32.5896393532027,
       "multi": 70,
       "eco": 45,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.14,
-        "output": 0.42,
-        "cache_read": 0.0042,
+        "input": 0.051,
+        "output": 0.567,
+        "cache_read": 0.018,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -715,7 +717,7 @@
       "ai_index": 11.6563462044212,
       "multi": 100,
       "eco": 94,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.3,
@@ -786,12 +788,12 @@
       "ai_index": 20.1068756031705,
       "multi": 85,
       "eco": 72,
-      "ctx": 256000,
+      "ctx": 1024000,
       "price": {
         "currency": "USD",
-        "input": 0.15,
-        "output": 1.875,
-        "cache_read": 0.0375,
+        "input": 0.06,
+        "output": 2.2,
+        "cache_read": 0.059,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -820,7 +822,7 @@
       "ai_index": 4.38438284215374,
       "multi": 85,
       "eco": 94,
-      "ctx": 256000,
+      "ctx": 262144,
       "price": {
         "currency": "USD",
         "input": 0.2,
@@ -857,9 +859,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_read": 0.0375,
+        "input": 0.0765,
+        "output": 0.255,
+        "cache_read": 0.0425,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -923,12 +925,12 @@
       "ai_index": 4.64508756526957,
       "multi": 85,
       "eco": 60,
-      "ctx": 256000,
+      "ctx": 262144,
       "price": {
         "currency": "USD",
         "input": 1.5,
         "output": 7.5,
-        "cache_read": 0.15,
+        "cache_read": -1,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -991,13 +993,13 @@
       "ai_index": 26.1249946754784,
       "multi": 70,
       "eco": 60,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.7,
         "output": 2.1,
         "cache_read": 0.07,
-        "cache_write": 0.7
+        "cache_write": -1
       },
       "price_source": "openrouter",
       "openrouter_id": "mistralai/mistral-large-4-0",
@@ -1060,7 +1062,7 @@
       "ai_index": 50.4121935905389,
       "multi": 100,
       "eco": 100,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 2.0,
@@ -1132,7 +1134,7 @@
       "ai_index": 54.6087338138148,
       "multi": 85,
       "eco": 50,
-      "ctx": 1000000,
+      "ctx": 1050000,
       "price": {
         "currency": "USD",
         "input": 2.0,
@@ -1148,8 +1150,10 @@
       "slug": "gpt-6-1-sol",
       "released": "2026-09-29",
       "aa_cost_per_task_usd": 1.2720632679446995,
-      "board_missing": [],
-      "status": "verified",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
       "modalities": [
         "file",
         "image",
@@ -1234,7 +1238,7 @@
       "ai_index": 12.4781698715401,
       "multi": 85,
       "eco": 60,
-      "ctx": 1000000,
+      "ctx": 524288,
       "price": {
         "currency": "USD",
         "input": 1.0,
@@ -1307,8 +1311,8 @@
       "ctx": 131072,
       "price": {
         "currency": "USD",
-        "input": 0.3,
-        "output": 1.2,
+        "input": 0.35,
+        "output": 1.5,
         "cache_read": 0.04,
         "cache_write": -1
       },
@@ -1399,7 +1403,7 @@
       "ai_index": 13.6203422723141,
       "multi": 85,
       "eco": 95,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.15,
@@ -1414,7 +1418,7 @@
       "auto_price": true,
       "slug": "nemotron-3-5-super-vl",
       "released": "2026-10-15",
-      "aa_cost_per_task_usd": 0.5574566144919201,
+      "aa_cost_per_task_usd": 0.48180884308185656,
       "board_missing": [],
       "status": "verified",
       "modalities": [
@@ -1436,9 +1440,9 @@
       "ctx": 262144,
       "price": {
         "currency": "USD",
-        "input": 0.6,
-        "output": 2.4,
-        "cache_read": 0.12,
+        "input": 0.5,
+        "output": 2.2,
+        "cache_read": 0.1,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1500,7 +1504,7 @@
       "ai_index": 5.5346663903388,
       "multi": 50,
       "eco": 95,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.07,
@@ -1532,7 +1536,7 @@
       "ai_index": 46.4526236744189,
       "multi": 85,
       "eco": 45,
-      "ctx": 1000000,
+      "ctx": 1048576,
       "price": {
         "currency": "USD",
         "input": 0.192,
