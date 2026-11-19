@@ -789,6 +789,8 @@ MODEL_MAPPING = {
     "Qwen3-235B": ("Qwen3-235B-A22B", "qwen3-235b-a22b-instruct-2507"),
     "Claude Fable 5": ("Claude Fable 5 (High)", "claude-fable-5"),
     "gpt-oss-120b": ("gpt-oss-120b", "gpt-oss-120b"),
+    "Gemini 4 Neon": ("Gemini 4 Neon (High)", "gemini-4-neon"),
+    "Gemini 4 Hydrogen": ("Gemini 4 Hydrogen (High)", "gemini-4-hydrogen"),
     "GPT-5.6 Sol High": ("GPT-5.6 Sol (xHigh)", "gpt-5-6-sol"),
     "Kimi K3": ("Kimi K3 (Max)", "kimi-k3-1-pro"),
     "Muse Wonder": ("Muse Wonder (Max)", "muse-wonder"),

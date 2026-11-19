@@ -1735,6 +1735,60 @@
         "text"
       ],
       "arena_publish_date": null
+    },
+    {
+      "id": "gemini-4-neon",
+      "name": "Gemini 4 Neon",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1529.6792212040723,
+      "ai_index": 61.3982491392674,
+      "multi": 100,
+      "eco": 85,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 3.0,
+        "output": 15.0,
+        "cache_read": 0.15,
+        "cache_write": 0.0833
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-4-neon",
+      "url": "https://deepmind.google/models/gemini/",
+      "note": "Dual-board verified · full multimodal",
+      "auto_price": true,
+      "slug": "gemini-4-neon",
+      "released": "2026-11-18",
+      "board_missing": [],
+      "status": "verified"
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1501.7686144174559,
+      "ai_index": 53.9192287317542,
+      "multi": 100,
+      "eco": 85,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 1.5,
+        "output": 7.5,
+        "cache_read": 0.075,
+        "cache_write": 0.0833
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-4-hydrogen",
+      "url": "https://deepmind.google/models/gemini/",
+      "note": "Dual-board verified · full multimodal",
+      "auto_price": true,
+      "slug": "gemini-4-hydrogen",
+      "released": "2026-11-12",
+      "board_missing": [],
+      "status": "verified"
     }
   ]
 }
