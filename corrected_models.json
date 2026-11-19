@@ -1,5 +1,31 @@
 [
   {
+    "name": "Gemini 4 Neon",
+    "vendor": "Google",
+    "r": "US",
+    "arena": 1529.6792212040723,
+    "ai_index": 61.3982491392674,
+    "eco": 85,
+    "po": 15.0,
+    "price_input": 3.0,
+    "price_output": 15.0,
+    "price_cache_read": 0.15,
+    "price_cache_write": 0.083333,
+    "price_currency": "USD",
+    "multi": 100,
+    "ctx": 1048576,
+    "note": "Dual-board verified · full multimodal",
+    "url": "https://deepmind.google/models/gemini/",
+    "openrouter_id": "google/gemini-4-neon",
+    "sArena": 99,
+    "sAI": 100.0,
+    "sPrice": 39,
+    "sMulti": 100,
+    "sCtx": 61,
+    "sEco": 85,
+    "total": 86.7
+  },
+  {
     "name": "Gemini 4 Carbon",
     "vendor": "Google",
     "r": "US",
@@ -18,12 +44,12 @@
     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
     "openrouter_id": null,
     "sArena": 100,
-    "sAI": 100.0,
+    "sAI": 99.3,
     "sPrice": 37,
     "sMulti": 100,
     "sCtx": 61,
     "sEco": 95,
-    "total": 86.7
+    "total": 86.4
   },
   {
     "name": "Claude Opus 5.5",
@@ -43,13 +69,13 @@
     "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
     "url": "https://www.anthropic.com/claude-opus-5-5",
     "openrouter_id": "anthropic/claude-opus-5.5",
-    "sArena": 97,
-    "sAI": 98.3,
+    "sArena": 96,
+    "sAI": 97.7,
     "sPrice": 37,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 88,
-    "total": 83.0
+    "total": 82.5
   },
   {
     "name": "Gemini 4 Argon",
@@ -70,12 +96,38 @@
     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
     "openrouter_id": "google/gemini-4-argon",
     "sArena": 99,
-    "sAI": 85.3,
+    "sAI": 84.1,
     "sPrice": 42,
     "sMulti": 100,
     "sCtx": 61,
     "sEco": 100,
-    "total": 82.7
+    "total": 82.3
+  },
+  {
+    "name": "Gemini 4 Hydrogen",
+    "vendor": "Google",
+    "r": "US",
+    "arena": 1501.7686144174559,
+    "ai_index": 53.9192287317542,
+    "eco": 85,
+    "po": 7.5,
+    "price_input": 1.5,
+    "price_output": 7.5,
+    "price_cache_read": 0.075,
+    "price_cache_write": 0.083333,
+    "price_currency": "USD",
+    "multi": 100,
+    "ctx": 1048576,
+    "note": "Dual-board verified · full multimodal",
+    "url": "https://deepmind.google/models/gemini/",
+    "openrouter_id": "google/gemini-4-hydrogen",
+    "sArena": 90,
+    "sAI": 89.3,
+    "sPrice": 44,
+    "sMulti": 100,
+    "sCtx": 61,
+    "sEco": 85,
+    "total": 81.5
   },
   {
     "name": "Claude Fable 5.1",
@@ -96,12 +148,12 @@
     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
     "openrouter_id": "anthropic/claude-fable-5.1",
     "sArena": 95,
-    "sAI": 89.3,
+    "sAI": 88.0,
     "sPrice": 32,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 50,
-    "total": 78.9
+    "total": 78.5
   },
   {
     "name": "Muse Wonder",
@@ -121,13 +173,13 @@
     "note": "Dual-board verified · AA release 2026-10-12 · OpenRouter modalities text,image,video,file,audio; multi/eco estimates",
     "url": "https://research.meta.ai/blog/muse-wonder",
     "openrouter_id": "meta/muse-wonder",
-    "sArena": 92,
-    "sAI": 75.8,
+    "sArena": 91,
+    "sAI": 74.7,
     "sPrice": 37,
     "sMulti": 100,
     "sCtx": 61,
     "sEco": 100,
-    "total": 77.0
+    "total": 76.4
   },
   {
     "name": "Claude Sonnet 5.5",
@@ -147,13 +199,13 @@
     "note": "Dual-board verified · AA release unknown · OpenRouter modalities text,image,file; multi/eco estimates",
     "url": "https://www.anthropic.com/claude-sonnet-5-5",
     "openrouter_id": "anthropic/claude-sonnet-5.5",
-    "sArena": 76,
-    "sAI": 91.2,
+    "sArena": 75,
+    "sAI": 90.7,
     "sPrice": 42,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 70,
-    "total": 75.3
+    "total": 74.9
   },
   {
     "name": "Claude Fable 5",
@@ -173,13 +225,13 @@
     "note": "",
     "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
     "openrouter_id": "anthropic/claude-fable-5",
-    "sArena": 87,
-    "sAI": 83.8,
+    "sArena": 85,
+    "sAI": 82.7,
     "sPrice": 32,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 88,
-    "total": 74.9
+    "total": 74.0
   },
   {
     "name": "MiMo V2.6 Pro",
@@ -199,13 +251,13 @@
     "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
     "url": "https://huggingface.co/XiaomiMiMo",
     "openrouter_id": "xiaomi/mimo-v2.6-pro",
-    "sArena": 87,
-    "sAI": 55.2,
+    "sArena": 86,
+    "sAI": 54.3,
     "sPrice": 71,
     "sMulti": 95,
     "sCtx": 61,
     "sEco": 12,
-    "total": 73.7
+    "total": 73.1
   },
   {
     "name": "Gemini 3.8 Flash",
@@ -225,13 +277,13 @@
     "note": "",
     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
     "openrouter_id": "google/gemini-3.8-flash",
-    "sArena": 90,
-    "sAI": 57.0,
+    "sArena": 89,
+    "sAI": 56.1,
     "sPrice": 50,
     "sMulti": 100,
     "sCtx": 61,
     "sEco": 50,
-    "total": 72.7
+    "total": 72.1
   },
   {
     "name": "Kimi K3",
@@ -251,13 +303,13 @@
     "note": "",
     "url": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
     "openrouter_id": "moonshotai/kimi-k3",
-    "sArena": 79,
-    "sAI": 79.6,
+    "sArena": 78,
+    "sAI": 78.5,
     "sPrice": 39,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 45,
-    "total": 72.3
+    "total": 71.7
   },
   {
     "name": "GPT-6.1 Sol",
@@ -277,13 +329,13 @@
     "note": "Dual-board verified · AA release 2026-09-29 · OpenRouter modalities file,image,text; multi/eco estimates",
     "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
     "openrouter_id": "openai/gpt-6.1-sol",
-    "sArena": 64,
-    "sAI": 92.0,
+    "sArena": 63,
+    "sAI": 91.4,
     "sPrice": 42,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 50,
-    "total": 72.0
+    "total": 71.5
   },
   {
     "name": "DeepSeek V4.1 Flash",
@@ -303,13 +355,13 @@
     "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
     "url": "https://www.deepseek.com/",
     "openrouter_id": "deepseek/deepseek-v4.1-flash",
-    "sArena": 73,
-    "sAI": 60.3,
+    "sArena": 72,
+    "sAI": 59.3,
     "sPrice": 100,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 45,
-    "total": 71.6
+    "total": 71.0
   },
   {
     "name": "GLM-5.3 Flash",
@@ -329,13 +381,13 @@
     "note": "",
     "url": "https://z.ai/blog/glm-5.3",
     "openrouter_id": "z-ai/glm-5.3-flash",
-    "sArena": 77,
-    "sAI": 49.4,
+    "sArena": 76,
+    "sAI": 48.7,
     "sPrice": 87,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 50,
-    "total": 69.8
+    "total": 69.3
   },
   {
     "name": "MiMo V2.6 Flash",
@@ -355,13 +407,13 @@
     "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
     "url": "https://huggingface.co/XiaomiMiMo",
     "openrouter_id": "xiaomi/mimo-v2.6-flash",
-    "sArena": 67,
-    "sAI": 47.5,
+    "sArena": 66,
+    "sAI": 46.8,
     "sPrice": 100,
     "sMulti": 95,
     "sCtx": 61,
     "sEco": 12,
-    "total": 69.7
+    "total": 69.2
   },
   {
     "name": "GPT-6 Astra",
@@ -381,13 +433,13 @@
     "note": "2026-09-14 补录",
     "url": "https://openai.com/index/gpt-6",
     "openrouter_id": "openai/gpt-6-astra",
-    "sArena": 58,
-    "sAI": 95.2,
+    "sArena": 57,
+    "sAI": 94.5,
     "sPrice": 32,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 60,
-    "total": 69.6
+    "total": 69.1
   },
   {
     "name": "Qwen3.8 Max",
@@ -407,13 +459,13 @@
     "note": "",
     "url": "https://www.qwencloud.com/models/qwen3.8-max",
     "openrouter_id": "qwen/qwen3.8-max-0902",
-    "sArena": 84,
-    "sAI": 62.2,
+    "sArena": 83,
+    "sAI": 61.2,
     "sPrice": 45,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 50,
-    "total": 69.5
+    "total": 68.9
   },
   {
     "name": "Gemini 3.1 Pro",
@@ -433,13 +485,13 @@
     "note": "",
     "url": "https://deepmind.google/technologies/gemini/pro/",
     "openrouter_id": "google/gemini-3.1-pro-preview",
-    "sArena": 82,
-    "sAI": 53.6,
+    "sArena": 81,
+    "sAI": 52.8,
     "sPrice": 41,
     "sMulti": 100,
     "sCtx": 61,
     "sEco": 94,
-    "total": 67.9
+    "total": 67.4
   },
   {
     "name": "GPT-5.6 Terra",
@@ -460,12 +512,12 @@
     "url": "https://openai.com/index/gpt-5-6",
     "openrouter_id": "openai/gpt-5.6-terra",
     "sArena": 65,
-    "sAI": 73.4,
+    "sAI": 72.4,
     "sPrice": 40,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 60,
-    "total": 66.4
+    "total": 66.1
   },
   {
     "name": "GLM-5.3",
@@ -485,13 +537,13 @@
     "note": "",
     "url": "https://z.ai/blog/glm-5.3",
     "openrouter_id": "z-ai/glm-5.3",
-    "sArena": 80,
-    "sAI": 58.6,
+    "sArena": 79,
+    "sAI": 57.6,
     "sPrice": 65,
     "sMulti": 50,
     "sCtx": 61,
     "sEco": 50,
-    "total": 64.9
+    "total": 64.3
   },
   {
     "name": "Claude Haiku 5.5",
@@ -512,12 +564,12 @@
     "url": "https://www.anthropic.com/news",
     "openrouter_id": "anthropic/claude-haiku-5.5",
     "sArena": 34,
-    "sAI": 66.7,
+    "sAI": 65.6,
     "sPrice": 91,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 96,
-    "total": 62.7
+    "total": 62.4
   },
   {
     "name": "Step 5 Preview",
@@ -537,38 +589,12 @@
     "note": "Dual-board verified · AA release unknown · OpenRouter modalities text,image,video; multi/eco estimates",
     "url": "https://stepfun.ai/",
     "openrouter_id": "stepfun/step-5-preview",
-    "sArena": 61,
-    "sAI": 51.6,
+    "sArena": 60,
+    "sAI": 50.8,
     "sPrice": 53,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 75,
-    "total": 60.6
-  },
-  {
-    "name": "Kimi K2.6",
-    "vendor": "Moonshot",
-    "r": "CN",
-    "arena": 1455.597846326476,
-    "ai_index": 29.8476,
-    "eco": 38,
-    "po": 3.41,
-    "price_input": 0.65,
-    "price_output": 3.41,
-    "price_cache_read": 0.15,
-    "price_cache_write": -1,
-    "price_currency": "USD",
-    "multi": 70,
-    "ctx": 262144,
-    "note": "",
-    "url": "https://platform.moonshot.cn/docs/intro",
-    "openrouter_id": "moonshotai/kimi-k2.6",
-    "sArena": 70,
-    "sAI": 54.5,
-    "sPrice": 51,
-    "sMulti": 70,
-    "sCtx": 45,
-    "sEco": 38,
     "total": 60.0
   },
   {
@@ -589,13 +615,39 @@
     "note": "雙榜收錄 · release 2026-06-01 · OR modalities text,image; multi/eco are coarse estimates",
     "url": "https://qwen.ai/",
     "openrouter_id": "qwen/qwen3.7-plus",
-    "sArena": 69,
-    "sAI": 42.3,
+    "sArena": 68,
+    "sAI": 41.7,
     "sPrice": 66,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 72,
-    "total": 59.9
+    "total": 59.4
+  },
+  {
+    "name": "Kimi K2.6",
+    "vendor": "Moonshot",
+    "r": "CN",
+    "arena": 1455.597846326476,
+    "ai_index": 29.8476,
+    "eco": 38,
+    "po": 3.41,
+    "price_input": 0.65,
+    "price_output": 3.41,
+    "price_cache_read": 0.15,
+    "price_cache_write": -1,
+    "price_currency": "USD",
+    "multi": 70,
+    "ctx": 262144,
+    "note": "",
+    "url": "https://platform.moonshot.cn/docs/intro",
+    "openrouter_id": "moonshotai/kimi-k2.6",
+    "sArena": 69,
+    "sAI": 53.6,
+    "sPrice": 51,
+    "sMulti": 70,
+    "sCtx": 45,
+    "sEco": 38,
+    "total": 59.4
   },
   {
     "name": "GPT-6 Luna",
@@ -615,13 +667,13 @@
     "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
     "url": "https://openai.com/index/gpt-6-luna/",
     "openrouter_id": "openai/gpt-6-luna",
-    "sArena": 31,
-    "sAI": 50.2,
+    "sArena": 30,
+    "sAI": 49.4,
     "sPrice": 91,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 96,
-    "total": 56.9
+    "total": 56.3
   },
   {
     "name": "Gemma 4 26B A4B",
@@ -642,7 +694,7 @@
     "url": "https://ai.google.dev/gemma",
     "openrouter_id": "google/gemma-4-26b-a4b-it",
     "sArena": 52,
-    "sAI": 27.3,
+    "sAI": 27.0,
     "sPrice": 100,
     "sMulti": 85,
     "sCtx": 45,
@@ -667,13 +719,13 @@
     "note": "",
     "url": "https://platform.moonshot.cn/docs/intro",
     "openrouter_id": "moonshotai/kimi-k2.5",
-    "sArena": 62,
-    "sAI": 44.0,
+    "sArena": 61,
+    "sAI": 43.4,
     "sPrice": 55,
     "sMulti": 70,
     "sCtx": 45,
     "sEco": 38,
-    "total": 55.0
+    "total": 54.6
   },
   {
     "name": "Hy3",
@@ -693,13 +745,13 @@
     "note": "雙榜收錄 · release 2026-07-06 · OR modalities text; multi/eco are coarse estimates (補錄 2026-10-20)",
     "url": "https://huggingface.co/tencent/Hy3",
     "openrouter_id": "tencent/hy3",
-    "sArena": 57,
-    "sAI": 43.1,
+    "sArena": 56,
+    "sAI": 42.5,
     "sPrice": 86,
     "sMulti": 50,
     "sCtx": 45,
     "sEco": 55,
-    "total": 54.9
+    "total": 54.5
   },
   {
     "name": "Grok 4.7",
@@ -720,12 +772,12 @@
     "url": "https://x.ai/",
     "openrouter_id": "x-ai/grok-4.7",
     "sArena": 35,
-    "sAI": 64.9,
+    "sAI": 63.8,
     "sPrice": 45,
     "sMulti": 85,
     "sCtx": 53,
     "sEco": 58,
-    "total": 54.8
+    "total": 54.4
   },
   {
     "name": "Qwen3.8 27B",
@@ -745,13 +797,13 @@
     "note": "雙榜收錄 · release 2026-08-14 · OR modalities text,image,video; multi/eco are coarse estimates",
     "url": "https://qwen.ai/",
     "openrouter_id": "qwen/qwen3.8-27b",
-    "sArena": 55,
-    "sAI": 33.9,
+    "sArena": 54,
+    "sAI": 33.4,
     "sPrice": 58,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 72,
-    "total": 54.2
+    "total": 53.8
   },
   {
     "name": "DeepSeek V4 Pro 0813",
@@ -771,13 +823,13 @@
     "note": "2026-08-13 新版",
     "url": "https://api-docs.deepseek.com/",
     "openrouter_id": "deepseek/deepseek-v4-pro-0813",
-    "sArena": 68,
-    "sAI": 39.3,
+    "sArena": 67,
+    "sAI": 38.7,
     "sPrice": 49,
     "sMulti": 50,
     "sCtx": 61,
     "sEco": 45,
-    "total": 53.1
+    "total": 52.7
   },
   {
     "name": "MiniMax M3",
@@ -797,13 +849,13 @@
     "note": "2026-09-14 补录",
     "url": "https://www.minimaxi.com",
     "openrouter_id": "minimax/minimax-m3",
-    "sArena": 50,
-    "sAI": 31.2,
+    "sArena": 49,
+    "sAI": 30.7,
     "sPrice": 66,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 80,
-    "total": 53.1
+    "total": 52.7
   },
   {
     "name": "GPT-5.5 Instant",
@@ -824,12 +876,12 @@
     "url": "https://platform.openai.com/docs/models",
     "openrouter_id": "openai/gpt-5.5",
     "sArena": 46,
-    "sAI": 45.3,
+    "sAI": 44.7,
     "sPrice": 35,
     "sMulti": 85,
     "sCtx": 61,
     "sEco": 96,
-    "total": 51.5
+    "total": 51.3
   },
   {
     "name": "Mistral Large 4",
@@ -850,12 +902,12 @@
     "url": "https://mistral.ai/news/mistral-large-4/",
     "openrouter_id": "mistralai/mistral-large-4-0",
     "sArena": 41,
-    "sAI": 46.2,
+    "sAI": 45.5,
     "sPrice": 56,
     "sMulti": 70,
     "sCtx": 61,
     "sEco": 60,
-    "total": 51.2
+    "total": 51.0
   },
   {
     "name": "Qwen3.5-397B",
@@ -875,13 +927,13 @@
     "note": "",
     "url": "https://qwenlm.github.io/blog/qwen3.5/",
     "openrouter_id": "qwen/qwen3.5-397b-a17b",
-    "sArena": 56,
-    "sAI": 30.0,
+    "sArena": 55,
+    "sAI": 29.6,
     "sPrice": 53,
     "sMulti": 85,
     "sCtx": 45,
     "sEco": 72,
-    "total": 51.0
+    "total": 50.6
   },
   {
     "name": "Gemini 3.5 Flash Lite",
@@ -902,38 +954,12 @@
     "url": "https://deepmind.google/technologies/gemini/flash/",
     "openrouter_id": "google/gemini-3.5-flash-lite",
     "sArena": 53,
-    "sAI": 16.9,
+    "sAI": 16.7,
     "sPrice": 57,
     "sMulti": 100,
     "sCtx": 61,
     "sEco": 94,
     "total": 50.6
-  },
-  {
-    "name": "Nemotron 3.5 Super VL",
-    "vendor": "NVIDIA",
-    "r": "US",
-    "arena": 1408.0059445571028,
-    "ai_index": 13.6203422723141,
-    "eco": 95,
-    "po": 0.5,
-    "price_input": 0.15,
-    "price_output": 0.5,
-    "price_cache_read": 0.02,
-    "price_cache_write": -1,
-    "price_currency": "USD",
-    "multi": 85,
-    "ctx": 1048576,
-    "note": "Dual-board verified · open weights",
-    "url": "https://build.nvidia.com",
-    "openrouter_id": "nvidia/nemotron-3.5-super-vl",
-    "sArena": 38,
-    "sAI": 21.9,
-    "sPrice": 87,
-    "sMulti": 85,
-    "sCtx": 61,
-    "sEco": 95,
-    "total": 49.9
   },
   {
     "name": "Gemma 4 31B",
@@ -954,11 +980,37 @@
     "url": "https://ai.google.dev/gemma",
     "openrouter_id": "google/gemma-4-31b-it",
     "sArena": 59,
-    "sAI": 5.5,
+    "sAI": 5.4,
     "sPrice": 88,
     "sMulti": 85,
     "sCtx": 45,
     "sEco": 94,
+    "total": 49.8
+  },
+  {
+    "name": "Nemotron 3.5 Super VL",
+    "vendor": "NVIDIA",
+    "r": "US",
+    "arena": 1408.0059445571028,
+    "ai_index": 13.6203422723141,
+    "eco": 95,
+    "po": 0.5,
+    "price_input": 0.15,
+    "price_output": 0.5,
+    "price_cache_read": 0.02,
+    "price_cache_write": -1,
+    "price_currency": "USD",
+    "multi": 85,
+    "ctx": 1048576,
+    "note": "Dual-board verified · open weights",
+    "url": "https://build.nvidia.com",
+    "openrouter_id": "nvidia/nemotron-3.5-super-vl",
+    "sArena": 38,
+    "sAI": 21.6,
+    "sPrice": 87,
+    "sMulti": 85,
+    "sCtx": 61,
+    "sEco": 95,
     "total": 49.8
   },
   {
@@ -979,39 +1031,13 @@
     "note": "雙榜收錄 · release 2026-07-15 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
     "url": "https://thinkingmachines.ai/news/introducing-inkling/",
     "openrouter_id": "thinkingmachines/inkling",
-    "sArena": 60,
-    "sAI": 19.2,
+    "sArena": 59,
+    "sAI": 19.0,
     "sPrice": 49,
     "sMulti": 85,
     "sCtx": 53,
     "sEco": 60,
-    "total": 49.2
-  },
-  {
-    "name": "Qwen3.5-122B",
-    "vendor": "Alibaba",
-    "r": "CN",
-    "arena": 1417.5347169424788,
-    "ai_index": 15.5694009312969,
-    "eco": 72,
-    "po": 2.08,
-    "price_input": 0.26,
-    "price_output": 2.08,
-    "price_cache_read": -1,
-    "price_cache_write": -1,
-    "price_currency": "USD",
-    "multi": 85,
-    "ctx": 262144,
-    "note": "",
-    "url": "https://qwenlm.github.io/blog/qwen3.5/",
-    "openrouter_id": "qwen/qwen3.5-122b-a10b",
-    "sArena": 45,
-    "sAI": 25.4,
-    "sPrice": 56,
-    "sMulti": 85,
-    "sCtx": 45,
-    "sEco": 72,
-    "total": 46.8
+    "total": 48.8
   },
   {
     "name": "Inkling Small",
@@ -1032,12 +1058,38 @@
     "url": "https://thinkingmachines.ai/news/inkling-small/",
     "openrouter_id": "thinkingmachines/inkling-small",
     "sArena": 42,
-    "sAI": 20.4,
+    "sAI": 20.2,
     "sPrice": 65,
     "sMulti": 85,
     "sCtx": 53,
     "sEco": 55,
     "total": 46.5
+  },
+  {
+    "name": "Qwen3.5-122B",
+    "vendor": "Alibaba",
+    "r": "CN",
+    "arena": 1417.5347169424788,
+    "ai_index": 15.5694009312969,
+    "eco": 72,
+    "po": 2.08,
+    "price_input": 0.26,
+    "price_output": 2.08,
+    "price_cache_read": -1,
+    "price_cache_write": -1,
+    "price_currency": "USD",
+    "multi": 85,
+    "ctx": 262144,
+    "note": "",
+    "url": "https://qwenlm.github.io/blog/qwen3.5/",
+    "openrouter_id": "qwen/qwen3.5-122b-a10b",
+    "sArena": 44,
+    "sAI": 25.1,
+    "sPrice": 56,
+    "sMulti": 85,
+    "sCtx": 45,
+    "sEco": 72,
+    "total": 46.4
   },
   {
     "name": "o3",
@@ -1057,13 +1109,13 @@
     "note": "",
     "url": "https://platform.openai.com/docs/models",
     "openrouter_id": "openai/o3",
-    "sArena": 40,
-    "sAI": 34.7,
+    "sArena": 39,
+    "sAI": 34.2,
     "sPrice": 43,
     "sMulti": 85,
     "sCtx": 42,
     "sEco": 96,
-    "total": 45.8
+    "total": 45.4
   },
   {
     "name": "Nemotron 3 Ultra 550B",
@@ -1083,13 +1135,13 @@
     "note": "Dual-board verified · open weights",
     "url": "https://build.nvidia.com",
     "openrouter_id": "nvidia/nemotron-3-ultra-550b-a55b",
-    "sArena": 63,
-    "sAI": 17.7,
+    "sArena": 62,
+    "sAI": 17.5,
     "sPrice": 56,
     "sMulti": 50,
     "sCtx": 45,
     "sEco": 90,
-    "total": 44.6
+    "total": 44.2
   },
   {
     "name": "Kimi K2 Thinking",
@@ -1110,12 +1162,12 @@
     "url": "https://platform.moonshot.cn/docs/intro",
     "openrouter_id": "moonshotai/kimi-k2-thinking",
     "sArena": 43,
-    "sAI": 32.9,
+    "sAI": 32.5,
     "sPrice": 54,
     "sMulti": 50,
     "sCtx": 45,
     "sEco": 38,
-    "total": 42.9
+    "total": 42.8
   },
   {
     "name": "Solar Pro 4",
@@ -1136,12 +1188,12 @@
     "url": "https://www.upstage.ai/",
     "openrouter_id": "upstage/solar-pro4",
     "sArena": 29,
-    "sAI": 23.2,
+    "sAI": 22.9,
     "sPrice": 82,
     "sMulti": 50,
     "sCtx": 53,
     "sEco": 55,
-    "total": 40.8
+    "total": 40.7
   },
   {
     "name": "Mistral Medium 3.5",
@@ -1162,12 +1214,12 @@
     "url": "https://mistral.ai/news/",
     "openrouter_id": "mistralai/mistral-medium-3-5",
     "sArena": 47,
-    "sAI": 6.5,
+    "sAI": 6.4,
     "sPrice": 43,
     "sMulti": 85,
     "sCtx": 45,
     "sEco": 60,
-    "total": 39.8
+    "total": 39.7
   },
   {
     "name": "Kimi K2",
@@ -1188,12 +1240,12 @@
     "url": "https://platform.moonshot.cn/docs/intro",
     "openrouter_id": "moonshotai/kimi-k2",
     "sArena": 23,
-    "sAI": 35.5,
+    "sAI": 34.9,
     "sPrice": 54,
     "sMulti": 50,
     "sCtx": 37,
     "sEco": 38,
-    "total": 36.9
+    "total": 36.7
   },
   {
     "name": "Muse Glimmer 30B",
@@ -1214,7 +1266,7 @@
     "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
     "openrouter_id": "meta/muse-glimmer-30b",
     "sArena": 30,
-    "sAI": 10.4,
+    "sAI": 10.3,
     "sPrice": 62,
     "sMulti": 70,
     "sCtx": 37,
@@ -1292,7 +1344,7 @@
     "url": "https://cohere.com",
     "openrouter_id": "cohere/command-a-plus",
     "sArena": 10,
-    "sAI": 9.6,
+    "sAI": 9.5,
     "sPrice": 62,
     "sMulti": 70,
     "sCtx": 41,
