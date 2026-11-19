@@ -52,6 +52,19 @@
     "intelligence_index_cost_per_task": 2.3452525606205166
   },
   {
+    "slug": "gemini-4-neon",
+    "model": "Gemini 4 Neon (Xhigh)",
+    "intelligence_index": 61.3982491392674,
+    "deprecated": false,
+    "released": "2026-11-18",
+    "context_window": 1000000,
+    "price_input": 3,
+    "price_output": 15,
+    "cache_read": 0.15,
+    "cache_write": 3,
+    "intelligence_index_cost_per_task": 6.444838101104699
+  },
+  {
     "slug": "granite-4-2-3b",
     "model": "Granite 4.2 3B",
     "intelligence_index": 4.72268717901823,
@@ -99,9 +112,9 @@
     "context_window": 1000000,
     "price_input": 2,
     "price_output": 10,
-    "cache_read": 0.1,
-    "cache_write": 4,
-    "intelligence_index_cost_per_task": 5.484780948230178
+    "cache_read": 0.2,
+    "cache_write": 2,
+    "intelligence_index_cost_per_task": 4.897345693056595
   },
   {
     "slug": "inkling",
@@ -115,6 +128,19 @@
     "cache_read": 0.17,
     "cache_write": null,
     "intelligence_index_cost_per_task": 1.3519575079737436
+  },
+  {
+    "slug": "k2-horizon-7b",
+    "model": "K2 Horizon 7B",
+    "intelligence_index": 10.5630231522891,
+    "deprecated": false,
+    "released": "2026-09-03",
+    "context_window": 524288,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "mimo-v2-6-flash",
@@ -325,6 +351,19 @@
     "intelligence_index_cost_per_task": 10.036409719512749
   },
   {
+    "slug": "k2-horizon-3-7b",
+    "model": "K2 Horizon 3.7B",
+    "intelligence_index": 8.02272873835814,
+    "deprecated": false,
+    "released": "2026-09-03",
+    "context_window": 524288,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "qwen3-8-27b",
     "model": "Qwen3.8 27B (Xhigh)",
     "intelligence_index": 20.1068756031705,
@@ -416,6 +455,19 @@
     "intelligence_index_cost_per_task": 3.185145018337793
   },
   {
+    "slug": "k2-horizon-mova-36b-a4b",
+    "model": "K2 Horizon MoVA 36B A4B",
+    "intelligence_index": 13.8458943758068,
+    "deprecated": false,
+    "released": "2026-09-03",
+    "context_window": 524288,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "deepseek-v4-1-flash-1017",
     "model": "DeepSeek V4.1 Flash 1017 (Max)",
     "intelligence_index": 32.5896393532027,
@@ -466,6 +518,19 @@
     "cache_read": 0.12,
     "cache_write": null,
     "intelligence_index_cost_per_task": 2.2102962660498227
+  },
+  {
+    "slug": "joyvl2_v27",
+    "model": "JoyAI-VL-Preview",
+    "intelligence_index": 28.0361254876924,
+    "deprecated": false,
+    "released": "2026-11-17",
+    "context_window": 1048576,
+    "price_input": 0,
+    "price_output": 0,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "kimi-k3-1-pro",
@@ -546,6 +611,19 @@
     "intelligence_index_cost_per_task": 3.1601590757006157
   },
   {
+    "slug": "k2-horizon-32b",
+    "model": "K2 Horizon 32B",
+    "intelligence_index": 13.880544179919,
+    "deprecated": false,
+    "released": "2026-09-03",
+    "context_window": 524288,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "qwen3-8-flash-next",
     "model": "Qwen3.8-Flash-Next",
     "intelligence_index": 28.5750026655353,
@@ -557,6 +635,19 @@
     "cache_read": 0.016,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.5693810918846318
+  },
+  {
+    "slug": "k2-horizon-0-9b",
+    "model": "K2 Horizon 0.9B",
+    "intelligence_index": 2.71764699052683,
+    "deprecated": false,
+    "released": "2026-09-03",
+    "context_window": 131072,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "nvidia-nemotron-3-nano-4b",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-18T01:31:00Z",
+  "updated_at": "2026-11-19T01:30:29Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -687,9 +687,9 @@
       "ctx": 1048576,
       "price": {
         "currency": "USD",
-        "input": 0.051,
-        "output": 0.567,
-        "cache_read": 0.018,
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.006,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1346,8 +1346,8 @@
         "currency": "USD",
         "input": 2.0,
         "output": 10.0,
-        "cache_read": 0.1,
-        "cache_write": 4.0
+        "cache_read": 0.2,
+        "cache_write": 2.0
       },
       "price_source": "artificialanalysis",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
@@ -1355,7 +1355,7 @@
       "auto_price": false,
       "slug": "gemini-4-carbon",
       "released": "2026-10-28",
-      "aa_cost_per_task_usd": 5.484780948230178,
+      "aa_cost_per_task_usd": 4.897345693056595,
       "board_missing": [],
       "status": "verified",
       "arena_publish_date": null
