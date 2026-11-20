@@ -526,11 +526,11 @@
     "deprecated": false,
     "released": "2026-06-04",
     "context_window": 262144,
-    "price_input": 0.6,
-    "price_output": 2.4,
-    "cache_read": 0.12,
+    "price_input": 0.55,
+    "price_output": 2.3,
+    "cache_read": 0.11,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 2.2102962660498227
+    "intelligence_index_cost_per_task": 2.1896557658964193
   },
   {
     "slug": "joyvl2_v27",
@@ -799,11 +799,11 @@
     "deprecated": false,
     "released": "2026-04-03",
     "context_window": 128000,
-    "price_input": 0.02,
-    "price_output": 0.1,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 0.008266637382002534
+    "intelligence_index_cost_per_task": null
   },
   {
     "slug": "mistral-medium-3-5",
@@ -866,7 +866,7 @@
     "context_window": 131072,
     "price_input": 0.15,
     "price_output": 0.6,
-    "cache_read": 0.125,
+    "cache_read": 0.1,
     "cache_write": null,
     "intelligence_index_cost_per_task": 0.34534207651823257
   },
