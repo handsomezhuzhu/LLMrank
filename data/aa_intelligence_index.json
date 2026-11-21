@@ -435,11 +435,11 @@
     "deprecated": false,
     "released": "2026-09-30",
     "context_window": 1000000,
-    "price_input": 2,
-    "price_output": 10,
-    "cache_read": 0.1,
+    "price_input": 4,
+    "price_output": 20,
+    "cache_read": 0.2,
     "cache_write": null,
-    "intelligence_index_cost_per_task": 4.973304355775267
+    "intelligence_index_cost_per_task": 9.946608711550533
   },
   {
     "slug": "nanbeige4-3-33b",
@@ -533,14 +533,14 @@
     "intelligence_index_cost_per_task": 2.1896557658964193
   },
   {
-    "slug": "joyvl2_v27",
+    "slug": "joyai-vl",
     "model": "JoyAI-VL-Preview",
     "intelligence_index": 28.0361254876924,
     "deprecated": false,
     "released": "2026-11-17",
     "context_window": 1048576,
-    "price_input": 0,
-    "price_output": 0,
+    "price_input": null,
+    "price_output": null,
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
@@ -804,6 +804,19 @@
     "cache_read": null,
     "cache_write": null,
     "intelligence_index_cost_per_task": null
+  },
+  {
+    "slug": "inkling-2-mini",
+    "model": "Inkling 2 Mini",
+    "intelligence_index": 20.1315214698783,
+    "deprecated": false,
+    "released": "2026-11-20",
+    "context_window": 1024000,
+    "price_input": 0.15,
+    "price_output": 0.5,
+    "cache_read": 0.015,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": 0.5865441229709887
   },
   {
     "slug": "mistral-medium-3-5",
