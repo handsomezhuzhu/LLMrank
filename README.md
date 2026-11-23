@@ -31,6 +31,9 @@ Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (
 
 **Missing price components use `-1`** (not null). They are ignored when blending the effective price.
 
+Excluded families: **Granite / IBM** is deliberately kept off the ranking even when
+both boards list it (`EXCLUDED_PATTERNS` in `new_models.py`).
+
 `corrected_models.json` is a **derived legacy export** (includes computed `s*` / `total`). Prefer editing `data/models.json` only.
 
 ## Formula v5 (November 2026)

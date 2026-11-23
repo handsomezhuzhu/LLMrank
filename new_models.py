@@ -37,6 +37,10 @@ _VARIANT_SUFFIX = re.compile(
     r"thinking|thinking-\d+|reasoning)$"
 )
 
+# Families the owner keeps off the ranking even when both boards list them.
+# Matched against the normalized candidate name.
+EXCLUDED_PATTERNS = ("granite",)
+
 # Vendor noise that differs between the two boards ("-preview", "-it", dates).
 _NAME_NOISE = re.compile(
     r"(-preview|-it|-instruct|-\d{2}-\d{2}|-\d{4}\d{2}\d{2}|:\s*free|\bfree\b)$"
@@ -154,6 +158,8 @@ def find_candidates(models: list[dict]) -> list[dict]:
     found = []
     for key, a_row in arena.items():
         if key in known:
+            continue
+        if any(p in key for p in EXCLUDED_PATTERNS):
             continue
         aa_row = aa.get(key)
         if not aa_row:
