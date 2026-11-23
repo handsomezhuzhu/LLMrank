@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-22T01:30:39Z",
+  "updated_at": "2026-11-23T09:20:19Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1807,6 +1807,282 @@
         "text",
         "video"
       ]
+    },
+    {
+      "id": "claude-fable-5-2",
+      "name": "Claude Fable 5.2",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1477.2239,
+      "ai_index": 64.5636,
+      "multi": 85,
+      "eco": 0,
+      "ctx": 1000000,
+      "price": {
+        "currency": "USD",
+        "input": 8.0,
+        "output": 40.0,
+        "cache_read": 0.2,
+        "cache_write": 10.0
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "anthropic/claude-fable-5.2",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "claude-fable-5-2",
+      "released": "2026-11-09",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "gpt-6-2-astra",
+      "name": "GPT-6.2 Astra",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1413.3299,
+      "ai_index": 62.1388,
+      "multi": 85,
+      "eco": 0,
+      "ctx": 1050000,
+      "price": {
+        "currency": "USD",
+        "input": 8.0,
+        "output": 40.0,
+        "cache_read": 0.4,
+        "cache_write": 10.0
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.2-astra",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "gpt-6-2-astra",
+      "released": "2026-11-17",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "gpt-6-2-sol",
+      "name": "GPT-6.2 Sol",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1413.6613,
+      "ai_index": 57.2576,
+      "multi": 85,
+      "eco": 0,
+      "ctx": 1050000,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_read": 0.1,
+        "cache_write": 2.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.2-sol",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "gpt-6-2-sol",
+      "released": "2026-11-17",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "gpt-6-1-terra",
+      "name": "GPT-6.1 Terra",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1426.0174,
+      "ai_index": 51.3265,
+      "multi": 85,
+      "eco": 0,
+      "ctx": 1050000,
+      "price": {
+        "currency": "USD",
+        "input": 1.0,
+        "output": 5.0,
+        "cache_read": 0.05,
+        "cache_write": 1.25
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.1-terra",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "gpt-6-1-terra",
+      "released": "2026-10-26",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "inkling-2-small",
+      "name": "Inkling 2 Small",
+      "vendor": "thinky",
+      "region": "US",
+      "arena": 1402.8288,
+      "ai_index": 30.6287,
+      "multi": 70,
+      "eco": 0,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 0.3,
+        "output": 1.0,
+        "cache_read": 0.03,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling-2-small",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "inkling-2-small",
+      "released": "2026-11-05",
+      "board_missing": [],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "inkling-2-mini",
+      "name": "Inkling 2 Mini",
+      "vendor": "thinky",
+      "region": "US",
+      "arena": 1343.683,
+      "ai_index": 20.1315,
+      "multi": 70,
+      "eco": 0,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 0.075,
+        "output": 0.3,
+        "cache_read": 0.015,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling-2-mini",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "inkling-2-mini",
+      "released": "2026-11-20",
+      "board_missing": [],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "granite-4-2-30b",
+      "name": "Granite 4.2 30B",
+      "vendor": "IBM",
+      "region": "US",
+      "arena": 1360.8934,
+      "ai_index": 5.5359,
+      "multi": 50,
+      "eco": 0,
+      "ctx": 131072,
+      "price": {
+        "currency": "USD",
+        "input": -1,
+        "output": -1,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "artificialanalysis",
+      "openrouter_id": "",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": false,
+      "slug": "granite-4-2-30b",
+      "released": "2026-08-25",
+      "board_missing": [],
+      "modalities": [],
+      "status": "verified"
+    },
+    {
+      "id": "granite-4-2-8b",
+      "name": "Granite 4.2 8B",
+      "vendor": "IBM",
+      "region": "US",
+      "arena": 1318.5321,
+      "ai_index": 5.0983,
+      "multi": 50,
+      "eco": 0,
+      "ctx": 131072,
+      "price": {
+        "currency": "USD",
+        "input": 0.06,
+        "output": 0.15,
+        "cache_read": 0.015,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "ibm-granite/granite-4.2-8b",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "granite-4-2-8b",
+      "released": "2026-08-25",
+      "board_missing": [],
+      "modalities": [
+        "text"
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "granite-4-2-3b",
+      "name": "Granite 4.2 3B",
+      "vendor": "IBM",
+      "region": "US",
+      "arena": 1292.6101,
+      "ai_index": 4.7227,
+      "multi": 50,
+      "eco": 0,
+      "ctx": 131072,
+      "price": {
+        "currency": "USD",
+        "input": -1,
+        "output": -1,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "artificialanalysis",
+      "openrouter_id": "",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": false,
+      "slug": "granite-4-2-3b",
+      "released": "2026-08-25",
+      "board_missing": [],
+      "modalities": [],
+      "status": "verified"
     }
   ]
 }

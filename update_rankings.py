@@ -798,7 +798,17 @@ MODEL_MAPPING = {
     "Step 5 Preview": ("Step 5 Preview", "step-5"),
     "GPT-6.1 Sol": ("GPT-6.1 Sol (Max)", "gpt-6-1-sol"),
     "Claude Sonnet 5.5": ("Claude Sonnet 5.5 (xHigh)", "claude-sonnet-5-5"),
+    "Claude Fable 5.2": ("Claude Fable 5.2 (Max)", "claude-fable-5-2"),
+    "GPT-6.1 Terra": ("GPT-6.1 Terra (Max)", "gpt-6-1-terra"),
+    "GPT-6.2 Astra": ("GPT-6.2 Astra (Max)", "gpt-6-2-astra"),
+    "GPT-6.2 Sol": ("GPT-6.2 Sol (Max)", "gpt-6-2-sol"),
+    "Granite 4.2 30B": ("Granite 4.2 30B", "granite-4-2-30b"),
+    "Granite 4.2 3B": ("Granite 4.2 3B", "granite-4-2-3b"),
+    "Granite 4.2 8B": ("Granite 4.2 8B", "granite-4-2-8b"),
+    "Inkling 2 Mini": ("Inkling 2 Mini", "inkling-2-mini"),
+    "Inkling 2 Small": ("Inkling 2 Small", "inkling-2-small"),
 }
+
 
 
 def load_doc() -> dict:
