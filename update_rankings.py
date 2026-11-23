@@ -6,12 +6,12 @@ Single source of truth: data/models.json
 
 Each model stores:
   - arena, ai_index (leaderboard scores)
-  - multi, eco, ctx (capability / context)
+  - multi, eco (capability)
   - price.{currency,input,output,cache_read,cache_write}  ($ or ¥ per 1M tokens; missing=-1)
 
 This script:
 1. Optionally scrapes Arena / Artificial Analysis (best-effort)
-2. Optionally refreshes price/ctx from OpenRouter for mapped models
+2. Optionally refreshes price from OpenRouter for mapped models
 3. Recalculates Formula v5 scores purely from models.json
 4. Writes derived views (corrected_models.json for legacy) and updates index.html subheader
 5. Git commit + push
@@ -132,12 +132,6 @@ def score_price_from_effective(eff: float | None, p_ref: float = 1.0) -> int:
     return int(round(max(5, min(100, 100 / (1 + math.log10(multiple * 4))))))
 
 
-def score_ctx(ctx: float) -> int:
-    if not ctx or ctx <= 0:
-        return 0
-    return int(round(100 / (1 + math.exp(-1.1 * (math.log10(ctx) - math.log10(400000))))))
-
-
 # Multimodal score from modality coverage: how many non-text input modalities a
 # model accepts, per OpenRouter's architecture.input_modalities. Derived data, so
 # it can never drift the way a hand-maintained tag does.
@@ -164,7 +158,6 @@ def total_score(
     s_ai: float,
     s_price: float,
     s_multi: float,
-    s_ctx: float | None = None,  # kept for callers; context is no longer scored
     has_arena: bool = True,
     has_ai: bool = True,
 ) -> float:
@@ -580,7 +573,6 @@ def _parse_aa_live_page(page: str) -> list[dict] | None:
             "intelligence_index": float(score),
             "deprecated": bool(row.get("deprecated", False)),
             "released": releases.get(slug),
-            "context_window": row.get("contextWindowTokens"),
             "price_input": row.get("price1mInputTokens"),
             "price_output": row.get("price1mOutputTokens"),
             "cache_read": row.get("cacheHitPrice"),
@@ -668,7 +660,6 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
         if not mid:
             continue
         out[mid] = {
-            "ctx": int(m.get("context_length") or 0),
             "input": to_per_m(p.get("prompt")),
             "output": to_per_m(p.get("completion")),
             "cache_read": to_per_m(p.get("input_cache_read")),
@@ -897,8 +888,6 @@ def update_leaderboard_fields(
             m["ai_index"] = new_ii
         # Absent from a fresh index: keep the last known AI Index untouched.
         if entry and new_ii is not None:
-            if entry.get("context_window"):
-                m["ctx"] = int(entry["context_window"])
             if isinstance(entry.get("intelligence_index_cost_per_task"), (int, float)):
                 m["aa_cost_per_task_usd"] = float(entry["intelligence_index_cost_per_task"])
             price = m.setdefault("price", {"currency": "USD"})
@@ -982,7 +971,7 @@ def sync_multi_from_openrouter(models: list[dict], or_models: list[dict]) -> lis
 def refresh_prices_from_openrouter(
     models: list[dict], api_key: str | None = None, cache: dict | None = None
 ) -> list[str]:
-    """Refresh prices/ctx. `cache` receives the raw OpenRouter payload so the
+    """Refresh prices. `cache` receives the raw OpenRouter payload so the
     modality pass can reuse it instead of fetching twice."""
     try:
         or_models = fetch_openrouter_models(api_key)
@@ -1018,14 +1007,11 @@ def refresh_prices_from_openrouter(
             price.get("output"),
             price.get("cache_read"),
             price.get("cache_write"),
-            m.get("ctx"),
         )
         price["input"] = src["input"] if src["input"] is not None else -1
         price["output"] = src["output"] if src["output"] is not None else -1
         price["cache_read"] = src["cache_read"] if src["cache_read"] is not None else -1
         price["cache_write"] = src["cache_write"] if src["cache_write"] is not None else -1
-        if src["ctx"]:
-            m["ctx"] = src["ctx"]
         m["price_source"] = "openrouter"
         m["auto_price"] = True
         after = (
@@ -1033,10 +1019,9 @@ def refresh_prices_from_openrouter(
             price.get("output"),
             price.get("cache_read"),
             price.get("cache_write"),
-            m.get("ctx"),
         )
         if before != after:
-            changes.append(f"  {m['name']}: price/ctx refreshed via {oid}")
+            changes.append(f"  {m['name']}: price refreshed via {oid}")
     print(f"  OpenRouter: updated {len(changes)}, skipped frozen/manual {skipped}, missing id {missing}")
     return changes
 
@@ -1138,15 +1123,13 @@ def recalculate_scores(models: list[dict]) -> list[dict]:
         eff = effective_price_usd(m.get("price"))
         sP = score_price_from_effective(eff)
         sM = score_multi(m.get("multi", 50))
-        sC = score_ctx(m.get("ctx", 0))
-        total = total_score(sA, sAI, sP, sM, sC, has_ai=sAI is not None)
+        total = total_score(sA, sAI, sP, sM, has_ai=sAI is not None)
         row = {
             **m,
             "sArena": None if sA is None else int(sA),
             "sAI": sAI,
             "sPrice": int(sP),
             "sMulti": int(sM),
-            "sCtx": int(sC),
             "sEco": m.get("eco", 0),
             "effective_price_usd": None if eff is None else round(eff, 6),
             "total": total,
@@ -1183,7 +1166,6 @@ def export_legacy(scored: list[dict]) -> None:
                 "price_cache_write": (m.get("price") or {}).get("cache_write", -1),
                 "price_currency": (m.get("price") or {}).get("currency", "USD"),
                 "multi": m.get("multi", 0),
-                "ctx": m.get("ctx", 0),
                 "note": m.get("note", ""),
                 "url": m.get("url", ""),
                 "openrouter_id": m.get("openrouter_id"),
@@ -1191,7 +1173,6 @@ def export_legacy(scored: list[dict]) -> None:
                 "sAI": m["sAI"],
                 "sPrice": m["sPrice"],
                 "sMulti": m["sMulti"],
-                "sCtx": m["sCtx"],
                 "sEco": m.get("sEco", 0),
                 "total": m["total"],
             }
@@ -1342,7 +1323,7 @@ def main():
     else:
         print("  No leaderboard field changes")
 
-    print("\n4. Refreshing OpenRouter prices/ctx...")
+    print("\n4. Refreshing OpenRouter prices...")
     or_cache: dict = {}
     pchanges = refresh_prices_from_openrouter(models, find_openrouter_key(), or_cache)
     if pchanges:
@@ -1381,7 +1362,7 @@ def main():
     for i, m in enumerate(scored[:10]):
         print(
             f"  {i+1:2d}. {m['name']:25s} Arena={m['sArena'] if m['sArena'] is not None else '—':>3} AI={m['sAI']:4.1f} "
-            f"Price={m['sPrice']:2d} Multi={m['sMulti']:2d} Ctx={m['sCtx']:2d} "
+            f"Price={m['sPrice']:2d} Multi={m['sMulti']:2d} "
             f"eff$={m['effective_price_usd']} Total={m['total']:5.1f}"
         )
 

@@ -1070,7 +1070,6 @@
                                 </th>
                                 <th>Price<span class="w">20%</span></th>
                                 <th>Multi<span class="w">20%</span></th>
-                                <th>Ctx</th>
                                 <th class="th-total">Total</th>
                             </tr>
                         </thead>
@@ -1108,7 +1107,6 @@
                                     </div>
                                 </td>
                                 <td><span class="score" :class="sc(m.sMulti)">{{ m.sMulti }}</span></td>
-                                <td><span class="price-eff">{{ fmtCtx(m.ctx) }}</span></td>
                                 <td class="th-total">
                                     <div class="total-cell">
                                         <span class="total-num">{{ m.total.toFixed(1) }}</span>
@@ -1117,7 +1115,7 @@
                                 </td>
                             </tr>
                             <tr v-if="filtered.length === 0">
-                                <td colspan="9" class="status">No models match this filter.</td>
+                                <td colspan="8" class="status">No models match this filter.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1173,10 +1171,6 @@
                             <div class="m-score">
                                 <span class="k">Multi</span>
                                 <span class="v score" :class="sc(m.sMulti)">{{ m.sMulti }}</span>
-                            </div>
-                            <div class="m-score">
-                                <span class="k">Ctx</span>
-                                <span class="sub">{{ fmtCtx(m.ctx) }}</span>
                             </div>
                         </div>
                     </article>
@@ -1273,8 +1267,8 @@
                 <p>
                     Capability first. Arena 30% · AI Index 30% · Price 20% · Multimodal 20%.
                     Price and multimodal capability are always available, so they never need imputation.
-                    Context length is still shown per model, but no longer scored: nearly every current model
-                    sits at or near 1M tokens, so the dimension stopped separating them.
+                    Context length is no longer tracked at all: nearly every current model sits at or near
+                    1M tokens, so the dimension stopped separating them.
                 </p>
 
                 <h3>6. Reading the badges</h3>
@@ -1565,15 +1559,6 @@ createApp({
             if (v >= 1) return v.toFixed(2)
             return v.toFixed(3)
         }
-        const fmtCtx = (ctx) => {
-            if (!ctx || ctx <= 0) return '—'
-            if (ctx >= 1_000_000) {
-                const m = ctx / 1_000_000
-                return (Number.isInteger(m) ? m.toFixed(0) : m.toFixed(1)) + 'M'
-            }
-            if (ctx >= 1000) return Math.round(ctx / 1000) + 'K'
-            return String(ctx)
-        }
 
         // Provenance: how much of a row is measured rather than carried over.
         const statusLabel = (s) => ({
@@ -1599,7 +1584,7 @@ createApp({
             '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±20 Arena points'
 
         return {
-            ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice, fmtCtx,
+            ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice,
             statusLabel, statusTitle, aiImputedTitle,
             err, ready, updatedAt, q, region, showStale, staleCount, theme, toggleTheme,
             tiers: [

@@ -18,7 +18,6 @@ Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (
 | `ai_index` | Artificial Analysis Intelligence Index |
 | `multi` | Multimodal tier, derived from modality coverage (50/70/85/95/100) |
 | `eco` | Eco score (display only; not in v4 total) |
-| `ctx` | Context window (tokens) |
 | `price.currency` | `USD` or `CNY` |
 | `price.input` | $/¥ per **1M input** tokens |
 | `price.output` | $/¥ per **1M output** tokens |
@@ -46,11 +45,10 @@ Capability-first. Weights sum to **100%**.
 | **AI Index** | 30% | Hybrid: linear abs (0–60) 65% + percentile 35% |
 | **Price** | 20% | Effective $/1M from 4-part price → log vs $1/M ref; missing/free = 20 |
 | **Multimodal** | 20% | Tier from non-text input modalities: 0→50, 1→70, 2→85, 3→95, 4→100 |
-| ~~Context~~ | — | displayed only (`ctx` column); not scored — nearly every current model is at ~1M tokens |
 
-v5 removed the 10% context dimension and moved that weight into price and multimodal
-(15% → 20% each); the subheader, the comparison view and `total_score()` all use the
-same weights.
+v5 removed the context dimension entirely — it is not scored and `ctx` is no longer
+stored — and moved that 10% into price and multimodal (15% → 20% each); the subheader,
+the comparison view and `total_score()` all use the same weights.
 
 ### Effective price blend
 
@@ -69,7 +67,7 @@ python3 update_rankings.py
 
 1. **Arena**: Hugging Face `lmarena-ai/leaderboard-dataset` (text / overall). On failure or incomplete payload → **skip Arena field writes** (no partial overwrite).
 2. **AI Index**: trusted remote only. Current default skips writes when no remote refresh is available (local cache is not force-applied).
-3. **OpenRouter prices/ctx**: only models with `auto_price=true` and a live `openrouter_id`. Manual / deprecated / missing-id rows are frozen.
+3. **OpenRouter prices**: only models with `auto_price=true` and a live `openrouter_id`. Manual / deprecated / missing-id rows are frozen.
 4. Recalculate scores from `data/models.json`, export legacy `corrected_models.json`, touch `last_check.txt`, commit/push when there are real diffs.
 
 ## Local preview
