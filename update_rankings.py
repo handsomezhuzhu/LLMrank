@@ -164,18 +164,19 @@ def total_score(
     s_ai: float,
     s_price: float,
     s_multi: float,
-    s_ctx: float,
+    s_ctx: float | None = None,  # kept for callers; context is no longer scored
     has_arena: bool = True,
     has_ai: bool = True,
 ) -> float:
     """Weighted total; a dimension with no observation is dropped and the rest
     re-normalized so the weights still sum to 1 (never scored as zero)."""
+    # Formula v5: context length is still reported but no longer scored — nearly
+    # every current model sits at ~1M tokens, so it stopped separating them.
     weights = {
         "arena": (s_arena, 0.30, has_arena),
         "ai": (s_ai, 0.30, has_ai),
-        "price": (s_price, 0.15, True),
-        "multi": (s_multi, 0.15, True),
-        "ctx": (s_ctx, 0.10, True),
+        "price": (s_price, 0.20, True),
+        "multi": (s_multi, 0.20, True),
     }
     live = [(v, w) for v, w, present in weights.values() if present and v is not None]
     if not live:

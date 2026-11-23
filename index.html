@@ -1014,14 +1014,13 @@
             <h1>Multi-dimensional LLM ranking</h1>
             <p class="hero-desc">
                 A weighted composite of human preference, automated benchmarks, pricing efficiency,
-                multimodal coverage, and context length — scored from a single canonical dataset.
+                and multimodal coverage — scored from a single canonical dataset.
             </p>
             <div class="weight-row">
                 <span class="weight-chip">Arena <b>30%</b></span>
                 <span class="weight-chip">AI Index <b>30%</b></span>
-                <span class="weight-chip">Price <b>15%</b></span>
-                <span class="weight-chip">Multimodal <b>15%</b></span>
-                <span class="weight-chip">Context <b>10%</b></span>
+                <span class="weight-chip">Price <b>20%</b></span>
+                <span class="weight-chip">Multimodal <b>20%</b></span>
             </div>
         </header>
 
@@ -1066,9 +1065,9 @@
                                     <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">AI Index</a>
                                     <span class="w">30%</span>
                                 </th>
-                                <th>Price<span class="w">15%</span></th>
-                                <th>Multi<span class="w">15%</span></th>
-                                <th>Ctx<span class="w">10%</span></th>
+                                <th>Price<span class="w">20%</span></th>
+                                <th>Multi<span class="w">20%</span></th>
+                                <th>Ctx</th>
                                 <th class="th-total">Total</th>
                             </tr>
                         </thead>
@@ -1106,12 +1105,7 @@
                                     </div>
                                 </td>
                                 <td><span class="score" :class="sc(m.sMulti)">{{ m.sMulti }}</span></td>
-                                <td>
-                                    <div class="price-cell">
-                                        <span class="score" :class="sc(m.sCtx)">{{ m.sCtx }}</span>
-                                        <span class="price-eff">{{ fmtCtx(m.ctx) }}</span>
-                                    </div>
-                                </td>
+                                <td><span class="price-eff">{{ fmtCtx(m.ctx) }}</span></td>
                                 <td class="th-total">
                                     <div class="total-cell">
                                         <span class="total-num">{{ m.total.toFixed(1) }}</span>
@@ -1179,7 +1173,6 @@
                             </div>
                             <div class="m-score">
                                 <span class="k">Ctx</span>
-                                <span class="v score" :class="sc(m.sCtx)">{{ m.sCtx }}</span>
                                 <span class="sub">{{ fmtCtx(m.ctx) }}</span>
                             </div>
                         </div>
@@ -1268,15 +1261,17 @@
                 </ul>
                 <p class="muted">
                     Hand-assigned tags tended to drift: two models advertising the same modalities could carry
-                    very different values, which made the 15% weight impossible to compare fairly. Deriving the
+                    very different values, which made the weight impossible to compare fairly. Deriving the
                     tier from a published list removes that inconsistency. A model with no OpenRouter listing
                     keeps its previous tier, since there is no modality data to derive from.
                 </p>
 
                 <h3>5. The weighting</h3>
                 <p>
-                    Capability first. Arena 30% · AI Index 30% · Price 15% · Multimodal 15% · Context 10%.
-                    Price, multimodal capability and context are always available, so they never need imputation.
+                    Capability first. Arena 30% · AI Index 30% · Price 20% · Multimodal 20%.
+                    Price and multimodal capability are always available, so they never need imputation.
+                    Context length is still shown per model, but no longer scored: nearly every current model
+                    sits at or near 1M tokens, so the dimension stopped separating them.
                 </p>
 
                 <h3>6. Reading the badges</h3>
@@ -1451,7 +1446,8 @@ createApp({
             }
         })
 
-        // Formula v4: Arena 30% + AI Index 30% + Price 15% + Multimodal 15% + Context 10%
+        // Formula v5: Arena 30% + AI Index 30% + Price 20% + Multimodal 20%.
+        // Context length is displayed but no longer scored.
         const ranked = computed(() => {
             const models = modelsRef.value
             const n = models.length
@@ -1490,10 +1486,6 @@ createApp({
                 const multiple = Math.max(eff / 1.0, 0.05)
                 return Math.round(Math.max(5, Math.min(100, 100 / (1 + Math.log10(multiple * 4)))))
             }
-            const scoreCtx = (ctx) => {
-                if (!ctx || ctx <= 0) return 0
-                return Math.round(100 / (1 + Math.exp(-1.1 * (Math.log10(ctx) - Math.log10(400000)))))
-            }
             // A modality-coverage tier is already its score; anything else clamps.
             const MULTI_TIER = [50, 70, 85, 95, 100]
             const scoreMulti = (multi) => MULTI_TIER.includes(multi) ? multi : Math.round(40 + multi * 0.6)
@@ -1506,14 +1498,13 @@ createApp({
                     : null
                 const sP = scorePrice(m.price)
                 const sM = scoreMulti(m.multi)
-                const sC = scoreCtx(m.ctx)
                 const eff = effectivePriceUsd(m.price)
                 // Missing dimensions are dropped and the remaining weights re-normalized.
                 let total
                 if (hasAI) {
-                    total = sA * 0.30 + sAI * 0.30 + sP * 0.15 + sM * 0.15 + sC * 0.10
+                    total = sA * 0.30 + sAI * 0.30 + sP * 0.20 + sM * 0.20
                 } else {
-                    total = (sA * 0.30 + sP * 0.15 + sM * 0.15 + sC * 0.10) / 0.70
+                    total = (sA * 0.30 + sP * 0.20 + sM * 0.20) / 0.80
                 }
                 return {
                     ...m,
@@ -1522,7 +1513,6 @@ createApp({
                     sEco: m.eco,
                     sPrice: sP,
                     sMulti: sM,
-                    sCtx: sC,
                     effective_price_usd: eff,
                     total: +total.toFixed(1),
                     region: m.r
@@ -1631,18 +1621,13 @@ createApp({
                 },
                 {
                     t: 'Price',
-                    w: '15%',
+                    w: '20%',
                     d: 'Blended effective $/1M from input 25% + output 55% + cache_read 10% + cache_write 10% (missing components redistribute; -1 = missing). Log-compressed vs $1/M. Missing/free scores a neutral 20.'
                 },
                 {
                     t: 'Multimodal',
-                    w: '15%',
+                    w: '20%',
                     d: 'Derived from modality coverage, not hand-assigned: the number of non-text input modalities a model accepts (image, file, video, audio, per OpenRouter) maps to a tier — 0 → 50, 1 → 70, 2 → 85, 3 → 95, 4 → 100. Recomputed every run, so a model cannot carry a stale or inflated tag.'
-                },
-                {
-                    t: 'Context',
-                    w: '10%',
-                    d: 'Sigmoid centered near 400K tokens. ~128K → 35, 256K → 44, 1M → 73, 2M → 84. Down-weighted so long context alone cannot inflate rank.'
                 },
             ],
             sources: [

@@ -33,7 +33,7 @@ Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (
 
 `corrected_models.json` is a **derived legacy export** (includes computed `s*` / `total`). Prefer editing `data/models.json` only.
 
-## Formula v4 (July 2026)
+## Formula v5 (November 2026)
 
 Capability-first. Weights sum to **100%**.
 
@@ -41,9 +41,13 @@ Capability-first. Weights sum to **100%**.
 |-----------|--------|--------|
 | **Arena** | 30% | Hybrid: linear abs (1300–1520) 65% + in-list percentile 35% |
 | **AI Index** | 30% | Hybrid: linear abs (0–60) 65% + percentile 35% |
-| **Price** | 15% | Effective $/1M from 4-part price → log vs $1/M ref; missing/free = 20 |
-| **Multimodal** | 15% | Tier from non-text input modalities: 0→50, 1→70, 2→85, 3→95, 4→100 |
-| **Context** | 10% | Sigmoid centered ~400K |
+| **Price** | 20% | Effective $/1M from 4-part price → log vs $1/M ref; missing/free = 20 |
+| **Multimodal** | 20% | Tier from non-text input modalities: 0→50, 1→70, 2→85, 3→95, 4→100 |
+| ~~Context~~ | — | displayed only (`ctx` column); not scored — nearly every current model is at ~1M tokens |
+
+v5 removed the 10% context dimension and moved that weight into price and multimodal
+(15% → 20% each); the subheader, the comparison view and `total_score()` all use the
+same weights.
 
 ### Effective price blend
 

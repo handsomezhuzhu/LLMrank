@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T16:59:34Z",
+  "updated_at": "2026-11-23T17:02:35Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1358,7 +1358,15 @@
       "aa_cost_per_task_usd": 7.755545745286556,
       "board_missing": [],
       "status": "verified",
-      "arena_publish_date": null
+      "arena_publish_date": null,
+      "openrouter_id": "google/gemini-4-carbon",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ]
     },
     {
       "id": "claude-haiku-5-5",
