@@ -884,6 +884,19 @@
     "intelligence_index_cost_per_task": 0.34534207651823257
   },
   {
+    "slug": "ling-3-2-air",
+    "model": "Ling-3.2-air",
+    "intelligence_index": 23.3877547890296,
+    "deprecated": false,
+    "released": "2026-11-23",
+    "context_window": 1048576,
+    "price_input": null,
+    "price_output": null,
+    "cache_read": null,
+    "cache_write": null,
+    "intelligence_index_cost_per_task": null
+  },
+  {
     "slug": "qwen4-max",
     "model": "Qwen4 Max",
     "intelligence_index": 42.8914543287565,

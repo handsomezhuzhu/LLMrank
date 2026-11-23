@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T16:58:45Z",
+  "updated_at": "2026-11-23T16:59:34Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -373,7 +373,7 @@
       "price": {
         "currency": "USD",
         "input": 0.0399,
-        "output": 0.0784,
+        "output": 0.074,
         "cache_read": 0.03,
         "cache_write": -1
       },
@@ -1552,8 +1552,10 @@
       "slug": "kimi-k3",
       "aa_cost_per_task_usd": 3.6812002895742055,
       "released": "2026-07-16",
-      "board_missing": [],
-      "status": "verified",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
       "modalities": [
         "image",
         "text",
@@ -2130,7 +2132,9 @@
         "text",
         "video"
       ],
-      "status": "verified"
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 3.6812002895742055
     }
   ]
 }
