@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon’s LLM Ranking</title>
-    <meta name="description" content="Capability-first multi-dimensional ranking of large language models. Formula v4.">
+    <meta name="description" content="Capability-first multi-dimensional ranking of large language models. Formula v5.">
     <link rel="icon" type="image/jpeg" href="https://zhuzihan.com/logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -484,6 +484,9 @@
             border: 1px solid transparent;
         }
         .status-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+        /* Keep the provenance badge clear of the model name. */
+        .td-model .model-cell .status-badge,
+        .m-name-row .status-badge { margin-left: 9px; }
         .status-badge.verified {
             color: var(--success);
             border-color: rgba(16, 185, 129, 0.35);
@@ -1009,7 +1012,7 @@
         <header class="hero">
             <div class="hero-kicker">
                 <span class="dot"></span>
-                Formula v4 · capability-first
+                Formula v5 · capability-first
             </div>
             <h1>Multi-dimensional LLM ranking</h1>
             <p class="hero-desc">

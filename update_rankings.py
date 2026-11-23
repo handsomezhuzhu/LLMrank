@@ -12,7 +12,7 @@ Each model stores:
 This script:
 1. Optionally scrapes Arena / Artificial Analysis (best-effort)
 2. Optionally refreshes price/ctx from OpenRouter for mapped models
-3. Recalculates Formula v4 scores purely from models.json
+3. Recalculates Formula v5 scores purely from models.json
 4. Writes derived views (corrected_models.json for legacy) and updates index.html subheader
 5. Git commit + push
 
@@ -44,7 +44,7 @@ CNY_PER_USD = 7.2
 # another's (KNN band, in Arena rating points).
 IMPUTE_ARENA_BAND = 20.0
 
-# ── Formula v4 ──────────────────────────────────────────────────────────────
+# ── Formula v5 ──────────────────────────────────────────────────────────────
 # Arena 30% + AI Index 35% + Price 10% + Multimodal 15% + Context 10%
 
 

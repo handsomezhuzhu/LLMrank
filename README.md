@@ -8,7 +8,7 @@ Multi-dimensional weighted evaluation of large language models.
 
 **Single source of truth: [`data/models.json`](data/models.json)**
 
-Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (`index.html`) both compute Formula v4 from this file.
+Scores are **not** hand-maintained. Python (`update_rankings.py`) and the site (`index.html`) both compute Formula v5 from this file.
 
 ### Schema (per model)
 
