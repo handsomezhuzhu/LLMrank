@@ -179,6 +179,49 @@ def find_candidates(models: list[dict]) -> list[dict]:
     return found
 
 
+def _release_conflict(own_base: str, aa_base: str) -> bool:
+    """True when the AA slug names a *different release* than the ranked row.
+
+    Catches version bumps (row `kimi-k3`, AA `kimi-k3-1-pro`) while accepting
+    build/size suffixes (`deepseek-v4-1-flash` vs `...-1017`, `muse-glimmer` vs
+    `muse-glimmer-30b`) and vendor alias words (`command-a` vs `command-a-plus`).
+    """
+    if not aa_base or not own_base or aa_base == own_base:
+        return False
+    for short, long in ((own_base, aa_base), (aa_base, own_base)):
+        if long.startswith(short + "-"):
+            extra = long[len(short) + 1:].split("-")
+            # "1-pro" is a new release; "1017", "30b", "plus" are the same one.
+            return len(extra) >= 2 and extra[0].isdigit() and not extra[0].isalpha()
+    return False
+
+
+def mapping_conflicts(aa: dict[str, dict]) -> list[dict]:
+    """Mappings whose AA slug is on the board under a *different* model name.
+
+    A wrong slug both hides a real dual-board candidate (the slug counts as
+    already known) and grafts that model's score onto the wrong row, so it is
+    reported instead of ignored.
+    """
+    out = []
+    for display, (_arena_key, aa_slug) in u.MODEL_MAPPING.items():
+        if not aa_slug:
+            continue
+        row = aa.get(_base_slug(str(aa_slug)))
+        if not row:
+            continue
+        own_base = _base_slug(_normalize_name(display))
+        aa_base = _base_slug(_normalize_name(row.get("name") or ""))
+        if _release_conflict(own_base, aa_base):
+            out.append({
+                "mapped_model": display,
+                "aa_slug": str(aa_slug),
+                "aa_lists": row.get("name"),
+                "ai_index": row.get("ai_index"),
+            })
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -194,10 +237,16 @@ def main() -> int:
         print(f"new_models: {e}", file=sys.stderr)
         return 1
 
+    try:
+        conflicts = mapping_conflicts(collect_aa())
+    except RuntimeError:
+        conflicts = []
+
     payload = {
         "checked_at": u.datetime.now(u.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "tracked_models": len(models),
         "candidates": candidates,
+        "mapping_conflicts": conflicts,
     }
     if args.json:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
@@ -211,6 +260,11 @@ def main() -> int:
                       f"AI={c['ai_index']:<7} slug={c['aa_slug']}")
             print("\nThese are proposals only; add a MODEL_MAPPING entry and a "
                   "models.json row to admit one.")
+        if conflicts:
+            print(f"\nMAPPING CONFLICTS ({len(conflicts)}) — slug belongs to another model:")
+            for c in conflicts:
+                print(f"  {c['mapped_model']:28s} -> {c['aa_slug']:22s} "
+                      f"but AA lists {c['aa_lists']!r} (AI {c['ai_index']})")
     if args.output:
         with open(args.output, "w") as f:
             json.dump(payload, f, indent=2, ensure_ascii=False)

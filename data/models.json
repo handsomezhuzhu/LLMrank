@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T09:20:23Z",
+  "updated_at": "2026-11-23T16:58:45Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1533,7 +1533,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1474.7761478917705,
-      "ai_index": 46.4526236744189,
+      "ai_index": 17.4191985300887,
       "multi": 85,
       "eco": 45,
       "ctx": 1048576,
@@ -1547,11 +1547,11 @@
       "price_source": "openrouter",
       "openrouter_id": "moonshotai/kimi-k3",
       "url": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
-      "note": "",
+      "note": "AA 已下架 Kimi K3，沿用其最后公布的 Low 档指数 17.42",
       "auto_price": true,
       "slug": "kimi-k3",
       "aa_cost_per_task_usd": 3.6812002895742055,
-      "released": "2026-10-23",
+      "released": "2026-07-16",
       "board_missing": [],
       "status": "verified",
       "modalities": [
@@ -2099,6 +2099,38 @@
       "modalities": [],
       "status": "verified",
       "arena_publish_date": null
+    },
+    {
+      "id": "kimi-k3-1-pro",
+      "name": "Kimi K3.1 Pro",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1458.934117265021,
+      "ai_index": 46.4526236744189,
+      "multi": 85,
+      "eco": 45,
+      "ctx": 1048576,
+      "price": {
+        "currency": "USD",
+        "input": 0.2403,
+        "output": 8.4023,
+        "cache_read": 0.2,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k3.1-pro",
+      "url": "https://platform.kimi.ai/",
+      "note": "双榜收录 2026-11-23",
+      "auto_price": true,
+      "slug": "kimi-k3-1-pro",
+      "released": "2026-10-23",
+      "board_missing": [],
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "status": "verified"
     }
   ]
 }
