@@ -21,14 +21,31 @@ index.html loads data/models.json at runtime and scores client-side with the sam
 
 from __future__ import annotations
 
+import io
 import json
 import math
 import os
 import re
 import subprocess
+import sys
 import urllib.request
 from datetime import datetime, timezone
 from typing import Any
+
+# Windows defaults text files to cp936/GBK, which cannot decode these UTF-8
+# files (model names contain em dashes and CJK). Pinning UTF-8 is a no-op on
+# Linux/macOS and makes the scripts run unchanged on a Windows checkout.
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+
+def open_text(path: str, mode: str = "r"):
+    """Open a repo text file as UTF-8 on every platform."""
+    return io.open(path, mode, encoding="utf-8", newline="" if "w" in mode else None)
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 MODELS_JSON = os.path.join(REPO, "data", "models.json")
@@ -607,7 +624,7 @@ def fetch_aa_intelligence() -> list[dict] | None:
         print(f"  AA live fetch failed — trying local cache: {e}")
     try:
         if os.path.exists(AA_JSON):
-            with open(AA_JSON) as f:
+            with open_text(AA_JSON) as f:
                 cached = json.load(f)
             if isinstance(cached, list):
                 normalized = _normalize_aa_rows(cached)
@@ -674,7 +691,7 @@ def openrouter_price_map(or_models: list[dict]) -> dict[str, dict]:
 MODEL_MAPPING = {
     "Gemini 4 Carbon": ("Gemini 4 Carbon (High)", "gemini-4-carbon"),
     "Claude Haiku 5.5": ("Claude Haiku 5.5 (High)", "claude-haiku-5-5"),
-    "Nemotron 3 Ultra 550B": ("NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)", "nvidia-nemotron-3-ultra-550b-a55b"),
+    "Nemotron 3 Ultra 550B": ("NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)", "nemotron-3-ultra-550b-a55b"),
     "Nemotron 3.5 Super VL": ("NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)", "nemotron-3-5-super-vl"),
     "Nemotron 3.5 Lightning": ("NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)", "nemotron-3-5-lightning"),
     "Command A+": ("Command A (03-2025)", "command-a-plus"),
@@ -706,7 +723,7 @@ MODEL_MAPPING = {
     "Qwen3.8 27B": ("Qwen3.8-27B", "qwen3-8-27b"),
     "Gemma 4 31B": ("Gemma 4 31B", "gemma-4-31b"),
     "Gemma 4 26B A4B": ("Gemma 4 26B A4B", "gemma-4-26b-a4b"),
-    "Solar Pro 4": ("Solar Pro 4", "solar-pro4"),
+    "Solar Pro 4": ("Solar Pro 4", "solar-pro-4"),
     "Mistral Medium 3.5": ("Mistral Medium 3.5", "mistral-medium-3-5"),
     "GPT-5.4 mini": ("GPT-5.4 mini (High)", "gpt-5-4-mini"),
     "GPT-5.4 nano": ("GPT-5.4 nano (High)", "gpt-5-4-nano"),
@@ -788,7 +805,7 @@ MODEL_MAPPING = {
     "Kimi K3.1 Pro": ("Kimi K3.1 Pro (Max)", "kimi-k3-1-pro"),
     "Muse Wonder": ("Muse Wonder (Max)", "muse-wonder"),
     "Gemini 4 Argon": ("Gemini 4 Argon (High)", "gemini-4-argon"),
-    "Step 5 Preview": ("Step 5 Preview", "step-5"),
+    "Step 5 Preview": ("Step 5 Preview", "step-5-preview"),
     "GPT-6.1 Sol": ("GPT-6.1 Sol (Max)", "gpt-6-1-sol"),
     "Claude Sonnet 5.5": ("Claude Sonnet 5.5 (xHigh)", "claude-sonnet-5-5"),
     "Claude Fable 5.2": ("Claude Fable 5.2 (Max)", "claude-fable-5-2"),
@@ -802,13 +819,13 @@ MODEL_MAPPING = {
 
 
 def load_doc() -> dict:
-    with open(MODELS_JSON) as f:
+    with open_text(MODELS_JSON) as f:
         return json.load(f)
 
 
 def save_doc(doc: dict) -> None:
     doc["updated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    with open(MODELS_JSON, "w") as f:
+    with open_text(MODELS_JSON, "w") as f:
         json.dump(doc, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
@@ -1177,7 +1194,7 @@ def export_legacy(scored: list[dict]) -> None:
                 "total": m["total"],
             }
         )
-    with open(LEGACY_JSON, "w") as f:
+    with open_text(LEGACY_JSON, "w") as f:
         json.dump(legacy, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
@@ -1227,10 +1244,10 @@ def main():
     # Load on-disk leaderboard caches as fallback (never invent data).
     arena_data, aa_data = [], []
     if os.path.exists(ARENA_JSON):
-        with open(ARENA_JSON) as f:
+        with open_text(ARENA_JSON) as f:
             arena_data = json.load(f)
     if os.path.exists(AA_JSON):
-        with open(AA_JSON) as f:
+        with open_text(AA_JSON) as f:
             aa_data = json.load(f)
 
     print("\n1. Fetching Arena ratings...")
@@ -1239,7 +1256,7 @@ def main():
     if new_arena:
         arena_data = new_arena
         arena_fresh = True
-        with open(ARENA_JSON, "w") as f:
+        with open_text(ARENA_JSON, "w") as f:
             json.dump(arena_data, f, indent=2, ensure_ascii=False)
             f.write("\n")
         print(f"  Cache rewritten: {len(arena_data)} entries")
@@ -1252,7 +1269,7 @@ def main():
     if new_aa:
         aa_data = new_aa
         if aa_fresh:
-            with open(AA_JSON, "w") as f:
+            with open_text(AA_JSON, "w") as f:
                 json.dump(aa_data, f, indent=2, ensure_ascii=False)
                 f.write("\n")
             print(f"  Refreshed AA cache: {len(aa_data)} models")
@@ -1382,14 +1399,14 @@ def main():
     print(f"  Saved {MODELS_JSON}")
     print(f"  Saved legacy {LEGACY_JSON}")
 
-    with open(INDEX_HTML) as f:
+    with open_text(INDEX_HTML) as f:
         html = f.read()
     html = update_subheader(html, len(models))
-    with open(INDEX_HTML, "w") as f:
+    with open_text(INDEX_HTML, "w") as f:
         f.write(html)
     print(f"  Updated subheader in {INDEX_HTML}")
 
-    with open(os.path.join(REPO, "last_check.txt"), "w") as f:
+    with open_text(os.path.join(REPO, "last_check.txt"), "w") as f:
         f.write(datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ\n"))
 
     print("\n7. Git push...")

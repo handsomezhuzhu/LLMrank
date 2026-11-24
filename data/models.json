@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T09:34:31Z",
+  "updated_at": "2026-11-24T09:40:11Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -881,10 +881,8 @@
       "auto_price": true,
       "slug": "solar-pro4",
       "aa_cost_per_task_usd": 0.9557366659448332,
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "text"
       ],
@@ -1080,12 +1078,10 @@
       "note": "Dual-board verified · AA release unknown · OpenRouter modalities text,image,video; multi/eco estimates",
       "auto_price": true,
       "slug": "step-5",
-      "released": null,
+      "released": "2026-09-18",
       "aa_cost_per_task_usd": 2.3452525606205166,
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "image",
         "text",
@@ -1417,12 +1413,10 @@
       "note": "Dual-board verified · open weights",
       "auto_price": true,
       "slug": "nvidia-nemotron-3-ultra-550b-a55b",
-      "released": "2026-10-18",
-      "aa_cost_per_task_usd": 2.2257365504312134,
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "released": "2026-06-04",
+      "aa_cost_per_task_usd": 2.1896557658964193,
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "text"
       ],
