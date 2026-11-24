@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon’s LLM Ranking</title>
+    <meta name="description" content="Capability-first multi-dimensional ranking of large language models. Formula v5.">
+    <link rel="icon" type="image/jpeg" href="https://zhuzihan.com/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+/* === Theme system === */
+:root {
+    --bg: #08090a;
+    --bg-elevated: #0f1011;
+    --surface: #141516;
+    --surface-hover: #191a1b;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-strong: rgba(255, 255, 255, 0.10);
+    --text: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-muted: #8a8f98;
+    --text-faint: #62666d;
+    --accent: #7170ff;
+    --accent-soft: rgba(113, 112, 255, 0.12);
+    --accent-hover: #828fff;
+    --success: #10b981;
+    --warn: #eab308;
+    --danger: #f43f5e;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --max: 1120px;
+}
+
+[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-elevated: #fafafa;
+    --surface: #f3f4f6;
+    --surface-hover: #eceef0;
+    --border: rgba(0, 0, 0, 0.06);
+    --border-strong: rgba(0, 0, 0, 0.10);
+    --text: #0f0f10;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-faint: #9ca3af;
+    --accent: #5b5af0;
+    --accent-soft: rgba(91, 90, 240, 0.10);
+    --accent-hover: #4544d6;
+    --success: #059669;
+    --warn: #ca8a04;
+    --danger: #e11d48;
+}
+
+/* Preserve hard-coded medal/table header colours across themes */
+[data-theme="light"] thead th { background: #e8e8e9; }
+[data-theme="light"] .score.hi { color: #047857; }
+[data-theme="light"] .score.mid { color: #b45309; }
+[data-theme="light"] .score.lo { color: #c2410c; }
+[data-theme="light"] .score.vlo { color: #be123c; }
+[data-theme="light"] .region.cn { color: #c2410c; border-color: rgba(194, 65, 12, 0.25); background: rgba(194, 65, 12, 0.08); }
+[data-theme="light"] .region.us { color: #2563eb; border-color: rgba(37, 99, 235, 0.25); background: rgba(37, 99, 235, 0.08); }
+[data-theme="light"] .td-rank .medal,
+[data-theme="light"] .m-rank .medal { border-color: var(--border-strong); color: var(--text-secondary); background: var(--bg-elevated); }
+[data-theme="light"] .td-rank .medal.m1,
+[data-theme="light"] .m-rank .medal.m1 { color: #b4881a; border-color: rgba(180, 136, 26, 0.30); background: rgba(180, 136, 26, 0.10); }
+[data-theme="light"] .td-rank .medal.m2,
+[data-theme="light"] .m-rank .medal.m2 { color: #4b5563; border-color: rgba(75, 85, 99, 0.30); background: rgba(75, 85, 99, 0.10); }
+[data-theme="light"] .td-rank .medal.m3,
+[data-theme="light"] .m-rank .medal.m3 { color: #92400e; border-color: rgba(146, 64, 14, 0.30); background: rgba(146, 64, 14, 0.10); }
+
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: var(--font);
+            font-feature-settings: "cv01", "ss03";
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        [v-cloak] { display: none; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+
+        .shell {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 20px 64px;
+        }
+
+        /* Top bar */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(12px);
+            background: color-mix(in srgb, var(--bg) 82%, transparent);
+            border-bottom: 1px solid var(--border);
+        }
+        .topbar-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text);
+            font-weight: 510;
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+        .brand:hover { color: var(--text); text-decoration: none; }
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 13px;
+            font-weight: 510;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+        .top-links a { color: var(--text-muted); }
+        .top-links a:hover { color: var(--text); }
+
+        /* Theme toggle */
+        .theme-toggle {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            transition: color .15s, background .15s;
+        }
+        .theme-toggle:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+        [data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.06); }
+
+        /* Hero */
+        .hero {
+            padding: 48px 0 28px;
+        }
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 510;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .hero-kicker .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+        }
+        .hero h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 510;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .hero-desc {
+            max-width: 560px;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+        .weight-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .weight-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            background: rgba(255, 255, 255, 0.02);
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 510;
+        }
+        .weight-chip b {
+            color: var(--text);
+            font-family: var(--mono);
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin: 8px 0 16px;
+        }
+        .search {
+            flex: 1 1 220px;
+            min-width: 180px;
+            position: relative;
+        }
+        .search input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            color: var(--text);
+            font: inherit;
+            font-size: 13px;
+            padding: 9px 12px 9px 34px;
+            outline: none;
+            transition: border-color .15s, background .15s;
+        }
+        .search input::placeholder { color: var(--text-faint); }
+        .search input:focus {
+            border-color: rgba(113, 112, 255, 0.45);
+            background: rgba(113, 112, 255, 0.04);
+        }
+        .search-icon {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-faint);
+            font-size: 13px;
+            pointer-events: none;
+        }
+        /* Stale-row visibility toggle */
+        .toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 11px 5px 9px;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            font-size: 12px;
+            font-weight: 510;
+            color: var(--text-muted);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            transition: border-color .12s, color .12s, background .12s;
+        }
+        .toggle:hover { color: var(--text-secondary); border-color: var(--border-strong); }
+        .toggle.on { color: var(--text); background: rgba(255, 255, 255, 0.05); }
+        .toggle input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+        .toggle-track {
+            position: relative;
+            width: 26px;
+            height: 15px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid var(--border-strong);
+            transition: background .15s;
+            flex: none;
+        }
+        .toggle-knob {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--text-faint);
+            transition: transform .15s, background .15s;
+        }
+        .toggle.on .toggle-track { background: rgba(113, 112, 255, 0.35); border-color: rgba(113, 112, 255, 0.5); }
+        .toggle.on .toggle-knob { transform: translateX(11px); background: var(--accent-hover); }
+        .toggle:focus-within { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+        .toggle-label b {
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-left: 2px;
+        }
+        .seg {
+            display: inline-flex;
+            padding: 3px;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            gap: 2px;
+        }
+        .seg button {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+            font: inherit;
+            font-size: 12px;
+            font-weight: 510;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background .12s, color .12s;
+        }
+        .seg button.active {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text);
+        }
+        .seg button:hover:not(.active) { color: var(--text-secondary); }
+        .meta-line {
+            margin-left: auto;
+            font-size: 12px;
+            color: var(--text-faint);
+            font-family: var(--mono);
+        }
+
+        /* Table */
+        .panel {
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            background: var(--bg-elevated);
+            overflow: hidden;
+        }
+        .tbl-scroll { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+        }
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: #121314;
+            color: var(--text-faint);
+            font-size: 11px;
+            font-weight: 510;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-strong);
+            white-space: nowrap;
+            user-select: none;
+        }
+        thead th.sortable { cursor: pointer; }
+        thead th.sortable:hover { color: var(--text-muted); }
+        thead th .w {
+            display: block;
+            margin-top: 2px;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-faint);
+            letter-spacing: 0;
+            text-transform: none;
+            font-weight: 400;
+        }
+        thead th.th-model { text-align: left; padding-left: 16px; }
+        thead th.th-rank { width: 52px; }
+        thead th.th-total { padding-right: 16px; }
+        thead a {
+            color: inherit;
+            text-decoration: none;
+        }
+        thead a:hover { color: var(--accent); }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background .12s;
+        }
+        tbody tr:last-child { border-bottom: 0; }
+        tbody tr:hover { background: var(--surface-hover); }
+        tbody tr.top3 { background: rgba(113, 112, 255, 0.03); }
+        tbody tr.top3:hover { background: rgba(113, 112, 255, 0.06); }
+
+        td {
+            padding: 11px 10px;
+            text-align: center;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+        .td-rank {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-faint);
+        }
+        .td-rank .medal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 22px;
+            padding: 0 6px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--border-strong);
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .td-rank .medal.m1 { color: #f5d76e; border-color: rgba(245, 215, 110, 0.25); background: rgba(245, 215, 110, 0.08); }
+        .td-rank .medal.m2 { color: #c9ced8; border-color: rgba(201, 206, 216, 0.25); background: rgba(201, 206, 216, 0.08); }
+        .td-rank .medal.m3 { color: #d0a37a; border-color: rgba(208, 163, 122, 0.25); background: rgba(208, 163, 122, 0.08); }
+
+        .td-model { text-align: left; padding-left: 16px; }
+        .model-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 180px;
+        }
+        .region {
+            flex: 0 0 auto;
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-strong);
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .region.cn { color: #fb923c; border-color: rgba(251, 146, 60, 0.25); background: rgba(251, 146, 60, 0.08); }
+        .region.us { color: #60a5fa; border-color: rgba(96, 165, 250, 0.25); background: rgba(96, 165, 250, 0.08); }
+        .model-name {
+            color: var(--text);
+            font-weight: 510;
+            font-size: 13.5px;
+            letter-spacing: -0.01em;
+        }
+        .model-name:hover { color: var(--accent-hover); text-decoration: none; }
+
+        .vendor-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 9px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 510;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-strong);
+            background: rgba(255, 255, 255, 0.02);
+            white-space: nowrap;
+        }
+        /* Provenance badge: how much of a row is actually measured. */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: help;
+            border: 1px solid transparent;
+        }
+        .status-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+        /* Keep the provenance badge clear of the model name. */
+        .td-model .model-cell .status-badge,
+        .m-name-row .status-badge { margin-left: 9px; }
+        .status-badge.verified {
+            color: var(--success);
+            border-color: rgba(16, 185, 129, 0.35);
+            background: rgba(16, 185, 129, 0.10);
+        }
+        .status-badge.estimated {
+            color: var(--warn);
+            border-color: rgba(234, 179, 8, 0.40);
+            background: rgba(234, 179, 8, 0.12);
+        }
+        .status-badge.stale {
+            color: var(--text-faint);
+            border-color: var(--border-strong);
+            border-style: dashed;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        /* Estimated rows read as provisional; stale rows read as archived. */
+        tr.row-estimated { background: rgba(234, 179, 8, 0.035); }
+        tr.row-estimated .total-num { color: var(--warn); }
+        tr.row-stale { opacity: 0.5; }
+        tr.row-stale .total-num { text-decoration: line-through; }
+        .m-card.row-estimated { background: rgba(234, 179, 8, 0.045); }
+        .m-card.row-stale { opacity: 0.5; }
+        .imputed-note { font-size: 10px; color: var(--warn); opacity: 0.85; margin-left: 4px; }
+        .vendor-pill:hover {
+            border-color: var(--border-strong);            color: var(--text);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .score {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+        }
+        .score.hi { color: #34d399; }
+        .score.mid { color: #fbbf24; }
+        .score.lo { color: #fb923c; }
+        .score.vlo { color: #fb7185; }
+
+        .price-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .price-eff {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        .total-cell {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+        .total-num {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            font-variant-numeric: tabular-nums;
+        }
+        .tier {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 2px 7px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+        }
+
+        .status {
+            text-align: center;
+            padding: 48px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .status.error { color: #fb7185; }
+
+        /* Sections */
+        .section {
+            margin-top: 48px;
+        }
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .section-head h2 {
+            font-size: 15px;
+            font-weight: 510;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+        .section-head p {
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .card {
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 16px;
+            transition: border-color .15s, background .15s;
+        }
+        .card:hover {
+            border-color: rgba(113, 112, 255, 0.28);
+            background: rgba(113, 112, 255, 0.04);
+        }
+        .card .label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .card h3 {
+            font-size: 13px;
+            font-weight: 510;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .card .pct {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 2px 7px;
+        }
+        .card p {
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: var(--text-muted);
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+        }
+        .source {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            background: transparent;
+        }
+        .source h3 {
+            font-size: 13px;
+            font-weight: 510;
+            margin-bottom: 4px;
+        }
+        .source h3 a { color: var(--text); }
+        .source h3 a:hover { color: var(--accent); }
+        .source p {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+        .leg {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+        .leg i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* "How the ranking works" explainer */
+        .explain { margin-top: 28px; }
+        .explain h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 22px 0 8px;
+            letter-spacing: -0.01em;
+        }
+        .explain h3:first-child { margin-top: 0; }
+        .explain p {
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin: 0 0 10px;
+        }
+        .explain p.muted { color: var(--text-muted); }
+        .explain ol {
+            margin: 0 0 10px;
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+        .explain ol li { margin-bottom: 4px; }
+        .explain ul {
+            margin: 0 0 10px;
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+        .explain ul li { margin-bottom: 4px; }
+        .explain code {
+            font-family: var(--mono);
+            font-size: 12px;
+            padding: 1px 5px;
+            border-radius: 4px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .status-legend {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 22px 0 4px;
+        }
+        .status-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 16px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+        .status-item h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0 0 6px;
+        }
+        .status-item p {
+            font-size: 12px;
+            line-height: 1.65;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .status-item .status-badge { align-self: flex-start; }
+        @media (max-width: 820px) {
+            .status-legend { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            margin-top: 56px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--text); }
+
+        /* Mobile card list (desktop uses table) */
+        .mobile-list { display: none; }
+
+        @media (max-width: 820px) {
+            .shell { padding: 0 14px 48px; }
+            .topbar-inner { padding: 12px 14px; gap: 10px; }
+            .brand { font-size: 13px; }
+            .top-links { gap: 12px; font-size: 12px; }
+            .top-links a:nth-child(1),
+            .top-links a:nth-child(2) { display: none; }
+
+            .hero { padding: 28px 0 18px; }
+            .hero h1 {
+                font-size: 26px;
+                letter-spacing: -0.03em;
+                margin-bottom: 10px;
+            }
+            .hero-desc {
+                font-size: 13.5px;
+                margin-bottom: 14px;
+            }
+            .weight-row { gap: 6px; }
+            .weight-chip {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+            .search { flex: none; min-width: 0; width: 100%; }
+            .search input {
+                font-size: 16px; /* avoid iOS zoom */
+                padding: 11px 12px 11px 34px;
+            }
+            .seg {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .seg button {
+                padding: 9px 8px;
+                font-size: 13px;
+                min-height: 40px;
+            }
+            .meta-line {
+                margin-left: 0;
+                width: 100%;
+                font-size: 11px;
+            }
+
+            /* Hide wide table; show cards */
+            .tbl-scroll { display: none; }
+            .mobile-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px;
+            }
+            .m-card {
+                border: 1px solid var(--border-strong);
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.02);
+                padding: 12px 12px 10px;
+            }
+            .m-card.top3 {
+                background: rgba(113, 112, 255, 0.04);
+                border-color: rgba(113, 112, 255, 0.18);
+            }
+            .m-card-top {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            .m-card-left {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                min-width: 0;
+                flex: 1;
+            }
+            .m-rank {
+                flex: 0 0 auto;
+                font-family: var(--mono);
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--text-faint);
+                min-width: 28px;
+                text-align: center;
+                padding-top: 2px;
+            }
+            .m-rank .medal {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 28px;
+                height: 22px;
+                padding: 0 6px;
+                border-radius: 999px;
+                font-size: 11px;
+                font-weight: 600;
+                border: 1px solid var(--border-strong);
+                color: var(--text-secondary);
+                background: rgba(255, 255, 255, 0.02);
+            }
+            .m-rank .medal.m1 { color: #f5d76e; border-color: rgba(245, 215, 110, 0.25); background: rgba(245, 215, 110, 0.08); }
+            .m-rank .medal.m2 { color: #c9ced8; border-color: rgba(201, 206, 216, 0.25); background: rgba(201, 206, 216, 0.08); }
+            .m-rank .medal.m3 { color: #d0a37a; border-color: rgba(208, 163, 122, 0.25); background: rgba(208, 163, 122, 0.08); }
+            .m-identity { min-width: 0; }
+            .m-name-row {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            .m-name {
+                color: var(--text);
+                font-weight: 510;
+                font-size: 14px;
+                letter-spacing: -0.01em;
+                line-height: 1.25;
+            }
+            .m-name:hover { color: var(--accent-hover); text-decoration: none; }
+            .m-meta {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin-top: 5px;
+                flex-wrap: wrap;
+            }
+            .m-total {
+                flex: 0 0 auto;
+                text-align: right;
+            }
+            .m-total .total-num {
+                display: block;
+                font-size: 16px;
+                line-height: 1.1;
+                margin-bottom: 4px;
+            }
+            .m-scores {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 4px;
+                border-top: 1px solid var(--border);
+                padding-top: 10px;
+            }
+            .m-score {
+                text-align: center;
+                min-width: 0;
+            }
+            .m-score .k {
+                display: block;
+                font-size: 9px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--text-faint);
+                margin-bottom: 3px;
+                font-weight: 510;
+            }
+            .m-score .v {
+                font-family: var(--mono);
+                font-size: 12px;
+                font-weight: 500;
+                font-variant-numeric: tabular-nums;
+            }
+            .m-score .sub {
+                display: block;
+                margin-top: 1px;
+                font-family: var(--mono);
+                font-size: 9.5px;
+                color: var(--text-faint);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .m-empty {
+                text-align: center;
+                padding: 28px 12px;
+                color: var(--text-muted);
+                font-size: 13px;
+            }
+
+            .section { margin-top: 36px; }
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 12px;
+            }
+            .grid { grid-template-columns: 1fr; gap: 8px; }
+            .source-grid { grid-template-columns: 1fr; }
+            .legend { gap: 8px 12px; }
+            footer {
+                margin-top: 40px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .m-scores { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; }
+            .m-score .v { font-size: 11px; }
+            .brand { font-size: 12.5px; }
+        }
+    </style>
+    <script>
+    (function(){
+        var s=null;
+        try{s=localStorage.getItem('llmrank-theme');}catch(_){}
+        var t=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+        document.documentElement.setAttribute('data-theme',t);
+    })();
+    </script>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#">Simon’s LLM Ranking</a>
+            <div class="top-links">
+                <a href="#methodology">Methodology</a>
+                <a href="#sources">Sources</a>
+                <a href="https://github.com/handsomezhuzhu/LLMrank" target="_blank" rel="noopener">GitHub</a>
+            <button class="theme-toggle" type="button" @click="toggleTheme" :title="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+                <svg v-if="theme === 'dark'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+                <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="shell">
+        <header class="hero">
+            <div class="hero-kicker">
+                <span class="dot"></span>
+                Formula v5 · capability-first
+            </div>
+            <h1>Multi-dimensional LLM ranking</h1>
+            <p class="hero-desc">
+                A weighted composite of human preference, automated benchmarks, pricing efficiency,
+                and multimodal coverage — scored from a single canonical dataset.
+            </p>
+            <div class="weight-row">
+                <span class="weight-chip">Arena <b>30%</b></span>
+                <span class="weight-chip">AI Index <b>30%</b></span>
+                <span class="weight-chip">Price <b>20%</b></span>
+                <span class="weight-chip">Multimodal <b>20%</b></span>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search">
+                <span class="search-icon">⌕</span>
+                <input v-model="q" type="search" placeholder="Filter by model or vendor…" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="seg" role="group" aria-label="Region filter">
+                <button type="button" :class="{active: region==='all'}" @click="region='all'">All</button>
+                <button type="button" :class="{active: region==='US'}" @click="region='US'">US</button>
+                <button type="button" :class="{active: region==='CN'}" @click="region='CN'">CN</button>
+            </div>
+            <label class="toggle" :class="{on: !showStale}"
+                   :title="showStale ? 'Hide rows whose scores are carried over' : 'Show rows whose scores are carried over'">
+                <input type="checkbox" v-model="showStale">
+                <span class="toggle-track"><span class="toggle-knob"></span></span>
+                <span class="toggle-label">Hide stale <b v-if="staleCount">{{ staleCount }}</b></span>
+            </label>
+            <div class="meta-line" v-if="ready">
+                {{ filtered.length }} / {{ ranked.length }} models
+                <template v-if="updatedAt"> · updated {{ updatedAt }}</template>
+            </div>
+        </div>
+
+        <div class="panel">
+            <p v-if="err" class="status error">Failed to load data/models.json — {{ err }}</p>
+            <p v-else-if="!ready" class="status">Loading models…</p>
+            <template v-else>
+                <div class="tbl-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="th-rank">#</th>
+                                <th class="th-model">Model</th>
+                                <th>Vendor</th>
+                                <th>
+                                    <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener">Arena</a>
+                                    <span class="w">30%</span>
+                                </th>
+                                <th>
+                                    <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">AI Index</a>
+                                    <span class="w">30%</span>
+                                </th>
+                                <th>Price<span class="w">20%</span></th>
+                                <th>Multi<span class="w">20%</span></th>
+                                <th class="th-total">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="m in filtered" :key="m.id || m.name" :class="[{top3: m._rank < 3}, 'row-' + (m.status || 'verified')]">
+                                <td class="td-rank">
+                                    <span class="medal" :class="'m' + (m._rank + 1)" v-if="m._rank < 3">{{ m._rank + 1 }}</span>
+                                    <span v-else>{{ m._rank + 1 }}</span>
+                                </td>
+                                <td class="td-model">
+                                    <div class="model-cell">
+                                        <span class="region" :class="m.region === 'CN' ? 'cn' : 'us'">{{ m.region }}</span>
+                                        <div>
+                                            <a class="model-name" :href="m.url" target="_blank" rel="noopener">{{ m.name }}</a>
+                                            <span class="status-badge" :class="m.status || 'verified'"
+                                                  :title="statusTitle(m)">
+                                                <span class="dot"></span>{{ statusLabel(m.status) }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="vendor-pill" :href="vendorUrls[m.vendor] || '#'" target="_blank" rel="noopener">{{ m.vendor }}</a>
+                                </td>
+                                <td><span class="score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span></td>
+                                <td>
+                                    <span v-if="m.sAI == null" class="score" title="AI Index not published and not estimable">—</span>
+                                    <span v-else class="score" :class="sc(m.sAI)" :title="(m.ai_imputed || m.ai_index_last_seen) ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~†' : (m.ai_index_last_seen ? '†' : '') }}{{ m.sAI }}</span>
+                                </td>
+                                <td>
+                                    <div class="price-cell">
+                                        <span class="score" :class="sc(m.sPrice)">{{ m.sPrice }}</span>
+                                        <span class="price-eff" v-if="m.effective_price_usd != null">${{ fmtPrice(m.effective_price_usd) }}/M</span>
+                                        <span class="price-eff" v-else>—</span>
+                                    </div>
+                                </td>
+                                <td><span class="score" :class="sc(m.sMulti)">{{ m.sMulti }}</span></td>
+                                <td class="th-total">
+                                    <div class="total-cell">
+                                        <span class="total-num">{{ m.total.toFixed(1) }}</span>
+                                        <span class="tier" :style="tierStyle(m.total)">{{ tier(m.total).l }}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr v-if="filtered.length === 0">
+                                <td colspan="8" class="status">No models match this filter.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mobile-list">
+                    <article
+                        class="m-card"
+                        v-for="m in filtered"
+                        :key="'m-' + (m.id || m.name)"
+                        :class="[{top3: m._rank < 3}, 'row-' + (m.status || 'verified')]"
+                    >
+                        <div class="m-card-top">
+                            <div class="m-card-left">
+                                <div class="m-rank">
+                                    <span class="medal" :class="'m' + (m._rank + 1)" v-if="m._rank < 3">{{ m._rank + 1 }}</span>
+                                    <span v-else>{{ m._rank + 1 }}</span>
+                                </div>
+                                <div class="m-identity">
+                                    <div class="m-name-row">
+                                        <a class="m-name" :href="m.url" target="_blank" rel="noopener">{{ m.name }}</a>
+                                        <span class="status-badge" :class="m.status || 'verified'" :title="statusTitle(m)">
+                                            <span class="dot"></span>{{ statusLabel(m.status) }}
+                                        </span>
+                                    </div>
+                                    <div class="m-meta">
+                                        <span class="region" :class="m.region === 'CN' ? 'cn' : 'us'">{{ m.region }}</span>
+                                        <a class="vendor-pill" :href="vendorUrls[m.vendor] || '#'" target="_blank" rel="noopener">{{ m.vendor }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-total">
+                                <span class="total-num">{{ m.total.toFixed(1) }}</span>
+                                <span class="tier" :style="tierStyle(m.total)">{{ tier(m.total).l }}</span>
+                            </div>
+                        </div>
+                        <div class="m-scores">
+                            <div class="m-score">
+                                <span class="k">Arena</span>
+                                <span class="v score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span>
+                            </div>
+                            <div class="m-score">
+                                <span class="k">AI</span>
+                                <span v-if="m.sAI == null" class="v score">—</span>
+                                <span v-else class="v score" :class="sc(m.sAI)" :title="(m.ai_imputed || m.ai_index_last_seen) ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~†' : (m.ai_index_last_seen ? '†' : '') }}{{ m.sAI }}</span>
+                            </div>
+                            <div class="m-score">
+                                <span class="k">Price</span>
+                                <span class="v score" :class="sc(m.sPrice)">{{ m.sPrice }}</span>
+                                <span class="sub" v-if="m.effective_price_usd != null">${{ fmtPrice(m.effective_price_usd) }}</span>
+                                <span class="sub" v-else>—</span>
+                            </div>
+                            <div class="m-score">
+                                <span class="k">Multi</span>
+                                <span class="v score" :class="sc(m.sMulti)">{{ m.sMulti }}</span>
+                            </div>
+                        </div>
+                    </article>
+                    <div v-if="filtered.length === 0" class="m-empty">No models match this filter.</div>
+                </div>
+            </template>
+        </div>
+
+        <section class="section" id="methodology">
+            <div class="section-head">
+                <h2>Methodology</h2>
+                <p>Scores are computed client-side from data/models.json</p>
+            </div>
+            <div class="grid">
+                <article class="card" v-for="r in rules" :key="r.t">
+                    <div class="label">
+                        <h3>{{ r.t }}</h3>
+                        <span class="pct">{{ r.w }}</span>
+                    </div>
+                    <p>{{ r.d }}</p>
+                </article>
+            </div>
+            <div class="legend">
+                <span class="leg" v-for="t in tiers" :key="t.l">
+                    <i :style="{background: t.c}"></i>{{ t.l }}
+                </span>
+            </div>
+        </section>
+
+        <section class="section" id="how-it-works">
+            <div class="section-head">
+                <h2>How the ranking works</h2>
+                <p>Coverage model, data provenance, and how to read each row</p>
+            </div>
+
+            <div class="explain">
+                <h3>1. Two leaderboards, not always unanimous</h3>
+                <p>
+                    Each model is scored on two independent measurements: an <strong>Arena</strong> rating and an
+                    <strong>Artificial Analysis Intelligence Index</strong>. These boards do not always agree on
+                    which models exist. A model can be listed on both, listed on only one, or drop off one board
+                    after having been listed before. Requiring both boards to agree for a model to appear would
+                    silently delete legitimately ranked models — that is what this scheme replaces.
+                    <strong>A model is now ranked whenever it has an Arena rating</strong>, and its coverage is
+                    declared explicitly instead of being decided by deletion.
+                </p>
+
+                <h3>2. Filling a missing AI Index (k-nearest-neighbour imputation)</h3>
+                <p>
+                    When a model has an Arena rating but no published AI Index, it borrows an estimate from models
+                    that sit close to it on the Arena scale:
+                </p>
+                <ol>
+                    <li>Collect every model that has <em>both</em> an Arena rating and a measured AI Index.</li>
+                    <li>Keep those whose Arena rating is within <strong>±20 points</strong> of the target model.</li>
+                    <li>Its AI Index becomes the <strong>mean</strong> of that neighbourhood.</li>
+                    <li>If the neighbourhood is empty, nothing is guessed — that dimension is left blank.</li>
+                </ol>
+                <p class="muted">
+                    Imputation only runs in one direction. Because Arena is a directly measured rating, models
+                    within a narrow Arena band are genuinely comparable, and their AI Index is the best available
+                    stand-in. The reverse — guessing an Arena rating from AI Index — is deliberately not done: the
+                    two boards measure different quantities, so their neighbourhoods are not interchangeable.
+                </p>
+
+                <h3>3. Missing dimensions are dropped, never zeroed</h3>
+                <p>
+                    A model without an AI Index is not penalised to zero. That dimension is removed from the
+                    denominator and the remaining weights are re-normalised so they still sum to 100%. A missing
+                    score therefore costs a model its evidence, not marks.
+                </p>
+
+                <h3>4. Multimodal coverage is derived, not assigned</h3>
+                <p>
+                    The multimodal dimension is not a hand-maintained label. It is recomputed on every run
+                    from the model's declared input modalities (image, file, video, audio) as published by
+                    OpenRouter, by counting how many non-text modalities the model accepts:
+                </p>
+                <ul>
+                    <li><strong>0</strong> (text only) → 50</li>
+                    <li><strong>1</strong> → 70</li>
+                    <li><strong>2</strong> → 85</li>
+                    <li><strong>3</strong> → 95</li>
+                    <li><strong>4</strong> (all of image, file, video, audio) → 100</li>
+                </ul>
+                <p class="muted">
+                    Hand-assigned tags tended to drift: two models advertising the same modalities could carry
+                    very different values, which made the weight impossible to compare fairly. Deriving the
+                    tier from a published list removes that inconsistency. A model with no OpenRouter listing
+                    keeps its previous tier, since there is no modality data to derive from.
+                </p>
+
+                <h3>5. The weighting</h3>
+                <p>
+                    Capability first. Arena 30% · AI Index 30% · Price 20% · Multimodal 20%.
+                    Price and multimodal capability are always available, so they never need imputation.
+                    Context length is no longer tracked at all: nearly every current model sits at or near
+                    1M tokens, so the dimension stopped separating them.
+                </p>
+
+                <h3>6. Reading the badges</h3>
+                <p>Every row states how much of it is actually measured. The overall total is only as trustworthy
+                    as its weakest input.</p>
+            </div>
+
+            <div class="status-legend">
+                <article class="status-item">
+                    <span class="status-badge verified"><span class="dot"></span>Verified</span>
+                    <div>
+                        <h4>Both scores measured</h4>
+                        <p>The Arena rating and the AI Index are both live values read from their boards on the
+                            most recent run. Nothing on this row is inferred. These rows are directly comparable
+                            with one another.</p>
+                    </div>
+                </article>
+                <article class="status-item">
+                    <span class="status-badge estimated"><span class="dot"></span>Estimated</span>
+                    <div>
+                        <h4>At least one score inferred</h4>
+                        <p>The AI Index was not published for this model, so it was imputed from Arena-nearby
+                            models (±20 points) and is shown with a leading <code>~</code>. The total is
+                            provisional: it can be read as a reasonable placement, but it is not a measurement and
+                            should not be compared too finely against a Verified row. The tooltip names how many
+                            models contributed.</p>
+                    </div>
+                </article>
+                <article class="status-item">
+                    <span class="status-badge stale"><span class="dot"></span>Stale</span>
+                    <div>
+                        <h4>A score carried over</h4>
+                        <p>No longer listed on one or both boards, or no comparable neighbour existed to impute
+                            from. Its previous values are kept so it does not silently disappear, but the total is
+                            struck through and the row is dimmed. Treat it as an archived entry, not a current
+                            ranking. Shown by default; use “Hide stale” above the table to filter them
+                            out.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="explain">
+                <h3>7. Why a model may be missing an AI Index column entry</h3>
+                <p class="muted">
+                    A dashed <code>—</code> in the AI column means both that the index is unpublished and that no
+                    model within ±20 Arena points had one to borrow from. Rather than invent a number, the column is
+                    left empty and the row is labelled Stale.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="sources">
+            <div class="section-head">
+                <h2>Data sources</h2>
+                <p>Canonical JSON · external leaderboards · price audit</p>
+            </div>
+            <div class="source-grid">
+                <article class="source" v-for="s in sources" :key="s.n">
+                    <h3><a :href="s.u" target="_blank" rel="noopener">{{ s.n }}</a></h3>
+                    <p>{{ s.d }}</p>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                <a href="https://github.com/handsomezhuzhu/LLMrank" target="_blank" rel="noopener">GitHub</a>
+                ·
+                <a href="https://zhuzihan.com" target="_blank" rel="noopener">zhuzihan.com</a>
+                ·
+                <a href="https://rank.zhuzihan.com" target="_blank" rel="noopener">rank.zhuzihan.com</a>
+            </div>
+            <div>MIT · September 2026</div>
+        </footer>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.min.js"></script>
+<script>
+const { createApp, computed, ref, onMounted } = Vue
+
+const CNY_PER_USD = 7.2
+
+function toUsd(amount, currency) {
+    const c = (currency || 'USD').toUpperCase()
+    if (c === 'USD' || c === 'US$') return amount
+    if (c === 'CNY' || c === 'RMB' || c === '¥' || c === '元') return amount / CNY_PER_USD
+    return amount
+}
+
+function priceComponent(price, key) {
+    if (!price) return null
+    const raw = price[key]
+    if (raw === undefined || raw === null || raw < 0) return null
+    return toUsd(Number(raw), price.currency || 'USD')
+}
+
+// Blend: input 25% + output 55% + cache_read 10% + cache_write 10%
+// Missing components redistributed; sentinel -1 = missing
+function effectivePriceUsd(price) {
+    const weights = { input: 0.25, output: 0.55, cache_read: 0.10, cache_write: 0.10 }
+    const parts = {}
+    for (const k of Object.keys(weights)) {
+        const v = priceComponent(price, k)
+        if (v !== null) parts[k] = v
+    }
+    const keys = Object.keys(parts)
+    if (!keys.length) return null
+    const wsum = keys.reduce((s, k) => s + weights[k], 0)
+    return keys.reduce((s, k) => s + parts[k] * (weights[k] / wsum), 0)
+}
+
+const vendorUrls = {
+    OpenAI: 'https://openai.com',
+    Anthropic: 'https://anthropic.com',
+    Google: 'https://deepmind.google',
+    xAI: 'https://x.ai',
+    DeepSeek: 'https://deepseek.com',
+    Alibaba: 'https://qwen.ai',
+    'Zhipu AI': 'https://zhipuai.cn',
+    Moonshot: 'https://moonshot.cn',
+    Xiaomi: 'https://huggingface.co/XiaomiMiMo',
+    Meta: 'https://ai.meta.com',
+    MiniMax: 'https://www.minimaxi.com',
+    Mistral: 'https://mistral.ai',
+    StepFun: 'https://www.stepfun.com'
+}
+
+createApp({
+    setup() {
+        const modelsRef = ref([])
+        const err = ref(null)
+        const ready = ref(false)
+        const updatedAt = ref('')
+        const q = ref('')
+        const region = ref('all')
+        // Carried-over rows are shown by default; the toggle filters them out.
+        const showStale = ref(true)
+        const theme = ref((document.documentElement.getAttribute('data-theme') === 'light') ? 'light' : 'dark')
+        const toggleTheme = () => {
+            theme.value = theme.value === 'dark' ? 'light' : 'dark'
+            document.documentElement.setAttribute('data-theme', theme.value)
+            try { localStorage.setItem('llmrank-theme', theme.value) } catch (_) {}
+        }
+        // Sync theme ref with the already-applied data-theme (set by head script)
+        onMounted(() => {
+            const applied = document.documentElement.getAttribute('data-theme')
+            if (applied === 'light' || applied === 'dark') theme.value = applied
+        })
+
+        onMounted(async () => {
+            try {
+                const res = await fetch('data/models.json?t=' + Date.now())
+                if (!res.ok) throw new Error('HTTP ' + res.status)
+                const doc = await res.json()
+                modelsRef.value = (doc.models || []).map(m => ({
+                    ...m,
+                    r: m.region || m.r || 'US',
+                    po: (m.price && m.price.output != null) ? m.price.output : -1,
+                }))
+                if (doc.updated_at) {
+                    try {
+                        updatedAt.value = new Date(doc.updated_at).toISOString().slice(0, 10)
+                    } catch (_) {
+                        updatedAt.value = String(doc.updated_at).slice(0, 10)
+                    }
+                }
+                ready.value = true
+            } catch (e) {
+                err.value = String(e && e.message ? e.message : e)
+                console.error('Failed to load data/models.json', e)
+            }
+        })
+
+        // Formula v5: Arena 30% + AI Index 30% + Price 20% + Multimodal 20%.
+        // Context length is displayed but no longer scored.
+        const ranked = computed(() => {
+            const models = modelsRef.value
+            const n = models.length
+            if (!n) return []
+            // Ranked when an Arena rating exists. A missing AI Index drops that
+            // dimension from the total instead of scoring it as zero.
+            const rankedModels = models.filter(m => m.arena != null)
+            const arenas = rankedModels.map(m => m.arena)
+            const ais = rankedModels.filter(m => m.ai_index != null).map(m => m.ai_index)
+            const percentile = (vals) => {
+                const length = vals.length
+                const order = vals.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0])
+                const ranks = new Array(length).fill(0)
+                let i = 0
+                while (i < length) {
+                    let j = i
+                    while (j + 1 < length && order[j + 1][0] === order[i][0]) j++
+                    const avg = (i + j) / 2
+                    for (let k = i; k <= j; k++) ranks[order[k][1]] = avg
+                    i = j + 1
+                }
+                if (length === 1) return vals.map(() => 50)
+                return ranks.map(r => r / (length - 1) * 100)
+            }
+            const pA = percentile(arenas)
+            const arenaPercentiles = new Map()
+            arenas.forEach((v, i) => arenaPercentiles.set(i, pA[i]))
+            const pI = ais.length > 1 ? percentile(ais) : [100]
+            const aiPercentile = new Map()
+            ais.forEach((v, i) => aiPercentile.set(v, pI[i]))
+            const linNorm = (v, lo, hi) => hi === lo ? 0 : Math.max(0, Math.min(100, (v - lo) / (hi - lo) * 100))
+            const hybrid = (abs, perc, w = 0.65) => abs * w + perc * (1 - w)
+            const scorePrice = (price) => {
+                const eff = effectivePriceUsd(price)
+                if (eff === null || eff <= 0) return 20
+                const multiple = Math.max(eff / 1.0, 0.05)
+                return Math.round(Math.max(5, Math.min(100, 100 / (1 + Math.log10(multiple * 4)))))
+            }
+            // A modality-coverage tier is already its score; anything else clamps.
+            const MULTI_TIER = [50, 70, 85, 95, 100]
+            const scoreMulti = (multi) => MULTI_TIER.includes(multi) ? multi : Math.round(40 + multi * 0.6)
+
+            return rankedModels.map((m, idx) => {
+                const sA = Math.round(hybrid(linNorm(m.arena, 1300, 1520), arenaPercentiles.get(idx), 0.65))
+                const hasAI = m.ai_index != null
+                const sAI = hasAI
+                    ? +hybrid(linNorm(m.ai_index, 0, 60), aiPercentile.get(m.ai_index) ?? 50, 0.65).toFixed(1)
+                    : null
+                const sP = scorePrice(m.price)
+                const sM = scoreMulti(m.multi)
+                const eff = effectivePriceUsd(m.price)
+                // Missing dimensions are dropped and the remaining weights re-normalized.
+                let total
+                if (hasAI) {
+                    total = sA * 0.30 + sAI * 0.30 + sP * 0.20 + sM * 0.20
+                } else {
+                    total = (sA * 0.30 + sP * 0.20 + sM * 0.20) / 0.80
+                }
+                return {
+                    ...m,
+                    sArena: sA,
+                    sAI: hasAI ? Math.round(sAI) : null,
+                    sEco: m.eco,
+                    sPrice: sP,
+                    sMulti: sM,
+                    effective_price_usd: eff,
+                    total: +total.toFixed(1),
+                    region: m.r
+                }
+            }).sort((a, b) => b.total - a.total)
+                .map((m, i) => ({ ...m, _rank: i }))
+        })
+
+        const filtered = computed(() => {
+            const query = q.value.trim().toLowerCase()
+            return ranked.value.filter(m => {
+                if (!showStale.value && m.status === 'stale') return false
+                if (region.value !== 'all' && m.region !== region.value) return false
+                if (!query) return true
+                return (
+                    (m.name && m.name.toLowerCase().includes(query)) ||
+                    (m.vendor && m.vendor.toLowerCase().includes(query)) ||
+                    (m.id && m.id.toLowerCase().includes(query))
+                )
+            })
+        })
+
+        const staleCount = computed(() =>
+            ranked.value.filter(m => m.status === 'stale').length
+        )
+
+        const sc = (v) => v == null ? '' : v >= 70 ? 'hi' : v >= 50 ? 'mid' : v >= 30 ? 'lo' : 'vlo'
+        const tier = (s) =>
+            s >= 75 ? { l: 'S+', c: '#f5d76e' } :
+            s >= 68 ? { l: 'S',  c: '#e0b85a' } :
+            s >= 60 ? { l: 'A+', c: '#a78bfa' } :
+            s >= 52 ? { l: 'A',  c: '#818cf8' } :
+            s >= 44 ? { l: 'A-', c: '#60a5fa' } :
+            s >= 36 ? { l: 'B+', c: '#34d399' } :
+                      { l: 'B',  c: '#64748b' }
+        const tierStyle = (s) => {
+            const t = tier(s)
+            return {
+                color: t.c,
+                borderColor: t.c + '40',
+                background: t.c + '18'
+            }
+        }
+        const fmtPrice = (v) => {
+            if (v == null || Number.isNaN(v)) return '—'
+            if (v >= 10) return v.toFixed(1)
+            if (v >= 1) return v.toFixed(2)
+            return v.toFixed(3)
+        }
+
+        // Provenance: how much of a row is measured rather than carried over.
+        const statusLabel = (s) => ({
+            verified: 'Verified',
+            estimated: 'Estimated',
+            stale: 'Stale',
+        }[s] || 'Verified')
+        const statusTitle = (m) => {
+            const s = m.status || 'verified'
+            if (s === 'verified') return 'Arena rating and AI Index are both measured values from the live boards.'
+            if (s === 'estimated') {
+                const n = m.ai_neighbours
+                return 'AI Index is not published for this model; the value is imputed from ' +
+                    (n ? n + ' Arena-nearby models' : 'comparable models') +
+                    '. Treat its total as provisional.'
+            }
+            const gone = (m.board_missing || [])
+            return 'No longer listed on ' +
+                (gone.length ? gone.join(' and ') + ' — ' : 'either board. ') +
+                'scores carried over from an earlier run.'
+        }
+        const aiImputedTitle = (m) => {
+            if (m.ai_index_last_seen) {
+                return 'Last value Artificial Analysis published for this model (' +
+                    m.ai_index_last_seen + '). It has since been dropped from the live ' +
+                    'index, so this is measured data, not an estimate — but verify before relying on it.'
+            }
+            let t = '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±20 Arena points'
+            if (m.ai_index_spread != null) {
+                t += ' (their scores spanned ' + Number(m.ai_index_spread).toFixed(1) + ' points'
+                t += Number(m.ai_index_spread) > 20 ? ' — wide, treat as rough)' : ')'
+            }
+            t += '. Artificial Analysis has not scored this model.'
+            return t
+        }
+
+        return {
+            ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice,
+            statusLabel, statusTitle, aiImputedTitle,
+            err, ready, updatedAt, q, region, showStale, staleCount, theme, toggleTheme,
+            tiers: [
+                { l: 'S+ · 75+', c: '#f5d76e' },
+                { l: 'S · 68+', c: '#e0b85a' },
+                { l: 'A+ · 60+', c: '#a78bfa' },
+                { l: 'A · 52+', c: '#818cf8' },
+                { l: 'A- · 44+', c: '#60a5fa' },
+                { l: 'B+ · 36+', c: '#34d399' },
+                { l: 'B · <36', c: '#64748b' },
+            ],
+            rules: [
+                {
+                    t: 'Arena',
+                    w: '30%',
+                    d: 'Hybrid of absolute linear normalization (1300–1520) at 65% and in-list percentile at 35%. Captures human blind-test preference; floor lowered so older models keep double-digit scores.'
+                },
+                {
+                    t: 'AI Index',
+                    w: '30%',
+                    d: 'Hybrid of absolute linear (0–60) at 65% and percentile at 35%. Artificial Analysis composite — weighted equally with Arena to counter pure popularity bias.'
+                },
+                {
+                    t: 'Price',
+                    w: '20%',
+                    d: 'Blended effective $/1M from input 25% + output 55% + cache_read 10% + cache_write 10% (missing components redistribute; -1 = missing). Log-compressed vs $1/M. Missing/free scores a neutral 20.'
+                },
+                {
+                    t: 'Multimodal',
+                    w: '20%',
+                    d: 'Derived from modality coverage, not hand-assigned: the number of non-text input modalities a model accepts (image, file, video, audio, per OpenRouter) maps to a tier — 0 → 50, 1 → 70, 2 → 85, 3 → 95, 4 → 100. Recomputed every run, so a model cannot carry a stale or inflated tag.'
+                },
+            ],
+            sources: [
+                {
+                    n: 'data/models.json',
+                    u: 'https://github.com/handsomezhuzhu/LLMrank/blob/main/data/models.json',
+                    d: 'Canonical source of truth: Arena, AI Index, multimodal tags, context, and four-part pricing. All scores are derived — never hand-edited totals.'
+                },
+                {
+                    n: 'Arena AI',
+                    u: 'https://arena.ai/leaderboard',
+                    d: 'Crowd-sourced Bradley–Terry ratings from human blind tests across 200+ models, continuously updated.'
+                },
+                {
+                    n: 'Artificial Analysis',
+                    u: 'https://artificialanalysis.ai/leaderboards/models',
+                    d: 'AI Intelligence Index — automated benchmark composite across standardized prompt suites for 500+ models.'
+                },
+                {
+                    n: 'OpenRouter Models API',
+                    u: 'https://openrouter.ai/docs',
+                    d: 'Primary audit source for USD pricing and context windows. Cache components default to -1 when unavailable.'
+                },
+            ]
+        }
+    }
+}).mount('#app')
+</script>
+</body>
+</html>

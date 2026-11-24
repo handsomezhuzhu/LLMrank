@@ -1,0 +1,1999 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-24T11:21:27Z",
+  "currency_default": "USD",
+  "price_unit": "USD_per_1M_tokens",
+  "missing_price_sentinel": -1,
+  "description": "Single source of truth for LLMrank. Scores are computed from this file (not stored as source). Arena + AI Index from leaderboards; price/context preferably OpenRouter.",
+  "models": [
+    {
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1491.7552175389037,
+      "ai_index": 49.7,
+      "multi": 85,
+      "eco": 88,
+      "price": {
+        "currency": "USD",
+        "input": 10.0,
+        "output": 50.0,
+        "cache_read": 1.0,
+        "cache_write": 12.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "anthropic/claude-fable-5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+      "note": "",
+      "auto_price": true,
+      "slug": "claude-fable-5",
+      "aa_cost_per_task_usd": 12.993997201178466,
+      "released": "2026-09-01",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemini-3-1-pro",
+      "name": "Gemini 3.1 Pro",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1480.0053904777624,
+      "ai_index": 29.7185656132261,
+      "multi": 100,
+      "eco": 94,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 12.0,
+        "cache_read": 0.2,
+        "cache_write": 0.375
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-3.1-pro-preview",
+      "url": "https://deepmind.google/technologies/gemini/pro/",
+      "note": "",
+      "auto_price": true,
+      "slug": "gemini-3-1-pro-preview",
+      "aa_cost_per_task_usd": 1.2985855086120641,
+      "released": "2026-02-19",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gpt-5-5-instant",
+      "name": "GPT-5.5 Instant",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1419.299705830966,
+      "ai_index": 26.0135173401368,
+      "multi": 85,
+      "eco": 96,
+      "price": {
+        "currency": "USD",
+        "input": 5.0,
+        "output": 30.0,
+        "cache_read": 0.5,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-5.5",
+      "url": "https://platform.openai.com/docs/models",
+      "note": "",
+      "auto_price": true,
+      "slug": "gpt-5-5-instant-05-26",
+      "aa_cost_per_task_usd": 0.6914853678439488,
+      "released": "2026-06-25",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro 0813",
+      "vendor": "DeepSeek",
+      "region": "CN",
+      "arena": 1451.3484307730323,
+      "ai_index": 23.1,
+      "multi": 50,
+      "eco": 45,
+      "price": {
+        "currency": "USD",
+        "input": 0.111,
+        "output": 4.44,
+        "cache_read": 0.097,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "deepseek/deepseek-v4-pro-0813",
+      "url": "https://api-docs.deepseek.com/",
+      "note": "2026-08-13 新版",
+      "auto_price": true,
+      "slug": "deepseek-v4-pro",
+      "aa_cost_per_task_usd": 1.7691338076407441,
+      "released": "2026-08-13",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "qwen3-5-397b",
+      "name": "Qwen3.5-397B",
+      "vendor": "Alibaba",
+      "region": "CN",
+      "arena": 1437.5951002225488,
+      "ai_index": 18.4204249294815,
+      "multi": 85,
+      "eco": 72,
+      "price": {
+        "currency": "USD",
+        "input": 0.45,
+        "output": 3.0,
+        "cache_read": 0.22,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "qwen/qwen3.5-397b-a17b",
+      "url": "https://qwenlm.github.io/blog/qwen3.5/",
+      "note": "",
+      "auto_price": true,
+      "slug": "qwen3-5-397b-a17b",
+      "aa_cost_per_task_usd": 0.47457695829894075,
+      "released": "2026-02-16",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "o3",
+      "name": "o3",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1409.7329180060779,
+      "ai_index": 20.200754789201,
+      "multi": 85,
+      "eco": 96,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 8.0,
+        "cache_read": 0.5,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/o3",
+      "url": "https://platform.openai.com/docs/models",
+      "note": "",
+      "auto_price": true,
+      "slug": "o3",
+      "released": "2025-04-16",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "qwen3-5-122b",
+      "name": "Qwen3.5-122B",
+      "vendor": "Alibaba",
+      "region": "CN",
+      "arena": 1417.6514362979487,
+      "ai_index": 15.5694009312969,
+      "multi": 85,
+      "eco": 72,
+      "price": {
+        "currency": "USD",
+        "input": 0.26,
+        "output": 2.08,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "qwen/qwen3.5-122b-a10b",
+      "url": "https://qwenlm.github.io/blog/qwen3.5/",
+      "note": "",
+      "auto_price": true,
+      "slug": "qwen3-5-122b-a10b",
+      "aa_cost_per_task_usd": 0.3247468637357143,
+      "released": "2026-02-24",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1511.7703155455783,
+      "ai_index": 49.2,
+      "multi": 85,
+      "eco": 50,
+      "price": {
+        "currency": "USD",
+        "input": 10.0,
+        "output": 50.0,
+        "cache_read": 0.25,
+        "cache_write": 12.5
+      },
+      "openrouter_id": "anthropic/claude-fable-5.1",
+      "price_source": "openrouter",
+      "auto_price": true,
+      "note": "",
+      "aa_cost_per_task_usd": 12.994,
+      "released": "2026-09-01",
+      "id": "claude-fable-5-1",
+      "slug": "claude-fable-5-1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null,
+      "ai_index_source": "aa-api",
+      "ai_index_aa_slug": "claude-fable-5-1"
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1500.8803494450558,
+      "ai_index": 30.8,
+      "multi": 100,
+      "eco": 50,
+      "price": {
+        "currency": "USD",
+        "input": 0.825,
+        "output": 4.125,
+        "cache_read": 0.0825,
+        "cache_write": 0.041667
+      },
+      "openrouter_id": "google/gemini-3.8-flash",
+      "price_source": "openrouter",
+      "auto_price": true,
+      "note": "",
+      "aa_cost_per_task_usd": 7.766,
+      "released": "2026-09-02",
+      "id": "gemini-3-8-flash",
+      "slug": "gemini-3-8-flash",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "name": "GLM-5.3",
+      "vendor": "Z AI",
+      "region": "CN",
+      "arena": 1474.5716420587655,
+      "ai_index": 31.7,
+      "multi": 50,
+      "eco": 50,
+      "price": {
+        "currency": "USD",
+        "input": 0.0699,
+        "output": 1.4,
+        "cache_read": 0.0689,
+        "cache_write": -1
+      },
+      "openrouter_id": "z-ai/glm-5.3",
+      "price_source": "openrouter",
+      "auto_price": true,
+      "note": "",
+      "aa_cost_per_task_usd": 5.009264601719954,
+      "released": "2026-08-18",
+      "id": "glm-5-3",
+      "slug": "glm-5-3",
+      "url": "https://z.ai/blog/glm-5.3",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "name": "GLM-5.3 Flash",
+      "vendor": "Z AI",
+      "region": "CN",
+      "arena": 1471.739804277805,
+      "ai_index": 27.8,
+      "multi": 85,
+      "eco": 50,
+      "price": {
+        "currency": "USD",
+        "input": 0.12,
+        "output": 0.38,
+        "cache_read": 0.02,
+        "cache_write": -1
+      },
+      "openrouter_id": "z-ai/glm-5.3-flash",
+      "price_source": "openrouter",
+      "auto_price": true,
+      "note": "",
+      "aa_cost_per_task_usd": 0.5833103440014082,
+      "released": "2026-08-26",
+      "id": "glm-5-3-flash",
+      "slug": "glm-5-3-flash",
+      "url": "https://z.ai/blog/glm-5.3",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "name": "Qwen3.8 Max",
+      "vendor": "Alibaba",
+      "region": "CN",
+      "arena": 1484.9138435273762,
+      "ai_index": 33.7,
+      "multi": 85,
+      "eco": 50,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 6.0,
+        "cache_read": 0.25,
+        "cache_write": -1
+      },
+      "openrouter_id": "qwen/qwen3.8-max-0902",
+      "price_source": "openrouter",
+      "auto_price": true,
+      "note": "",
+      "aa_cost_per_task_usd": 10.0239,
+      "released": "2026-09-02",
+      "id": "qwen3-8-max",
+      "slug": "qwen3-8-max",
+      "url": "https://www.qwencloud.com/models/qwen3.8-max",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1441.0866317204095,
+      "ai_index": 56.9,
+      "multi": 85,
+      "eco": 60,
+      "price": {
+        "currency": "USD",
+        "input": 10.0,
+        "output": 50.0,
+        "cache_read": 1.0,
+        "cache_write": 12.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6-astra",
+      "url": "https://openai.com/index/gpt-6",
+      "note": "2026-09-14 补录",
+      "auto_price": true,
+      "slug": "gpt-6-astra",
+      "aa_cost_per_task_usd": 6.2447,
+      "released": "2026-09-03",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gpt-5-6-terra",
+      "name": "GPT-5.6 Terra",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1448.9217174606842,
+      "ai_index": 32.3,
+      "multi": 85,
+      "eco": 60,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 12.0,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-5.6-terra",
+      "url": "https://openai.com/index/gpt-5-6",
+      "note": "2026-09-14 补录",
+      "auto_price": true,
+      "slug": "gpt-5-6-terra",
+      "aa_cost_per_task_usd": 3.7349,
+      "released": "2026-07-09",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null,
+      "ai_index_source": "aa-api",
+      "ai_index_aa_slug": "gpt-5-6-terra"
+    },
+    {
+      "id": "minimax-m3",
+      "name": "MiniMax M3",
+      "vendor": "MiniMax",
+      "region": "CN",
+      "arena": 1426.2467490898684,
+      "ai_index": 18.9,
+      "multi": 85,
+      "eco": 80,
+      "price": {
+        "currency": "USD",
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.06,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "minimax/minimax-m3",
+      "url": "https://www.minimaxi.com",
+      "note": "2026-09-14 补录",
+      "auto_price": true,
+      "slug": "minimax-m3",
+      "aa_cost_per_task_usd": 1.2850974407373852,
+      "released": "2026-06-01",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1390.579664131676,
+      "ai_index": 27.9,
+      "multi": 85,
+      "eco": 96,
+      "price": {
+        "currency": "USD",
+        "input": 0.1,
+        "output": 0.5,
+        "cache_read": 0.01,
+        "cache_write": 0.125
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6-luna",
+      "url": "https://openai.com/index/gpt-6-luna/",
+      "released": "2026-09-22",
+      "aa_cost_per_task_usd": 0.15195575732105837,
+      "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
+      "auto_price": true,
+      "slug": "gpt-6-luna",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1514.1182801107798,
+      "ai_index": 59.1,
+      "multi": 85,
+      "eco": 88,
+      "price": {
+        "currency": "USD",
+        "input": 4.0,
+        "output": 20.0,
+        "cache_read": 0.2,
+        "cache_write": 5.0
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "anthropic/claude-opus-5.5",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "released": "2026-09-22",
+      "aa_cost_per_task_usd": 10.036409719512749,
+      "note": "新模型收录 2026-09-22 · Arena已收录 · price/OpenRouter",
+      "auto_price": true,
+      "slug": "claude-opus-5-5",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "mimo-v2-6-pro",
+      "name": "MiMo V2.6 Pro",
+      "vendor": "Xiaomi",
+      "region": "CN",
+      "arena": 1492.8697235495856,
+      "ai_index": 29.9,
+      "multi": 95,
+      "eco": 12,
+      "price": {
+        "currency": "USD",
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.0036,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "xiaomi/mimo-v2.6-pro",
+      "url": "https://huggingface.co/XiaomiMiMo",
+      "released": "2026-09-21",
+      "aa_cost_per_task_usd": 0.25718036275876155,
+      "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "mimo-v2-6-pro",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "audio",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "mimo-v2-6-flash",
+      "name": "MiMo V2.6 Flash",
+      "vendor": "Xiaomi",
+      "region": "CN",
+      "arena": 1450.328652041152,
+      "ai_index": 26.7,
+      "multi": 95,
+      "eco": 12,
+      "price": {
+        "currency": "USD",
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "xiaomi/mimo-v2.6-flash",
+      "url": "https://huggingface.co/XiaomiMiMo",
+      "released": "2026-09-21",
+      "aa_cost_per_task_usd": 0.12852987084014672,
+      "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,video,audio; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "mimo-v2-6-flash",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "audio",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "vendor": "DeepSeek",
+      "region": "CN",
+      "arena": 1462.7856555605854,
+      "ai_index": 32.6,
+      "multi": 70,
+      "eco": 45,
+      "price": {
+        "currency": "USD",
+        "input": 0.14,
+        "output": 0.42,
+        "cache_read": 0.0042,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "deepseek/deepseek-v4.1-flash",
+      "url": "https://www.deepseek.com/",
+      "released": "2026-10-17",
+      "aa_cost_per_task_usd": 0.60210514783598,
+      "note": "雙榜收錄 · release 2026-09-10 · OR modalities text,image; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "deepseek-v4-1-flash",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemini-3-5-flash-lite",
+      "name": "Gemini 3.5 Flash Lite",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1434.9666669480375,
+      "ai_index": 11.7,
+      "multi": 100,
+      "eco": 94,
+      "price": {
+        "currency": "USD",
+        "input": 0.3,
+        "output": 2.5,
+        "cache_read": 0.03,
+        "cache_write": 0.083333
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-3.5-flash-lite",
+      "url": "https://deepmind.google/technologies/gemini/flash/",
+      "released": "2026-07-21",
+      "aa_cost_per_task_usd": 0.6929018557975878,
+      "note": "雙榜收錄 · release 2026-07-21 · OR modalities text,image,video,file,audio; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "gemini-3-5-flash-lite",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "qwen3-7-plus",
+      "name": "Qwen3.7 Plus",
+      "vendor": "Alibaba",
+      "region": "CN",
+      "arena": 1454.3687889519456,
+      "ai_index": 25.1622215821984,
+      "multi": 70,
+      "eco": 72,
+      "price": {
+        "currency": "USD",
+        "input": 0.32,
+        "output": 1.28,
+        "cache_read": 0.064,
+        "cache_write": 0.4
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "qwen/qwen3.7-plus",
+      "url": "https://qwen.ai/",
+      "released": "2026-06-01",
+      "aa_cost_per_task_usd": 0.21702592259078568,
+      "note": "雙榜收錄 · release 2026-06-01 · OR modalities text,image; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "qwen3-7-plus",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "qwen3-8-27b",
+      "name": "Qwen3.8 27B",
+      "vendor": "Alibaba",
+      "region": "CN",
+      "arena": 1437.7051143246026,
+      "ai_index": 20.1,
+      "multi": 85,
+      "eco": 72,
+      "price": {
+        "currency": "USD",
+        "input": 0.035,
+        "output": 1.5,
+        "cache_read": 0.0175,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "qwen/qwen3.8-27b",
+      "url": "https://qwen.ai/",
+      "released": "2026-08-14",
+      "aa_cost_per_task_usd": 3.5295494751410654,
+      "note": "雙榜收錄 · release 2026-08-14 · OR modalities text,image,video; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "qwen3-8-27b",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemma-4-31b",
+      "name": "Gemma 4 31B",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1442.8964006543702,
+      "ai_index": 4.4,
+      "multi": 85,
+      "eco": 94,
+      "price": {
+        "currency": "USD",
+        "input": 0.2,
+        "output": 0.4,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemma-4-31b-it",
+      "url": "https://ai.google.dev/gemma",
+      "released": "2026-04-02",
+      "note": "雙榜收錄 · release 2026-04-02 · OR modalities image,text,video; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "gemma-4-31b",
+      "aa_cost_per_task_usd": 0.0,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemma-4-26b-a4b",
+      "name": "Gemma 4 26B A4B",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1434.1781138617516,
+      "ai_index": 16.671930040086,
+      "multi": 85,
+      "eco": 94,
+      "price": {
+        "currency": "USD",
+        "input": 0.09,
+        "output": 0.3,
+        "cache_read": 0.05,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemma-4-26b-a4b-it",
+      "url": "https://ai.google.dev/gemma",
+      "released": "2026-04-02",
+      "note": "雙榜收錄 · release 2026-04-02 · OR modalities image,text,video; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "gemma-4-26b-a4b",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "solar-pro4",
+      "name": "Solar Pro 4",
+      "vendor": "Upstage",
+      "region": "KR",
+      "arena": 1388.3321790220261,
+      "ai_index": 14.1589437644357,
+      "multi": 50,
+      "eco": 55,
+      "price": {
+        "currency": "USD",
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": 0.03,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "upstage/solar-pro4",
+      "url": "https://www.upstage.ai/",
+      "released": "2026-08-06",
+      "note": "雙榜收錄 · release 2026-08-06 · OR modalities text; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "solar-pro4",
+      "aa_cost_per_task_usd": 0.9557366659448332,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "mistral-medium-3-5",
+      "name": "Mistral Medium 3.5",
+      "vendor": "Mistral",
+      "region": "EU",
+      "arena": 1420.729941316447,
+      "ai_index": 4.6,
+      "multi": 85,
+      "eco": 60,
+      "price": {
+        "currency": "USD",
+        "input": 1.5,
+        "output": 7.5,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "mistralai/mistral-medium-3-5",
+      "url": "https://mistral.ai/news/",
+      "released": "2026-04-29",
+      "aa_cost_per_task_usd": 1.0390849688366068,
+      "note": "雙榜收錄 · release 2026-04-29 · OR modalities text,image,file; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "mistral-medium-3-5",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "grok-4-7",
+      "name": "Grok 4.7",
+      "vendor": "xAI",
+      "region": "US",
+      "arena": 1400.5535384650093,
+      "ai_index": 35.5,
+      "multi": 85,
+      "eco": 58,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 6.0,
+        "cache_read": 0.5,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "x-ai/grok-4.7",
+      "url": "https://x.ai/",
+      "released": "2026-09-21",
+      "aa_cost_per_task_usd": 7.771539401587139,
+      "note": "雙榜收錄 · release 2026-09-21 · OR modalities text,image,file; multi/eco are coarse estimates",
+      "auto_price": true,
+      "slug": "grok-4-7",
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "mistral-large-4",
+      "name": "Mistral Large 4",
+      "vendor": "Mistral",
+      "region": "EU",
+      "arena": 1413.6650228865892,
+      "ai_index": 26.1,
+      "multi": 70,
+      "eco": 60,
+      "price": {
+        "currency": "USD",
+        "input": 0.7,
+        "output": 2.1,
+        "cache_read": 0.07,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "mistralai/mistral-large-4-0",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "note": "雙榜收錄 · release 2026-10-06 · OR modalities text,image; multi/eco estimates",
+      "auto_price": true,
+      "slug": "mistral-large-4",
+      "released": "2026-10-29",
+      "aa_cost_per_task_usd": 2.0617306268126856,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "muse-wonder",
+      "name": "Muse Wonder",
+      "vendor": "Meta",
+      "region": "US",
+      "arena": 1503.6619735295121,
+      "ai_index": 43.6,
+      "multi": 100,
+      "eco": 100,
+      "price": {
+        "currency": "USD",
+        "input": 4.0,
+        "output": 20.0,
+        "cache_read": 0.2,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "meta/muse-wonder",
+      "url": "https://research.meta.ai/blog/muse-wonder",
+      "note": "Dual-board verified · AA release 2026-10-12 · OpenRouter modalities text,image,video,file,audio; multi/eco estimates",
+      "auto_price": true,
+      "slug": "muse-wonder",
+      "released": "2026-10-12",
+      "aa_cost_per_task_usd": 6.9520364786062245,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1527.6707454486746,
+      "ai_index": 50.4,
+      "multi": 100,
+      "eco": 100,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_read": 0.1,
+        "cache_write": 0.1875
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-4-argon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "note": "Dual-board verified · AA release 2026-09-30 · OpenRouter modalities audio,file,image,text,video; multi/eco estimates",
+      "auto_price": true,
+      "slug": "gemini-4-argon",
+      "released": "2026-09-30",
+      "aa_cost_per_task_usd": 9.946608711550533,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "step-5-preview",
+      "name": "Step 5 Preview",
+      "vendor": "StepFun",
+      "region": "CN",
+      "arena": 1443.8043207305,
+      "ai_index": 28.5283090216016,
+      "multi": 85,
+      "eco": 75,
+      "price": {
+        "currency": "USD",
+        "input": 1.0,
+        "output": 2.7,
+        "cache_read": 0.1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "stepfun/step-5-preview",
+      "url": "https://stepfun.ai/",
+      "note": "Dual-board verified · AA release unknown · OpenRouter modalities text,image,video; multi/eco estimates",
+      "auto_price": true,
+      "slug": "step-5",
+      "released": "2026-09-18",
+      "aa_cost_per_task_usd": 2.3452525606205166,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1445.7343463885259,
+      "ai_index": 54.6,
+      "multi": 85,
+      "eco": 50,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_read": 0.1,
+        "cache_write": 2.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.1-sol",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "note": "Dual-board verified · AA release 2026-09-29 · OpenRouter modalities file,image,text; multi/eco estimates",
+      "auto_price": true,
+      "slug": "gpt-6-1-sol",
+      "released": "2026-09-29",
+      "aa_cost_per_task_usd": 1.2721,
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "claude-sonnet-5.5",
+      "name": "Claude Sonnet 5.5",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1469.3610736670175,
+      "ai_index": 54.5,
+      "multi": 85,
+      "eco": 70,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_read": 0.1,
+        "cache_write": 2.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "anthropic/claude-sonnet-5.5",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "note": "Dual-board verified · AA release unknown · OpenRouter modalities text,image,file; multi/eco estimates",
+      "auto_price": true,
+      "slug": "claude-sonnet-5-5-xhigh",
+      "released": "2026-09-28",
+      "aa_cost_per_task_usd": 10.020621343395753,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "hy3",
+      "name": "Hy3",
+      "vendor": "Tencent",
+      "region": "CN",
+      "arena": 1440.249691881732,
+      "ai_index": 25.2972775731571,
+      "multi": 50,
+      "eco": 55,
+      "price": {
+        "currency": "USD",
+        "input": 0.132,
+        "output": 0.528,
+        "cache_read": 0.033,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "tencent/hy3",
+      "url": "https://huggingface.co/tencent/Hy3",
+      "released": "2026-07-06",
+      "note": "雙榜收錄 · release 2026-07-06 · OR modalities text; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "hy3",
+      "aa_cost_per_task_usd": 0.07179763081859954,
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "inkling",
+      "name": "Inkling",
+      "vendor": "Thinking Machines",
+      "region": "US",
+      "arena": 1443.99520904758,
+      "ai_index": 12.5,
+      "multi": 85,
+      "eco": 60,
+      "price": {
+        "currency": "USD",
+        "input": 1.0,
+        "output": 4.05,
+        "cache_read": 0.17,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling",
+      "url": "https://thinkingmachines.ai/news/introducing-inkling/",
+      "released": "2026-07-15",
+      "note": "雙榜收錄 · release 2026-07-15 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "inkling",
+      "aa_cost_per_task_usd": 1.3519575079737436,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "audio",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "inkling-small",
+      "name": "Inkling Small",
+      "vendor": "Thinking Machines",
+      "region": "US",
+      "arena": 1413.9550610439883,
+      "ai_index": 12.9,
+      "multi": 85,
+      "eco": 55,
+      "price": {
+        "currency": "USD",
+        "input": 0.45,
+        "output": 1.2,
+        "cache_read": 0.1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling-small",
+      "url": "https://thinkingmachines.ai/news/inkling-small/",
+      "released": "2026-07-30",
+      "note": "雙榜收錄 · release 2026-07-30 · OR modalities text,image,audio; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "inkling-small",
+      "aa_cost_per_task_usd": 0.2032,
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "audio",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "muse-glimmer",
+      "name": "Muse Glimmer 30B",
+      "vendor": "Meta",
+      "region": "US",
+      "arena": 1389.0563016601045,
+      "ai_index": 6.3,
+      "multi": 70,
+      "eco": 75,
+      "price": {
+        "currency": "USD",
+        "input": 0.35,
+        "output": 1.5,
+        "cache_read": 0.04,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "meta/muse-glimmer-30b",
+      "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+      "released": "2026-08-10",
+      "note": "雙榜收錄 · release 2026-08-10 · OR modalities text,image; multi/eco are coarse estimates (補錄 2026-10-20)",
+      "auto_price": true,
+      "slug": "muse-glimmer",
+      "aa_cost_per_task_usd": 0.17820832971071474,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1538.8733656178997,
+      "ai_index": 60.0,
+      "multi": 100,
+      "eco": 95,
+      "price": {
+        "currency": "USD",
+        "input": 4.0,
+        "output": 20.0,
+        "cache_read": 0.2,
+        "cache_write": 4.0
+      },
+      "price_source": "artificialanalysis",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
+      "note": "Dual-board verified · AA release 2026-10-28 · price pending OpenRouter listing",
+      "auto_price": false,
+      "slug": "gemini-4-carbon",
+      "released": "2026-10-28",
+      "aa_cost_per_task_usd": 7.755545745286556,
+      "board_missing": [],
+      "status": "verified",
+      "arena_publish_date": null,
+      "openrouter_id": "google/gemini-4-carbon",
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ]
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "name": "Claude Haiku 5.5",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1397.829955735574,
+      "ai_index": 36.5,
+      "multi": 85,
+      "eco": 96,
+      "price": {
+        "currency": "USD",
+        "input": 0.1,
+        "output": 0.5,
+        "cache_read": 0.01,
+        "cache_write": 0.125
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "anthropic/claude-haiku-5.5",
+      "url": "https://www.anthropic.com/news",
+      "note": "Dual-board verified · AA release 2026-10",
+      "auto_price": true,
+      "slug": "claude-haiku-5-5",
+      "released": "2026-10-07",
+      "aa_cost_per_task_usd": 0.41100741536816304,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "nemotron-3-5-super-vl",
+      "name": "Nemotron 3.5 Super VL",
+      "vendor": "NVIDIA",
+      "region": "US",
+      "arena": 1407.4620830030485,
+      "ai_index": 13.6,
+      "multi": 85,
+      "eco": 95,
+      "price": {
+        "currency": "USD",
+        "input": 0.15,
+        "output": 0.47,
+        "cache_read": 0.02,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "nvidia/nemotron-3.5-super-vl",
+      "url": "https://build.nvidia.com",
+      "note": "Dual-board verified · open weights",
+      "auto_price": true,
+      "slug": "nemotron-3-5-super-vl",
+      "released": "2026-10-15",
+      "aa_cost_per_task_usd": 0.48180884308185656,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "nvidia-nemotron-3-ultra-550b-a55b",
+      "name": "Nemotron 3 Ultra 550B",
+      "vendor": "NVIDIA",
+      "region": "US",
+      "arena": 1445.5764533467532,
+      "ai_index": 11.7592726308177,
+      "multi": 50,
+      "eco": 90,
+      "price": {
+        "currency": "USD",
+        "input": 0.5,
+        "output": 2.2,
+        "cache_read": 0.1,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "url": "https://build.nvidia.com",
+      "note": "Dual-board verified · open weights",
+      "auto_price": true,
+      "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+      "released": "2026-06-04",
+      "aa_cost_per_task_usd": 2.1896557658964193,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "command-a-plus",
+      "name": "Command A+",
+      "vendor": "Cohere",
+      "region": "US",
+      "arena": 1330.854872056132,
+      "ai_index": 6.2,
+      "multi": 70,
+      "eco": 90,
+      "price": {
+        "currency": "USD",
+        "input": 0.3,
+        "output": 1.5,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "cohere/command-a-plus",
+      "url": "https://cohere.com",
+      "note": "Dual-board verified",
+      "auto_price": true,
+      "slug": "command-a-plus",
+      "released": "2026-05-20",
+      "aa_cost_per_task_usd": 0.0,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "nemotron-3-5-lightning",
+      "name": "Nemotron 3.5 Lightning",
+      "vendor": "NVIDIA",
+      "region": "US",
+      "arena": 1329.6191676776025,
+      "ai_index": 5.5,
+      "multi": 50,
+      "eco": 95,
+      "price": {
+        "currency": "USD",
+        "input": 0.05,
+        "output": 0.2,
+        "cache_read": 0.01,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "nvidia/nemotron-3.5-lightning",
+      "url": "https://build.nvidia.com",
+      "note": "Dual-board verified · open weights",
+      "auto_price": true,
+      "slug": "nemotron-3-5-lightning",
+      "released": "2026-08-11",
+      "aa_cost_per_task_usd": 0.31445225066768195,
+      "board_missing": [],
+      "status": "verified",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1474.7761478917705,
+      "ai_index": 17.4191985300887,
+      "multi": 85,
+      "eco": 45,
+      "price": {
+        "currency": "USD",
+        "input": 0.192,
+        "output": 16.0,
+        "cache_read": 0.182,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k3",
+      "url": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
+      "note": "AA 已下架 Kimi K3，沿用其最后公布的 Low 档指数 17.42",
+      "auto_price": true,
+      "slug": "kimi-k3",
+      "aa_cost_per_task_usd": 3.6812002895742055,
+      "released": "2026-07-16",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1455.5167084970335,
+      "ai_index": 26.98,
+      "multi": 70,
+      "eco": 38,
+      "price": {
+        "currency": "USD",
+        "input": 0.65,
+        "output": 3.41,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k2.6",
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k2-6",
+      "aa_cost_per_task_usd": 0.799769615295709,
+      "released": "2026-04-20",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null,
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
+    },
+    {
+      "id": "kimi-k2-5",
+      "name": "Kimi K2.5",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1444.702539532534,
+      "ai_index": 23.46,
+      "multi": 70,
+      "eco": 38,
+      "price": {
+        "currency": "USD",
+        "input": 0.5,
+        "output": 2.5,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k2.5",
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": true,
+      "slug": "kimi-k2-5",
+      "released": "2026-01-27",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "arena_publish_date": null,
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1414.4677694297266,
+      "ai_index": 22.02,
+      "multi": 50,
+      "eco": 38,
+      "price": {
+        "currency": "USD",
+        "input": 0.6,
+        "output": 2.5,
+        "cache_read": 0.15,
+        "cache_write": -1
+      },
+      "price_source": "manual",
+      "openrouter_id": null,
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": false,
+      "slug": "kimi-k2-thinking",
+      "released": "2025-11-06",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null,
+      "price_note": "Kimi K2 Thinking is retired on OpenRouter (id no longer listed)",
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
+    },
+    {
+      "id": "kimi-k2",
+      "name": "Kimi K2",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1371.0248804429066,
+      "ai_index": 12.72,
+      "multi": 50,
+      "eco": 38,
+      "price": {
+        "currency": "USD",
+        "input": 0.57,
+        "output": 2.3,
+        "cache_read": -1,
+        "cache_write": -1
+      },
+      "price_source": "manual",
+      "openrouter_id": null,
+      "url": "https://platform.moonshot.cn/docs/intro",
+      "note": "",
+      "auto_price": false,
+      "slug": "kimi-k2",
+      "released": "2025-07-11",
+      "board_missing": [
+        "aa"
+      ],
+      "status": "stale",
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null,
+      "price_note": "Kimi K2 is retired on OpenRouter (id no longer listed)",
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
+    },
+    {
+      "id": "gpt-oss-120b",
+      "name": "gpt-oss-120b",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1365.4182057796147,
+      "ai_index": 3.8,
+      "multi": 50,
+      "eco": 90,
+      "price": {
+        "currency": "USD",
+        "input": 0.05,
+        "output": 0.25,
+        "cache_read": 0.05,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-oss-120b",
+      "url": "https://openai.com/index/introducing-gpt-oss/",
+      "note": "Dual-board verified · open weights",
+      "auto_price": true,
+      "slug": "gpt-oss-120b",
+      "released": "2025-08-05",
+      "board_missing": [],
+      "status": "verified",
+      "aa_cost_per_task_usd": 0.34534207651823257,
+      "modalities": [
+        "text"
+      ],
+      "arena_publish_date": null
+    },
+    {
+      "id": "gemini-4-neon",
+      "name": "Gemini 4 Neon",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1522.8896905416118,
+      "ai_index": 61.4,
+      "multi": 100,
+      "eco": 85,
+      "price": {
+        "currency": "USD",
+        "input": 3.0,
+        "output": 15.0,
+        "cache_read": 0.15,
+        "cache_write": 0.083333
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-4-neon",
+      "url": "https://deepmind.google/models/gemini/",
+      "note": "Dual-board verified · full multimodal",
+      "auto_price": true,
+      "slug": "gemini-4-neon",
+      "released": "2026-11-18",
+      "board_missing": [],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 6.444838101104699,
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ]
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "vendor": "Google",
+      "region": "US",
+      "arena": 1502.1451228167848,
+      "ai_index": 53.9,
+      "multi": 100,
+      "eco": 85,
+      "price": {
+        "currency": "USD",
+        "input": 1.5,
+        "output": 7.5,
+        "cache_read": 0.075,
+        "cache_write": 0.083333
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "google/gemini-4-hydrogen",
+      "url": "https://deepmind.google/models/gemini/",
+      "note": "Dual-board verified · full multimodal",
+      "auto_price": true,
+      "slug": "gemini-4-hydrogen",
+      "released": "2026-11-12",
+      "board_missing": [],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 3.1601590757006157,
+      "modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ]
+    },
+    {
+      "id": "claude-fable-5-2",
+      "name": "Claude Fable 5.2",
+      "vendor": "Anthropic",
+      "region": "US",
+      "arena": 1477.2239486461922,
+      "ai_index": 64.6,
+      "multi": 85,
+      "eco": 0,
+      "price": {
+        "currency": "USD",
+        "input": 8.0,
+        "output": 40.0,
+        "cache_read": 0.2,
+        "cache_write": 10.0
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "anthropic/claude-fable-5.2",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "claude-fable-5-2",
+      "released": "2026-11-09",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 26.53855780398091
+    },
+    {
+      "id": "gpt-6-2-astra",
+      "name": "GPT-6.2 Astra",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1413.329882319853,
+      "ai_index": 62.1,
+      "multi": 85,
+      "eco": 0,
+      "price": {
+        "currency": "USD",
+        "input": 8.0,
+        "output": 40.0,
+        "cache_read": 0.4,
+        "cache_write": 10.0
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.2-astra",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "gpt-6-2-astra",
+      "released": "2026-11-17",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 3.9979061566801852
+    },
+    {
+      "id": "gpt-6-2-sol",
+      "name": "GPT-6.2 Sol",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1413.6613007109495,
+      "ai_index": 57.3,
+      "multi": 85,
+      "eco": 0,
+      "price": {
+        "currency": "USD",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_read": 0.1,
+        "cache_write": 2.5
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.2-sol",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "gpt-6-2-sol",
+      "released": "2026-11-17",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 1.014379970300768
+    },
+    {
+      "id": "gpt-6-1-terra",
+      "name": "GPT-6.1 Terra",
+      "vendor": "OpenAI",
+      "region": "US",
+      "arena": 1426.0173531911273,
+      "ai_index": 51.3,
+      "multi": 85,
+      "eco": 0,
+      "price": {
+        "currency": "USD",
+        "input": 1.0,
+        "output": 5.0,
+        "cache_read": 0.05,
+        "cache_write": 1.25
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "openai/gpt-6.1-terra",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "gpt-6-1-terra",
+      "released": "2026-10-26",
+      "board_missing": [],
+      "modalities": [
+        "file",
+        "image",
+        "text"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 0.961108031081634
+    },
+    {
+      "id": "inkling-2-small",
+      "name": "Inkling 2 Small",
+      "vendor": "thinky",
+      "region": "US",
+      "arena": 1402.8287841496954,
+      "ai_index": 30.6,
+      "multi": 70,
+      "eco": 0,
+      "price": {
+        "currency": "USD",
+        "input": 0.3,
+        "output": 1.0,
+        "cache_read": 0.03,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling-2-small",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "inkling-2-small",
+      "released": "2026-11-05",
+      "board_missing": [],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 1.1784281349617984
+    },
+    {
+      "id": "inkling-2-mini",
+      "name": "Inkling 2 Mini",
+      "vendor": "thinky",
+      "region": "US",
+      "arena": 1343.6829566726776,
+      "ai_index": 20.1,
+      "multi": 70,
+      "eco": 0,
+      "price": {
+        "currency": "USD",
+        "input": 0.075,
+        "output": 0.3,
+        "cache_read": 0.015,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "thinkingmachines/inkling-2-mini",
+      "url": "",
+      "note": "Dual-board verified · staged 2026-11-23",
+      "auto_price": true,
+      "slug": "inkling-2-mini",
+      "released": "2026-11-20",
+      "board_missing": [],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 0.5865441229709887
+    },
+    {
+      "id": "kimi-k3-1-pro",
+      "name": "Kimi K3.1 Pro",
+      "vendor": "Moonshot",
+      "region": "CN",
+      "arena": 1458.934117265021,
+      "ai_index": 46.5,
+      "multi": 85,
+      "eco": 45,
+      "price": {
+        "currency": "USD",
+        "input": 0.2403,
+        "output": 8.4023,
+        "cache_read": 0.2,
+        "cache_write": -1
+      },
+      "price_source": "openrouter",
+      "openrouter_id": "moonshotai/kimi-k3.1-pro",
+      "url": "https://platform.kimi.ai/",
+      "note": "双榜收录 2026-11-23",
+      "auto_price": true,
+      "slug": "kimi-k3-1-pro",
+      "released": "2026-10-23",
+      "board_missing": [],
+      "modalities": [
+        "image",
+        "text",
+        "video"
+      ],
+      "status": "verified",
+      "arena_publish_date": null,
+      "aa_cost_per_task_usd": 3.6812002895742055
+    }
+  ]
+}
