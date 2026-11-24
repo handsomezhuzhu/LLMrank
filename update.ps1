@@ -118,6 +118,33 @@ try {
     if ($ahead) {
         $ahead | ForEach-Object { Write-Output "  $_" }
         Write-Output 'RESULT: ok'
+        # A successful push is not a successful deploy. Wait for the Pages run
+        # that this push triggered so a broken pipeline is visible here rather
+        # than discovered days later on a stale site.
+        Write-Output ''
+        Write-Output '=== deployment ==='
+        $null = git fetch --quiet origin gh-pages 2>$null
+        for ($i = 0; $i -lt 20; $i++) {
+            Start-Sleep -Seconds 15
+            $run = gh run list --workflow deploy.yml --limit 1 --json status,conclusion,headSha 2>$null | ConvertFrom-Json
+            if (-not $run) { continue }
+            if ($run.status -eq 'completed') {
+                Write-Output "DEPLOY: $($run.conclusion)"
+                if ($run.conclusion -ne 'success') {
+                    Write-Output '  deploy FAILED - the site was not updated; see gh run list'
+                }
+                break
+            }
+        }
+        # The CDN caches for 600s, so the live URL can lag the branch. Compare
+        # the branch instead of the URL to know whether the publish worked.
+        $branchSha = (git rev-parse origin/gh-pages 2>$null)
+        $branchErr = git show 'origin/gh-pages:data/models.json' 2>$null
+        if ($branchErr) {
+            $upd = ($branchErr | Select-String -Pattern '"updated_at"' | Select-Object -First 1).Line
+            Write-Output "PUBLISHED: gh-pages $($branchSha.Substring(0,7))  $($upd.Trim())"
+        }
+        Write-Output 'NOTE: the live URL can lag ~10 min behind gh-pages (Cache-Control: max-age=600).'
     }
     else {
         Write-Output '  (none)'
