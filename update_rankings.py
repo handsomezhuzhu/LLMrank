@@ -1206,6 +1206,7 @@ def recalculate_scores(models: list[dict]) -> list[dict]:
             "status": model_status(m),
             "ai_imputed": bool(m.get("ai_index_imputed")),
             "ai_neighbours": m.get("ai_index_neighbours"),
+            "ai_index_spread": m.get("ai_index_spread"),
             "arena_carried_over": bool(m.get("arena_carried_over")),
             "arena_publish_date": m.get("arena_publish_date"),
             "arena_age_days": m.get("arena_age_days"),

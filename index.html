@@ -1580,8 +1580,15 @@ createApp({
                 (gone.length ? gone.join(' and ') + ' — ' : 'either board. ') +
                 'scores carried over from an earlier run.'
         }
-        const aiImputedTitle = (m) =>
-            '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±20 Arena points'
+        const aiImputedTitle = (m) => {
+            let t = '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±20 Arena points'
+            if (m.ai_index_spread != null) {
+                t += ' (their scores spanned ' + Number(m.ai_index_spread).toFixed(1) + ' points'
+                t += Number(m.ai_index_spread) > 20 ? ' — wide, treat as rough)' : ')'
+            }
+            t += '. Artificial Analysis has not scored this model.'
+            return t
+        }
 
         return {
             ranked, filtered, vendorUrls, sc, tier, tierStyle, fmtPrice,
