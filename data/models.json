@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T11:09:31Z",
+  "updated_at": "2026-11-24T11:21:27Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1530,7 +1530,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1455.5167084970335,
-      "ai_index": 28.9625,
+      "ai_index": 26.98,
       "multi": 70,
       "eco": 38,
       "price": {
@@ -1551,15 +1551,14 @@
       "board_missing": [
         "aa"
       ],
-      "status": "estimated",
+      "status": "stale",
       "modalities": [
         "image",
         "text"
       ],
       "arena_publish_date": null,
-      "ai_index_imputed": true,
-      "ai_index_neighbours": 19,
-      "ai_index_spread": 52.5
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
     },
     {
       "id": "kimi-k2-5",
@@ -1567,7 +1566,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1444.702539532534,
-      "ai_index": 27.2337,
+      "ai_index": 23.46,
       "multi": 70,
       "eco": 38,
       "price": {
@@ -1587,15 +1586,14 @@
       "board_missing": [
         "aa"
       ],
-      "status": "estimated",
+      "status": "stale",
       "modalities": [
         "image",
         "text"
       ],
       "arena_publish_date": null,
-      "ai_index_imputed": true,
-      "ai_index_neighbours": 19,
-      "ai_index_spread": 52.5
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
     },
     {
       "id": "kimi-k2-thinking",
@@ -1603,7 +1601,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1414.4677694297266,
-      "ai_index": 28.5237,
+      "ai_index": 22.02,
       "multi": 50,
       "eco": 38,
       "price": {
@@ -1623,15 +1621,14 @@
       "board_missing": [
         "aa"
       ],
-      "status": "estimated",
+      "status": "stale",
       "modalities": [
         "text"
       ],
       "arena_publish_date": null,
       "price_note": "Kimi K2 Thinking is retired on OpenRouter (id no longer listed)",
-      "ai_index_imputed": true,
-      "ai_index_neighbours": 15,
-      "ai_index_spread": 57.5
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
     },
     {
       "id": "kimi-k2",
@@ -1639,7 +1636,7 @@
       "vendor": "Moonshot",
       "region": "CN",
       "arena": 1371.0248804429066,
-      "ai_index": 13.0397,
+      "ai_index": 12.72,
       "multi": 50,
       "eco": 38,
       "price": {
@@ -1659,15 +1656,14 @@
       "board_missing": [
         "aa"
       ],
-      "status": "estimated",
+      "status": "stale",
       "modalities": [
         "text"
       ],
       "arena_publish_date": null,
       "price_note": "Kimi K2 is retired on OpenRouter (id no longer listed)",
-      "ai_index_imputed": true,
-      "ai_index_neighbours": 4,
-      "ai_index_spread": 24.1
+      "ai_index_source": "aa-history",
+      "ai_index_last_seen": "2026-10-17"
     },
     {
       "id": "gpt-oss-120b",

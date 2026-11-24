@@ -1101,6 +1101,11 @@ def impute_missing_scores(models: list[dict], band: float) -> None:
     for m in models:
         if m.get("ai_index") is not None or m.get("arena") is None:
             continue
+        # A value AA measured once (and later stopped publishing) is real data,
+        # so it always wins over a guess. Rows carrying ai_index_source
+        # "aa-history" already hold such a value and are skipped above.
+        if m.get("ai_index_source") == "aa-history":
+            continue
         arena = float(m["arena"])
         near = [ai for a, ai in measured if abs(a - arena) <= band]
         if not near:

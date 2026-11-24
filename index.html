@@ -1097,7 +1097,7 @@
                                 <td><span class="score" :class="m.sArena == null ? '' : sc(m.sArena)">{{ m.sArena == null ? '—' : m.sArena }}</span></td>
                                 <td>
                                     <span v-if="m.sAI == null" class="score" title="AI Index not published and not estimable">—</span>
-                                    <span v-else class="score" :class="sc(m.sAI)" :title="m.ai_imputed ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~' : '' }}{{ m.sAI }}</span>
+                                    <span v-else class="score" :class="sc(m.sAI)" :title="(m.ai_imputed || m.ai_index_last_seen) ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~†' : (m.ai_index_last_seen ? '†' : '') }}{{ m.sAI }}</span>
                                 </td>
                                 <td>
                                     <div class="price-cell">
@@ -1160,7 +1160,7 @@
                             <div class="m-score">
                                 <span class="k">AI</span>
                                 <span v-if="m.sAI == null" class="v score">—</span>
-                                <span v-else class="v score" :class="sc(m.sAI)">{{ m.ai_imputed ? '~' : '' }}{{ m.sAI }}</span>
+                                <span v-else class="v score" :class="sc(m.sAI)" :title="(m.ai_imputed || m.ai_index_last_seen) ? aiImputedTitle(m) : ''">{{ m.ai_imputed ? '~†' : (m.ai_index_last_seen ? '†' : '') }}{{ m.sAI }}</span>
                             </div>
                             <div class="m-score">
                                 <span class="k">Price</span>
@@ -1581,6 +1581,11 @@ createApp({
                 'scores carried over from an earlier run.'
         }
         const aiImputedTitle = (m) => {
+            if (m.ai_index_last_seen) {
+                return 'Last value Artificial Analysis published for this model (' +
+                    m.ai_index_last_seen + '). It has since been dropped from the live ' +
+                    'index, so this is measured data, not an estimate — but verify before relying on it.'
+            }
             let t = '~ estimated: averaged from ' + (m.ai_neighbours || 0) + ' models within ±20 Arena points'
             if (m.ai_index_spread != null) {
                 t += ' (their scores spanned ' + Number(m.ai_index_spread).toFixed(1) + ' points'
