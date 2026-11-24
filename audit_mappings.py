@@ -41,6 +41,18 @@ def norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", str(s).lower())
 
 
+_EFFORT_SUFFIXES = ("non-reasoning", "reasoning", "minimal", "medium", "xhigh", "high", "max", "low", "none")
+
+
+def _base(slug: str) -> str:
+    """Strip one reasoning-effort suffix ('kimi-k3-low' -> 'kimi-k3')."""
+    s = str(slug)
+    for suf in _EFFORT_SUFFIXES:
+        if s.endswith("-" + suf):
+            return s[: -(len(suf) + 1)]
+    return s
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -74,9 +86,12 @@ def main() -> int:
 
     print("1. AA slugs that do not exist on the live index")
     print("   (typed wrongly / AA retired it — either way the score cannot refresh)")
+    # AA's API keys records by base slug (effort suffix stripped), so a mapping
+    # of "kimi-k3" must match the record published as "kimi-k3-low".
+    aa_bases = {_base(s) for s in aa_slugs if s}
     unresolved_ranked = []
     for name, (arena_key, slug) in u.MODEL_MAPPING.items():
-        if not slug or slug in aa_slugs:
+        if not slug or slug in aa_slugs or _base(slug) in aa_bases:
             continue
         if name in ranked:
             problems += 1
@@ -112,13 +127,35 @@ def main() -> int:
     except Exception as e:
         print(f"   (skipped: OpenRouter unavailable: {e})")
         orm = {}
+
+    # A vendored alias is fine when it is the *only* listing for that model:
+    # `openai/gpt-5.5` is the price proxy for GPT-5.5 Instant because OpenRouter
+    # publishes no Instant SKU. Only flag an id whose price visibly disagrees
+    # with what the row already stores - that is the symptom of a real mismatch.
     for m in doc["models"]:
         oid = m.get("openrouter_id")
         if not oid or oid not in orm:
             continue
         orname = norm(orm[oid].get("name") or "")
         own = norm(m["name"])
-        if own not in orname and orname not in own:
+        if own in orname or orname in own:
+            continue
+        price = m.get("price") or {}
+        live = orm[oid].get("pricing") or {}
+
+        def per_m(v):
+            try:
+                return round(float(v) * 1_000_000, 6)
+            except (TypeError, ValueError):
+                return None
+
+        stored_in, live_in = price.get("input"), per_m(live.get("prompt"))
+        agrees = (stored_in is not None and live_in is not None
+                  and abs(float(stored_in) - live_in) < 0.01)
+        if agrees:
+            print(f"   RANKED  {m['name']:26s} openrouter_id={oid!r} is {orm[oid].get('name')!r}"
+                  f" — vendored alias, price agrees, OK")
+        else:
             problems += 1
             print(f"   RANKED  {m['name']:26s} openrouter_id={oid!r} is really "
                   f"{orm[oid].get('name')!r} — price will be grafted from the wrong model")

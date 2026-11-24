@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T10:49:15Z",
+  "updated_at": "2026-11-24T10:58:59Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1505,10 +1505,8 @@
       "slug": "kimi-k3",
       "aa_cost_per_task_usd": 3.6812002895742055,
       "released": "2026-07-16",
-      "board_missing": [
-        "aa"
-      ],
-      "status": "stale",
+      "board_missing": [],
+      "status": "verified",
       "modalities": [
         "image",
         "text",
@@ -1603,11 +1601,11 @@
         "cache_read": 0.15,
         "cache_write": -1
       },
-      "price_source": "openrouter",
-      "openrouter_id": "moonshotai/kimi-k2-thinking",
+      "price_source": "manual",
+      "openrouter_id": null,
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "",
-      "auto_price": true,
+      "auto_price": false,
       "slug": "kimi-k2-thinking",
       "released": "2025-11-06",
       "board_missing": [
@@ -1619,7 +1617,8 @@
       "modalities": [
         "text"
       ],
-      "arena_publish_date": null
+      "arena_publish_date": null,
+      "price_note": "Kimi K2 Thinking is retired on OpenRouter (id no longer listed)"
     },
     {
       "id": "kimi-k2",
@@ -1637,11 +1636,11 @@
         "cache_read": -1,
         "cache_write": -1
       },
-      "price_source": "openrouter",
-      "openrouter_id": "moonshotai/kimi-k2",
+      "price_source": "manual",
+      "openrouter_id": null,
       "url": "https://platform.moonshot.cn/docs/intro",
       "note": "",
-      "auto_price": true,
+      "auto_price": false,
       "slug": "kimi-k2",
       "released": "2025-07-11",
       "board_missing": [
@@ -1653,7 +1652,8 @@
       "modalities": [
         "text"
       ],
-      "arena_publish_date": null
+      "arena_publish_date": null,
+      "price_note": "Kimi K2 is retired on OpenRouter (id no longer listed)"
     },
     {
       "id": "gpt-oss-120b",

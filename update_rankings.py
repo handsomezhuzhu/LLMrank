@@ -1105,6 +1105,19 @@ def impute_missing_scores(models: list[dict], band: float) -> None:
         m["ai_index_neighbours"] = len(near)
 
 
+def _aa_base_slug(slug: str) -> str:
+    """'kimi-k3-low' -> 'kimi-k3'.
+
+    The AA Data API publishes one record per reasoning effort and appends the
+    effort to the slug, while MODEL_MAPPING is written against the base slug.
+    """
+    s = str(slug or "")
+    for suf in ("non-reasoning", "reasoning", "minimal", "medium", "xhigh", "high", "max", "low", "none"):
+        if s.endswith("-" + suf):
+            return s[: -(len(suf) + 1)]
+    return s
+
+
 def arena_expired(m: dict, max_age_days: int = ARENA_STALE_DAYS) -> bool:
     """True when this row's Arena rating came from history and is older than the
     freshness window, so it should not be compared with the current board."""
@@ -1337,10 +1350,16 @@ def main():
     changes = update_leaderboard_fields(models, apply_arena, apply_aa, arena_history)
     live_arena_keys = set()
     live_aa_slugs = set()
+    live_aa_bases = set()
     if arena_fresh:
         live_arena_keys = {row.get("model") or row.get("name") for row in apply_arena}
     if aa_fresh:
         live_aa_slugs = {row.get("slug") or row.get("id") for row in apply_aa}
+        # The API keys records by base slug and encodes the reasoning effort in a
+        # suffix ("kimi-k3" is published as "kimi-k3-low"). A mapping written
+        # against the base slug is still present, so match on the base too or a
+        # scored model gets mislabelled stale.
+        live_aa_bases = {_aa_base_slug(s) for s in live_aa_slugs if s}
     # Report (never mutate) how each listed model stands against the two boards.
     missing_arena, missing_aa = [], []
     for model in models:
@@ -1350,7 +1369,7 @@ def main():
         if arena_fresh and arena_key and arena_key not in live_arena_keys:
             missing_arena.append(model.get("name"))
             gone.append("arena")
-        if aa_fresh and aa_slug and aa_slug not in live_aa_slugs:
+        if aa_fresh and aa_slug and aa_slug not in live_aa_slugs and _aa_base_slug(aa_slug) not in live_aa_bases:
             missing_aa.append(model.get("name"))
             gone.append("aa")
         # Remember which board dropped it, so the row can be labelled stale.
