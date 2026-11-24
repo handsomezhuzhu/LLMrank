@@ -6,3 +6,4 @@ __pycache__/
 .env.*
 *.key
 aa_api_dump.json
+.aa_api_cache.json

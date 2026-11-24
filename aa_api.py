@@ -24,6 +24,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -34,6 +35,32 @@ FREE = BASE + "/free"
 PAGE_SIZE = 200
 MAX_PAGES = 10
 KEY_ENV = "AA_API_KEY"
+
+# The free tier allows 100 requests per rolling 24h and one refresh costs 4
+# pages, so repeated calls in a day would burn the quota fast. Cache the raw
+# payload for CACHE_HOURS and reuse it; a daily job still sees fresh data.
+CACHE_PATH = os.path.join(u.REPO, ".aa_api_cache.json")
+CACHE_HOURS = 6
+
+
+def _load_cache() -> list[dict] | None:
+    try:
+        with open(CACHE_PATH, encoding="utf-8") as f:
+            blob = json.load(f)
+        age = time.time() - float(blob.get("fetched_at", 0))
+        if age <= CACHE_HOURS * 3600 and isinstance(blob.get("rows"), list):
+            return blob["rows"]
+    except Exception:
+        pass
+    return None
+
+
+def _save_cache(rows: list[dict]) -> None:
+    try:
+        with open(CACHE_PATH, "w", encoding="utf-8") as f:
+            json.dump({"fetched_at": time.time(), "rows": rows}, f)
+    except OSError:
+        pass
 
 # One AA slug carries a row per reasoning effort. Rank them so "the strongest"
 # is picked deterministically instead of "whichever we saw last".
@@ -66,8 +93,14 @@ def _get(url: str, key: str, timeout: int = 60) -> dict:
         raise RuntimeError(f"AA API {e.code}: {body}") from e
 
 
-def fetch_models(key: str, free: bool = True) -> list[dict]:
+def fetch_models(key: str, free: bool = True, use_cache: bool = True) -> list[dict]:
     """Every row AA publishes, paginated. 4 pages on the free tier."""
+    if use_cache:
+        cached = _load_cache()
+        if cached:
+            print(f"  AA API cache hit: {len(cached)} rows (<= {CACHE_HOURS}h old)")
+            return cached
+
     rows: list[dict] = []
     page = 1
     while page <= MAX_PAGES:
@@ -79,6 +112,8 @@ def fetch_models(key: str, free: bool = True) -> list[dict]:
         if not pag.get("has_more") or not chunk:
             break
         page += 1
+    if rows and use_cache:
+        _save_cache(rows)
     return rows
 
 
@@ -209,6 +244,7 @@ def main() -> int:
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--apply", action="store_true", help="write measured indices into models.json")
     ap.add_argument("--pro", action="store_true", help="use the Pro endpoint instead of /free")
+    ap.add_argument("--no-cache", action="store_true", help="force a fresh fetch (costs 4 requests)")
     args = ap.parse_args()
 
     if not api_key():
@@ -216,9 +252,16 @@ def main() -> int:
               file=sys.stderr)
         return 2
 
-    records = fetch_aa_api(free=not args.pro)
-    if records is None:
+    try:
+        raw = fetch_models(api_key(), free=not args.pro, use_cache=not args.no_cache)
+    except Exception as e:
+        print(f"FATAL: {e}", file=sys.stderr)
         return 1
+    records = to_records(raw)
+    if len(records) < u.MIN_AA_ROWS:
+        print(f"FATAL: only {len(records)} scored models - payload looks incomplete", file=sys.stderr)
+        return 1
+    print(f"AA API: {len(records)} scored models from {len(raw)} rows")
 
     doc = u.load_doc()
     report = verify(doc["models"], records)
