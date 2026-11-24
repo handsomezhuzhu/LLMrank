@@ -1085,6 +1085,11 @@ def impute_missing_scores(models: list[dict], band: float) -> None:
 
     Sets `ai_index_imputed` (and `ai_index_neighbours`) when the value is an
     estimate. A measured value is never overwritten.
+
+    `ai_index_spread` records how far apart the neighbours actually were. Arena
+    and AA rank different qualities, so a wide neighbourhood (e.g. 4.4..62.1)
+    means the mean says almost nothing; the spread makes that visible instead of
+    hiding a weak guess behind a tidy average.
     """
     measured = [
         (float(m["arena"]), float(m["ai_index"]))
@@ -1103,6 +1108,7 @@ def impute_missing_scores(models: list[dict], band: float) -> None:
         m["ai_index"] = round(sum(near) / len(near), 4)
         m["ai_index_imputed"] = True
         m["ai_index_neighbours"] = len(near)
+        m["ai_index_spread"] = round(max(near) - min(near), 2)
 
 
 def _aa_base_slug(slug: str) -> str:
@@ -1422,8 +1428,10 @@ def main():
         print(f"  Imputed AI Index for {len(imputed_rows)} model(s) "
               f"(Arena +/-{IMPUTE_ARENA_BAND:g}, labelled estimated):")
         for m in imputed_rows:
+            spread = m.get("ai_index_spread")
+            warn = "  <-- WIDE, weak estimate" if spread and spread > 20 else ""
             print(f"    {m['name']}: ~{m['ai_index']} "
-                  f"(from {m.get('ai_index_neighbours')} neighbours)")
+                  f"(from {m.get('ai_index_neighbours')} neighbours, spread {spread}){warn}")
     scored = recalculate_scores(models)
     print("\n  Top 10:")
     for i, m in enumerate(scored[:10]):
