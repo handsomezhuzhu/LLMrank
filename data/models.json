@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T11:21:27Z",
+  "updated_at": "2026-11-24T11:50:24Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -1500,9 +1500,9 @@
       "eco": 45,
       "price": {
         "currency": "USD",
-        "input": 0.192,
+        "input": 0.2,
         "output": 16.0,
-        "cache_read": 0.182,
+        "cache_read": 0.19,
         "cache_write": -1
       },
       "price_source": "openrouter",
