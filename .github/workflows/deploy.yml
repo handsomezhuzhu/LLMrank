@@ -1,40 +1,60 @@
 name: Deploy to GitHub Pages
 
+# Publishes the site to the gh-pages branch and lets Pages serve that branch
+# directly, instead of uploading an artifact and calling the Pages deployment
+# API.
+#
+# Why: the artifact route broke on 2026-11-24. `upload-pages-artifact` reported
+# success (artifact present, not expired), but `deploy-pages` queried the
+# metadata 0.5s later, got "Found 0 artifact(s)" and failed after 10 retries —
+# on every push, a manual dispatch and a rerun alike. The gh-pages branch never
+# touches that API, so the race cannot happen here.
+
 on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Assemble the published tree
+        run: |
+          set -euo pipefail
+          mkdir -p _site/data
+          # Only what the page actually loads: index.html fetches data/models.json
+          # and nothing else. The other data/*.json files are inputs for the
+          # Python tooling and do not need to be served.
+          cp index.html _site/
+          cp data/models.json _site/data/
+          for f in favicon.svg icons.svg ranking.png; do
+            [ -f "$f" ] && cp "$f" _site/
+          done
+          [ -d assets ] && cp -r assets _site/
+          # Custom domain: Pages drops it if the published branch lacks this file.
+          echo "rank.zhuzihan.com" > _site/CNAME
+          echo "--- publishing $(find _site -type f | wc -l) file(s) ---"
+          find _site -type f | sort
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          # A plain commit keeps history readable and avoids orphan force-pushes.
+          force_orphan: false
+          user_name: "github-actions[bot]"
+          user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_message: "deploy: ${{ github.event.head_commit.message || 'manual dispatch' }}"
