@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Windows runner for the LLMrank maintenance cycle.
 
