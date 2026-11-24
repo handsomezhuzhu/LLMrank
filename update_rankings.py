@@ -925,7 +925,13 @@ def update_leaderboard_fields(
         if new_ii is not None:
             new_ii = float(new_ii)
             old = m.get("ai_index")
-            if old is None or abs(new_ii - float(old)) > 0.01:
+            # The Data API rounds the index to 1 decimal while the scraped page
+            # carried full precision. A sub-0.05 wobble is rounding, not a new
+            # measurement, so keep the existing value rather than churn the
+            # history and the derived scores for it.
+            if old is not None and abs(new_ii - float(old)) < 0.05:
+                new_ii = float(old)
+            elif old is None or abs(new_ii - float(old)) > 0.01:
                 changes.append(f"  {name}: AI Index {old} -> {new_ii:.4f}")
             m["ai_index"] = new_ii
         # Absent from a fresh index: keep the last known AI Index untouched.
