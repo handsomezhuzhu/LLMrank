@@ -606,10 +606,35 @@ def _parse_aa_live_page(page: str) -> list[dict] | None:
 
 
 def fetch_aa_intelligence() -> list[dict] | None:
-    """Fetch current AA Intelligence Index records, falling back to the full local cache."""
+    """Fetch current AA Intelligence Index records.
+
+    Order of preference:
+      1. the official Data API (`AA_API_KEY` in the environment) — authoritative,
+         carries measured values for models the rendered page leaves null;
+      2. the HTML/RSC scrape of /leaderboards/models — no key needed;
+      3. the on-disk cache (never written back as fresh).
+    """
     global AA_FETCHED_LIVE, AA_LIVE_RELEASES
     AA_FETCHED_LIVE = False
     AA_LIVE_RELEASES = {}
+
+    # 1. Official API. Imported lazily so the scraper still works without the
+    # module and so a key is never required just to run the script.
+    if os.environ.get("AA_API_KEY", "").strip():
+        try:
+            import aa_api
+            api_records = aa_api.fetch_aa_api()
+            if api_records:
+                AA_FETCHED_LIVE = True
+                AA_LIVE_RELEASES = {r["slug"]: r.get("released") for r in api_records if r.get("released")}
+                return api_records
+            print("  AA API returned nothing usable - falling back to page scrape")
+        except Exception as e:
+            print(f"  AA API unavailable ({e}) - falling back to page scrape")
+    else:
+        print("  AA_API_KEY not set - using the page scrape (set it for measured values)")
+
+    # 2. Page scrape.
     try:
         req = urllib.request.Request(AA_LIVE_URL, headers=AA_FETCH_HEADERS)
         with urllib.request.urlopen(req, timeout=60) as response:
