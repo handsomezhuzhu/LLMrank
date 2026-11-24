@@ -1216,7 +1216,7 @@ def git_commit_push(message: str) -> bool:
     # LLMRANK_NO_PUSH=1 commits locally but never pushes, so a dry run can
     # inspect the outcome without touching origin.
     if os.environ.get("LLMRANK_NO_PUSH") == "1":
-        print("LLMRANK_NO_PUSH=1 — committed locally, not pushed.")
+        print("LLMRANK_NO_PUSH=1 - committed locally, not pushed.")
         return True
     subprocess.run(["git", "push"], cwd=REPO, check=True)
     return True
@@ -1411,13 +1411,15 @@ def main():
 
     print("\n7. Git push...")
     pushed = git_commit_push(f"update: models.json source + price reaudit {today}")
-    if pushed:
-        print("  Pushed")
-    else:
+    if not pushed:
         print("  No changes")
+    elif os.environ.get("LLMRANK_NO_PUSH") == "1":
+        print("  Committed locally (not pushed)")
+    else:
+        print("  Pushed")
 
     top3 = scored[:3]
-    summary = f"📊 LLM排名已更新 ({today}): "
+    summary = f"[LLMrank] rankings updated ({today}): "
     summary += " | ".join([f"#{i+1} {m['name']}({m['total']})" for i, m in enumerate(top3)])
     if not arena_fresh:
         summary += " | Arena fetch skipped"
