@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T17:10:52Z",
+  "updated_at": "2026-11-24T09:34:31Z",
   "currency_default": "USD",
   "price_unit": "USD_per_1M_tokens",
   "missing_price_sentinel": -1,
@@ -124,9 +124,9 @@
       "eco": 45,
       "price": {
         "currency": "USD",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_read": 0.044,
+        "input": 0.19,
+        "output": 8.0,
+        "cache_read": 0.15,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -361,9 +361,9 @@
       "eco": 50,
       "price": {
         "currency": "USD",
-        "input": 0.0399,
-        "output": 0.074,
-        "cache_read": 0.03,
+        "input": 0.12,
+        "output": 0.38,
+        "cache_read": 0.02,
         "cache_write": -1
       },
       "openrouter_id": "z-ai/glm-5.3-flash",
@@ -667,9 +667,9 @@
       "eco": 45,
       "price": {
         "currency": "USD",
-        "input": 0.0498,
-        "output": 0.1992,
-        "cache_read": 0.000996,
+        "input": 0.14,
+        "output": 0.42,
+        "cache_read": 0.0042,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1172,9 +1172,9 @@
       "eco": 55,
       "price": {
         "currency": "USD",
-        "input": 0.14,
-        "output": 0.58,
-        "cache_read": 0.035,
+        "input": 0.132,
+        "output": 0.528,
+        "cache_read": 0.033,
         "cache_write": -1
       },
       "price_source": "openrouter",
@@ -1471,9 +1471,9 @@
       "eco": 95,
       "price": {
         "currency": "USD",
-        "input": 0.07,
+        "input": 0.05,
         "output": 0.2,
-        "cache_read": 0.04,
+        "cache_read": 0.01,
         "cache_write": -1
       },
       "price_source": "openrouter",
