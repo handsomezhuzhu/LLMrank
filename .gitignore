@@ -1,2 +1,8 @@
 __pycache__/
 *.pyc
+
+# Secrets live in the environment (AA_API_KEY), never in the repo.
+.env
+.env.*
+*.key
+aa_api_dump.json
